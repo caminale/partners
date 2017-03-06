@@ -1,5 +1,6 @@
 const Promise = require('bluebird');
 const User = require('./../model/users').model;
+
 User.findOne = Promise.promisify(User.findOne);
 
 const initUsers = {
