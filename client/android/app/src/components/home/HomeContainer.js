@@ -28,14 +28,14 @@ export default class HomeContainer extends Component {
     goToAbout = () => {
         this.props.navigator.push({
             name: 'About',
-            title: 'connection',
+            title: '',
             openMenu: this.openMenu
         });
     }
     goToInscrip = () => {
         this.props.navigator.push({
             name: 'Inscription',
-            title: 'inscription',
+            title: '',
             openMenu: this.openMenu
         });
     }

@@ -25,12 +25,16 @@ export default HomeButton = (props) => {
             />
             <Text style={styles.texte}>
                 Mot De Passe
+                {'\n'}
             </Text>
             <TextInput
                 style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
                 placeholder="Entrez votre Mot De Passe"
                 secureTextEntry={true}
             />
+            <Text>
+                {'\n'}
+            </Text>
             <TouchableOpacity
                 style = {styles.button}
                 onPress = {props.goToAbout}>
@@ -38,9 +42,11 @@ export default HomeButton = (props) => {
                     Se connecter
                 </Text>
             </TouchableOpacity>
-                <Text>
-                     {'\n'} {'\n'}
+
+                <Text style={styles.texte}>
+               OU
                 </Text>
+
 
             <TouchableOpacity
                 style = {styles.button}

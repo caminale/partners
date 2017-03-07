@@ -45045,7 +45045,7 @@ var NavigationHeaderBackButton = function NavigationHeaderBackButton(props) {
   return React.createElement(
     TouchableOpacity,
     { style: [styles.buttonContainer, props.style], onPress: props.onPress },
-    React.createElement(Image, { style: [styles.button, props.imageStyle], source: require(402                     ) }) // 402 = ./assets/back-icon.png
+    React.createElement(Image, { style: [styles.button, props.imageStyle], source: require(381                     ) }) // 381 = ./assets/back-icon.png
   );
 };
 
@@ -45072,7 +45072,7 @@ var styles = StyleSheet.create({
 module.exports = NavigationHeaderBackButton;
 }, 380, null, "NavigationHeaderBackButton");
 __d(/* react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon.png */function(global, require, module, exports) {module.exports = require(173                                         ).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets","width":24,"height":24,"scales":[1,1.5,2,3,4],"hash":"a364dc7a784101f7c8f6791c7b4514ce","name":"back-icon","type":"png"}); // 173 = react-native/Libraries/Image/AssetRegistry
-}, 402, null, "react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon.png");
+}, 381, null, "react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon.png");
 __d(/* NavigationHeaderStyleInterpolator */function(global, require, module, exports) {
 'use strict';
 
@@ -46217,13 +46217,17 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require(42            ); // 42 = react-native
 
-var _AboutContainer = require(403                                                                                         ); // 403 = /home/julien/WebstormProjects/partnersV002/android/app/src/components/about/AboutContainer
+var _AboutContainer = require(402                                                                                     ); // 402 = /home/julien/workspace/partners/client/android/app/src/components/about/AboutContainer
 
 var _AboutContainer2 = babelHelpers.interopRequireDefault(_AboutContainer);
 
-var _HomeContainer = require(404                                                                                       ); // 404 = /home/julien/WebstormProjects/partnersV002/android/app/src/components/home/HomeContainer
+var _HomeContainer = require(404                                                                                   ); // 404 = /home/julien/workspace/partners/client/android/app/src/components/home/HomeContainer
 
 var _HomeContainer2 = babelHelpers.interopRequireDefault(_HomeContainer);
+
+var _InscripButton = require(406                                                                                          ); // 406 = /home/julien/workspace/partners/client/android/app/src/components/inscription/InscripButton
+
+var _InscripButton2 = babelHelpers.interopRequireDefault(_InscripButton);
 
 var Router = function (_Component) {
     babelHelpers.inherits(Router, _Component);
@@ -46252,8 +46256,18 @@ var Router = function (_Component) {
                     navigator: navigator
                 }, route.passProps));
             }
+            if (route.name == 'Inscription2') {
+                return _react2.default.createElement(_HomeContainer2.default, babelHelpers.extends({
+                    navigator: navigator
+                }, route.passProps));
+            }
             if (route.name == 'About') {
                 return _react2.default.createElement(_AboutContainer2.default, babelHelpers.extends({
+                    navigator: navigator
+                }, route.passProps));
+            }
+            if (route.name == 'Inscription') {
+                return _react2.default.createElement(_InscripButton2.default, babelHelpers.extends({
                     navigator: navigator
                 }, route.passProps));
             }
@@ -46341,6 +46355,10 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require(42            ); // 42 = react-native
 
+var _AboutButton = require(403                                                                                  ); // 403 = /home/julien/workspace/partners/client/android/app/src/components/about/AboutButton
+
+var _AboutButton2 = babelHelpers.interopRequireDefault(_AboutButton);
+
 var AboutContainer = function (_Component) {
     babelHelpers.inherits(AboutContainer, _Component);
 
@@ -46355,22 +46373,7 @@ var AboutContainer = function (_Component) {
             return _react2.default.createElement(
                 _reactNative.View,
                 null,
-                _react2.default.createElement(
-                    'text',
-                    { style: styles.texte },
-                    '\n',
-                    ' ',
-                    '\n',
-                    ' ',
-                    '\n',
-                    ' ',
-                    '\n',
-                    ' ',
-                    '\n',
-                    ' ',
-                    '\n',
-                    'Connection reussi !'
-                )
+                _react2.default.createElement(_AboutButton2.default, { goToAbout: this.goToAbout })
             );
         }
     }]);
@@ -46378,19 +46381,49 @@ var AboutContainer = function (_Component) {
 }(_react.Component);
 
 exports.default = AboutContainer;
+}, 402, null, "partnersV002/android/app/src/components/about/AboutContainer.js");
+__d(/* partnersV002/android/app/src/components/about/AboutButton.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(42            ); // 42 = react-native
+
+exports.default = AboutButton = function AboutButton(props) {
+    return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container },
+        _react2.default.createElement(
+            _reactNative.Text,
+            { style: styles.texte },
+            'Vous etes bien connect\xE9'
+        )
+    );
+};
 
 var styles = _reactNative.StyleSheet.create({
-
+    container: {
+        marginTop: 100,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     texte: {
         paddingVertical: 15,
         color: 'black',
         justifyContent: 'center',
         fontSize: 15
+    },
+    button: {
+        borderWidth: 1,
+        padding: 10,
+        borderColor: 'black'
     }
-
 });
-}, 403, null, "partnersV002/android/app/src/components/about/AboutContainer.js");
+}, 403, null, "partnersV002/android/app/src/components/about/AboutButton.js");
 __d(/* partnersV002/android/app/src/components/home/HomeContainer.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -46401,7 +46434,7 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactNative = require(42            ); // 42 = react-native
 
-var _HomeButton = require(405                                                                                    ); // 405 = /home/julien/WebstormProjects/partnersV002/android/app/src/components/home/HomeButton
+var _HomeButton = require(405                                                                                ); // 405 = /home/julien/workspace/partners/client/android/app/src/components/home/HomeButton
 
 var _HomeButton2 = babelHelpers.interopRequireDefault(_HomeButton);
 
@@ -46420,7 +46453,15 @@ var HomeContainer = function (_Component) {
         _this.goToAbout = function () {
             _this.props.navigator.push({
                 name: 'About',
-                title: 'Inscription',
+                title: 'connection',
+                openMenu: _this.openMenu
+            });
+        };
+
+        _this.goToInscrip = function () {
+            _this.props.navigator.push({
+                name: 'Inscription',
+                title: 'inscription',
                 openMenu: _this.openMenu
             });
         };
@@ -46434,7 +46475,8 @@ var HomeContainer = function (_Component) {
             return _react2.default.createElement(
                 _reactNative.View,
                 null,
-                _react2.default.createElement(_HomeButton2.default, { goToAbout: this.goToAbout })
+                _react2.default.createElement(_HomeButton2.default, { goToAbout: this.goToAbout,
+                    goToInscrip: this.goToInscrip })
             );
         }
     }]);
@@ -46500,7 +46542,7 @@ exports.default = HomeButton = function HomeButton(props) {
             _reactNative.TouchableOpacity,
             {
                 style: styles.button,
-                onPress: props.goToAbout },
+                onPress: props.goToInscrip },
             _react2.default.createElement(
                 _reactNative.Text,
                 null,
@@ -46530,6 +46572,92 @@ var styles = _reactNative.StyleSheet.create({
     }
 });
 }, 405, null, "partnersV002/android/app/src/components/home/HomeButton.js");
+__d(/* partnersV002/android/app/src/components/inscription/InscripButton.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require(42            ); // 42 = react-native
+
+exports.default = InscripButton = function InscripButton(props) {
+    return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container },
+        _react2.default.createElement(
+            _reactNative.Text,
+            { style: styles.texte },
+            'Address Mail'
+        ),
+        _react2.default.createElement(_reactNative.TextInput, {
+            style: { height: 40, width: 180, borderColor: 'gray', borderWidth: 3 },
+            keyBoardType: 'email-address',
+            placeholder: 'Entrez votre adresse mail'
+
+        }),
+        _react2.default.createElement(
+            _reactNative.Text,
+            { style: styles.texte },
+            'Pseudo'
+        ),
+        _react2.default.createElement(_reactNative.TextInput, {
+            style: { height: 40, width: 180, borderColor: 'gray', borderWidth: 3 },
+            placeholder: 'Entrez votre pseudo'
+
+        }),
+        _react2.default.createElement(
+            _reactNative.Text,
+            { style: styles.texte },
+            'Mot De Passe'
+        ),
+        _react2.default.createElement(_reactNative.TextInput, {
+            style: { height: 40, width: 180, borderColor: 'gray', borderWidth: 3 },
+            placeholder: 'Entrez votre Mot De Passe',
+            secureTextEntry: true
+        }),
+        _react2.default.createElement(
+            _reactNative.Text,
+            null,
+            '\n'
+        ),
+        _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+                style: styles.button,
+                onPress: props.goToInscrip2 },
+            _react2.default.createElement(
+                _reactNative.Text,
+                null,
+                'S\'inscrire'
+            )
+        )
+    );
+};
+
+var styles = _reactNative.StyleSheet.create({
+    container: {
+        marginTop: 100,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    texte: {
+        paddingVertical: 15,
+        color: 'black',
+        justifyContent: 'center',
+        fontSize: 15
+    },
+
+    button: {
+        borderWidth: 1,
+        padding: 10,
+        borderColor: 'black'
+    }
+
+});
+}, 406, null, "partnersV002/android/app/src/components/inscription/InscripButton.js");
 ;require(194);
 ;require(0);
 //# sourceMappingURL=index.android.map

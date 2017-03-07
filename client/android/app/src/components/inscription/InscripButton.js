@@ -41,10 +41,21 @@ export default InscripButton = (props) => {
                 placeholder="Entrez votre Mot De Passe"
                 secureTextEntry={true}
             />
+            <Text style={styles.texte}>
+                Confirmer Mot De Passe
+            </Text>
+            <TextInput
+                style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
+                placeholder="Entrez votre Mot De Passe"
+                secureTextEntry={true}
+            />
+            <Text>
+            {'\n'}
+            </Text>
 
             <TouchableOpacity
                 style = {styles.button}
-                onPress = {props.goToInscrip2}>
+                onPress = {props.goToInscript}>
                 <Text>
                     S'inscrire
                 </Text>
@@ -66,6 +77,12 @@ const styles = StyleSheet.create ({
         color: 'black',
         justifyContent: 'center',
         fontSize: 15
+    },
+
+    button: {
+        borderWidth: 1,
+        padding: 10,
+        borderColor: 'black'
     }
 
 })

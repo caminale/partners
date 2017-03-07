@@ -19,7 +19,7 @@ export default class AboutContainer extends Component {
         return (
             <View>
 
-                <AboutButton goToAbout = {this.goToAbout}/>
+                <AboutButton />
 
             </View>
         )

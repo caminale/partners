@@ -30,7 +30,7 @@ const styles = StyleSheet.create ({
         paddingVertical: 15,
         color: 'black',
         justifyContent: 'center',
-        fontSize: 15
+        fontSize: 30
     },
     button: {
         borderWidth: 1,

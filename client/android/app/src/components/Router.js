@@ -14,7 +14,7 @@ import {
 
 import AboutContainer from '/home/julien/workspace/partners/client/android/app/src/components/about/AboutContainer';
 import HomeContainer from '/home/julien/workspace/partners/client/android/app/src/components/home/HomeContainer';
-import InscripContainer from '/home/julien/workspace/partners/client/android/app/src/components/inscription/InscripButton';
+import InscripContainer from '/home/julien/workspace/partners/client/android/app/src/components/inscription/InscripContainer';
 
 
 export default class Router extends Component {
@@ -35,7 +35,7 @@ export default class Router extends Component {
         );
     }
     renderScene(route, navigator) {
-        if(route.name == 'Home' || route.name == 'Inscription2') {
+        if(route.name == 'Home' ) {
             return (
                 <HomeContainer
                     navigator = {navigator}
@@ -43,6 +43,8 @@ export default class Router extends Component {
                 />
             )
         }
+
+
         if(route.name == 'About') {
             return (
                 <AboutContainer
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
     },
     leftButton: {
         color: '#ffffff',
-        margin: 10,
+        margin: 19,
         fontSize: 17,
     },
     title: {

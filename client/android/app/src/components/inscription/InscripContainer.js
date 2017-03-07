@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import {
     View
 } from 'react-native';
-//import InscripButton from '/home/julien/workspace/partners/client/android/app/src/components/inscription/InscripButton'
+import InscripButton from '/home/julien/workspace/partners/client/android/app/src/components/inscription/InscripButton'
 
 export default class InscripContainer extends Component {
     constructor() {
@@ -15,7 +15,7 @@ export default class InscripContainer extends Component {
     render() {
         return (
             <View>
-                <InscripButton goToInscrip2 = {this.goToInscrip2} />
+                <InscripButton goToInscript = {this.goToInscript} />
             </View>
         )
     }
@@ -23,10 +23,10 @@ export default class InscripContainer extends Component {
         alert("voici un joli menu")
     }
 
-    goToInscrip2 = () => {
+    goToInscript = () => {
         this.props.navigator.push({
-            name: 'Inscription2',
-            title: 'inscription',
+            name: 'Home',
+            title: 'Partners',
             openMenu: this.openMenu
         });
     }
