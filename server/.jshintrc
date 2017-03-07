@@ -1,0 +1,15 @@
+{
+  "bitwise": true,
+  "forin": true,
+  "unused": true,
+  "undef": true,
+  "browser": false,
+  "node": true,
+  "quotmark": "single",
+  "newcap": false,
+  "jquery": true,
+  "esversion": 6,
+  "predef": [
+    "-Promise"
+  ]
+}
