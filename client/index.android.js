@@ -12,9 +12,7 @@ import Router from './android/app/src/components/Router'
 
 class partnersV002 extends Component {
     render() {
-        return (
-            <Router />
-        )
+        return <Router />
     }
 }
 

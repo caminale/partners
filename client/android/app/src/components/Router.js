@@ -3,17 +3,19 @@
  */
 
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import {
     StyleSheet,
     Text,
     Navigator,
     TouchableOpacity
-} from 'react-native'
+} from 'react-native';
 
-import AboutContainer from '/home/julien/WebstormProjects/partnersV002/android/app/src/components/about/AboutContainer'
-import HomeContainer from '/home/julien/WebstormProjects/partnersV002/android/app/src/components/home/HomeContainer'
+import AboutContainer from '/home/julien/workspace/partners/client/android/app/src/components/about/AboutContainer';
+import HomeContainer from '/home/julien/workspace/partners/client/android/app/src/components/home/HomeContainer';
+import InscripContainer from '/home/julien/workspace/partners/client/android/app/src/components/inscription/InscripButton';
+
 
 export default class Router extends Component {
     constructor(){
@@ -33,7 +35,7 @@ export default class Router extends Component {
         );
     }
     renderScene(route, navigator) {
-        if(route.name == 'Home') {
+        if(route.name == 'Home' || route.name == 'Inscription2') {
             return (
                 <HomeContainer
                     navigator = {navigator}
@@ -44,6 +46,14 @@ export default class Router extends Component {
         if(route.name == 'About') {
             return (
                 <AboutContainer
+                    navigator = {navigator}
+                    {...route.passProps}
+                />
+            )
+        }
+        if(route.name == 'Inscription') {
+            return (
+                <InscripContainer
                     navigator = {navigator}
                     {...route.passProps}
                 />

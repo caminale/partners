@@ -2,6 +2,7 @@
  * Created by julien on 06/03/17.
  */
 
+
 import React, { Component } from 'react';
 import {
     View,
@@ -11,7 +12,7 @@ import {
     StyleSheet
 } from 'react-native';
 
-export default HomeButton = (props) => {
+export default InscripButton = (props) => {
     return (
         <View style = {styles.container}>
             <Text style={styles.texte}>
@@ -23,6 +24,15 @@ export default HomeButton = (props) => {
                 placeholder="Entrez votre adresse mail"
 
             />
+
+            <Text style={styles.texte}>
+                Pseudo
+            </Text>
+            <TextInput
+                style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
+                placeholder="Entrez votre pseudo"
+
+            />
             <Text style={styles.texte}>
                 Mot De Passe
             </Text>
@@ -31,24 +41,15 @@ export default HomeButton = (props) => {
                 placeholder="Entrez votre Mot De Passe"
                 secureTextEntry={true}
             />
-            <TouchableOpacity
-                style = {styles.button}
-                onPress = {props.goToAbout}>
-                <Text>
-                    Se connecter
-                </Text>
-            </TouchableOpacity>
-                <Text>
-                     {'\n'} {'\n'}
-                </Text>
 
             <TouchableOpacity
                 style = {styles.button}
-                onPress = {props.goToInscrip}>
+                onPress = {props.goToInscrip2}>
                 <Text>
                     S'inscrire
                 </Text>
             </TouchableOpacity>
+
         </View>
     )
 }
@@ -65,10 +66,6 @@ const styles = StyleSheet.create ({
         color: 'black',
         justifyContent: 'center',
         fontSize: 15
-    },
-    button: {
-        borderWidth: 1,
-        padding: 10,
-        borderColor: 'black'
     }
+
 })

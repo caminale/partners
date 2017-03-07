@@ -6,7 +6,7 @@ import React, { Component } from 'react'
 import {
     View
 } from 'react-native'
-import HomeButton from '/home/julien/WebstormProjects/partnersV002/android/app/src/components/home/HomeButton'
+import HomeButton from '/home/julien/workspace/partners/client/android/app/src/components/home/HomeButton'
 
 export default class HomeContainer extends Component {
     constructor() {
@@ -15,7 +15,10 @@ export default class HomeContainer extends Component {
     render() {
         return (
             <View>
-                <HomeButton goToAbout = {this.goToAbout}/>
+                <HomeButton goToAbout = {this.goToAbout}
+                goToInscrip = {this.goToInscrip}>
+
+                </HomeButton>
             </View>
         )
     }
@@ -25,8 +28,16 @@ export default class HomeContainer extends Component {
     goToAbout = () => {
         this.props.navigator.push({
             name: 'About',
-            title: 'Inscription',
+            title: 'connection',
             openMenu: this.openMenu
         });
     }
+    goToInscrip = () => {
+        this.props.navigator.push({
+            name: 'Inscription',
+            title: 'inscription',
+            openMenu: this.openMenu
+        });
+    }
+
 }

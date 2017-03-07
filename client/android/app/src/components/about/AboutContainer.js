@@ -8,6 +8,9 @@ import {
     View,
 } from 'react-native'
 
+import AboutButton from '/home/julien/workspace/partners/client/android/app/src/components/about/AboutButton'
+
+
 export default class AboutContainer extends Component {
     constructor() {
         super()
@@ -16,22 +19,10 @@ export default class AboutContainer extends Component {
         return (
             <View>
 
-                <text style={styles.texte}>
-                    {'\n'} {'\n'} {'\n'} {'\n'} {'\n'} {'\n'}
-                    Connection reussi !
-                </text>
+                <AboutButton goToAbout = {this.goToAbout}/>
+
             </View>
         )
     }
 }
 
-const styles = StyleSheet.create ({
-
-    texte: {
-        paddingVertical: 15,
-        color: 'black',
-        justifyContent: 'center',
-        fontSize: 15
-    }
-
-})
