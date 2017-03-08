@@ -14,7 +14,7 @@ import InscripContainer from './inscription/InscripContainer';
 export default class Router extends Component {
     constructor(){
         super()
-    }3
+    }
     render() {
         return (
             <Navigator
