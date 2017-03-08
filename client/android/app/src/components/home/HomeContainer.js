@@ -1,12 +1,8 @@
-/**
- * Created by julien on 06/03/17.
- */
-
 import React, { Component } from 'react'
 import {
     View
-} from 'react-native'
-import HomeButton from '/home/julien/workspace/partners/client/android/app/src/components/home/HomeButton'
+} from 'react-native';
+import HomeButton from './HomeButton';
 
 export default class HomeContainer extends Component {
     constructor() {

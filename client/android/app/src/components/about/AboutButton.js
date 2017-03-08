@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-
 import {
     View,
     Text,
@@ -37,7 +35,4 @@ const styles = StyleSheet.create ({
         padding: 10,
         borderColor: 'black'
     }
-})
-/**
- * Created by julien on 06/03/17.
- */
+});

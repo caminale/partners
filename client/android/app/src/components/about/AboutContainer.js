@@ -1,15 +1,10 @@
-/**
- * Created by julien on 06/03/17.
- */
-
 import React, { Component } from 'react'
 import {
     StyleSheet,
     View,
-} from 'react-native'
+} from 'react-native';
 
-import AboutButton from '/home/julien/workspace/partners/client/android/app/src/components/about/AboutButton'
-
+import AboutButton from './AboutButton';
 
 export default class AboutContainer extends Component {
     constructor() {
@@ -18,11 +13,8 @@ export default class AboutContainer extends Component {
     render() {
         return (
             <View>
-
                 <AboutButton />
-
             </View>
         )
     }
 }
-

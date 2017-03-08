@@ -1,8 +1,3 @@
-/**
- * Created by julien on 06/03/17.
- */
-
-
 import React, { Component } from 'react';
 
 import {
@@ -12,10 +7,9 @@ import {
     TouchableOpacity
 } from 'react-native';
 
-import AboutContainer from '/home/julien/workspace/partners/client/android/app/src/components/about/AboutContainer';
-import HomeContainer from '/home/julien/workspace/partners/client/android/app/src/components/home/HomeContainer';
-import InscripContainer from '/home/julien/workspace/partners/client/android/app/src/components/inscription/InscripContainer';
-
+import AboutContainer from './about/AboutContainer';
+import HomeContainer from './home/HomeContainer';
+import InscripContainer from './inscription/InscripContainer';
 
 export default class Router extends Component {
     constructor(){

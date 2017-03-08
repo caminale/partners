@@ -1,7 +1,3 @@
-/**
- * Created by julien on 06/03/17.
- */
-
 import React, { Component } from 'react';
 import {
     View,
@@ -77,4 +73,4 @@ const styles = StyleSheet.create ({
         padding: 10,
         borderColor: 'black'
     }
-})
+});

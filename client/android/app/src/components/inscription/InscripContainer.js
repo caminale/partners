@@ -1,12 +1,8 @@
-/**
- * Created by julien on 06/03/17.
- */
-
 import React, { Component } from 'react';
 import {
     View
 } from 'react-native';
-import InscripButton from '/home/julien/workspace/partners/client/android/app/src/components/inscription/InscripButton'
+import InscripButton from './InscripButton';
 
 export default class InscripContainer extends Component {
     constructor() {
@@ -19,8 +15,8 @@ export default class InscripContainer extends Component {
             </View>
         )
     }
-    openMenu = () =>{
-        alert("voici un joli menu")
+    openMenu = () => {
+        alert("voici un joli menu");
     }
 
     goToInscript = () => {
@@ -30,5 +26,4 @@ export default class InscripContainer extends Component {
             openMenu: this.openMenu
         });
     }
-
 }

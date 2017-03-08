@@ -4,7 +4,6 @@ const router = require('express').Router();
 const bodyParser = require('body-parser');
 
 const parseUrl = bodyParser.json();
-// var parseJson = bodyParser.json({ type: 'application/*+json' });
 
 module.exports = auth => {
   router.post('/login', parseUrl, auth.authenticate);
