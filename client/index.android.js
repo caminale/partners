@@ -1,19 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
-    AppRegistry,
-    View
-} from 'react-native'
-import Router from './android/app/src/components/Router'
+  AppRegistry
+} from 'react-native';
 
-class partnersV002 extends Component {
-    render() {
-        return <Router />
-    }
-}
+import App from './app/app';
 
-AppRegistry.registerComponent('partnersV002', () => partnersV002)
+AppRegistry.registerComponent('client', () => App);
