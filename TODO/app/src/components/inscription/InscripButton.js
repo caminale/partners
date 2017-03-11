@@ -45,7 +45,7 @@ export default InscripButton = (props) => {
                 Confirmer Mot De Passe
             </Text>
             <TextInput
-                style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
+                style={}
                 placeholder="Entrez votre Mot De Passe"
                 secureTextEntry={true}
             />

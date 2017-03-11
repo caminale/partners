@@ -17,7 +17,7 @@ export default class InscripContainer extends Component {
     }
     openMenu = () => {
         alert("voici un joli menu");
-    }
+    };
 
     goToInscript = () => {
         this.props.navigator.push({
@@ -25,5 +25,5 @@ export default class InscripContainer extends Component {
             title: 'Partners',
             openMenu: this.openMenu
         });
-    }
+    };
 }

@@ -1,8 +1,8 @@
+import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
 
-export default StyleSheet.create ({
+const styles = StyleSheet.create ({
   container: {
-    marginTop: 100,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
@@ -11,11 +11,22 @@ export default StyleSheet.create ({
     paddingVertical: 15,
     color: 'black',
     justifyContent: 'center',
-    fontSize: 30
+    fontSize: 15
   },
   button: {
     borderWidth: 1,
     padding: 10,
     borderColor: 'black'
+  },
+  input: {
+    height: 40,
+    width:180,
+    borderColor: 'gray',
+    borderWidth: 3
+  },
+  error: {
+    color: 'red'
   }
 });
+
+export default styles;

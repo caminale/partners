@@ -38,7 +38,7 @@ const registry = new API.ResourceTypeRegistry(registryTemplates,
   {dbAdapter: adapter});
 
 const docs = new API.controllers.Documentation(registry,
-  {name: 'React server API'});
+  {name: 'React serverExpress API'});
 const controller = new API.controllers.API(registry);
 const front = new API.httpStrategies.Express(controller, docs);
 
