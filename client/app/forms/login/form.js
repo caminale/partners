@@ -3,6 +3,7 @@ import ReactNative from 'react-native';
 const {
   View,
   Text,
+  TextInput,
   TouchableOpacity
 } = ReactNative;
 
@@ -10,24 +11,23 @@ import styles from './styles';
 
 class Form extends React.Component {
   render() {
-    const {handleSubmit} = this.props;
+    const {onSubmit} = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.texte}>
           Address Mail
         </Text>
         <TextInput
-          style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
+          style={styles.input}
           keyBoardType="email-address"
           placeholder="Entrez votre adresse mail"
-
         />
-        <Text style={styles.texte}>
+        <Text style={styles.text}>
           Mot De Passe
           {'\n'}
         </Text>
         <TextInput
-          style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
+          style={styles.input}
           placeholder="Entrez votre Mot De Passe"
           secureTextEntry={true}
         />
@@ -37,6 +37,8 @@ class Form extends React.Component {
         <TouchableOpacity
           style = {styles.button}
           onPress = {handleSubmit(this.state)}>
+          onPress={() => onSubmit({email:'keke@gmail.com', password: 'a123456'})}
+          style = {styles.button}>
           <Text>
             Se connecter
           </Text>
@@ -46,10 +48,10 @@ class Form extends React.Component {
           OU
         </Text>
 
-
         <TouchableOpacity
           style = {styles.button}
           onPress = {handleSubmit(this.state)}>
+          style = {styles.button}>
           <Text>
             S'inscrire
           </Text>
@@ -60,4 +62,3 @@ class Form extends React.Component {
 }
 
 export default Form;
-

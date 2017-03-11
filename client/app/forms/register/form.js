@@ -29,9 +29,15 @@ class Form extends React.Component {
           keyBoardType="email-address"
           onChangeText={(email) => this.setState({email})}
           placeholder="Entrez votre adresse mail"
-
         />
 
+        <Text style={styles.texte}>
+          Pseudo
+        </Text>
+        <TextInput
+          style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
+          placeholder="Entrez votre pseudo"
+        />
         <Text style={styles.texte}>
           Mot De Passe
         </Text>

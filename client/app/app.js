@@ -11,8 +11,7 @@ Meteor.connect(settings.METEOR_URL);
 
 class App extends Component {
   render() {
-    const {status, user, loggingIn} = props;
-
+    const {status, user, loggingIn} = this.props;
     if (status.connected === false || loggingIn) {
       // Waiting the connection with meteor
       return <Loading />;

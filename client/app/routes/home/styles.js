@@ -1,24 +1,23 @@
-import React, {Component} from 'react';
-import {
-  StyleSheet
-} from 'react-native';
+import {StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create ({
+export default StyleSheet.create ({
   container: {
+    flex: 1
+  },
+  button: {
+    backgroundColor: '#3B5998',
+    width: 50,
+    padding: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontWeight: '500',
+    fontSize: 16,
     marginTop: 100,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  texte: {
-    paddingVertical: 15,
-    justifyContent: 'center',
-    fontSize: 30
-  },
-  button: {
-    borderWidth: 1,
-    padding: 10,
-    borderColor: 'black'
   }
 });
-
