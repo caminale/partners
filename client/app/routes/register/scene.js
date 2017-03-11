@@ -10,8 +10,7 @@ import styles from './styles';
 class Scene extends Component {
   render() {
     return (
-      <View >
-        <Text >Puuuute</Text>
+      <View style={styles.container}>
         <Text>Puuuute</Text>
       </View>
     );
