@@ -22,9 +22,25 @@ class Form extends React.Component {
           placeholder="Entrez votre adresse mail"
 
         />
+
+        <Text style={styles.texte}>
+          Pseudo
+        </Text>
+        <TextInput
+          style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
+          placeholder="Entrez votre pseudo"
+
+        />
         <Text style={styles.texte}>
           Mot De Passe
-          {'\n'}
+        </Text>
+        <TextInput
+          style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
+          placeholder="Entrez votre Mot De Passe"
+          secureTextEntry={true}
+        />
+        <Text style={styles.texte}>
+          Confirmer Mot De Passe
         </Text>
         <TextInput
           style={{height: 40,width:180, borderColor: 'gray', borderWidth: 3}}
@@ -34,18 +50,6 @@ class Form extends React.Component {
         <Text>
           {'\n'}
         </Text>
-        <TouchableOpacity
-          style = {styles.button}
-          onPress = {handleSubmit(submit)}>
-          <Text>
-            Se connecter
-          </Text>
-        </TouchableOpacity>
-
-        <Text style={styles.texte}>
-          OU
-        </Text>
-
 
         <TouchableOpacity
           style = {styles.button}
@@ -54,10 +58,10 @@ class Form extends React.Component {
             S'inscrire
           </Text>
         </TouchableOpacity>
+
       </View>
     );
   }
 }
 
 export default Form;
-
