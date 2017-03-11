@@ -15,5 +15,9 @@ export default StyleSheet.create ({
     color: '#FFFFFF',
     fontWeight: '500',
     fontSize: 16,
+    marginTop: 100,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });

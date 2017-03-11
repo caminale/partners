@@ -13,12 +13,11 @@ import styles from './styles';
 class Scene extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <Text>Puuuute</Text>
         <TouchableOpacity style={styles.button} onPress={() => Meteor.logout()}>
           <Text style={styles.buttonText}>Sign Out</Text>
         </TouchableOpacity>
-
       </View>
     );
   }

@@ -7,7 +7,7 @@ const styles = StyleSheet.create ({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  text: {
+  texte: {
     paddingVertical: 15,
     color: 'black',
     justifyContent: 'center',

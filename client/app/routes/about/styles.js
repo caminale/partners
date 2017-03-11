@@ -9,7 +9,6 @@ export default StyleSheet.create ({
   },
   texte: {
     paddingVertical: 15,
-    color: 'black',
     justifyContent: 'center',
     fontSize: 30
   },
