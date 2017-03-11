@@ -36,7 +36,7 @@ class Form extends React.Component {
         </Text>
         <TouchableOpacity
           style = {styles.button}
-          onPress = {handleSubmit(submit)}>
+          onPress = {handleSubmit(this.state)}>
           <Text>
             Se connecter
           </Text>
@@ -49,7 +49,7 @@ class Form extends React.Component {
 
         <TouchableOpacity
           style = {styles.button}
-          onPress = {handleSubmit(submit)}>
+          onPress = {handleSubmit(this.state)}>
           <Text>
             S'inscrire
           </Text>
