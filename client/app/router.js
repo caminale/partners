@@ -9,8 +9,8 @@ export default class RouterApp extends Component {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="about" component={About} title="About"/>
           <Scene key="home" component={Home} title="Home"/>
+          <Scene key="about" component={About} title="About"/>
         </Scene>
       </Router>
     );

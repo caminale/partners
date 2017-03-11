@@ -5,11 +5,13 @@ const {
   Text
 } = ReactNative;
 
+import styles from './styles';
+
 class Scene extends Component {
   render() {
     return (
-      <View style={{flex: 1}}>
-        <Text>Puuuute</Text>
+      <View style = {styles.container}>
+        <Text style = {styles.texte}>Puuuute</Text>
       </View>
     );
   }
