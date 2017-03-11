@@ -10,11 +10,11 @@ import styles from './styles';
 
 class Form extends React.Component {
   render() {
-    const {handleSubmit} = this.props;
+    const {onSubmit} = this.props;
     return (
       <View style={styles.container}>
         <TouchableOpacity
-          onPress={handleSubmit(submit)}
+          onPress={() => onSubmit({email:'keke@gmail.com', password: 'a123456'})}
           style = {styles.button}>
           <Text>
             Login

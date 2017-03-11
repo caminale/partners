@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 
 import Scene from './scene';
+import LoginAction from '../../actions/users/login';
 
 class Container extends Component {
   loginHandler = creds => {
-    console.log(creds);
+    LoginAction(creds);
   };
   render() {
     return (
