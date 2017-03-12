@@ -1,20 +1,33 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 
 import Form from './form';
+import formValidationSync from './validations';
 
-@connect(store => {
-  return {
-    user: store.user
-  };
-})
 class Container extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      errors: {}
+    }
+  }
+  onSubmit(creds) {
+    const {onSubmit} = this.props;
+    const validation = formValidationSync(creds);
+
+    if (validation.isValid) {
+      this.setState({errors: {}});
+      onSubmit(creds);
+    } else {
+      this.setState({errors: validation.errors});
+    }
+  }
   render() {
-    const {onSubmit, user} = this.props;
+    const {errors} = this.state;
     return (
       <Form
-        onSubmit={onSubmit}
-        user={user}
+        register={creds => this.onSubmit(creds)}
+        errors={errors}
       />
     );
   }

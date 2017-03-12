@@ -1,11 +1,13 @@
 import Meteor from 'react-native-meteor';
 
 const login = creds => {
-  Meteor.loginWithPassword(creds.email, creds.password, (error) => {
-    if (error) {
-      console.log(error);
-    }
-    console.log('Logged');
+  return new Promise((resolve, reject) => {
+    Meteor.loginWithPassword(creds.email, creds.password, err => {
+      if (err) {
+        reject(err);
+      }
+      resolve();
+    });
   });
 };
 

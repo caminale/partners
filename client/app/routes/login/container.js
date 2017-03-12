@@ -5,7 +5,7 @@ import LoginAction from '../../actions/users/login';
 
 class Container extends Component {
   loginHandler = creds => {
-    LoginAction(creds);
+    return LoginAction(creds);
   };
   render() {
     return (
