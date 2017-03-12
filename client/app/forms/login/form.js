@@ -79,8 +79,6 @@ class Form extends React.Component {
         </Text>
 
         <TouchableOpacity
-          style = {styles.button}
-          onPress = {handleSubmit(this.state)}>
           style = {styles.button}>
           <Text>
             S'inscrire
