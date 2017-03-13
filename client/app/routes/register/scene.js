@@ -7,11 +7,15 @@ const {
 
 import styles from './styles';
 
+import RegisterForm from '../../forms/register/container';
+
 class Scene extends Component {
   render() {
+    const {onSubmit2} = this.props;
     return (
       <View style={styles.container}>
-        <Text>Puuuute</Text>
+        <Text style={styles.title}>Register</Text>
+        <RegisterForm onSubmit2={onSubmit2}/>
       </View>
     );
   }

@@ -64,7 +64,7 @@ class Form extends React.Component {
           onPress={() => onSubmit(this.state)}
           style = {styles.button}>
           <Text>
-            Se connecter
+            s'incrire
           </Text>
         </TouchableOpacity>
         {errors.submit &&
@@ -74,16 +74,6 @@ class Form extends React.Component {
         </Text>
         }
 
-        <Text style={styles.texte}>
-          OU
-        </Text>
-
-        <TouchableOpacity
-          style = {styles.button}>
-          <Text>
-            S'inscrire
-          </Text>
-        </TouchableOpacity>
       </View>
     );
   }

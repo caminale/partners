@@ -23,6 +23,8 @@ class Form extends React.Component {
 
   render() {
     const {onSubmit, errors} = this.props;
+    const {onSubmit1} = this.props;
+
 
     return (
       <View style={styles.container}>
@@ -74,12 +76,14 @@ class Form extends React.Component {
         </Text>
         }
 
-        <Text style={styles.texte}>
+        <Text style={styles.text}>
           OU
         </Text>
 
         <TouchableOpacity
-          style = {styles.button}>
+          style = {styles.button}
+          onPress={() => onSubmit1(this.state)}
+        >
           <Text>
             S'inscrire
           </Text>

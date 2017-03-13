@@ -14,7 +14,6 @@ class Scene extends Component {
   render() {
     return (
       <View>
-        <Text>Puuuute</Text>
         <TouchableOpacity style={styles.button} onPress={() => Meteor.logout()}>
           <Text style={styles.buttonText}>Sign Out</Text>
         </TouchableOpacity>
