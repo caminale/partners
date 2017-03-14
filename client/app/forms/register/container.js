@@ -7,6 +7,7 @@ class Container extends Component {
   constructor(props) {
     super(props);
 
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       errors: {}
     }
@@ -17,7 +18,11 @@ class Container extends Component {
 
     if (validation.isValid) {
       this.setState({errors: {}});
-      onSubmit(creds);
+      onSubmit(creds)
+        .catch(err=> {
+          const errors = {submit: err.reason};
+          this.setState({errors});
+        });
     } else {
       this.setState({errors: validation.errors});
     }
@@ -26,7 +31,7 @@ class Container extends Component {
     const {errors} = this.state;
     return (
       <Form
-        register={creds => this.onSubmit(creds)}
+        onSubmit={this.onSubmit}
         errors={errors}
       />
     );

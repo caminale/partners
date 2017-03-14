@@ -1,13 +1,19 @@
 import {Accounts} from 'react-native-meteor';
 
+import LoginAction from './login';
+
 const register = creds => {
-  return Accounts.createUser(creds, error => {
-    if (error) {
-      return error;
-    } else {
-      return true;
-    }
-  });
+  return new Promise((resolve, reject) => {
+    Accounts.createUser(creds, error => {
+      if (error) {
+        reject(error);
+      }
+      resolve();
+    });
+  })
+    .then(() => {
+      return LoginAction(creds);
+    });
 };
 
 export default register;

@@ -1,56 +1,40 @@
 import React from 'react';
-import {Image} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
-import ExNavigator from '@exponent/react-native-navigator';
+import Swiper from 'react-native-swiper';
+import ReactNative from 'react-native';
 
-import Routes from '../../configs/routes';
-import images from '../../configs/images';
+import Routes from '../../routes';
 import styles from './styles';
 
+const {
+  View
+} = ReactNative;
+const {Matching, Profile, Message} = Routes;
+const INDEX = {
+  PROFILE: 0,
+  MATCHING: 1,
+  MESSAGE: 2
+};
+
 class LoggedIn extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      selectedTab: 'Home',
-    };
-  }
-
-  renderTabItem(title, initialRoute, Icon) {
-    const { selectedTab } = this.state;
-    const sceneStyle = [];
-    if (initialRoute.showNavigationBar !== false) {
-      sceneStyle.push({ paddingTop: 64 });
+      index: INDEX.MATCHING
     }
-
-    return (
-      <TabNavigator.Item
-        selected={selectedTab === title}
-        title={title}
-        renderIcon={() => <Image style={styles.icon} source={Icon} />}
-        renderSelectedIcon={() => (
-          <Image
-            style={[styles.icon, styles.iconSelected]}
-            source={Icon}
-          />
-        )}
-        onPress={() => this.setState({ selectedTab: title })}
-      >
-        <ExNavigator
-          initialRoute={initialRoute}
-          style={{ flex: 1 }}
-          sceneStyle={sceneStyle}
-          showNavigationBar={initialRoute.showNavigationBar}
-        />
-      </TabNavigator.Item>
-    );
   }
-
   render() {
+    const {index} = this.state;
     return (
-      <TabNavigator>
-        {this.renderTabItem('Home', Routes.getHomeRoute(), images.logo)}
-        {this.renderTabItem('About', Routes.getAboutRoute(), images.logo)}
-      </TabNavigator>
+      <View>
+        <Swiper
+          loop={false}
+          showsPagination={false}
+          index={index}>
+          <Profile/>
+          <Matching/>
+          <Message/>
+        </Swiper>
+      </View>
     );
   }
 }

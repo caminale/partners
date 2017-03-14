@@ -1,13 +1,23 @@
 import React, {Component} from 'react';
+import {View} from 'react-native';
 
 import Scene from './scene';
 
-class Container extends Component {
+export default class AboutContainer extends Component {
+  constructor() {
+    super();
+    this.navigate = this.navigate.bind(this);
+  }
+  navigate(name) {
+    this.props.navigator.push({
+      name
+    });
+  }
   render() {
     return (
-      <Scene/>
-    );
+      <View>
+        <Scene navigate={this.navigate}/>
+      </View>
+    )
   }
 }
-
-export default Container;

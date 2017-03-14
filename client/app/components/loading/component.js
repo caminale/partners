@@ -1,15 +1,14 @@
 import React from 'react';
-import {View, ActivityIndicator} from 'react-native';
+import {View, Image} from 'react-native';
 
 import styles from './styles';
+import images from '../../configs/images';
 
-const Loading = (props) => {
+const Loading = () => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator
-        animating
-        size={props.size}
-        {...props}
+      <Image
+        source={images.logo}
       />
     </View>
   );

@@ -1,16 +1,34 @@
-import React, {Navigator} from 'react';
-import ExNavigator from '@exponent/react-native-navigator';
-import Routes from '../../configs/routes';
+import React, {Component} from 'react';
+import ReactNative from 'react-native';
+import Routes from '../../routes';
 
-const LoggedOut = () => {
-  const route = Routes.getLoginRoute();
-  return (
-    <ExNavigator
-      initialRoute={route}
-      style={{ flex: 1 }}
-      showNavigationBar={route.showNavigationBar}
-    />
-  );
-};
+const {Navigator} = ReactNative;
+const {Login, Home, Register} = Routes;
 
-export default LoggedOut;
+class Layout extends Component {
+  constructor() {
+    super();
+    this.renderScene = this.renderScene.bind(this);
+  }
+  renderScene(route, navigator) {
+    switch(route.name) {
+      case 'home':
+        return <Home navigator={navigator}/>;
+      case 'login':
+        return <Login navigator={navigator}/>;
+      case 'register':
+        return <Register navigator={navigator}/>;
+      default:
+        console.log(route.name);
+    }
+  }
+  render() {
+    return (
+      <Navigator
+        initialRoute={{name: 'home'}}
+        renderScene={this.renderScene}/>
+    );
+  }
+}
+
+export default Layout;
