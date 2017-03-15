@@ -13,16 +13,22 @@ class Scene extends Component {
     const {navigate} = this.props;
     return (
       <View style = {styles.container}>
-        <Text style={styles.texte}>
-          Ici on va se loguer
-        </Text>
-        <TouchableOpacity style={styles.button} onPress={() => navigate('login')}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigate('register')}>
-          <Text style={styles.buttonText}>Register</Text>
-        </TouchableOpacity>
+
+          <Text style={styles.text}>
+            Partners
+          </Text>
+
+
+          <View style={styles.container2}>
+            <TouchableOpacity style={styles.button} onPress={() => navigate('login')}>
+              <Text style={styles.text}>Login</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigate('register')}>
+              <Text style={styles.text}>Register</Text>
+            </TouchableOpacity>
+          </View>
       </View>
+
     );
   }
 }

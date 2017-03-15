@@ -6,9 +6,11 @@ export default StyleSheet.create ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: '#f9ebd8'
   },
   title: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize:30,
+    color: '#3c918c'
   }
 });

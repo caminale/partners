@@ -2,19 +2,32 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create ({
   container: {
-    marginTop: 100,
+    backgroundColor:'#f9ebd8'
+  },
+  container2: {
+    marginBottom: 10,
     flexDirection: 'column',
     justifyContent: 'center',
+    backgroundColor:'#f9ebd8',
     alignItems: 'center'
   },
-  texte: {
-    paddingVertical: 15,
+  container3: {
+    marginBottom: 10,
+    flexDirection: 'column',
     justifyContent: 'center',
+    backgroundColor:'#f9ebd8',
+    alignItems: 'center'
+  },
+  text: {
+    paddingVertical: 15,
+    justifyContent: 'flex-start',
+    color:'#3c918c',
     fontSize: 30
   },
   button: {
-    borderWidth: 1,
-    padding: 10,
-    borderColor: 'black'
+    borderWidth: 2,
+    padding: 20,
+    borderColor: '#3c918c',
+
   }
 });

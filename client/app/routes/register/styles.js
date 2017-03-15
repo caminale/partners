@@ -6,6 +6,18 @@ export default StyleSheet.create ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: '#f9ebd8'
+  },
+  text: {
+    paddingVertical: 15,
+    color: '#3c918c',
+    justifyContent: 'center',
+    fontSize: 30
+  },
+  button: {
+    borderWidth: 3,
+    padding: 2,
+    borderColor: '#3c918c',
+
   }
 });

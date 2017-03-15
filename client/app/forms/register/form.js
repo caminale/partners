@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactNative from 'react-native';
+import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import { Kohana } from 'react-native-textinput-effects';
 const {
   View,
   Text,
-  TextInput,
   TouchableOpacity
 } = ReactNative;
 
 import styles from './styles';
 
-// {email:'keke@gmail.com', password: 'a123456'}
 
 class Form extends React.Component {
   constructor(props) {
@@ -26,15 +28,20 @@ class Form extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.texte}>
-          Address Mail
-        </Text>
-        <TextInput
-          style={styles.input}
+
+        <Kohana
+          style={styles.withShadow}
+          label={'e-mail'}
+          height={40}
+          iconClass={FontAwesome}
+          iconName={'user-circle'}
+          iconColor={'#3c918c'}
+          labelStyle={{ color: '#3c918c' }}
+          inputStyle={{ color: '#3c918c' }}
           onChangeText={email => this.setState({email})}
-          keyBoardType="email-address"
-          placeholder="Entrez votre adresse mail"
+
         />
+
         {errors.email &&
         <Text
           style={styles.error}>
@@ -42,14 +49,18 @@ class Form extends React.Component {
         </Text>
         }
         <Text style={styles.text}>
-          Mot De Passe
           {'\n'}
         </Text>
-        <TextInput
-          style={styles.input}
+        <Kohana
+          style={{ backgroundColor: '#f9ebd8' }}
+          label={'password'}
+          iconClass={MaterialsIcon}
+          iconName={'https'}
+          iconColor={'#3c918c'}
+          labelStyle={{ color: '#3c918c' }}
+          inputStyle={{ color: '#3c918c' }}
           onChangeText={password => this.setState({password})}
-          placeholder="Entrez votre Mot De Passe"
-          secureTextEntry={true}
+
         />
         {errors.password &&
         <Text
@@ -63,7 +74,7 @@ class Form extends React.Component {
         <TouchableOpacity
           onPress={() => onSubmit(this.state)}
           style = {styles.button}>
-          <Text>
+          <Text style={styles.text}>
             Register
           </Text>
         </TouchableOpacity>

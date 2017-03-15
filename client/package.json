@@ -11,7 +11,9 @@
     "react": "~15.4.1",
     "react-native": "0.42.0",
     "react-native-meteor": "^1.0.3",
-    "react-native-swiper": "^1.5.4"
+    "react-native-swiper": "^1.5.4",
+    "react-native-textinput-effects": "^0.3.0",
+    "react-native-vector-icons": "^4.0.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

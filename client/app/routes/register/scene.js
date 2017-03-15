@@ -15,10 +15,10 @@ class Scene extends Component {
     const {onSubmit, goBack} = this.props;
     return (
       <View style={styles.container}>
-        <Text>Register</Text>
+        <Text style={styles.text}>Register</Text>
         <RegisterForm onSubmit={onSubmit}/>
         <TouchableOpacity style={styles.button} onPress={() => goBack()}>
-          <Text style={styles.buttonText}>Go back</Text>
+          <Text style={styles.text}>Go back</Text>
         </TouchableOpacity>
       </View>
     );
