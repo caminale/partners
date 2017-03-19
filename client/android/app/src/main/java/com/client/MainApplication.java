@@ -25,21 +25,18 @@ public class MainApplication extends Application implements ReactApplication {
     return mCallbackManager;
   }
 
-
   @Override
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;
   }
 
-
   @Override
   public void onCreate() {
     super.onCreate();
-    FacebookSdk.sdkInitialize(getApplicationContext());
     SoLoader.init(this, /* native exopackage */ false);
-
+    FacebookSdk.sdkInitialize(getApplicationContext());
+    AppEventsLogger.activateApp(this);
   }
-
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
