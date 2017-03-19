@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import Scene from './scene';
+
 import RegisterAction from '../../actions/users/register';
 
 class Container extends Component {

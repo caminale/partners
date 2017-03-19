@@ -4,11 +4,12 @@ import LoginAction from './login';
 
 const register = creds => {
   return new Promise((resolve, reject) => {
-    Accounts.createUser(creds, error => {
+    Accounts.createUser({...creds}, error => {
       if (error) {
         reject(error);
+      } else {
+        resolve();
       }
-      resolve();
     });
   })
     .then(() => {

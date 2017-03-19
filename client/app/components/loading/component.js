@@ -14,12 +14,4 @@ const Loading = () => {
   );
 };
 
-Loading.propTypes = {
-  size: React.PropTypes.string,
-};
-
-Loading.defaultProps = {
-  size: 'large',
-};
-
 export default Loading;

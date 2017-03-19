@@ -26,7 +26,6 @@ class App extends Component {
 
 export default createContainer(() => {
   return {
-  
     status: Meteor.status(),
     user: Meteor.user(),
     loggingIn: Meteor.loggingIn(),

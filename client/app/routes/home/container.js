@@ -14,10 +14,6 @@ export default class AboutContainer extends Component {
     });
   }
   render() {
-    return (
-      <View>
-        <Scene navigate={this.navigate}/>
-      </View>
-    )
+    return <Scene navigate={this.navigate}/>;
   }
 }

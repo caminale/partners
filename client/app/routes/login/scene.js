@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
 
+import styles from './styles';
+
+import LoginForm from '../../forms/login';
+
 const {
   View,
   Text,
   TouchableOpacity
 } = ReactNative;
-
-import styles from './styles';
-
-import LoginForm from '../../forms/login';
 
 class Scene extends Component {
   render() {
