@@ -36,7 +36,7 @@ const registerHandler = () => {
 
     // Get our user's identifying information. This also checks if the accessToken
     // is valid. If not it will error out.
-    const identity = getIdentity(data.accessToken, whitelisted);
+    const identity = getIdentity(data.accessToken, whitelisted.join());
 
     // Build our actual data object.
     const serviceData = {

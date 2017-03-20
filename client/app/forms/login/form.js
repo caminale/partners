@@ -1,20 +1,19 @@
-import React, { AsyncStorage } from 'react';
+import React from 'react';
 import ReactNative from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Kohana} from 'react-native-textinput-effects';
-import FBSDK, {LoginButton} from 'react-native-fbsdk';
+import FBSDK, {LoginButton, LoginManager} from 'react-native-fbsdk';
 import {AccessToken} from 'react-native-fbsdk';
 import Meteor from 'react-native-meteor';
-
 
 import styles from './styles';
 
 const {
   View,
   Text,
-  TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } = ReactNative;
 
 const USER_TOKEN_KEY = 'reactnativemeteor_usertoken';
@@ -92,7 +91,6 @@ class Form extends React.Component {
           labelStyle={{ color: '#3c918c' }}
           inputStyle={{ color: '#3c918c' }}
           onChangeText={password => this.setState({password})}
-
         />
         {errors.password &&
         <Text
@@ -103,10 +101,6 @@ class Form extends React.Component {
         <Text>
           {'\n'}
         </Text>
-        <LoginButton
-          publishPermissions={["publish_actions"]}
-          onLoginFinished={onLoginFinished}
-          onLogoutFinished={() => alert("logout.")}/>
 
         <TouchableOpacity
           onPress={() => onSubmit(this.state)}
@@ -121,6 +115,9 @@ class Form extends React.Component {
           {errors.submit}
         </Text>
         }
+        <LoginButton
+          onLoginFinished={onLoginFinished}
+          onLogoutFinished={() => alert("logout.")}/>
       </View>
     );
   }
