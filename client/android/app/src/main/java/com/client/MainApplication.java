@@ -19,12 +19,6 @@ import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
 
-  private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
-
-  protected static CallbackManager getCallbackManager() {
-    return mCallbackManager;
-  }
-
   @Override
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;
@@ -34,7 +28,6 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
-    FacebookSdk.sdkInitialize(getApplicationContext());
     AppEventsLogger.activateApp(this);
   }
 
@@ -47,8 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-          new FBSDKPackage(mCallbackManager)
+          new MainReactPackage()
       );
     }
   };
