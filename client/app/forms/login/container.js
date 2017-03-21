@@ -26,11 +26,22 @@ class Container extends Component {
       this.setState({errors: validation.errors});
     }
   }
+  onLoginFacebook(error, result) {
+    const {onLoginFacebook} = this.props;
+    if (error) {
+      console.log('login error', error);
+    } else if (result.isCancelled) {
+      console.log('login cancelled');
+    } else {
+      onLoginFacebook();
+    }
+  }
   render() {
     const {errors} = this.state;
     return (
       <Form
         onSubmit={creds => this.onSubmit(creds)}
+        onLoginFacebook={this.onLoginFacebook}
         errors={errors}
       />
     );

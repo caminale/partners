@@ -13,11 +13,13 @@ const {
 
 class Scene extends Component {
   render() {
-    const {onSubmit, goBack} = this.props;
+    const {onSubmit, onLoginFacebook, goBack} = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Login</Text>
-        <LoginForm onSubmit={onSubmit}/>
+        <LoginForm
+          onSubmit={onSubmit}
+          onLoginFacebook={onLoginFacebook}/>
         <TouchableOpacity style={styles.button} onPress={() => goBack()}>
           <Text style={styles.buttonText}>Go back</Text>
         </TouchableOpacity>

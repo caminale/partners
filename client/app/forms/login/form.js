@@ -3,48 +3,17 @@ import ReactNative from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Kohana} from 'react-native-textinput-effects';
-import FBSDK, {LoginButton, LoginManager} from 'react-native-fbsdk';
-import {AccessToken} from 'react-native-fbsdk';
-import Meteor from 'react-native-meteor';
+import {LoginButton} from 'react-native-fbsdk';
 
 import styles from './styles';
 
 const {
   View,
   Text,
-  TouchableOpacity,
-  AsyncStorage
+  TouchableOpacity
 } = ReactNative;
 
-const USER_TOKEN_KEY = 'reactnativemeteor_usertoken';
-
-export const loginWithTokens = () => {
-  const Data = Meteor.getData();
-  AccessToken.getCurrentAccessToken()
-    .then((res) => {
-      if (res) {
-        Meteor.call('login', { facebook: res }, (err, result) => {
-          if(!err) {//save user id and token
-            AsyncStorage.setItem(USER_TOKEN_KEY, result.token);
-            Data._tokenIdSaved = result.token;
-            Meteor._userIdSaved = result.id;
-          }
-        });
-      }
-    });
-};
-
 // {email:'keke@gmail.com', password: 'a123456'}
-export const onLoginFinished = (error, result) => {
-  if (error) {
-    console.log('login error', error);
-  } else if (result.isCancelled) {
-    console.log('login cancelled');
-  } else {
-    loginWithTokens();
-  }
-};
-
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -56,7 +25,7 @@ class Form extends React.Component {
   }
 
   render() {
-    const {onSubmit, errors} = this.props;
+    const {onSubmit, onLoginFacebook, errors} = this.props;
 
     return (
       <View style={styles.container}>
@@ -116,8 +85,7 @@ class Form extends React.Component {
         </Text>
         }
         <LoginButton
-          onLoginFinished={onLoginFinished}
-          onLogoutFinished={() => alert("logout.")}/>
+          onLoginFinished={onLoginFacebook}/>
       </View>
     );
   }

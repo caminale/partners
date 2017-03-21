@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import Scene from './scene';
-import LoginAction from '../../actions/users/login';
+import {Login, LoginFacebook} from '../../actions/users/login';
 
 class Container extends Component {
   constructor() {
@@ -12,12 +12,16 @@ class Container extends Component {
     this.props.navigator.pop();
   }
   loginHandler = creds => {
-    return LoginAction(creds);
+    return Login(creds);
+  };
+  loginFacebookHandler = () => {
+    return LoginFacebook();
   };
   render() {
     return (
       <Scene
         onSubmit={this.loginHandler}
+        onLoginFacebook={this.loginFacebookHandler}
         goBack={this.goBack}
       />
     );
