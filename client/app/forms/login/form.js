@@ -3,9 +3,9 @@ import ReactNative from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Kohana} from 'react-native-textinput-effects';
-import {LoginButton} from 'react-native-fbsdk';
 
 import styles from './styles';
+import FacebookButton from '../../components/facebook-button';
 
 const {
   View,
@@ -23,7 +23,6 @@ class Form extends React.Component {
       password: ''
     }
   }
-
   render() {
     const {onSubmit, onLoginFacebook, errors} = this.props;
 
@@ -84,8 +83,8 @@ class Form extends React.Component {
           {errors.submit}
         </Text>
         }
-        <LoginButton
-          onLoginFinished={onLoginFacebook}/>
+        <FacebookButton
+          onLoginFacebook={onLoginFacebook}/>
       </View>
     );
   }

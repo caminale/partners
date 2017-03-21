@@ -17,21 +17,17 @@ export default StyleSheet.create ({
     left: 0
   },
   loginButton: {
-    borderWidth: 2,
     padding: 20,
-    borderColor: '#3c918c',
     backgroundColor: 'green'
   },
   registerButton: {
-    borderWidth: 2,
     padding: 20,
-    borderColor: '#3c918c',
     backgroundColor: 'orange'
   },
   text: {
     alignSelf: 'stretch',
     textAlign: 'center',
-    color:'#3c918c',
+    color:'white',
     fontSize: 30
   }
 });

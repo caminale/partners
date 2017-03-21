@@ -31,13 +31,13 @@ const registerHandler = () => {
     }
 
     // The fields we care about (same as Meteor's)
-    const whitelisted = ['id', 'email', 'name', 'first_name',
+    const whitelisted = ['email', 'name', 'first_name',
       'last_name', 'link', 'gender', 'locale', 'age_range'];
 
     // Get our user's identifying information. This also checks if the accessToken
     // is valid. If not it will error out.
     const identity = getIdentity(data.accessToken, whitelisted.join());
-
+    console.log(identity);
     // Build our actual data object.
     const serviceData = {
       accessToken: data.accessToken,
@@ -46,7 +46,7 @@ const registerHandler = () => {
     const fields = Object.assign({}, serviceData, identity);
 
     // Search for an existing user with that facebook id
-    const existingUser = Meteor.users.findOne({ 'services.facebook.id': identity.id });
+    const existingUser = Meteor.users.findOne({'services.facebook.id': identity.id});
 
     let userId;
     if (existingUser) {
@@ -85,7 +85,7 @@ const registerHandler = () => {
 // our access token is valid.
 const getIdentity = (accessToken, fields) => {
   try {
-    return HTTP.get("https://graph.facebook.com/v2.4/me", {
+    return HTTP.get("https://graph.facebook.com/me", {
       params: {
         access_token: accessToken,
         fields: fields
