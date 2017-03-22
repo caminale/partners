@@ -10,6 +10,7 @@
     "bluebird": "^3.5.0",
     "react": "~15.4.1",
     "react-native": "0.42.0",
+    "react-native-awesome-button": "^1.8.2",
     "react-native-meteor": "^1.0.3",
     "react-native-swiper": "^1.5.4",
     "react-native-textinput-effects": "^0.3.0",

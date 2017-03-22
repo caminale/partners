@@ -4,37 +4,30 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create ({
   container: {
     flexDirection: 'column',
-    justifyContent: 'center',
-    height:250,
+    justifyContent: 'space-between',
+    height:40,
     alignItems: 'center'
   },
   text: {
     paddingVertical: 15,
     color: '#3c918c',
     justifyContent: 'center',
-    fontSize: 15
+    fontSize: 15,
+    justifyContent:'center'
   },
   button: {
     borderWidth: 3,
-    padding: 5,
-    borderColor: '#3c918c'
+    padding: 1,
+    height:50,
+    margin:30,
+    borderColor: '#3c918c',
   },
-  input: {
-    height: 40,
-    width:180,
-    borderColor: 'gray',
-    borderWidth: 3
+  input1: {
+    backgroundColor:'#c1b2a3'
+
   },
-  withShadow: {
-    backgroundColor: '#f9ebd8',
-    borderRadius: 3,
-    shadowColor: "#473ea4",
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 4,
-      width: -4
-    }
+  input2: {
+    backgroundColor:'#c1b2a3'
   },
   error: {
     color: 'red'
