@@ -5,6 +5,7 @@ import styles from './styles';
 
 import {RegisterForm} from '../../forms';
 
+
 const {
   View,
   Text,
@@ -16,12 +17,18 @@ class Scene extends Component {
     const {onSubmit, goBack} = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Register</Text>
-        <RegisterForm onSubmit={onSubmit}/>
-        <TouchableOpacity style={styles.button} onPress={() => goBack()}>
-          <Text style={styles.text}>Go back</Text>
-        </TouchableOpacity>
+        <View  style={styles.container1}>
+          <Text style={styles.title}>Register</Text>
+        </View>
+        <View>
+          <RegisterForm onSubmit={onSubmit}/>
+          <TouchableOpacity style={styles.button} onPress={() => goBack()}>
+            <Text style={styles.text}>Go back</Text>
+          </TouchableOpacity>
+        </View>
       </View>
+
+
     );
   }
 }

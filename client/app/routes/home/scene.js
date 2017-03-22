@@ -16,7 +16,7 @@ class Scene extends Component {
     const {navigate} = this.props;
     return (
       <View style = {styles.container}>
-        <Text style={styles.text}>
+        <Text style={styles.title}>
           Partners
         </Text>
         <View style = {styles.image}>

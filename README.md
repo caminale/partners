@@ -7,5 +7,7 @@ Sport application
 * [Node.js](http://nodejs.org/) (with NPM)
 * [Meteor.js](https://www.meteor.com/)
 
+## Database organisation
 
+[Database](https://github.com/caminale/partners/blob/master/docs/database.md)
 

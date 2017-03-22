@@ -24,6 +24,12 @@ export default StyleSheet.create ({
     padding: 20,
     backgroundColor: 'orange'
   },
+  title: {
+    alignSelf: 'stretch',
+    textAlign: 'center',
+    color: 'blue',
+    fontSize: 30
+  },
   text: {
     alignSelf: 'stretch',
     textAlign: 'center',

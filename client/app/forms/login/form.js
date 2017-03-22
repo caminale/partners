@@ -59,6 +59,7 @@ class Form extends React.Component {
           labelStyle={{ color: '#3c918c' }}
           inputStyle={{ color: '#3c918c' }}
           onChangeText={password => this.setState({password})}
+          secureTextEntry={true}
         />
         {errors.password &&
         <Text
