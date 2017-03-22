@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
+
+import styles from './styles';
+
 const {
   View,
   TouchableOpacity,
   Text
 } = ReactNative;
-
-import styles from './styles';
 
 class Scene extends Component {
   render() {

@@ -2,51 +2,38 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create ({
   container: {
-    backgroundColor:'#f9ebd8',
-    height:352,
-    alignItems: 'center',
-
+    flex: 1,
+    backgroundColor:'#f9ebd8'
   },
-  container2: {
-    marginBottom: 10,
-    flexDirection: 'column',
+  image: {
+    margin: 100,
     justifyContent: 'center',
-    backgroundColor:'#f9ebd8',
     alignItems: 'center'
   },
-  container3: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundColor:'#f9827f',
-    justifyContent: 'flex-end',
-
-
+  containerButtons : {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    left: 0
   },
-  container4: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundColor:'#b6f9bb',
-    justifyContent: 'flex-end',
-
-
+  loginButton: {
+    padding: 20,
+    backgroundColor: 'green'
   },
-  text: {
-    paddingVertical: 15,
-    justifyContent: 'flex-start',
-    color:'#3c918c',
-    fontSize: 30,
-    textAlign:'center'
+  registerButton: {
+    padding: 20,
+    backgroundColor: 'orange'
   },
   title: {
-    paddingVertical: 15,
-    justifyContent: 'flex-start',
-    color:'#3c918c',
-    fontSize: 40
+    alignSelf: 'stretch',
+    textAlign: 'center',
+    color: 'blue',
+    fontSize: 30
   },
-  button: {
-    borderWidth: 2,
-    padding: 20,
-    borderColor: '#3c918c',
-
+  text: {
+    alignSelf: 'stretch',
+    textAlign: 'center',
+    color:'white',
+    fontSize: 30
   }
 });

@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create ({
+export default StyleSheet.create ({
   container: {
     flexDirection: 'column',
     justifyContent: 'center',
@@ -40,5 +39,3 @@ const styles = StyleSheet.create ({
     color: 'red'
   }
 });
-
-export default styles;

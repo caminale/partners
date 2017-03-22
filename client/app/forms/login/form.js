@@ -2,19 +2,18 @@ import React from 'react';
 import ReactNative from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { Kohana } from 'react-native-textinput-effects';
+import {Kohana} from 'react-native-textinput-effects';
+
+import styles from './styles';
+import {FacebookButton} from '../../components';
 
 const {
   View,
   Text,
-  TextInput,
   TouchableOpacity
 } = ReactNative;
 
-import styles from './styles';
-
 // {email:'keke@gmail.com', password: 'a123456'}
-
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -24,9 +23,9 @@ class Form extends React.Component {
       password: ''
     }
   }
-
   render() {
-    const {onSubmit,onForgot, errors} = this.props;
+
+    const {onSubmit, onSubmitFacebook, onForgot, errors} = this.props;
 
     return (
       <View style={styles.container}>
@@ -57,7 +56,6 @@ class Form extends React.Component {
           inputStyle={{ color: '#3c918c' }}
           onChangeText={password => this.setState({password})}
           secureTextEntry={true}
-
         />
 
 
@@ -76,6 +74,7 @@ class Form extends React.Component {
         <Text>
           {'\n'}
         </Text>
+
         <TouchableOpacity
           onPress={() => onSubmit(this.state)}
           style = {styles.button}>
@@ -96,6 +95,8 @@ class Form extends React.Component {
           {errors.submit}
         </Text>
         }
+        <FacebookButton
+          onPress={onSubmitFacebook}/>
       </View>
     );
   }

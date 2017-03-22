@@ -1,25 +1,17 @@
 import React from 'react';
-import {View, Image} from 'react-native';
+import {View} from 'react-native';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import styles from './styles';
-import images from '../../configs/images';
 
-const Loading = () => {
+const Component = () => {
   return (
     <View style={styles.container}>
-      <Image
-        source={images.logo}
-      />
+      <Spinner visible={true}
+               textContent={"Loading..."}
+               textStyle={{color: '#FFF'}} />
     </View>
   );
 };
 
-Loading.propTypes = {
-  size: React.PropTypes.string,
-};
-
-Loading.defaultProps = {
-  size: 'large',
-};
-
-export default Loading;
+export default Component;

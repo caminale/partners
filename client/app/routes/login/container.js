@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 
 import Scene from './scene';
-import LoginAction from '../../actions/users/login';
-import forgotAction from '../../actions/users/forgot';
 
+import {Login, LoginFacebook, ResetPassword} from '../../actions';
 
 class Container extends Component {
   constructor() {
@@ -14,18 +13,20 @@ class Container extends Component {
     this.props.navigator.pop();
   }
   loginHandler = creds => {
-    return LoginAction(creds);
+    return Login(creds);
+  };
+  loginFacebookHandler = () => {
+    return LoginFacebook();
   };
   forgotHandler = creds => {
-
-    return forgotAction(creds);
+    return ResetPassword(creds);
   };
   render() {
     return (
       <Scene
         onSubmit={this.loginHandler}
         onForgot={this.forgotHandler}
-
+        onSubmitFacebook={this.loginFacebookHandler}
         goBack={this.goBack}
       />
     );

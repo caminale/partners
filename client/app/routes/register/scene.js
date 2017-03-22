@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import ReactNative from 'react-native';
 
 import styles from './styles';
-import RegisterForm from '../../forms/register';
+
+import {RegisterForm} from '../../forms';
 
 
 const {
