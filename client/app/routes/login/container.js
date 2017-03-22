@@ -18,7 +18,7 @@ class Container extends Component {
   loginFacebookHandler = () => {
     return LoginFacebook();
   };
-  forgotHandler = creds => {
+  forgotHandler = creds => {console.log('holila');
     return ResetPassword(creds);
   };
   render() {

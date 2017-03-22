@@ -28,6 +28,7 @@ class Container extends Component {
   }
   onForgot(creds) {
     const {onForgot} = this.props;
+    console.log('holila');
       onForgot(creds)
   }
   render() {

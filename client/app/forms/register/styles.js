@@ -12,8 +12,7 @@ const styles = StyleSheet.create ({
     paddingVertical: 15,
     color: '#3c918c',
     justifyContent: 'center',
-    fontSize: 15,
-    justifyContent:'center'
+    fontSize: 15
   },
   button: {
     borderWidth: 3,

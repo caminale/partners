@@ -13,7 +13,6 @@ const {
   TouchableOpacity
 } = ReactNative;
 
-// {email:'keke@gmail.com', password: 'a123456'}
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -29,34 +28,40 @@ class Form extends React.Component {
 
     return (
       <View style={styles.container}>
+        <View style={styles.container1}>
 
-        <Kohana
-          style={styles.withShadow}
-          label={'e-mail'}
-          height={40}
-          iconClass={FontAwesome}
-          iconName={'user-circle'}
-          iconColor={'#3c918c'}
-          labelStyle={{ color: '#3c918c' }}
-          inputStyle={{ color: '#3c918c' }}
-          onChangeText={email => this.setState({email})}
-        />
+          <Kohana
+            style={styles.input1}
+            label={'e-mail'}
+            height={40}
+            iconClass={FontAwesome}
+            iconName={'user-circle'}
+            iconColor={'#3c918c'}
+            labelStyle={{ color: '#3c918c' }}
+            inputStyle={{ color: '#3c918c' }}
+            onChangeText={email => this.setState({email})}
+          />
+        </View>
 
 
         <Text style={styles.text}>
           {'\n'}
         </Text>
-        <Kohana
-          style={{ backgroundColor: '#f9ebd8' }}
-          label={'password'}
-          iconClass={MaterialsIcon}
-          iconName={'https'}
-          iconColor={'#3c918c'}
-          labelStyle={{ color: '#3c918c' }}
-          inputStyle={{ color: '#3c918c' }}
-          onChangeText={password => this.setState({password})}
-          secureTextEntry={true}
-        />
+        <View style={styles.container1}>
+
+          <Kohana
+            style={styles.input1}
+            label={'password'}
+            iconClass={MaterialsIcon}
+            iconName={'https'}
+            iconColor={'#3c918c'}
+            labelStyle={{ color: '#3c918c' }}
+            inputStyle={{ color: '#3c918c' }}
+            onChangeText={password => this.setState({password})}
+            secureTextEntry={true}
+          />
+        </View>
+
 
 
         {errors.email &&

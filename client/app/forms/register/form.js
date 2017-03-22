@@ -115,7 +115,7 @@ class Form extends React.Component {
           }
         </View>
 
-        <View>
+        <View >
           {errors.password &&
           <Text
             style={styles.error}>
