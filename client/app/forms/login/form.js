@@ -26,7 +26,7 @@ class Form extends React.Component {
   }
 
   render() {
-    const {onSubmit, errors} = this.props;
+    const {onSubmit,onForgot, errors} = this.props;
 
     return (
       <View style={styles.container}>
@@ -43,12 +43,7 @@ class Form extends React.Component {
           onChangeText={email => this.setState({email})}
         />
 
-        {errors.email &&
-        <Text
-          style={styles.error}>
-          {errors.email}
-        </Text>
-        }
+
         <Text style={styles.text}>
           {'\n'}
         </Text>
@@ -64,6 +59,14 @@ class Form extends React.Component {
           secureTextEntry={true}
 
         />
+
+
+        {errors.email &&
+        <Text
+          style={styles.error}>
+          {errors.email}
+        </Text>
+        }
         {errors.password &&
         <Text
           style={styles.error}>
@@ -78,6 +81,13 @@ class Form extends React.Component {
           style = {styles.button}>
           <Text style={styles.text}>
             Login
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => onForgot(this.state)}
+          style = {styles.button}>
+          <Text style={styles.text}>
+            forgot password ?
           </Text>
         </TouchableOpacity>
         {errors.submit &&

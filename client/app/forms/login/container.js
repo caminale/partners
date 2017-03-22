@@ -41,12 +41,21 @@ class Container extends Component {
       this.setState({errors: validation.errors});
     }
   }
+
+  onForgot(creds) {
+    const {onForgot} = this.props;
+    //const validation = formValidationSync(creds);
+
+      onForgot(creds)
+
+  }
   render() {
     const {errors} = this.state;
     return (
       <Form
         onSubmit={creds => this.onSubmit(creds)}
         onSubmit1={creds => this.onSubmit1(creds)}
+        onForgot={creds => this.onForgot(creds)}
         errors={errors}
 
       />

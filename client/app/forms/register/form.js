@@ -2,7 +2,7 @@ import React from 'react';
 import ReactNative from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { Kohana } from 'react-native-textinput-effects';
+import {Kohana} from 'react-native-textinput-effects';
 const {
   View,
   Text,
@@ -18,8 +18,11 @@ class Form extends React.Component {
 
     this.state = {
       email: '',
-      password: ''
+      username: '',
+      password: '',
+      passwordConfirm: ''
     }
+
   }
 
   render() {
@@ -36,24 +39,15 @@ class Form extends React.Component {
             iconClass={FontAwesome}
             iconName={'user-circle'}
             iconColor={'#3c918c'}
-            labelStyle={{ color: '#3c918c' }}
-            inputStyle={{ color: '#3c918c' }}
-            onChangeText={email => this.setState({email})}
+            labelStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#3c918c'}}
+            onChangeText={username => this.setState({username})}
 
           />
         </View>
         <View >
 
 
-          {errors.email &&
-          <Text
-            style={styles.error}>
-            {errors.email}
-          </Text>
-          }
-          <Text style={styles.text}>
-
-          </Text>
         </View>
         <View style={styles.container}>
 
@@ -63,26 +57,14 @@ class Form extends React.Component {
             iconClass={FontAwesome}
             iconName={'user-circle'}
             iconColor={'#3c918c'}
-            labelStyle={{ color: '#3c918c' }}
-            inputStyle={{ color: '#3c918c' }}
+            labelStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#3c918c'}}
             onChangeText={email => this.setState({email})}
 
           />
         </View>
-        <View >
 
-
-          {errors.email &&
-          <Text
-            style={styles.error}>
-            {errors.email}
-          </Text>
-          }
-          <Text style={styles.text}>
-
-          </Text>
-        </View>
-        <View style ={styles.container}>
+        <View style={styles.container}>
 
           <Kohana
             style={styles.input2}
@@ -90,8 +72,8 @@ class Form extends React.Component {
             iconClass={MaterialsIcon}
             iconName={'https'}
             iconColor={'#3c918c'}
-            labelStyle={{ color: '#3c918c' }}
-            inputStyle={{ color: '#3c918c' }}
+            labelStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#3c918c'}}
             secureTextEntry={true}
             onChangeText={password => this.setState({password})}
 
@@ -99,14 +81,9 @@ class Form extends React.Component {
         </View>
         <View >
 
-          {errors.password &&
-          <Text
-            style={styles.error}>
-            {errors.password}
-          </Text>
-          }
+
         </View>
-        <View style ={styles.container}>
+        <View style={styles.container}>
 
           <Kohana
             style={styles.input1}
@@ -114,14 +91,32 @@ class Form extends React.Component {
             iconClass={MaterialsIcon}
             iconName={'https'}
             iconColor={'#3c918c'}
-            labelStyle={{ color: '#3c918c' }}
-            inputStyle={{ color: '#3c918c' }}
+            labelStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#3c918c'}}
             secureTextEntry={true}
-            onChangeText={password => this.setState({password})}
+            onChangeText={passwordConfirm => this.setState({passwordConfirm})}
 
           />
         </View>
         <View >
+
+          {errors.username &&
+          <Text
+            style={styles.error}>
+            {errors.username}
+          </Text>
+          }
+
+          {errors.email &&
+          <Text
+            style={styles.error}>
+            {errors.email}
+          </Text>
+          }
+        </View>
+
+        <View >
+
 
           {errors.password &&
           <Text
@@ -129,21 +124,26 @@ class Form extends React.Component {
             {errors.password}
           </Text>
           }
+
+          {errors.passwordConfirm &&
+          <Text
+            style={styles.error}>
+            {errors.passwordConfirm}
+          </Text>
+          }
+
+
         </View>
-
-
-        <Text>
-          {'\n'}
-        </Text>
         <View >
 
           <TouchableOpacity
             onPress={() => onSubmit(this.state)}
-            style = {styles.button}>
+            style={styles.button}>
             <Text style={styles.text}>
               Register
             </Text>
           </TouchableOpacity>
+
           {errors.submit &&
           <Text
             style={styles.error}>

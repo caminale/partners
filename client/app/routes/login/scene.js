@@ -13,11 +13,12 @@ import LoginForm from '../../forms/login';
 
 class Scene extends Component {
   render() {
-    const {onSubmit, goBack} = this.props;
+    const {onSubmit, goBack , onForgot} = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Login</Text>
-        <LoginForm onSubmit={onSubmit}/>
+        <LoginForm onSubmit={onSubmit}
+                   onForgot={onForgot}/>
         <TouchableOpacity style={styles.button} onPress={() => goBack()}>
           <Text style={styles.buttonText}>Go back</Text>
         </TouchableOpacity>
