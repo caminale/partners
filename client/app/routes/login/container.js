@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import Scene from './scene';
-import {Login, LoginFacebook} from '../../actions/users/login';
+import {Login, LoginFacebook} from '../../actions';
 
 class Container extends Component {
   constructor() {
@@ -21,7 +21,7 @@ class Container extends Component {
     return (
       <Scene
         onSubmit={this.loginHandler}
-        onLoginFacebook={this.loginFacebookHandler}
+        onSubmitFacebook={this.loginFacebookHandler}
         goBack={this.goBack}
       />
     );

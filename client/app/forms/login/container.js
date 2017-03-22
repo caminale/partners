@@ -31,7 +31,7 @@ class Container extends Component {
     return (
       <Form
         onSubmit={creds => this.onSubmit(creds)}
-        onLoginFacebook={this.props.onLoginFacebook}
+        onSubmitFacebook={this.props.onSubmitFacebook}
         errors={errors}
       />
     );

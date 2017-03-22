@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Scene from './scene';
 
-import RegisterAction from '../../actions/users/register';
+import {Register} from '../../actions';
 
 class Container extends Component {
   constructor() {
@@ -13,7 +13,7 @@ class Container extends Component {
     this.props.navigator.pop();
   }
   registerHandler = creds => {
-    return RegisterAction(creds);
+    return Register(creds);
   };
   render() {
     return (

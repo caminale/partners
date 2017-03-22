@@ -3,21 +3,17 @@ import Meteor, {createContainer} from 'react-native-meteor';
 
 import settings from './configs/settings';
 
-import Start from './components/start';
-import Loading from './components/loading';
-import LoggedIn from './layouts/logged-in';
-import LoggedOut from './layouts/logged-out';
+import {Start, Loading} from './components';
+import {LoggedIn, LoggedOut} from './layouts';
 
 Meteor.connect(settings.METEOR_URL);
 
 class App extends Component {
   render() {
-    const {status, user, loggingIn} = this.props;
+    const {status, user} = this.props;
     if (status.connected === false) {
       // Waiting the connection with meteor
       return <Start />;
-    } else if (loggingIn) {
-      return <Loading />;
     } else if (user !== null) {
       // Connected with meteor and logged in
       return <LoggedIn />;

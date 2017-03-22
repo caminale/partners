@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactNative from 'react-native';
 
 import styles from './styles';
-import images from '../../configs/images';
+import images from '../../images';
 
 const {
   View,

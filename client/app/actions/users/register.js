@@ -1,6 +1,6 @@
 import {Accounts} from 'react-native-meteor';
 
-import {Login} from './login';
+import Login from './login';
 
 const register = creds => {
   return new Promise((resolve, reject) => {

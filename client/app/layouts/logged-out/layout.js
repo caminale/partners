@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import ReactNative from 'react-native';
-import Routes from '../../routes';
+import {Navigator} from 'react-native';
 
-const {Navigator} = ReactNative;
-const {Login, Home, Register} = Routes;
+import {Login, Home, Register} from '../../routes';
 
 class Layout extends Component {
   constructor() {

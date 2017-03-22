@@ -1,10 +1,8 @@
 import React from 'react';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
-import Routes from '../../routes';
-import TabBar from '../../components/tab-bar';
-
-const {Matching, Profile, Message} = Routes;
+import {Matching, Profile, Message} from '../../routes';
+import {TabBar} from '../../components';
 
 class LoggedIn extends React.Component {
   render() {

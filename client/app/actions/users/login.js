@@ -1,8 +1,6 @@
 import React from 'react';
 import {AsyncStorage} from 'react-native';
 import Meteor from 'react-native-meteor';
-import {AccessToken} from 'react-native-fbsdk';
-import {LoginManager} from 'react-native-fbsdk';
 
 const Login = creds => {
   return new Promise((resolve, reject) => {
@@ -15,28 +13,4 @@ const Login = creds => {
   });
 };
 
-const USER_TOKEN_KEY = 'reactnativemeteor_usertoken';
-
-const LoginFacebook = () => {
-  console.log('YEAAAAH');
-  const Data = Meteor.getData();
-  AccessToken.getCurrentAccessToken()
-    .then((res) => {
-      console.log('Test');
-      console.log(res);
-      if (res) {
-        Meteor.call('login', { facebook: res }, (err, result) => {
-          if(!err) {//save user id and token
-            AsyncStorage.setItem(USER_TOKEN_KEY, result.token);
-            Data._tokenIdSaved = result.token;
-            Meteor._userIdSaved = result.id;
-          }
-        });
-      }
-    });
-};
-
-export {
-  Login,
-  LoginFacebook
-};
+export default Login;

@@ -5,7 +5,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Kohana} from 'react-native-textinput-effects';
 
 import styles from './styles';
-import FacebookButton from '../../components/facebook-button';
+import {FacebookButton} from '../../components';
 
 const {
   View,
@@ -24,7 +24,7 @@ class Form extends React.Component {
     }
   }
   render() {
-    const {onSubmit, onLoginFacebook, errors} = this.props;
+    const {onSubmit, onSubmitFacebook, errors} = this.props;
 
     return (
       <View style={styles.container}>
@@ -84,7 +84,7 @@ class Form extends React.Component {
         </Text>
         }
         <FacebookButton
-          onLoginFacebook={onLoginFacebook}/>
+          onPress={onSubmitFacebook}/>
       </View>
     );
   }

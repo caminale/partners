@@ -5,7 +5,7 @@ import Message from './message';
 import Profile from './profile';
 import Register from './register';
 
-const routes = {
+export {
   Home,
   Matching,
   Login,
@@ -13,5 +13,3 @@ const routes = {
   Profile,
   Register
 };
-
-export default routes;

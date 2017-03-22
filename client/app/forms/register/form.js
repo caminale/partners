@@ -2,16 +2,15 @@ import React from 'react';
 import ReactNative from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
 import { Kohana } from 'react-native-textinput-effects';
+
+import styles from './styles';
+
 const {
   View,
   Text,
   TouchableOpacity
 } = ReactNative;
-
-import styles from './styles';
-
 
 class Form extends React.Component {
   constructor(props) {
