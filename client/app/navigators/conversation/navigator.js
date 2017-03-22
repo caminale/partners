@@ -1,21 +1,19 @@
 import React, {Component} from 'react';
 import {Navigator} from 'react-native';
 
-import {Login, Home, Register} from '../../routes';
+import {Conversation, Conversations} from '../../routes';
 
-class Layout extends Component {
+class MyNavigator extends Component {
   constructor() {
     super();
     this.renderScene = this.renderScene.bind(this);
   }
   renderScene(route, navigator) {
     switch(route.name) {
-      case 'home':
-        return <Home navigator={navigator}/>;
-      case 'login':
-        return <Login navigator={navigator}/>;
-      case 'register':
-        return <Register navigator={navigator}/>;
+      case 'conversation':
+        return <Conversation navigator={navigator}/>;
+      case 'conversations':
+        return <Conversations navigator={navigator}/>;
       default:
         console.log(route.name);
     }
@@ -23,10 +21,10 @@ class Layout extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{name: 'home'}}
+        initialRoute={{name: 'conversations'}}
         renderScene={this.renderScene}/>
     );
   }
 }
 
-export default Layout;
+export default MyNavigator;

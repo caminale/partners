@@ -1,10 +1,12 @@
 import React from 'react';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
-import {Matching, Profile, Message} from '../../routes';
+import {Matching, Profile} from '../../routes';
+import {ConversationNavigator} from '../../navigators';
+
 import {TabBar} from '../../components';
 
-class LoggedIn extends React.Component {
+class MyNavigator extends React.Component {
   render() {
     return (
       <ScrollableTabView tabBarPosition="bottom"
@@ -12,10 +14,10 @@ class LoggedIn extends React.Component {
                          renderTabBar={() => <TabBar />}>
         <Profile tabLabel="ios-paper"/>
         <Matching tabLabel="ios-people"/>
-        <Message tabLabel="ios-chatboxes"/>
+        <ConversationNavigator tabLabel="ios-chatboxes"/>
       </ScrollableTabView>
     );
   }
 }
 
-export default LoggedIn;
+export default MyNavigator;
