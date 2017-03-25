@@ -7,6 +7,7 @@ import styles from './styles';
 const {
   View,
   Text,
+  TextInput,
   TouchableOpacity
 } = ReactNative;
 
@@ -15,15 +16,18 @@ class Scene extends Component {
     super();
     Meteor.subscribe('posts');
     this.state = {
-      message: 'Coucou'
+      message: ''
     };
   }
+
   onAddPost() {
     Meteor.call('addPost', 'azeeerr', this.state.message);
   }
+
   renderHeader() {
     return <Text style={styles.header}>Posts</Text>;
   }
+
   renderItem(post) {
     return (
       <View>
@@ -31,6 +35,7 @@ class Scene extends Component {
       </View>
     );
   }
+
   render() {
     return (
       <View>
@@ -43,9 +48,14 @@ class Scene extends Component {
           renderRow={this.renderItem.bind(this)}
           renderHeader={this.renderHeader}
         />
-        <TouchableOpacity onPress={() => this.onAddPost()}>
+        <TouchableOpacity style={styles.button}
+                          onPress={() => this.onAddPost()}>
           <Text>Send</Text>
         </TouchableOpacity>
+        <TextInput
+          onChangeText={message => this.setState({message})}
+          autoFocus={true}
+          placeholder={'send message'}/>
       </View>
     );
   }

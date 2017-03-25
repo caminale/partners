@@ -20,7 +20,8 @@ export default StyleSheet.create ({
     backgroundColor: '#F6F6F6',
   },
   button: {
-    backgroundColor: 'green'
+    backgroundColor: 'green',
+    borderWidth:2
   },
   containerBackground: {
     flex: 1,
