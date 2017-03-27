@@ -34,41 +34,51 @@ class Form extends React.Component {
   setPassword = password => {
     this.setState({password});
   };
+  onForgot = () => {
+    this.props.onForgot(this.state);
+  };
   render() {
     const {errors} = this.props;
 
     return (
       <View style={styles.container}>
-        <Kohana
-          style={styles.withShadow}
-          label={'e-mail'}
-          height={40}
-          iconClass={FontAwesome}
-          iconName={'user-circle'}
-          iconColor={'#3c918c'}
-          labelStyle={{color: '#3c918c'}}
-          inputStyle={{color: '#3c918c'}}
-          onChangeText={this.setEmail}
-        />
+        <View style={styles.container1}>
+
+          <Kohana
+            style={styles.input}
+            label={'e-mail'}
+            height={40}
+            iconClass={FontAwesome}
+            iconName={'user-circle'}
+            iconColor={'#3c918c'}
+            labelStyle={{ color: '#3c918c' }}
+            inputStyle={{ color: '#3c918c' }}
+            onChangeText={this.setEmail}
+          />
+        </View>
+
+        <Text style={styles.text}>
+          {'\n'}
+        </Text>
+        <View style={styles.container1}>
+
+          <Kohana
+            style={styles.input}
+            label={'password'}
+            iconClass={MaterialsIcon}
+            iconName={'https'}
+            iconColor={'#3c918c'}
+            labelStyle={{ color: '#3c918c' }}
+            inputStyle={{ color: '#3c918c' }}
+            onChangeText={this.setPassword}
+            secureTextEntry={true}
+          />
+        </View>
         {errors.email &&
         <Text style={styles.error}>
           {errors.email}
         </Text>
         }
-        <Text style={styles.text}>
-          {'\n'}
-        </Text>
-        <Kohana
-          style={{backgroundColor: '#f9ebd8'}}
-          label={'password'}
-          iconClass={MaterialsIcon}
-          iconName={'https'}
-          iconColor={'#3c918c'}
-          labelStyle={{color: '#3c918c'}}
-          inputStyle={{color: '#3c918c'}}
-          onChangeText={this.setPassword}
-          secureTextEntry
-        />
         {errors.password &&
         <Text style={styles.error}>
           {errors.password}
@@ -83,6 +93,13 @@ class Form extends React.Component {
           style={styles.button}>
           <Text style={styles.text}>
             Login
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={this.onForgot}
+          style = {styles.button}>
+          <Text style={styles.text}>
+            forgot password ?
           </Text>
         </TouchableOpacity>
         {errors.submit &&

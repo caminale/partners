@@ -8,6 +8,16 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f9ebd8'
   },
+  button: {
+    borderWidth: 3,
+    marginTop:15,
+    padding: 5,
+    borderColor: '#3c918c'
+  },
+  buttonText: {
+    padding: 5,
+    borderColor: '#3c918c'
+  },
   title: {
     fontWeight: 'bold',
     fontSize: 30,

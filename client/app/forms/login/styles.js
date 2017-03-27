@@ -5,6 +5,13 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     height: 250,
+    alignItems: 'center',
+    flex:1
+  },
+  container1: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height:50,
     alignItems: 'center'
   },
   text: {
@@ -15,14 +22,12 @@ export default StyleSheet.create({
   },
   button: {
     borderWidth: 3,
-    padding: 5,
+    padding: 8,
     borderColor: '#3c918c'
   },
   input: {
-    height: 40,
-    width: 180,
-    borderColor: 'gray',
-    borderWidth: 3
+    backgroundColor:'#c1b2a3',
+    height:40
   },
   withShadow: {
     backgroundColor: '#f9ebd8',

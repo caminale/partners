@@ -26,11 +26,16 @@ class Container extends Component {
       this.setState({errors: validation.errors});
     }
   };
+  onForgot = creds => {
+    const {onForgot} = this.props;
+      onForgot(creds)
+  };
   render() {
     const {errors} = this.state;
     return (
       <Form
         onSubmit={this.onSubmit}
+        onForgot={this.onForgot}
         onSubmitFacebook={this.props.onSubmitFacebook}
         errors={errors}
         />
@@ -40,7 +45,8 @@ class Container extends Component {
 
 Container.propTypes = {
   onSubmit: React.PropTypes.func.isRequired,
-  onSubmitFacebook: React.PropTypes.func.isRequired
+  onSubmitFacebook: React.PropTypes.func.isRequired,
+  onForgot: React.PropTypes.func.isRequired
 };
 
 export default Container;
