@@ -39,25 +39,26 @@ const validatePassword = password => {
   else if (password.length > 0 && password.length <6) {
     return 'Your password must be 6 caracters long';
   }
-
   return null;
 };
 
-
-
-
-const validatePasswordConfirm = (password,passwordConfirm) => {
-
-   if (passwordConfirm.length === 0) {
+/**
+ *
+ * @param password
+ * @param confPassword
+ * @returns {*}
+ */
+const validatePasswordConfirm = (password, confPassword) => {
+  if (confPassword.length === 0) {
     return 'Your must confirm your password';
   }
-  else if (password != passwordConfirm) {
+  else if (password != confPassword) {
     return 'Your passwords are not identical ';
   }
 
-
   return null;
 };
+
 /**
  * Check if the form is valid
  * Return an array of errors and a boolean
@@ -70,7 +71,7 @@ const formValidationSync = creds => {
     isValid: true,
     errors: {}
   };
-  const {email, password, passwordConfirm, username} = creds;
+  const {email, password, confPassword, username} = creds;
   let error;
 
   if ((error = validateEmail(email))) {
@@ -83,9 +84,9 @@ const formValidationSync = creds => {
     result.errors.password = error;
   }
 
-  if (error = validatePasswordConfirm(password,passwordConfirm)) {
+  if (error = validatePasswordConfirm(password, confPassword)) {
     result.isValid = false;
-    result.errors.passwordConfirm = error;
+    result.errors.confPassword = error;
   }
 
   if (error = validateUsername(username)) {

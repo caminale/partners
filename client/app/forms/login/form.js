@@ -39,7 +39,6 @@ class Form extends React.Component {
   };
   render() {
     const {errors} = this.props;
-
     return (
       <View style={styles.container}>
         <View style={styles.container1}>
@@ -61,7 +60,6 @@ class Form extends React.Component {
           {'\n'}
         </Text>
         <View style={styles.container1}>
-
           <Kohana
             style={styles.input}
             label={'password'}

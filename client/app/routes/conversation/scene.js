@@ -47,7 +47,9 @@ class Scene extends Component {
           renderRow={this.renderItem}
           renderHeader={this.renderHeader}
           />
-        <TouchableOpacity onPress={this.onAddPost}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={this.onAddPost}>
           <Text>Send</Text>
         </TouchableOpacity>
         <TextInput

@@ -12,14 +12,14 @@ const {
 
 class Scene extends Component {
   render() {
-    const {onSubmit, onSubmitFacebook, goBack} = this.props;
+    const {onSubmit, onSubmitFacebook, onForgot, goBack} = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Login</Text>
         <LoginForm
           onSubmit={onSubmit}
-          onSubmitFacebook={onSubmitFacebook}
-          />
+          onForgot={onForgot}
+          onSubmitFacebook={onSubmitFacebook}/>
         <TouchableOpacity style={styles.button} onPress={goBack}>
           <Text style={styles.buttonText}>Go back</Text>
         </TouchableOpacity>
@@ -31,6 +31,7 @@ class Scene extends Component {
 Scene.propTypes = {
   onSubmit: React.PropTypes.func.isRequired,
   onSubmitFacebook: React.PropTypes.func.isRequired,
+  onForgot: React.PropTypes.func.isRequired,
   goBack: React.PropTypes.func.isRequired
 };
 

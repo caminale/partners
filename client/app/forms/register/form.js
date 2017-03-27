@@ -45,7 +45,7 @@ class Form extends React.Component {
       <View >
         <View style={styles.container}>
           <Kohana
-            style={styles.input1}
+            style={styles.input}
             label={'username'}
             iconClass={FontAwesome}
             iconName={'user-circle'}
@@ -65,7 +65,7 @@ class Form extends React.Component {
         </View>
         <View style={styles.container}>
           <Kohana
-            style={styles.input1}
+            style={styles.input}
             label={'e-mail'}
             iconClass={FontAwesome}
             iconName={'user-circle'}
@@ -108,7 +108,7 @@ class Form extends React.Component {
         <View style={styles.container}>
 
           <Kohana
-            style={styles.input1}
+            style={styles.input}
             label={'confirm password'}
             iconClass={MaterialsIcon}
             iconName={'https'}
@@ -126,7 +126,6 @@ class Form extends React.Component {
           </Text>
           }
         </View>
-
         <Text>
           {'\n'}
         </Text>
@@ -138,6 +137,7 @@ class Form extends React.Component {
               Register
             </Text>
           </TouchableOpacity>
+
           {errors.submit &&
           <Text style={styles.error}>
             {errors.submit}

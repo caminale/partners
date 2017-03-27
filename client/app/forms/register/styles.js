@@ -20,12 +20,9 @@ const styles = StyleSheet.create({
     margin: 30,
     borderColor: '#3c918c'
   },
-  input1: {
+  input: {
     backgroundColor: '#c1b2a3'
 
-  },
-  input2: {
-    backgroundColor: '#c1b2a3'
   },
   error: {
     color: 'red'
