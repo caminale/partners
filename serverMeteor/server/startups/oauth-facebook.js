@@ -7,9 +7,11 @@ import {_} from 'meteor/underscore';
 const settings = Meteor.settings.oauth.facebook;
 
 const init = () => {
-  if (!settings) return;
+  if (!settings) {
+    return;
+  }
   ServiceConfiguration.configurations.upsert(
-    { service: "facebook" },
+    {service: 'facebook'},
     {
       $set: {
         appId: settings.appId,
@@ -17,15 +19,15 @@ const init = () => {
       }
     }
   );
-
   registerHandler();
 };
 
 const registerHandler = () => {
-  Accounts.registerLoginHandler('facebook', function(params) {
+  Accounts.registerLoginHandler('facebook', params => {
     const data = params.facebook;
 
-    // If this isn't facebook login then we don't care about it. No need to proceed.
+    // If this isn't facebook login then we don't care about it.
+    // No need to proceed.
     if (!data) {
       return undefined;
     }
@@ -34,19 +36,21 @@ const registerHandler = () => {
     const whitelisted = ['email', 'name', 'first_name',
       'last_name', 'link', 'gender', 'locale', 'age_range'];
 
-    // Get our user's identifying information. This also checks if the accessToken
+    // Get our user's identifying information.
+    // This also checks if the accessToken
     // is valid. If not it will error out.
     const identity = getIdentity(data.accessToken, whitelisted.join());
     console.log(identity);
     // Build our actual data object.
     const serviceData = {
       accessToken: data.accessToken,
-      expiresAt: (+new Date) + (1000 * data.expirationTime)
+      expiresAt: (Number(new Date())) + (1000 * data.expirationTime)
     };
     const fields = Object.assign({}, serviceData, identity);
 
     // Search for an existing user with that facebook id
-    const existingUser = Meteor.users.findOne({'services.facebook.id': identity.id});
+    const existingUser =
+      Meteor.users.findOne({'services.facebook.id': identity.id});
 
     let userId;
     if (existingUser) {
@@ -58,18 +62,17 @@ const registerHandler = () => {
         prefixedData[`services.facebook.${key}`] = val;
       });
 
-      Meteor.users.update({ _id: userId }, {
+      Meteor.users.update({_id: userId}, {
         $set: prefixedData,
-        $addToSet: { emails: { address: identity.email, verified: true } }
+        $addToSet: {emails: {address: identity.email, verified: true}}
       });
-
     } else {
       // Create our user
       userId = Meteor.users.insert({
         services: {
           facebook: fields
         },
-        profile: { name: identity.name },
+        profile: {name: identity.name},
         emails: [{
           address: identity.email,
           verified: true
@@ -77,7 +80,7 @@ const registerHandler = () => {
       });
     }
 
-    return { userId: userId };
+    return {userId};
   });
 };
 
@@ -85,15 +88,17 @@ const registerHandler = () => {
 // our access token is valid.
 const getIdentity = (accessToken, fields) => {
   try {
-    return HTTP.get("https://graph.facebook.com/me", {
+    return HTTP.get('https://graph.facebook.com/me', {
       params: {
         access_token: accessToken,
-        fields: fields
+        fields
       }
     }).data;
   } catch (err) {
-    throw _.extend(new Error("Failed to fetch identity from Facebook. " + err.message),
-      {response: err.response});
+    throw _.extend(
+      new Error('Failed to fetch identity from Facebook. ' + err.message),
+      {response: err.response}
+    );
   }
 };
 

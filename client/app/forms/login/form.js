@@ -4,8 +4,8 @@ import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Kohana} from 'react-native-textinput-effects';
 
-import styles from './styles';
 import {FacebookButton} from '../../components';
+import styles from './styles';
 
 const {
   View,
@@ -13,7 +13,6 @@ const {
   TouchableOpacity
 } = ReactNative;
 
-// {email:'keke@gmail.com', password: 'a123456'}
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -21,14 +20,25 @@ class Form extends React.Component {
     this.state = {
       email: '',
       password: ''
-    }
+    };
   }
+  onSubmit = () => {
+    this.props.onSubmit(this.state);
+  };
+  onSubmitFacebook = () => {
+    this.props.onSubmitFacebook();
+  };
+  setEmail = email => {
+    this.setState({email});
+  };
+  setPassword = password => {
+    this.setState({password});
+  };
   render() {
-    const {onSubmit, onSubmitFacebook, errors} = this.props;
+    const {errors} = this.props;
 
     return (
       <View style={styles.container}>
-
         <Kohana
           style={styles.withShadow}
           label={'e-mail'}
@@ -36,14 +46,12 @@ class Form extends React.Component {
           iconClass={FontAwesome}
           iconName={'user-circle'}
           iconColor={'#3c918c'}
-          labelStyle={{ color: '#3c918c' }}
-          inputStyle={{ color: '#3c918c' }}
-          onChangeText={email => this.setState({email})}
+          labelStyle={{color: '#3c918c'}}
+          inputStyle={{color: '#3c918c'}}
+          onChangeText={this.setEmail}
         />
-
         {errors.email &&
-        <Text
-          style={styles.error}>
+        <Text style={styles.error}>
           {errors.email}
         </Text>
         }
@@ -51,19 +59,18 @@ class Form extends React.Component {
           {'\n'}
         </Text>
         <Kohana
-          style={{ backgroundColor: '#f9ebd8' }}
+          style={{backgroundColor: '#f9ebd8'}}
           label={'password'}
           iconClass={MaterialsIcon}
           iconName={'https'}
           iconColor={'#3c918c'}
-          labelStyle={{ color: '#3c918c' }}
-          inputStyle={{ color: '#3c918c' }}
-          onChangeText={password => this.setState({password})}
-          secureTextEntry={true}
+          labelStyle={{color: '#3c918c'}}
+          inputStyle={{color: '#3c918c'}}
+          onChangeText={this.setPassword}
+          secureTextEntry
         />
         {errors.password &&
-        <Text
-          style={styles.error}>
+        <Text style={styles.error}>
           {errors.password}
         </Text>
         }
@@ -72,23 +79,27 @@ class Form extends React.Component {
         </Text>
 
         <TouchableOpacity
-          onPress={() => onSubmit(this.state)}
-          style = {styles.button}>
+          onPress={this.onSubmit}
+          style={styles.button}>
           <Text style={styles.text}>
             Login
           </Text>
         </TouchableOpacity>
         {errors.submit &&
-        <Text
-          style={styles.error}>
+        <Text style={styles.error}>
           {errors.submit}
         </Text>
         }
-        <FacebookButton
-          onPress={onSubmitFacebook}/>
+        <FacebookButton onPress={this.onSubmitFacebook}/>
       </View>
     );
   }
 }
+
+Form.propTypes = {
+  onSubmit: React.PropTypes.func.isRequired,
+  onSubmitFacebook: React.PropTypes.func.isRequired,
+  errors: React.PropTypes.object.isRequired
+};
 
 export default Form;

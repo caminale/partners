@@ -9,7 +9,7 @@ class MyNavigator extends Component {
     this.renderScene = this.renderScene.bind(this);
   }
   renderScene(route, navigator) {
-    switch(route.name) {
+    switch (route.name) {
       case 'conversation':
         return <Conversation navigator={navigator}/>;
       case 'conversations':
@@ -22,7 +22,8 @@ class MyNavigator extends Component {
     return (
       <Navigator
         initialRoute={{name: 'conversations'}}
-        renderScene={this.renderScene}/>
+        renderScene={this.renderScene}
+        />
     );
   }
 }

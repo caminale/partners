@@ -9,33 +9,38 @@ class Container extends Component {
 
     this.state = {
       errors: {}
-    }
+    };
   }
-  onSubmit(creds) {
+  onSubmit = creds => {
     const {onSubmit} = this.props;
     const validation = formValidationSync(creds);
 
     if (validation.isValid) {
       this.setState({errors: {}});
       onSubmit(creds)
-        .catch(err=> {
+        .catch(err => {
           const errors = {submit: err.reason};
           this.setState({errors});
         });
     } else {
       this.setState({errors: validation.errors});
     }
-  }
+  };
   render() {
     const {errors} = this.state;
     return (
       <Form
-        onSubmit={creds => this.onSubmit(creds)}
+        onSubmit={this.onSubmit}
         onSubmitFacebook={this.props.onSubmitFacebook}
         errors={errors}
-      />
+        />
     );
   }
 }
+
+Container.propTypes = {
+  onSubmit: React.PropTypes.func.isRequired,
+  onSubmitFacebook: React.PropTypes.func.isRequired
+};
 
 export default Container;

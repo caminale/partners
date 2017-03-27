@@ -23,4 +23,8 @@ class Scene extends Component {
   }
 }
 
+Scene.propTypes = {
+  logout: React.PropTypes.func.isRequired
+};
+
 export default Scene;

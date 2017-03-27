@@ -18,19 +18,19 @@ class Scene extends Component {
       message: 'Coucou'
     };
   }
-  onAddPost() {
+  onAddPost = () => {
     Meteor.call('addPost', 'azeeerr', this.state.message);
-  }
-  renderHeader() {
+  };
+  renderHeader = () => {
     return <Text style={styles.header}>Posts</Text>;
-  }
-  renderItem(post) {
+  };
+  renderItem = post => {
     return (
       <View>
         <Text>{post.message}</Text>
       </View>
     );
-  }
+  };
   render() {
     return (
       <View>
@@ -38,12 +38,12 @@ class Scene extends Component {
           Ici il y a aura une conversation
         </Text>
         <MeteorListView
-          collection='posts'
-          enableEmptySections={true}
-          renderRow={this.renderItem.bind(this)}
+          collection="posts"
+          enableEmptySections
+          renderRow={this.renderItem}
           renderHeader={this.renderHeader}
-        />
-        <TouchableOpacity onPress={() => this.onAddPost()}>
+          />
+        <TouchableOpacity onPress={this.onAddPost}>
           <Text>Send</Text>
         </TouchableOpacity>
       </View>

@@ -1,16 +1,16 @@
 import {StyleSheet} from 'react-native';
 
-export default StyleSheet.create ({
+export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#f9ebd8'
+    backgroundColor: '#f9ebd8'
   },
   image: {
     margin: 100,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  containerButtons : {
+  containerButtons: {
     position: 'absolute',
     bottom: 0,
     right: 0,
@@ -33,7 +33,7 @@ export default StyleSheet.create ({
   text: {
     alignSelf: 'stretch',
     textAlign: 'center',
-    color:'white',
+    color: 'white',
     fontSize: 30
   }
 });

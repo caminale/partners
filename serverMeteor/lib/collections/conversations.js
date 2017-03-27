@@ -4,15 +4,15 @@ import {SimpleSchema} from 'meteor/aldeed:simple-schema';
 const ConversationSchema = new SimpleSchema({
   title: {
     type: String,
-    max: 100,
+    max: 100
   },
   description: {
     type: String,
-    max: 250,
+    max: 250
   },
   creationDate: {
-    type: Date,
-  },
+    type: Date
+  }
 });
 
 const Conversations = new Mongo.Collection('conversations');

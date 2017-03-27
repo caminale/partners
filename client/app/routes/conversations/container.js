@@ -3,20 +3,26 @@ import {View} from 'react-native';
 
 import Scene from './scene';
 
-export default class AboutContainer extends Component {
-  selectConversation(conversation) {
+class Container extends Component {
+  selectConversation = conversation => {
     this.props.navigator.push({
       name: 'conversation',
       passProps: {
-        conversation: conversation
+        conversation
       }
     });
-  }
+  };
   render() {
     return (
       <View>
-        <Scene selectConversation={this.selectConversation.bind(this)}/>
+        <Scene selectConversation={this.selectConversation}/>
       </View>
-    )
+    );
   }
 }
+
+Container.propTypes = {
+  navigator: React.PropTypes.object.isRequired
+};
+
+export default Container;

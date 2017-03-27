@@ -1,5 +1,3 @@
-import React from 'react';
-import {AsyncStorage} from 'react-native';
 import Meteor from 'react-native-meteor';
 
 const Login = creds => {

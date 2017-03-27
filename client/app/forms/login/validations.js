@@ -39,12 +39,12 @@ const formValidationSync = creds => {
   const {email, password} = creds;
   let error;
 
-  if (error = validateEmail(email)) {
+  if ((error = validateEmail(email))) {
     result.isValid = false;
     result.errors.email = error;
   }
 
-  if (error = validatePassword(password)) {
+  if ((error = validatePassword(password))) {
     result.isValid = false;
     result.errors.password = error;
   }

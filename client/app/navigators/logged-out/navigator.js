@@ -9,8 +9,7 @@ class MyNavigator extends Component {
     this.renderScene = this.renderScene.bind(this);
   }
   renderScene(route, navigator) {
-
-    switch(route.name) {
+    switch (route.name) {
       case 'home':
         return <Home navigator={navigator}/>;
       case 'login':
@@ -25,7 +24,8 @@ class MyNavigator extends Component {
     return (
       <Navigator
         initialRoute={{name: 'home'}}
-        renderScene={this.renderScene}/>
+        renderScene={this.renderScene}
+        />
     );
   }
 }
