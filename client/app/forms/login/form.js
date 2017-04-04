@@ -18,8 +18,8 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: ''
+      password: '',
+      usernameEmail:''
     };
   }
   onSubmit = () => {
@@ -28,11 +28,11 @@ class Form extends React.Component {
   onSubmitFacebook = () => {
     this.props.onSubmitFacebook();
   };
-  setEmail = email => {
-    this.setState({email});
-  };
   setPassword = password => {
     this.setState({password});
+  };
+  setUsernameEmail = usernameEmail => {
+    this.setState({usernameEmail});
   };
   onForgot = () => {
     this.props.onForgot(this.state);
@@ -45,15 +45,16 @@ class Form extends React.Component {
 
           <Kohana
             style={styles.input}
-            label={'e-mail'}
+            label={'e-mail/username'}
             height={40}
             iconClass={FontAwesome}
             iconName={'user-circle'}
             iconColor={'#3c918c'}
             labelStyle={{ color: '#3c918c' }}
             inputStyle={{ color: '#3c918c' }}
-            onChangeText={this.setEmail}
+            onChangeText={this.setUsernameEmail}
           />
+
         </View>
 
         <Text style={styles.text}>
@@ -72,9 +73,9 @@ class Form extends React.Component {
             secureTextEntry={true}
           />
         </View>
-        {errors.email &&
+        {errors.usernameEmail &&
         <Text style={styles.error}>
-          {errors.email}
+          {errors.usernameEmail}
         </Text>
         }
         {errors.password &&

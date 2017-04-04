@@ -1,12 +1,12 @@
 /**
  * Validate email
  * Return string if invalid, null otherwise
- * @param email
+ * @param usernameEmail
  * @returns {*}
  */
-const validateEmail = email => {
-  if (email.length === 0) {
-    return 'You must enter an email address';
+const validateUsernameEmail = usernameEmail => {
+  if (usernameEmail.length === 0) {
+    return 'You must enter an email address or an username';
   }
   return null;
 };
@@ -36,12 +36,12 @@ const formValidationSync = creds => {
     isValid: true,
     errors: {}
   };
-  const {email, password} = creds;
+  const {usernameEmail, password} = creds;
   let error;
 
-  if ((error = validateEmail(email))) {
+  if ((error = validateUsernameEmail(usernameEmail))) {
     result.isValid = false;
-    result.errors.email = error;
+    result.errors.usernameEmail = error;
   }
 
   if ((error = validatePassword(password))) {
