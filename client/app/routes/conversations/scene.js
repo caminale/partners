@@ -14,24 +14,22 @@ class Scene extends Component {
   constructor() {
     super();
     Meteor.subscribe('conversations');
-<<<<<<< HEAD
-}
+
+  }
+
   onAddRoom({title, description}) {
-    Meteor.call('addConversation',  title, description);
-  }
-  renderHeader() {
-=======
-  }
-  onAddRoom = ({title, description}) => {
     Meteor.call('addConversation', title, description);
+  }
+
+  renderHeader() {
+
+    return <Text style={styles.header}>Conversations </Text>;
   };
-  renderHeader = () => {
->>>>>>> f2e571acc71fd6942820c2de2a7834ed5f70b298
-    return <Text style={styles.header}>Conversations</Text>;
-  };
+
   renderItem = conversation => {
     return (
-      <TouchableOpacity onPress={() => this.props.selectConversation(conversation)}>
+      <TouchableOpacity
+        onPress={() => this.props.selectConversation(conversation)}>
         <View style={styles.row}>
           <Text style={styles.conversationTitle}>{conversation.title}</Text>
           <Text>{conversation.description}</Text>
@@ -39,10 +37,12 @@ class Scene extends Component {
       </TouchableOpacity>
     );
   };
+
   render() {
     return (
       <View>
-        <TouchableOpacity onPress={() => this.onAddRoom({title: 'Conv1', description: 'blabla'})}>
+        <TouchableOpacity onPress={() => this.onAddRoom(
+          {title: 'Conv1', description: 'blabla'})}>
           <Text style={styles.conversationTitle}>Add conversation</Text>
         </TouchableOpacity>
         <MeteorListView
@@ -50,7 +50,7 @@ class Scene extends Component {
           enableEmptySections
           renderRow={this.renderItem}
           renderHeader={this.renderHeader}
-          />
+        />
       </View>
     );
   }

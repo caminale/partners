@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Meteor, {createContainer} from 'react-native-meteor';
 import settings from './configs/settings';
 import {Start, Loading} from './components';
-import {Start} from './components';
 import {LoggedIn, LoggedOut} from './navigators';
 
 Meteor.connect(settings.METEOR_URL);
