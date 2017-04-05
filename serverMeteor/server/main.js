@@ -6,6 +6,6 @@ import './methods';
 import './subscription';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+  // Code to run on server at startup
   FacebookOAuthInit();
 });

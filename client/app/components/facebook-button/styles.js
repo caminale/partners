@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export default StyleSheet.create ({
+export default StyleSheet.create({
   text: {
     paddingVertical: 15,
     color: 'white',

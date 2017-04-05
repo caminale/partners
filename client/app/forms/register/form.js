@@ -17,55 +17,75 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      email: '',
       username: '',
+      email: '',
       password: '',
-      passwordConfirm: ''
-    }
-
+      confPassword: ''
+    };
   }
-
+  onSubmit = () => {
+    this.props.onSubmit(this.state);
+  };
+  setUsername = username => {
+    this.setState({username});
+  };
+  setEmail = email => {
+    this.setState({email});
+  };
+  setPassword = password => {
+    this.setState({password});
+  };
+  setConfPassword = confPassword => {
+    this.setState({confPassword});
+  };
   render() {
-    const {onSubmit, errors} = this.props;
+    const {errors} = this.props;
 
     return (
-
       <View >
         <View style={styles.container}>
-
           <Kohana
-            style={styles.input1}
+            style={styles.input}
             label={'username'}
             iconClass={FontAwesome}
             iconName={'user-circle'}
             iconColor={'#3c918c'}
             labelStyle={{color: '#3c918c'}}
             inputStyle={{color: '#3c918c'}}
-            onChangeText={username => this.setState({username})}
-
+            onChangeText={this.setUsername}
           />
         </View>
-        <View >
-
-
+        <View>
+          {errors.username &&
+          <Text style={styles.error}>
+            {errors.username}
+          </Text>
+          }
+          <Text style={styles.text}/>
         </View>
         <View style={styles.container}>
-
           <Kohana
-            style={styles.input1}
+            style={styles.input}
             label={'e-mail'}
             iconClass={FontAwesome}
             iconName={'user-circle'}
             iconColor={'#3c918c'}
             labelStyle={{color: '#3c918c'}}
             inputStyle={{color: '#3c918c'}}
-            onChangeText={email => this.setState({email})}
-
+            onChangeText={this.setEmail}
           />
         </View>
-
+        <View >
+          {errors.email &&
+          <Text
+            style={styles.error}
+          >
+            {errors.email}
+          </Text>
+          }
+          <Text style={styles.text}/>
+        </View>
         <View style={styles.container}>
-
           <Kohana
             style={styles.input2}
             label={'password'}
@@ -74,66 +94,44 @@ class Form extends React.Component {
             iconColor={'#3c918c'}
             labelStyle={{color: '#3c918c'}}
             inputStyle={{color: '#3c918c'}}
-            secureTextEntry={true}
-            onChangeText={password => this.setState({password})}
-
+            secureTextEntry
+            onChangeText={this.setPassword}
           />
         </View>
-        <View >
-
-
+        <View>
+          {errors.password &&
+          <Text style={styles.error}>
+            {errors.password}
+          </Text>
+          }
         </View>
         <View style={styles.container}>
 
           <Kohana
-            style={styles.input1}
+            style={styles.input}
             label={'confirm password'}
             iconClass={MaterialsIcon}
             iconName={'https'}
             iconColor={'#3c918c'}
             labelStyle={{color: '#3c918c'}}
             inputStyle={{color: '#3c918c'}}
-            secureTextEntry={true}
-            onChangeText={passwordConfirm => this.setState({passwordConfirm})}
-
+            secureTextEntry
+            onChangeText={this.setConfPassword}
           />
         </View>
-        <View >
-
-          {errors.username &&
-          <Text
-            style={styles.error}>
-            {errors.username}
-          </Text>
-          }
-
-          {errors.email &&
-          <Text
-            style={styles.error}>
-            {errors.email}
+        <View>
+          {errors.confPassword &&
+          <Text style={styles.error}>
+            {errors.confPassword}
           </Text>
           }
         </View>
-
-        <View >
-          {errors.password &&
-          <Text
-            style={styles.error}>
-            {errors.password}
-          </Text>
-          }
-
-          {errors.passwordConfirm &&
-          <Text
-            style={styles.error}>
-            {errors.passwordConfirm}
-          </Text>
-          }
-        </View>
-        <View >
-
+        <Text>
+          {'\n'}
+        </Text>
+        <View>
           <TouchableOpacity
-            onPress={() => onSubmit(this.state)}
+            onPress={this.onSubmit}
             style={styles.button}>
             <Text style={styles.text}>
               Register
@@ -141,16 +139,19 @@ class Form extends React.Component {
           </TouchableOpacity>
 
           {errors.submit &&
-          <Text
-            style={styles.error}>
+          <Text style={styles.error}>
             {errors.submit}
           </Text>
           }
         </View>
       </View>
-
     );
   }
 }
+
+Form.propTypes = {
+  onSubmit: React.PropTypes.func.isRequired,
+  errors: React.PropTypes.object.isRequired
+};
 
 export default Form;

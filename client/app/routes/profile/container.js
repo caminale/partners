@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
 
+import {Logout} from '../../actions';
 import Scene from './scene';
 
-import {Logout} from '../../actions';
-
 class Container extends Component {
-  logout() {
+  logout = () => {
     Logout();
-  }
+  };
   render() {
     return (
-      <Scene
-        logout={this.logout}
-      />
+      <Scene logout={this.logout}/>
     );
   }
 }

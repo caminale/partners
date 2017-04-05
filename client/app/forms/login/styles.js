@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
 
-export default StyleSheet.create ({
+export default StyleSheet.create({
   container: {
     flexDirection: 'column',
     justifyContent: 'center',
-    height:250,
+    height: 250,
     alignItems: 'center',
     flex:1
   },
@@ -26,19 +26,13 @@ export default StyleSheet.create ({
     borderColor: '#3c918c'
   },
   input: {
-    height: 40,
-    width:180,
-    borderColor: 'gray',
-    borderWidth: 3
-  },
-  input1: {
     backgroundColor:'#c1b2a3',
     height:40
   },
   withShadow: {
     backgroundColor: '#f9ebd8',
     borderRadius: 3,
-    shadowColor: "#473ea4",
+    shadowColor: '#473ea4',
     shadowOpacity: 0.8,
     shadowRadius: 2,
     shadowOffset: {

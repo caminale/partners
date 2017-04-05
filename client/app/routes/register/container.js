@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Navigator} from 'react-native';
 
 import Scene from './scene';
 
@@ -9,9 +10,9 @@ class Container extends Component {
     super();
     this.goBack = this.goBack.bind(this);
   }
-  goBack() {
+  goBack = () => {
     this.props.navigator.pop();
-  }
+  };
   registerHandler = creds => {
     return Register(creds);
   };
@@ -25,5 +26,9 @@ class Container extends Component {
   }
 
 }
+
+Container.propTypes = {
+  navigator: React.PropTypes.instanceOf(Navigator).isRequired
+};
 
 export default Container;

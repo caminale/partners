@@ -9,6 +9,6 @@ export default class AboutContainer extends Component {
       <View>
         <Scene/>
       </View>
-    )
+    );
   }
 }

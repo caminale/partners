@@ -10,7 +10,7 @@ class Scene extends Component {
   render() {
     return (
       <View>
-        <Text>It's a Match !</Text>
+        <Text>{`It's a Match !`}</Text>
       </View>
     );
   }

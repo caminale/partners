@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Meteor, {createContainer} from 'react-native-meteor';
-
 import settings from './configs/settings';
 import {Start, Loading} from './components';
+import {Start} from './components';
 import {LoggedIn, LoggedOut} from './navigators';
 
 Meteor.connect(settings.METEOR_URL);
@@ -15,17 +15,22 @@ class App extends Component {           //CLASSE APP
       return <Start/>;
     } else if (user !== null) {
       // Connected with meteor and logged in
-      return <LoggedIn />;
+      return <LoggedIn/>;
     }
     // Connected with meteor but not logged in
-    return <LoggedOut />;
+    return <LoggedOut/>;
   }
 }
+
+// App.propTypes = {
+//   status: React.PropTypes.instanceOf(Meteor.status()).isRequired,
+//   user: React.PropTypes.instanceOf(Meteor.user()).isRequired
+// };
 
 export default createContainer(() => {
   return {
     status: Meteor.status(),
     user: Meteor.user(),
-    loggingIn: Meteor.loggingIn(),
+    loggingIn: Meteor.loggingIn()
   };
 }, App);

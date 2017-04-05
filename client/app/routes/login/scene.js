@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
 
-import styles from './styles';
-
 import {LoginForm} from '../../forms';
+import styles from './styles';
 
 const {
   View,
@@ -21,13 +20,20 @@ class Scene extends Component {
           onSubmit={onSubmit}
           onForgot={onForgot}
           onSubmitFacebook={onSubmitFacebook}/>
-        <TouchableOpacity style={styles.button} onPress={() => goBack()}>
+        <TouchableOpacity style={styles.button} onPress={goBack}>
           <Text style={styles.buttonText}>Go back</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
+
+Scene.propTypes = {
+  onSubmit: React.PropTypes.func.isRequired,
+  onSubmitFacebook: React.PropTypes.func.isRequired,
+  onForgot: React.PropTypes.func.isRequired,
+  goBack: React.PropTypes.func.isRequired
+};
 
 export default Scene;
 
