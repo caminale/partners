@@ -5,11 +5,11 @@ import Scene from './scene';
 
 class Container extends Component {
   logout = () => {
-    Logout();
+    Logout();             //Appel de l'acion Logout
   };
   render() {
     return (
-      <Scene logout={this.logout}/>
+      <Scene logout={this.logout}/>       //Passage de l'accès à la méthode définie plus haut
     );
   }
 }

@@ -11,9 +11,9 @@ const {
   TouchableOpacity
 } = ReactNative;
 
-class Scene extends Component {
+class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGISTER/LOGIN)
   navigateToLogin = () => {
-    this.props.navigate('login');
+    this.props.navigate('login');     //Passage de la route login à la fonction navigate prédente dans le container
   };
   navigateToRegister = () => {
     this.props.navigate('register');
@@ -31,7 +31,7 @@ class Scene extends Component {
         </View>
         <View style={styles.containerButtons}>
           <TouchableOpacity style={styles.loginButton}
-                            onPress={this.navigateToLogin}>
+                            onPress={this.navigateToLogin}>         //Appel des 2 fonctions définies plus haut
             <Text style={styles.text}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.registerButton}

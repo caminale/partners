@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
   button: {
     borderWidth: 3,
-    marginTop:15,
+    marginTop: 15,
     padding: 5,
     borderColor: '#3c918c'
   },

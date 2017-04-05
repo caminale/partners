@@ -6,6 +6,14 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     marginTop: 20
   },
+  buttonBack: {
+    borderWidth: 3,
+    marginTop: 15,
+    marginHorizontal: 100,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderColor: '#3c918c'
+  },
   header: {
     textAlign: 'center',
     fontWeight: 'bold',

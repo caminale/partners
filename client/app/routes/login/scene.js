@@ -12,12 +12,12 @@ const {
 
 class Scene extends Component {
   render() {
-    const {onSubmit, onSubmitFacebook, onForgot, goBack} = this.props;
+    const {onSubmit, onSubmitFacebook, onForgot, goBack} = this.props;      //Recuperation des paramètres (accès aux fonctions du container)
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Login</Text>
-        <LoginForm
-          onSubmit={onSubmit}
+        <LoginForm                                 //Appel du dossier forms contenant le formulaire avec validation
+          onSubmit={onSubmit}                     //Passage de l'accès au fonctions du container
           onForgot={onForgot}
           onSubmitFacebook={onSubmitFacebook}/>
         <TouchableOpacity style={styles.button} onPress={goBack}>
@@ -28,7 +28,7 @@ class Scene extends Component {
   }
 }
 
-Scene.propTypes = {
+Scene.propTypes = {                     //?????
   onSubmit: React.PropTypes.func.isRequired,
   onSubmitFacebook: React.PropTypes.func.isRequired,
   onForgot: React.PropTypes.func.isRequired,
