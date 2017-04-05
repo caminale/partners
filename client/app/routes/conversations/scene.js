@@ -14,7 +14,7 @@ class Scene extends Component {
   constructor() {
     super();
     Meteor.subscribe('conversations');
-  }
+}
   onAddRoom({title, description}) {
     Meteor.call('addConversation',  title, description);
   }
