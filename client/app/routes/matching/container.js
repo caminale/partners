@@ -5,7 +5,8 @@ import Scene from './scene';
 class Container extends Component {
   render() {
     return (
-      <Scene/>
+      <Scene
+        onSelect={this.selectHandler}/>
     );
   }
 }

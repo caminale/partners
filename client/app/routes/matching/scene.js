@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
 
-const {
-  View,
+import {MatchingForm} from '../../forms';
+
+const {View,
   Text
 } = ReactNative;
 
 class Scene extends Component {
   render() {
+    const {onSelect} = this.props;
     return (
       <View>
-        <Text>It's a Match !</Text>
+        <MatchingForm
+        onSelect={onSelect}/>
       </View>
     );
   }
