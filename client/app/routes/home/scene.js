@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
 
-import styles from './styles';
 import images from '../../images';
+import styles from './styles';
 
 const {
   View,
@@ -11,24 +11,31 @@ const {
   TouchableOpacity
 } = ReactNative;
 
-class Scene extends Component {
+class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGISTER/LOGIN)
+  navigateToLogin = () => {
+    this.props.navigate('login');     //Passage de la route login à la fonction navigate prédente dans le container
+  };
+  navigateToRegister = () => {
+    this.props.navigate('register');
+  };
   render() {
-    const {navigate} = this.props;
     return (
-      <View style = {styles.container}>
+      <View style={styles.container}>
         <Text style={styles.title}>
           Partners
         </Text>
-        <View style = {styles.image}>
+        <View style={styles.image}>
           <Image
             source={images.logo}
-          />
+            />
         </View>
         <View style={styles.containerButtons}>
-          <TouchableOpacity style={styles.loginButton} onPress={() => navigate('login')}>
+          <TouchableOpacity style={styles.loginButton}
+                            onPress={this.navigateToLogin}>         //Appel des 2 fonctions définies plus haut
             <Text style={styles.text}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.registerButton} onPress={() => navigate('register')}>
+          <TouchableOpacity style={styles.registerButton}
+                            onPress={this.navigateToRegister}>
             <Text style={styles.text}>Register</Text>
           </TouchableOpacity>
         </View>

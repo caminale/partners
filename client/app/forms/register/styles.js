@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-    height:40,
+    height: 40,
     alignItems: 'center'
   },
   text: {
@@ -17,16 +16,13 @@ const styles = StyleSheet.create ({
   button: {
     borderWidth: 3,
     padding: 1,
-    height:50,
-    margin:30,
-    borderColor: '#3c918c',
+    height: 50,
+    margin: 30,
+    borderColor: '#3c918c'
   },
-  input1: {
-    backgroundColor:'#c1b2a3'
+  input: {
+    backgroundColor: '#c1b2a3'
 
-  },
-  input2: {
-    backgroundColor:'#c1b2a3'
   },
   error: {
     color: 'red'

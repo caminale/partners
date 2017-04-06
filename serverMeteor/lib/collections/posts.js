@@ -4,16 +4,16 @@ import {SimpleSchema} from 'meteor/aldeed:simple-schema';
 const PostSchema = new SimpleSchema({
   message: {
     type: String,
-    max: 1000,
+    max: 1000
   },
   author: {
-    type: String,
+    type: String
   },
   submitDate: {
-    type: Date,
+    type: Date
   },
   conversationId: {
-    type: String,
+    type: String
   }
 });
 

@@ -13,8 +13,9 @@ class Component extends React.Component {
     const {onPress} = this.props;
     return (
       <TouchableOpacity
+        style={styles.button}
         onPress={onPress}
-        style = {styles.button}>
+        >
         <Text style={styles.text}>
           Facebook login
         </Text>
@@ -22,5 +23,9 @@ class Component extends React.Component {
     );
   }
 }
+
+Component.propTypes = {
+  onPress: React.PropTypes.func.isRequired
+};
 
 export default Component;

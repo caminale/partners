@@ -9,7 +9,7 @@ const {
   Text
 } = ReactNative;
 
-class Scene extends Component {
+class Scene extends Component {             //Vues avec bouton deconnexion
   render() {
     const {logout} = this.props;
 
@@ -22,5 +22,9 @@ class Scene extends Component {
     );
   }
 }
+
+Scene.propTypes = {
+  logout: React.PropTypes.func.isRequired
+};
 
 export default Scene;
