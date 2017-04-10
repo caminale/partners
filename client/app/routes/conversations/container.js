@@ -12,10 +12,10 @@ class Container extends Component {
       }
     });
   };
-  render() {
+  render() {   //Appel de la scene avec passage de l'accès à la fonction selectConversation
     return (
       <View>
-        <Scene selectConversation={this.selectConversation}/>  //Appel de la scene avec passage de l'accès à la fonction selectConversation
+        <Scene selectConversation={this.selectConversation}/>
       </View>
     );
   }

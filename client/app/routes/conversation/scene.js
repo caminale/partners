@@ -55,9 +55,9 @@ class Scene extends Component {
           renderRow={this.renderItem}
           renderHeader={this.renderHeader}
           />
-        <TouchableOpacity
+        <TouchableOpacity                             //Appel de la fonction onAddPost pour envoyer un message
           style={styles.button}
-          onPress={this.onAddPost}>         //Appel de la fonction onAddPost pour envoyer un message
+          onPress={this.onAddPost}>
           <Text>Send</Text>
         </TouchableOpacity>
         <TextInput
