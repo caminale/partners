@@ -16,9 +16,7 @@ import RadioForm, {
 
 var radio_props = [
   {label: 'debutant ', value: 0},
-  {label: 'intermediaire ', value: 1},
-  {label: 'expert', value: 2}
-
+  {label: 'experimenté ', value: 1}
 ];
 
 

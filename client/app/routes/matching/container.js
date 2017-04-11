@@ -3,8 +3,6 @@ import React, {Component} from 'react';
 import Scene from './scene';
 import MatchingFormDeb from '../../forms/matching/formDebutant';
 import MatchingFormInt from '../../forms/matching/formIntermediaire';
-import MatchingFormExp from '../../forms/matching/formExpert';
-
 
 class Container extends Component {
 
@@ -42,12 +40,6 @@ class Container extends Component {
     else if (this.state.value1 === 1) {
       return (
         <MatchingFormInt onSubmit={this.setLevel} />
-
-      );
-    }
-    else if (this.state.value1 === 2) {
-      return (
-        <MatchingFormExp onSubmit={this.setLevel} />
 
       );
     }
