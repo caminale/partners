@@ -30,8 +30,8 @@ class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGIS
             />
         </View>
         <View style={styles.containerButtons}>
-          <TouchableOpacity style={styles.loginButton}
-                            onPress={this.navigateToLogin}>         //Appel des 2 fonctions définies plus haut
+          <TouchableOpacity style={styles.loginButton}  //Appel des 2 fonctions définies plus haut
+                            onPress={this.navigateToLogin}>
             <Text style={styles.text}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.registerButton}

@@ -17,8 +17,10 @@ class MyNavigator extends React.Component {                 //NAVIGATEUR de gest
         initialPage={1}
         renderTabBar={this.renderTabBar}
         >
-        <Profile tabLabel="ios-paper"/>         //Icones et passages des routes vers Profile, Matching et le navigateur CONVERSASIONS
-        <Matching tabLabel="ios-people"/>       //qui seront appelée par tabBar via ScrollableTabView
+        <Profile tabLabel="ios-paper"   //Icones et passages des routes vers Profile, Matching et le navigateur CONVERSASIONS
+        />
+        <Matching tabLabel="ios-people"   //qui seront appelée par tabBar via ScrollableTabView
+        />
         <ConversationNavigator tabLabel="ios-chatboxes"/>
       </ScrollableTabView>
     );

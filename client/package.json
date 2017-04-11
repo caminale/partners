@@ -18,7 +18,7 @@
     "react-native-vector-icons": "^4.0.0"
   },
   "xo": {
-		"extends": "xo-react",
+    "extends": "xo-react",
     "esnext": true,
     "envs": [
       "node"
@@ -38,8 +38,8 @@
       ]
     },
     "ignores": [
-			"__tests__/**"
-		]
+      "__tests__/**"
+    ]
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
