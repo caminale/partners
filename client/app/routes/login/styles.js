@@ -17,14 +17,11 @@ export default StyleSheet.create({
     marginVertical: 10,
   },
   button: {
-<<<<<<< HEAD
     backgroundColor:'transparent',
-=======
     borderWidth: 3,
     marginTop: 15,
     padding: 5,
     borderColor: '#3c918c'
->>>>>>> df16305c2c486193a2f91466b9d952561fced9bf
   },
   buttonText: {
     color : '#FFF',
