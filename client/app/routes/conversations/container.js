@@ -6,13 +6,13 @@ import Scene from './scene';
 class Container extends Component {
   selectConversation = conversation => {
     this.props.navigator.push({
-      name: 'conversation',
-      passProps: {
+      name: 'conversation',           //Passage de la route conversation au navigateur
+      passProps: {                  //Paramètre supplémentaire : Quelle conversation en particulier
         conversation
       }
     });
   };
-  render() {
+  render() {   //Appel de la scene avec passage de l'accès à la fonction selectConversation
     return (
       <View>
         <Scene selectConversation={this.selectConversation}/>
@@ -21,7 +21,7 @@ class Container extends Component {
   }
 }
 
-Container.propTypes = {
+Container.propTypes = {     //??
   navigator: React.PropTypes.object.isRequired
 };
 

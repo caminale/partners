@@ -5,20 +5,20 @@ import Scene from './scene';
 
 import {Register} from '../../actions';
 
-class Container extends Component {
+class Container extends Component {         //Container formulaire d'inscription
   constructor() {
     super();
     this.goBack = this.goBack.bind(this);
   }
-  goBack = () => {
+  goBack = () => {        //Appel du navigateur passé en paramètre
     this.props.navigator.pop();
   };
-  registerHandler = creds => {
+  registerHandler = creds => {        //Appel de l'action register
     return Register(creds);
   };
   render() {
     return (
-      <Scene
+      <Scene                           //Appel de la scene avec passage de l'accès aux différentes fonctions définies plus haut
         onSubmit={this.registerHandler}
         goBack={this.goBack}
       />
@@ -27,7 +27,7 @@ class Container extends Component {
 
 }
 
-Container.propTypes = {
+Container.propTypes = {               //??
   navigator: React.PropTypes.instanceOf(Navigator).isRequired
 };
 

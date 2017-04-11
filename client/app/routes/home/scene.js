@@ -11,9 +11,9 @@ const {
   TouchableOpacity
 } = ReactNative;
 
-class Scene extends Component {
+class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGISTER/LOGIN)
   navigateToLogin = () => {
-    this.props.navigate('login');
+    this.props.navigate('login');     //Passage de la route login à la fonction navigate prédente dans le container
   };
   navigateToRegister = () => {
     this.props.navigate('register');
@@ -25,9 +25,7 @@ class Scene extends Component {
           Partners
         </Text>
         <View style={styles.image}>
-          <Image
-            source={images.logo}
-            />
+          <Image source={images.logo}/>
         </View>
         <View style={styles.containerButtons}>
           <TouchableOpacity style={styles.loginButton}

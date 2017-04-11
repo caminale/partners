@@ -3,32 +3,46 @@ import {Accounts} from 'react-native-meteor';
 
 
 const forgot = creds => {
-  console.log('holilaoi');
+  console.log('holilao88i');
 
-   return new Promise((resolve, reject) => {
-     Accounts.forgotPassword = function (creds) {
+  /*Accounts.forgotPassword = function (creds) {
 
-       console.log('holila88888');
-       Meteor.call("forgotPassword", creds);
-       resolve();
+   console.log('holila88888');
+   if(Meteor.call("forgotPassword", creds))
+   {
+   console.log('c est gagné');
 
 
-     }
-   });
-  // });
-  /*
-   return Meteor.forgotPassword = function(creds) {
-   if (!creds.email) {
-
-   return reportError(new Meteor.Error(400, "Must pass options.email"), callback);
+   }
+   else {
+   console.log('raté morray');
    }
 
-   if (callback) {
-   Accounts.connection.call("forgotPassword", options, callback);
-   } else {
-   Meteor.call("forgotPassword", creds);console.log('holila88888');
-   }
-   };*/
+
+   }*/
+
+  Accounts.forgotPassword({email: creds.email}, (error) => {
+    if (error) {
+      console.log(error.reason);
+      console.log('cest raté');
+
+    } else {
+      console.log('cest gagné');
+     //  Accounts.connection.call("forgotPassword", {email: 'darkjuju78@hotmail.fr'});
+
+      // success
+    }
+  });
+
 };
 
 export default forgot;
+/*
+ let email = this.refs.email.value;
+ Accounts.forgotPassword({email: email}, function (e, r) {
+ if (e) {
+ console.log(e.reason);
+ } else {
+ // success
+ }
+ });*/

@@ -14,6 +14,7 @@ const {
 class Scene extends Component {
   constructor() {
     super();
+
     Meteor.subscribe('posts');
     this.state = {
       message: ''
@@ -22,7 +23,8 @@ class Scene extends Component {
   setMessage = message => {
     this.setState({message});
   };
-  onAddPost = () => {
+
+  onAddPost = () => {         //Envois du message à meteor
     Meteor.call('addPost', 'azeeerr', this.state.message);
   };
   renderHeader = () => {
@@ -36,18 +38,24 @@ class Scene extends Component {
     );
   };
   render() {
+    const {goBack} = this.props;
     return (
       <View>
+        <TouchableOpacity
+          style={styles.buttonBack}
+          onPress={goBack}>
+          <Text>BACK</Text>
+        </TouchableOpacity>
         <Text style={styles.postTitle}>
           Ici il y a aura une conversation
         </Text>
-        <MeteorListView
+        <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
           collection="posts"
           enableEmptySections
           renderRow={this.renderItem}
           renderHeader={this.renderHeader}
           />
-        <TouchableOpacity
+        <TouchableOpacity                             //Appel de la fonction onAddPost pour envoyer un message
           style={styles.button}
           onPress={this.onAddPost}>
           <Text>Send</Text>
