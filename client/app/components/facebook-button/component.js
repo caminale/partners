@@ -5,21 +5,24 @@ import styles from './styles';
 
 const {
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  View
 } = ReactNative;
 
 class Component extends React.Component {
   render() {
     const {onPress} = this.props;
     return (
+      <View style={styles.buttonWrap}>
       <TouchableOpacity
         style={styles.button}
         onPress={onPress}
         >
         <Text style={styles.text}>
-          Facebook login
+          Log in with Facebook
         </Text>
       </TouchableOpacity>
+      </View>
     );
   }
 }

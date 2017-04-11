@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactNative from 'react-native';
-import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {Kohana} from 'react-native-textinput-effects';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import {Fumi} from 'react-native-textinput-effects';
 
 import styles from './styles';
 
 const {
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } = ReactNative;
 
 class Form extends React.Component {
@@ -42,109 +42,105 @@ class Form extends React.Component {
     const {errors} = this.props;
 
     return (
-      <View >
-        <View style={styles.container}>
-          <Kohana
+      <ScrollView>
+        <View style={styles.inputWrap}>
+          <Fumi
             style={styles.input}
-            label={'username'}
-            iconClass={FontAwesome}
-            iconName={'user-circle'}
-            iconColor={'#3c918c'}
             labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#FFF'}}
+            label={'Username'}
+            iconClass={FontAwesomeIcon}
+            iconName={'user'}
+            iconColor={'#f95a25'}
             onChangeText={this.setUsername}
           />
         </View>
-        <View>
+        <View style={styles.errorWrap}>
           {errors.username &&
-          <Text style={styles.error}>
+          <Text style={styles.errorStyle}>
             {errors.username}
           </Text>
           }
-          <Text style={styles.text}/>
         </View>
-        <View style={styles.container}>
-          <Kohana
+        <View style={styles.inputWrap}>
+          <Fumi
             style={styles.input}
-            label={'e-mail'}
-            iconClass={FontAwesome}
-            iconName={'user-circle'}
-            iconColor={'#3c918c'}
             labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#FFF'}}
+            label={'Email'}
+            iconClass={FontAwesomeIcon}
+            iconName={'envelope'}
+            iconColor={'#f95a25'}
             onChangeText={this.setEmail}
           />
         </View>
-        <View >
+        <View style={styles.errorWrap}>
           {errors.email &&
           <Text
-            style={styles.error}
+            style={styles.errorStyle}
           >
             {errors.email}
           </Text>
           }
-          <Text style={styles.text}/>
         </View>
-        <View style={styles.container}>
-          <Kohana
-            style={styles.input2}
-            label={'password'}
-            iconClass={MaterialsIcon}
-            iconName={'https'}
-            iconColor={'#3c918c'}
+        <View style={styles.inputWrap}>
+          <Fumi
+            style={styles.input}
             labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#FFF'}}
             secureTextEntry
+            label={'Password'}
+            iconClass={FontAwesomeIcon}
+            iconName={'lock'}
+            iconColor={'#f95a25'}
             onChangeText={this.setPassword}
           />
         </View>
-        <View>
+        <View style={styles.errorWrap}>
           {errors.password &&
-          <Text style={styles.error}>
+          <Text style={styles.errorStyle}>
             {errors.password}
           </Text>
           }
         </View>
-        <View style={styles.container}>
+        <View style={styles.inputWrap}>
 
-          <Kohana
+          <Fumi
             style={styles.input}
-            label={'confirm password'}
-            iconClass={MaterialsIcon}
-            iconName={'https'}
-            iconColor={'#3c918c'}
             labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#FFF'}}
             secureTextEntry
+            label={'Confirm Password'}
+            iconClass={FontAwesomeIcon}
+            iconName={'lock'}
+            iconColor={'#f95a25'}
             onChangeText={this.setConfPassword}
           />
         </View>
-        <View>
+        <View style={styles.errorWrap}>
           {errors.confPassword &&
-          <Text style={styles.error}>
+          <Text style={styles.errorStyle}>
             {errors.confPassword}
           </Text>
           }
         </View>
-        <Text>
-          {'\n'}
-        </Text>
-        <View>
+        <View style={styles.buttonWrap}>
           <TouchableOpacity
             onPress={this.onSubmit}
             style={styles.button}>
-            <Text style={styles.text}>
+            <Text style={styles.buttonText}>
               Register
             </Text>
           </TouchableOpacity>
-
+        </View>
+          <View style={styles.errorWrap}>
           {errors.submit &&
-          <Text style={styles.error}>
+          <Text style={styles.errorStyle}>
             {errors.submit}
           </Text>
           }
-        </View>
-      </View>
+          </View>
+      </ScrollView>
     );
   }
 }

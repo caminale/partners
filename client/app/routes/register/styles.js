@@ -2,32 +2,32 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: '#f9ebd8',
-    flex: 1
-  },
-  container1: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: '#f9ebd8',
-    alignItems: 'center'
+    // justifyContent: 'center',
+    backgroundColor: '#f9ebd8'
   },
-  title: {
-    paddingVertical: 15,
-    color: '#3c918c',
-    fontSize: 30
+  registerWrap: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent'
   },
-  text: {
-    paddingVertical: 15,
+  titleText: {
+    fontWeight: 'bold',
+    fontFamily: 'sans-serif-condensed',
+    marginVertical: 20,
+    fontSize: 40,
     color: '#3c918c',
-    fontSize: 19
+  },
+  buttonText: {
+    color : '#FFF',
+    backgroundColor:'transparent',
+  },
+  buttonWrap: {
+    paddingHorizontal: 65,
+    marginVertical: 10,
   },
   button: {
-    // BorderWidth: 3,
-    padding: 2,
-    borderColor: '#f9ebd8',
-    height: 50,
-    marginTop: 60,
-    borderRightWidth: 260
-
+    backgroundColor:'transparent',
   }
 });

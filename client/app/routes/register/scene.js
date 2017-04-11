@@ -7,7 +7,8 @@ import styles from './styles';
 const {
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } = ReactNative;
 
 class Scene extends Component {
@@ -15,15 +16,19 @@ class Scene extends Component {
     const {onSubmit, goBack} = this.props;
     return (
       <View style={styles.container}>
-        <View style={styles.container1}>
-          <Text style={styles.title}>Register</Text>
+        <Image style={[styles.background, styles.container]}
+               source={{uri: 'https://thebioscopist.files.wordpress.com/2012/08/sylvester-stallone-rocky-balboa-wallpaper-for-1920x1080-hdtv-1080p-830-15.jpg'}}
+               resizeMode="cover">
+        <View style={styles.registerWrap}>
+          <Text style={styles.titleText}>Register</Text>
         </View>
-        <View>
           <RegisterForm onSubmit={onSubmit}/>
+          <View style={styles.buttonWrap}>
           <TouchableOpacity style={styles.button} onPress={goBack}>
-            <Text style={styles.text}>Go back</Text>
+            <Text style={styles.buttonText}>Go back</Text>
           </TouchableOpacity>
         </View>
+        </Image>
       </View>
     );
   }

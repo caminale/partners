@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactNative from 'react-native';
-import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {Kohana} from 'react-native-textinput-effects';
-
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import {Fumi} from 'react-native-textinput-effects';
 import {FacebookButton} from '../../components';
 import styles from './styles';
+
 
 const {
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } = ReactNative;
 
 class Form extends React.Component {
@@ -19,9 +19,10 @@ class Form extends React.Component {
 
     this.state = {
       password: '',
-      usernameEmail:''
+      usernameEmail: ''
     };
   }
+
   onSubmit = () => {
     this.props.onSubmit(this.state);
   };
@@ -37,81 +38,81 @@ class Form extends React.Component {
   onForgot = () => {
     this.props.onForgot(this.state);
   };
+
   render() {
     const {errors} = this.props;
     return (
-      <View style={styles.container}>
-        <View style={styles.container1}>
+      <ScrollView>
 
-          <Kohana
+        <View style={styles.inputWrap}>
+          <Fumi
             style={styles.input}
-            label={'e-mail/username'}
-            height={40}
-            iconClass={FontAwesome}
-            iconName={'user-circle'}
-            iconColor={'#3c918c'}
-            labelStyle={{ color: '#3c918c' }}
-            inputStyle={{ color: '#3c918c' }}
+            labelStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#FFF'}}
+            label={'Username'}
+            iconClass={FontAwesomeIcon}
+            iconName={'user'}
+            iconColor={'#f95a25'}
             onChangeText={this.setUsernameEmail}
           />
 
         </View>
-
-        <Text style={styles.text}>
-          {'\n'}
-        </Text>
-        <View style={styles.container1}>
-          <Kohana
+        <View style={styles.inputWrap}>
+          <Fumi
             style={styles.input}
-            label={'password'}
-            iconClass={MaterialsIcon}
-            iconName={'https'}
-            iconColor={'#3c918c'}
-            labelStyle={{ color: '#3c918c' }}
-            inputStyle={{ color: '#3c918c' }}
+            labelStyle={{color: '#3c918c'}}
+            inputStyle={{color: '#FFF'}}
+            secureTextEntry
+            label={'Password'}
+            iconClass={FontAwesomeIcon}
+            iconName={'lock'}
+            iconColor={'#f95a25'}
             onChangeText={this.setPassword}
-            secureTextEntry={true}
           />
         </View>
-        {errors.usernameEmail &&
-        <Text style={styles.error}>
-          {errors.usernameEmail}
-        </Text>
-        }
-        {errors.password &&
-        <Text style={styles.error}>
-          {errors.password}
-        </Text>
-        }
-        <Text>
-          {'\n'}
-        </Text>
-
-        <TouchableOpacity
-          onPress={this.onSubmit}
-          style={styles.button}>
-          <Text style={styles.text}>
-            Login
+        <View style={styles.errorWrap}>
+          {errors.usernameEmail &&
+          <Text style={styles.errorStyle}>
+            {errors.usernameEmail}
           </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={this.onForgot}
-          style = {styles.button}>
-          <Text style={styles.text}>
-            forgot password ?
+          }
+          {errors.password &&
+          <Text style={styles.errorStyle}>
+            {errors.password}
           </Text>
-        </TouchableOpacity>
-        {errors.submit &&
-        <Text style={styles.error}>
-          {errors.submit}
-        </Text>
-        }
-        <FacebookButton onPress={this.onSubmitFacebook}/>
-      </View>
+          }
+          {errors.submit &&
+          <Text style={styles.errorStyle}>
+            {errors.submit}
+          </Text>
+          }
+        </View>
+        <View style={styles.buttonWrap}>
+          <TouchableOpacity
+            onPress={this.onSubmit}
+            style={styles.loginButton}>
+            <Text style={styles.buttonText}>
+              Login
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.buttonWrap}>
+          <FacebookButton
+            onPress={this.onSubmitFacebook}/>
+        </View>
+        <View style={styles.buttonWrap}>
+          <TouchableOpacity
+            onPress={this.onForgot}
+            style={styles.forgotButton}>
+            <Text style={styles.buttonText}>
+              forgot password ?
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     );
   }
 }
-
 Form.propTypes = {
   onSubmit: React.PropTypes.func.isRequired,
   onSubmitFacebook: React.PropTypes.func.isRequired,
