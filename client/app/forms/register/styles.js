@@ -1,32 +1,48 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    height: 40,
-    alignItems: 'center'
+  inputWrap: {
+    paddingHorizontal: 15,
+    marginVertical: 10,
+    height:50,
+    backgroundColor:'transparent'
   },
-  text: {
-    paddingVertical: 15,
-    color: '#3c918c',
-    justifyContent: 'center',
-    fontSize: 15
+  errorStyle: {
+    color: 'red',
   },
   button: {
-    borderWidth: 3,
-    padding: 1,
-    height: 50,
-    margin: 30,
-    borderColor: '#3c918c'
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderColor:'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height : 35,
   },
-  input: {
-    backgroundColor: '#c1b2a3'
+  buttonWrap: {
+    paddingHorizontal: 65,
+    marginVertical: 20,
+  },
+  buttonText :{
+    color : '#FFF',
+    alignItems: 'center',
+    justifyContent: 'center',
 
   },
-  error: {
-    color: 'red'
+  input: {
+    flex:1,
+    // backgroundColor:'#FFF',
+    backgroundColor:'transparent',
+    borderWidth: 2,
+    borderColor:'white',
+
+  },
+  errorWrap:{
+    paddingHorizontal: 15,
+    marginVertical: 2,
+    // height:20,
+    // backgroundColor:'transparent'
   }
+
 });
 
 export default styles;

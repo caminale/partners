@@ -2,14 +2,19 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   text: {
-    paddingVertical: 15,
+    paddingVertical: 10,
     color: 'white',
     justifyContent: 'center',
     fontSize: 15
   },
   button: {
-    borderWidth: 3,
     padding: 5,
-    backgroundColor: 'blue'
-  }
+    backgroundColor: '#3b5998',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonWrap: {
+    height : 35,
+    marginVertical: 0,
+  },
 });

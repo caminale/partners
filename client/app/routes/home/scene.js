@@ -25,11 +25,10 @@ class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGIS
           Partners
         </Text>
         <View style={styles.image}>
-          <Image
-            source={images.logo}
-            />
+          <Image source={images.logo}/>
         </View>
         <View style={styles.containerButtons}>
+
           <TouchableOpacity style={styles.loginButton}  //Appel des 2 fonctions définies plus haut
                             onPress={this.navigateToLogin}>
             <Text style={styles.text}>Login</Text>

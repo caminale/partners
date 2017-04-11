@@ -1,46 +1,55 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    height: 250,
-    alignItems: 'center',
-    flex:1
-  },
-  container1: {
-    flexDirection: 'column',
-    justifyContent: 'space-between',
+
+  // I did for each component a wrap to manage their position
+  inputWrap: {
+    paddingHorizontal: 15,
+    marginVertical: 10,
     height:50,
-    alignItems: 'center'
   },
-  text: {
-    paddingVertical: 15,
-    color: '#3c918c',
+  buttonWrap: {
+     paddingHorizontal: 65,
+     marginVertical: 20,
+  },
+  errorWrap:{
+    paddingHorizontal: 15,
+    marginVertical: 5,
+  },
+  buttonText :{
+    color : '#FFF',
+    alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 15
+
   },
-  button: {
-    borderWidth: 3,
-    padding: 8,
-    borderColor: '#3c918c'
+  errorStyle: {
+    color: 'red',
   },
-  input: {
-    backgroundColor:'#c1b2a3',
-    height:40
+
+  input:{
+    flex:1,
+    // backgroundColor:'#FFF',
+    backgroundColor:'transparent',
+    borderWidth: 2,
+    borderColor:'white',
+
   },
-  withShadow: {
-    backgroundColor: '#f9ebd8',
-    borderRadius: 3,
-    shadowColor: '#473ea4',
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 4,
-      width: -4
-    }
+  forgotButton:{
+    // backgroundColor: 'green',
+    backgroundColor:'transparent',
+    // borderWidth: 0.5,
+    //https://facebook.github.io/react-native/docs/flexbox.html for to see alignItem,flexdirection,justify...
+    alignItems: 'center',
+    justifyContent: 'center',
+    height : 35,
   },
-  error: {
-    color: 'red'
-  }
+  loginButton: {
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderColor:'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height : 35,
+  },
+
 });
