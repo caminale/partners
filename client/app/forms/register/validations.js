@@ -24,7 +24,6 @@ const validateUsername = username => {
   return null;
 };
 
-
 /**
  * Validate password
  * Return string if invalid, null otherwise
@@ -34,9 +33,7 @@ const validateUsername = username => {
 const validatePassword = password => {
   if (password.length === 0) {
     return 'You must enter a password';
-  }
-
-  else if (password.length > 0 && password.length <6) {
+  } else if (password.length > 0 && password.length < 6) {
     return 'Your password must be 6 caracters long';
   }
   return null;
@@ -51,8 +48,7 @@ const validatePassword = password => {
 const validatePasswordConfirm = (password, confPassword) => {
   if (confPassword.length === 0) {
     return 'Your must confirm your password';
-  }
-  else if (password != confPassword) {
+  } else if (password != confPassword) {
     return 'Your passwords are not identical ';
   }
 

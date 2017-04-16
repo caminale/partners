@@ -7,9 +7,7 @@ import styles from './styles';
 const Component = () => {
   return (
     <View style={styles.container}>
-      <Image
-        source={images.logo}
-        />
+      <Image source={images.logo}/>
     </View>
   );
 };

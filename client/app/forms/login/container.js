@@ -6,7 +6,6 @@ import formValidationSync from './validations';
 class Container extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       errors: {}
     };
@@ -26,18 +25,13 @@ class Container extends Component {
       this.setState({errors: validation.errors});
     }
   };
-  onForgot = creds => {
-    const {onForgot} = this.props;
-      onForgot(creds)
-  };
   render() {
-    const {errors} = this.state;
     return (
       <Form
         onSubmit={this.onSubmit}
-        onForgot={this.onForgot}
+        onForgot={this.props.onForgot}
         onSubmitFacebook={this.props.onSubmitFacebook}
-        errors={errors}
+        errors={this.state.errors}
         />
     );
   }

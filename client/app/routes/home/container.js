@@ -8,12 +8,12 @@ class Container extends Component {
     super();
     this.navigate = this.navigate.bind(this);
   }
-  navigate(name) {          //Appel de la methode push du navigateur passé en paramètre du composant
+  navigate(name) {          // Appel de la methode push du navigateur passé en paramètre du composant
     this.props.navigator.push({
       name
     });
   }
-  render() {                    //Appel de la scene en lui passant un accès à la fonction navigate plus haut
+  render() {                    // Appel de la scene en lui passant un accès à la fonction navigate plus haut
     return <Scene navigate={this.navigate}/>;
   }
 }

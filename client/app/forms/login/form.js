@@ -2,9 +2,9 @@ import React from 'react';
 import ReactNative from 'react-native';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import {Fumi} from 'react-native-textinput-effects';
+
 import {FacebookButton} from '../../components';
 import styles from './styles';
-
 
 const {
   View,
@@ -113,6 +113,7 @@ class Form extends React.Component {
     );
   }
 }
+
 Form.propTypes = {
   onSubmit: React.PropTypes.func.isRequired,
   onSubmitFacebook: React.PropTypes.func.isRequired,

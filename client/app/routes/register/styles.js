@@ -4,7 +4,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    // justifyContent: 'center',
+    // JustifyContent: 'center',
     backgroundColor: '#f9ebd8'
   },
   registerWrap: {
@@ -17,17 +17,17 @@ export default StyleSheet.create({
     fontFamily: 'sans-serif-condensed',
     marginVertical: 20,
     fontSize: 40,
-    color: '#3c918c',
+    color: '#3c918c'
   },
   buttonText: {
-    color : '#FFF',
-    backgroundColor:'transparent',
+    color: '#FFF',
+    backgroundColor: 'transparent'
   },
   buttonWrap: {
     paddingHorizontal: 65,
-    marginVertical: 10,
+    marginVertical: 10
   },
   button: {
-    backgroundColor:'transparent',
+    backgroundColor: 'transparent'
   }
 });

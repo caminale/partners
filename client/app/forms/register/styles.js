@@ -4,42 +4,42 @@ const styles = StyleSheet.create({
   inputWrap: {
     paddingHorizontal: 15,
     marginVertical: 10,
-    height:50,
-    backgroundColor:'transparent'
+    height: 50,
+    backgroundColor: 'transparent'
   },
   errorStyle: {
-    color: 'red',
+    color: 'red'
   },
   button: {
     backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor:'white',
+    borderColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
-    height : 35,
+    height: 35
   },
   buttonWrap: {
     paddingHorizontal: 65,
-    marginVertical: 20,
+    marginVertical: 20
   },
-  buttonText :{
-    color : '#FFF',
+  buttonText: {
+    color: '#FFF',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
 
   },
   input: {
-    flex:1,
-    // backgroundColor:'#FFF',
-    backgroundColor:'transparent',
+    flex: 1,
+    // BackgroundColor:'#FFF',
+    backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor:'white',
+    borderColor: 'white'
 
   },
-  errorWrap:{
+  errorWrap: {
     paddingHorizontal: 15,
-    marginVertical: 2,
-    // height:20,
+    marginVertical: 2
+    // Height:20,
     // backgroundColor:'transparent'
   }
 

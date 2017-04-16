@@ -14,14 +14,14 @@ class Component extends React.Component {
     const {onPress} = this.props;
     return (
       <View style={styles.buttonWrap}>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={onPress}
-        >
-        <Text style={styles.text}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={onPress}
+          >
+          <Text style={styles.text}>
           Log in with Facebook
         </Text>
-      </TouchableOpacity>
+        </TouchableOpacity>
       </View>
     );
   }

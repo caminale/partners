@@ -10,12 +10,13 @@ class Container extends Component {
   onSelect(creds) {
     const {onSubmit} = this.props;
     console.log(this.props.valueOf());
-    }
+  }
 
   render() {
     return (
       <Form
-        onSelect={creds => this.onSelect(creds)}/>
+        onSelect={creds => this.onSelect(creds)}
+        />
     );
   }
 }

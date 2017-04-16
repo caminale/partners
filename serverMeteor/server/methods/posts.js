@@ -10,11 +10,11 @@ export default {
     if (!user) {
       return;
     }
-
+    console.log(user.username);
     Posts.insert({
       conversationId,
       message,
-      author: user._id,
+      author: user.username,
       submitDate: new Date()
     });
   }
