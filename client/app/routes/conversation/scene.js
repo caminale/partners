@@ -8,6 +8,7 @@ import styles from './styles';
 const {
   View,
   Text,
+  ScrollView,
   TextInput,
   TouchableOpacity,
   ScrollView
