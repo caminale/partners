@@ -11,10 +11,10 @@ export default StyleSheet.create({
     padding: 5,
     backgroundColor: '#3b5998',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   buttonWrap: {
-    height : 35,
-    marginVertical: 0,
-  },
+    height: 35,
+    marginVertical: 0
+  }
 });

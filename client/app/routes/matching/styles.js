@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor:'#f9ebd8'
+    backgroundColor: '#f9ebd8'
   },
   button: {
     backgroundColor: '#3c918c',

@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
+    // Flex: 1,
     backgroundColor: 'white',
     marginTop: 20
   },
@@ -13,6 +13,20 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderColor: '#3c918c'
+  },
+  messageWrap: {
+    // // flex: 1,
+    // alignItems: 'stretch',
+    // padding: 10,
+  },
+  ourTextStyle: {
+    color: 'blue'
+  },
+  TextStyle: {
+    color: 'yellow'
+  },
+  authorStyle: {
+    color: 'green'
   },
   header: {
     textAlign: 'center',
@@ -29,7 +43,7 @@ export default StyleSheet.create({
   },
   button: {
     backgroundColor: 'green',
-    borderWidth:2
+    borderWidth: 2
   },
   containerBackground: {
     flex: 1,

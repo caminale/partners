@@ -13,19 +13,22 @@ const {
 
 class Scene extends Component {
   render() {
-    const {onSubmit, onSubmitFacebook, onForgot, goBack} = this.props;      //Recuperation des paramètres (accès aux fonctions du container)
+    const {onSubmit, onSubmitFacebook, onForgot, goBack} = this.props;      // Recuperation des paramètres (accès aux fonctions du container)
     return (
       <View style={styles.container}>
-        <Image style={[styles.background, styles.container]}
-               source={{uri: 'https://thebioscopist.files.wordpress.com/2012/08/sylvester-stallone-rocky-balboa-wallpaper-for-1920x1080-hdtv-1080p-830-15.jpg'}}
-               resizeMode="cover">
+        <Image
+          style={[styles.background, styles.container]}
+          source={{uri: 'https://thebioscopist.files.wordpress.com/2012/08/sylvester-stallone-rocky-balboa-wallpaper-for-1920x1080-hdtv-1080p-830-15.jpg'}}
+          resizeMode="cover"
+          >
           <View style={styles.loginWrap}>
             <Text style={styles.titleText}>Login</Text>
           </View>
           <LoginForm
             onSubmit={onSubmit}
             onForgot={onForgot}
-            onSubmitFacebook={onSubmitFacebook}/>
+            onSubmitFacebook={onSubmitFacebook}
+            />
           <View style={styles.buttonWrap}>
             <TouchableOpacity style={styles.button} onPress={goBack}>
               <Text style={styles.buttonText}>Go back</Text>
@@ -38,7 +41,7 @@ class Scene extends Component {
   }
 }
 
-Scene.propTypes = {                     //?????
+Scene.propTypes = {                     // ?????
   onSubmit: React.PropTypes.func.isRequired,
   onSubmitFacebook: React.PropTypes.func.isRequired,
   onForgot: React.PropTypes.func.isRequired,

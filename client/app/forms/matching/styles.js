@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor:'#f9ebd8'
+    backgroundColor: '#f9ebd8'
   },
   text: {
     paddingVertical: 15,
@@ -20,7 +20,7 @@ export default StyleSheet.create({
     borderColor: '#3c918c'
   },
   input: {
-    backgroundColor:'#c1b2a3',
+    backgroundColor: '#c1b2a3'
 
   },
   error: {

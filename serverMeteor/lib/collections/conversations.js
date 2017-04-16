@@ -13,6 +13,9 @@ const ConversationSchema = new SimpleSchema({
   creationDate: {
     type: Date
   }
+  // Users: [{
+  //   type: User
+  // }]
 });
 
 const Conversations = new Mongo.Collection('conversations');

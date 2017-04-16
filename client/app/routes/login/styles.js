@@ -4,7 +4,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    // justifyContent: 'center',
+    // JustifyContent: 'center',
     backgroundColor: '#f9ebd8'
   },
   loginWrap: {
@@ -14,28 +14,28 @@ export default StyleSheet.create({
   },
   buttonWrap: {
     paddingHorizontal: 65,
-    marginVertical: 10,
+    marginVertical: 10
   },
   button: {
-    backgroundColor:'transparent',
+    backgroundColor: 'transparent',
     borderWidth: 3,
     marginTop: 15,
     padding: 5,
     borderColor: '#3c918c'
   },
   buttonText: {
-    color : '#FFF',
-    backgroundColor:'transparent',
+    color: '#FFF',
+    backgroundColor: 'transparent'
   },
   titleText: {
     fontWeight: 'bold',
     fontFamily: 'sans-serif-condensed',
     marginVertical: 20,
     fontSize: 40,
-    color: '#3c918c',
+    color: '#3c918c'
   },
-  background :{
-    width:null,
-    height:null,
+  background: {
+    width: null,
+    height: null
   }
 });
