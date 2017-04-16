@@ -19,8 +19,6 @@ var radio_props = [
   {label: 'experimenté ', value: 1}
 ];
 
-
-
 class Scene extends React.Component{
 
   constructor(props) {
