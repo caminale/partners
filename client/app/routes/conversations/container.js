@@ -6,10 +6,8 @@ import Scene from './scene';
 class Container extends Component {
   selectConversation = conversation => {
     this.props.navigator.push({
-      name: 'conversation',           //Passage de la route conversation au navigateur
-      passProps: {                  //Paramètre supplémentaire : Quelle conversation en particulier
-        conversation
-      }
+      name: 'conversation',
+      conversation
     });
   };
 

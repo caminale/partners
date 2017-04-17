@@ -4,6 +4,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import {Fumi} from 'react-native-textinput-effects';
 
 import {FacebookButton} from '../../components';
+import {LogRegInput} from '../../components';
 import styles from './styles';
 
 const {
@@ -45,14 +46,9 @@ class Form extends React.Component {
       <ScrollView>
 
         <View style={styles.inputWrap}>
-          <Fumi
-            style={styles.input}
-            labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#FFF'}}
+          <LogRegInput
             label={'Username'}
-            iconClass={FontAwesomeIcon}
             iconName={'user'}
-            iconColor={'#f95a25'}
             onChangeText={this.setUsernameEmail}
           />
 

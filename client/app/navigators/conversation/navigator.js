@@ -11,7 +11,7 @@ class MyNavigator extends Component {             // NAVIGATEUR DE GESTION DES C
   renderScene(route, navigator) {
     switch (route.name) {
       case 'conversation':
-        return <Conversation navigator={navigator}/>;       // Appel de la vue d'une conversation
+        return <Conversation navigator={navigator} conversation={route.conversation}/>;       // Appel de la vue d'une conversation
       case 'conversations':
         return <Conversations navigator={navigator}/>;      // Appel de la vue du nombre de conversations
       default:

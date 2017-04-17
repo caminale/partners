@@ -15,8 +15,8 @@ export default class AboutContainer extends Component {
   render() {
     return (
       <View>
-        <Scene
-          goBack={this.goBack}/>
+        <Scene goBack={this.goBack}
+               conversation={this.props.conversation}/>
       </View>
     );
   }

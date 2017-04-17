@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
 import Meteor, {MeteorListView} from 'react-native-meteor';
-import { GiftedChat } from 'react-native-gifted-chat';
 
 import styles from './styles';
 
@@ -14,54 +13,50 @@ const {
 } = ReactNative;
 
 class Scene extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log('---------------------------');
 
-    Meteor.subscribe('posts');
+    Meteor.subscribe('posts', this.props.conversation._id);
     this.state = {
       message: '',
-      author:'',
+      author: '',
     };
   }
+
   setMessage = message => {
     this.setState({message});
   };
-  getMessages() {
-    return [
-      {text: 'Are you building a chat app?', name: 'React-Native', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2015, 0, 16, 19, 0)},
-      {text: "Yes, and I use Gifted Messenger!", name: 'Developer', image: null, position: 'right', date: new Date(2015, 0, 17, 19, 0)},
-    ];
-  }
   onAddPost = () => {         //Envois du message à meteor
-    Meteor.call('addPost', 'azeeerr', this.state.message);
+    Meteor.call('addPost', {
+      conversationId: this.props.conversation._id,
+      message: this.state.message
+    });
   };
   renderHeader = () => {
     return <Text style={styles.header}>Posts</Text>;
   };
   renderItem = post => {
-    let currentUser=Meteor.user().username
-    if(post.author===currentUser) {
+    let currentUser = Meteor.user().username
+    if (post.author === currentUser) {
       return (
-      <GiftedChat
-        messages={this.getMessages()}
 
-
-      />
-        // <View style={styles.messageWrap}>
-        //   <Text style={styles.ourTextStyle}>{post.message}</Text>
-        //   <Text style={styles.authorStyle}>{post.author}</Text>
-        // </View>
+        <View style={styles.userMessageWrap}>
+          <Text style={styles.ourTextStyle}>{post.message}</Text>
+          <Text style={styles.authorStyle}>{post.author}</Text>
+        </View>
       );
     }
     else {
       return (
-        <View style={styles.messageWrap}>
+        <View style={styles.foreignMessageWrap}>
           <Text style={styles.TextStyle}>{post.message}</Text>
           <Text style={styles.authorStyle}>{post.author}</Text>
         </View>
       );
     }
   };
+
   render() {
     const {goBack} = this.props;
     return (
@@ -76,10 +71,11 @@ class Scene extends Component {
         </Text>
         <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
           collection="posts"
+          selector={{conversationId: this.props.conversation._id}}
           enableEmptySections
           renderRow={this.renderItem}
           renderHeader={this.renderHeader}
-          />
+        />
         <TouchableOpacity
           style={styles.button}//Appel de la fonction onAddPost pour envoyer un message
           onPress={this.onAddPost}>

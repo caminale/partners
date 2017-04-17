@@ -13,12 +13,18 @@ const {
 class Scene extends Component {
   constructor() {
     super();
-    Meteor.subscribe('conversations');
+    Meteor.subscribe('chats', Meteor.user()._id);
 
   }
 
   onAddRoom({title, description}) {
-    Meteor.call('addConversation', title, description);
+    Meteor.call('addChat',{
+      title: "yolo",
+      description: "blablabla",
+      users: [
+        Meteor.user()._id
+      ]
+    });
   }
 
   renderHeader() {
@@ -46,7 +52,7 @@ class Scene extends Component {
           <Text style={styles.conversationTitle}>Add conversation</Text>
         </TouchableOpacity>
         <MeteorListView
-          collection="conversations"
+          collection="chats"
           enableEmptySections
           renderRow={this.renderItem}
           renderHeader={this.renderHeader}

@@ -14,16 +14,25 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderColor: '#3c918c'
   },
-  messageWrap: {
+  userMessageWrap: {
+    flexDirection:'column',
+    textAlign:'right'
+    // alignItems: 'stretch',
+    // padding: 10,
+  },
+  foreignMessageWrap: {
+    flexDirection:'column'
     // // flex: 1,
     // alignItems: 'stretch',
     // padding: 10,
   },
   ourTextStyle: {
-    color: 'blue'
+    color: 'blue',
+    textAlign: 'right'
+
   },
   TextStyle: {
-    color: 'yellow'
+    color: 'black'
   },
   authorStyle: {
     color: 'green'
