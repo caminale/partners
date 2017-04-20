@@ -15,24 +15,28 @@ export default StyleSheet.create({
     borderColor: '#3c918c'
   },
   userMessageWrap: {
-    flexDirection:'column',
-    textAlign:'right'
-    // alignItems: 'stretch',
-    // padding: 10,
+    flexDirection: 'column',
+    backgroundColor: 'blue',
+    marginLeft: 200,
+    marginTop: 10,
+    alignItems: 'center'
   },
   foreignMessageWrap: {
-    flexDirection:'column'
-    // // flex: 1,
-    // alignItems: 'stretch',
-    // padding: 10,
+    flexDirection: 'column',
+    backgroundColor: 'grey',
+    marginLeft: 200,
+    marginTop: 10,
+    alignItems: 'center'
   },
   ourTextStyle: {
-    color: 'blue',
+    color: 'white',
     textAlign: 'right'
 
   },
   TextStyle: {
-    color: 'black'
+    color: 'black',
+    textAlign: 'left'
+
   },
   authorStyle: {
     color: 'green'

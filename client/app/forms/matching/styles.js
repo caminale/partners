@@ -4,7 +4,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#f9ebd8'
   },
@@ -12,7 +11,8 @@ export default StyleSheet.create({
     paddingVertical: 15,
     color: '#3c918c',
     justifyContent: 'center',
-    fontSize: 15
+    fontSize: 15,
+    textAlign: 'center'
   },
   button: {
     borderWidth: 3,

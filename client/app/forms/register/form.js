@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactNative from 'react-native';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import {Fumi} from 'react-native-textinput-effects';
+import {LogRegInput} from '../../components';
+
 
 import styles from './styles';
 
@@ -11,6 +11,11 @@ const {
   TouchableOpacity,
   ScrollView
 } = ReactNative;
+
+const personIcon = require('../../images/iconPerson.png');
+const lockIcon = require('../../images/iconLock1.png');
+const emailIcon = require('../../images/iconMail.png');
+const confLockIcon = require('../../images/iconConfLock.png');
 
 class Form extends React.Component {
   constructor(props) {
@@ -38,91 +43,40 @@ class Form extends React.Component {
   setConfPassword = confPassword => {
     this.setState({confPassword});
   };
+
   render() {
     const {errors} = this.props;
-
     return (
       <ScrollView>
         <View style={styles.inputWrap}>
-          <Fumi
-            style={styles.input}
-            labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#FFF'}}
-            label={'Username'}
-            iconClass={FontAwesomeIcon}
-            iconName={'user'}
-            iconColor={'#f95a25'}
-            onChangeText={this.setUsername}
-          />
-        </View>
-        <View style={styles.errorWrap}>
-          {errors.username &&
-          <Text style={styles.errorStyle}>
-            {errors.username}
-          </Text>
-          }
+          <LogRegInput
+            placeholder={'Username'}
+            source={personIcon}
+            errors={errors.username}
+            onChangeText={this.setUsername}/>
         </View>
         <View style={styles.inputWrap}>
-          <Fumi
-            style={styles.input}
-            labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#FFF'}}
-            label={'Email'}
-            iconClass={FontAwesomeIcon}
-            iconName={'envelope'}
-            iconColor={'#f95a25'}
-            onChangeText={this.setEmail}
-          />
-        </View>
-        <View style={styles.errorWrap}>
-          {errors.email &&
-          <Text
-            style={styles.errorStyle}
-          >
-            {errors.email}
-          </Text>
-          }
+          <LogRegInput
+            placeholder={'Email'}
+            source={emailIcon}
+            errors={errors.email}
+            onChangeText={this.setEmail}/>
         </View>
         <View style={styles.inputWrap}>
-          <Fumi
-            style={styles.input}
-            labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#FFF'}}
+          <LogRegInput
             secureTextEntry
-            label={'Password'}
-            iconClass={FontAwesomeIcon}
-            iconName={'lock'}
-            iconColor={'#f95a25'}
-            onChangeText={this.setPassword}
-          />
-        </View>
-        <View style={styles.errorWrap}>
-          {errors.password &&
-          <Text style={styles.errorStyle}>
-            {errors.password}
-          </Text>
-          }
+            placeholder={'Password'}
+            source={lockIcon}
+            errors={errors.password}
+            onChangeText={this.setPassword}/>
         </View>
         <View style={styles.inputWrap}>
-
-          <Fumi
-            style={styles.input}
-            labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#FFF'}}
+          <LogRegInput
             secureTextEntry
-            label={'Confirm Password'}
-            iconClass={FontAwesomeIcon}
-            iconName={'lock'}
-            iconColor={'#f95a25'}
-            onChangeText={this.setConfPassword}
-          />
-        </View>
-        <View style={styles.errorWrap}>
-          {errors.confPassword &&
-          <Text style={styles.errorStyle}>
-            {errors.confPassword}
-          </Text>
-          }
+            placeholder={'Confirm Password'}
+            source={confLockIcon}
+            errors={errors.confPassword}
+            onChangeText={this.setConfPassword}/>
         </View>
         <View style={styles.buttonWrap}>
           <TouchableOpacity
@@ -133,13 +87,13 @@ class Form extends React.Component {
             </Text>
           </TouchableOpacity>
         </View>
-          <View style={styles.errorWrap}>
+        <View style={styles.errorWrap}>
           {errors.submit &&
           <Text style={styles.errorStyle}>
             {errors.submit}
           </Text>
           }
-          </View>
+        </View>
       </ScrollView>
     );
   }

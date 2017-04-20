@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
+import {LogRegInput} from '../../components';
 
 import styles from './styles';
 
@@ -9,6 +10,11 @@ const {
   TextInput,
   TouchableOpacity
 } = ReactNative;
+
+const timeIcon = require('../../images/iconTime.png');
+const pushUIcon = require('../../images/iconPU.png');
+const pullUIcon = require('../../images/iconPullU.png');
+
 
 class Form extends React.Component {
   constructor(props) {
@@ -20,8 +26,8 @@ class Form extends React.Component {
       level: null,
       pushUps: 0,
       pullUps: 0,
-      moisExp:0,
-      lvlExp:0
+      moisExp: 0,
+      lvlExp: 0
     };
   }
 
@@ -128,38 +134,27 @@ class Form extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
         <Text style={styles.text}>
-          Combien de mois de muscu?
+          For how many months do you work out ?
         </Text>
-        <TextInput
-          style={styles.input}
-          placeholder="experience"
-          keyboardType={'numeric'}
-          onChangeText={this.setExp}
-        />
-
+        <LogRegInput
+          placeholder={'experience'}
+          source={timeIcon}
+          onChangeText={this.setExp}/>
         <Text style={styles.text}>
-          Combien de pompes ?
+          How many push ups in a row ?
         </Text>
-        <TextInput
-          style={styles.input}
-          placeholder="push ups!"
-          keyboardType={'numeric'}
-          onChangeText={this.setPushUps}
-        />
-
+        <LogRegInput
+          placeholder={'push ups'}
+          source={pushUIcon}
+          onChangeText={this.setPushUps}/>
         <Text style={styles.text}>
-          Combien de tractions ?
+          How many pull ups in a row ?
         </Text>
-        <TextInput
-          style={styles.input}
-          placeholder="pull ups!"
-          keyboardType={'numeric'}
-          onChangeText={this.setPullUps}
-        />
-
-
+        <LogRegInput
+          placeholder={'pull ups'}
+          source={pullUIcon}
+          onChangeText={this.setPullUps}/>
         <TouchableOpacity
           onPress={this.calculLVL}
           style={styles.button}>

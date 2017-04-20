@@ -13,7 +13,7 @@ const {
 class Scene extends Component {
   constructor() {
     super();
-    Meteor.subscribe('chats', Meteor.user()._id);
+    Meteor.subscribe('chats',Meteor.user()._id);
 
   }
 

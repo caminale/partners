@@ -15,9 +15,6 @@ const {
 class Scene extends Component {
   constructor(props) {
     super(props);
-    console.log('---------------------------');
-
-    Meteor.subscribe('posts', this.props.conversation._id);
     this.state = {
       message: '',
       author: '',
@@ -27,23 +24,22 @@ class Scene extends Component {
   setMessage = message => {
     this.setState({message});
   };
-  onAddPost = () => {         //Envois du message à meteor
-    Meteor.call('addPost', {
-      conversationId: this.props.conversation._id,
-      message: this.state.message
-    });
+  onAddPost = () => {
+    const post = {
+      message: this.state.message,
+      conversationId: this.props.conversation._id
+    };
+    this.props.onAddPost(post);
   };
   renderHeader = () => {
     return <Text style={styles.header}>Posts</Text>;
   };
   renderItem = post => {
-    let currentUser = Meteor.user().username
+    const currentUser = Meteor.user()._id;
     if (post.author === currentUser) {
       return (
-
         <View style={styles.userMessageWrap}>
           <Text style={styles.ourTextStyle}>{post.message}</Text>
-          <Text style={styles.authorStyle}>{post.author}</Text>
         </View>
       );
     }
@@ -51,7 +47,6 @@ class Scene extends Component {
       return (
         <View style={styles.foreignMessageWrap}>
           <Text style={styles.TextStyle}>{post.message}</Text>
-          <Text style={styles.authorStyle}>{post.author}</Text>
         </View>
       );
     }
@@ -66,18 +61,14 @@ class Scene extends Component {
           onPress={goBack}>
           <Text>BACK</Text>
         </TouchableOpacity>
-        <Text style={styles.postTitle}>
-          Ici il y a aura une conversation
-        </Text>
         <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
           collection="posts"
           selector={{conversationId: this.props.conversation._id}}
           enableEmptySections
           renderRow={this.renderItem}
-          renderHeader={this.renderHeader}
-        />
+          renderHeader={this.renderHeader}/>
         <TouchableOpacity
-          style={styles.button}//Appel de la fonction onAddPost pour envoyer un message
+          style={styles.button} //Appel de la fonction onAddPost pour envoyer un message
           onPress={this.onAddPost}>
           <Text>Send</Text>
         </TouchableOpacity>

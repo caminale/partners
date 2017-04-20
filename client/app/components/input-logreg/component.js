@@ -1,36 +1,33 @@
 import React from 'react';
-import ReactNative from 'react-native';
-
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import {Fumi} from 'react-native-textinput-effects';
+import {View, Text, TextInput, Image} from 'react-native';
 
 import styles from './styles';
 
-const {
-  Text,
-  TouchableOpacity,
-  View
-} = ReactNative;
-
 class Component extends React.Component {
   render() {
+    const {errors} = this.props;
     return (
-      <Fumi
-        style={styles.input}
-        labelStyle={{color: '#3c918c'}}
-        inputStyle={{color: '#FFF'}}
-        //label={'Username'}
-        iconClass={FontAwesomeIcon}
-        //iconName={'user'}
-        iconColor={'#f95a25'}
-      />
 
+      <View>
+      <View style={styles.inputWrap}>
+        <View style={styles.iconWrap}>
+          <Image style={styles.icon}
+                 source={this.props.source}
+                 resizeMode="contain"/>
+        </View>
+        <TextInput style={styles.input}
+                   placeholder={this.props.placeholder}
+                   secureTextEntry={this.props.secureTextEntry}/>
+      </View>
+        <View style={styles.errorWrap}>
+          {errors &&
+          <Text style={styles.errorStyle}>
+            {errors}
+          </Text>
+          }
+        </View>
+      </View>
     );
   }
 }
-/*
-Component.propTypes = {
-  onPress: React.PropTypes.func.isRequired
-};*/
-
 export default Component;
