@@ -26,3 +26,5 @@ service-configuration@1.0.11
 facebook-config-ui@1.0.0
 
 aldeed:collection2            # To attach schemas on collections
+alanning:elasticsearch
+easy:search

@@ -1,9 +1,9 @@
 import {Meteor} from 'meteor/meteor';
 
-import conversationsMethods from './conversations';
+import chatsMethods from './chats';
 import postsMethods from './posts';
 
 Meteor.methods({
-  ...conversationsMethods,
+  ...chatsMethods,
   ...postsMethods
 });
