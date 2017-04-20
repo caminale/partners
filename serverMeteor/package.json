@@ -4,6 +4,10 @@
   "scripts": {
     "start": "meteor --settings settings.json"
   },
+  "elasticsearch": {
+    "host": "localhost:9201",
+    "meteorLogger": true
+  },
   "xo": {
     "esnext": true,
     "envs": [

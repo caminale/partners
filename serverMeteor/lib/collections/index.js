@@ -1,9 +1,9 @@
 import Accounts from './accounts';
-import Conversations from './conversations';
+import Chats from './chats';
 import Posts from './posts';
 
 export {
   Accounts,
-  Conversations,
+  Chats,
   Posts
 };

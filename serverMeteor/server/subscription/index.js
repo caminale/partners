@@ -1,2 +1,2 @@
-import './conversations';
+import './chats';
 import './posts';

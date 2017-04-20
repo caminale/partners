@@ -46,7 +46,10 @@ const registerHandler = () => {
       accessToken: data.accessToken,
       expiresAt: (Number(new Date())) + (1000 * data.expirationTime)
     };
-    const fields = Object.assign({}, serviceData, identity);
+    const facebookFields = {
+      ...serviceData,
+      ...identity
+    };
 
     // Search for an existing user with that facebook id
     const existingUser =
@@ -58,7 +61,7 @@ const registerHandler = () => {
 
       // Update our data to be in line with the latest from Facebook
       const prefixedData = {};
-      _.each(fields, (val, key) => {
+      _.each(facebookFields, (val, key) => {
         prefixedData[`services.facebook.${key}`] = val;
       });
 
@@ -67,17 +70,25 @@ const registerHandler = () => {
         $addToSet: {emails: {address: identity.email, verified: true}}
       });
     } else {
+
       // Create our user
       userId = Meteor.users.insert({
         services: {
-          facebook: fields
+          facebook: facebookFields
         },
-        profile: {name: identity.name},
         emails: [{
           address: identity.email,
           verified: true
-        }]
+        }],
+        profile: {
+          firstName: identity.first_name,
+          lastName: identity.last_name,
+          gender: identity.gender,
+          locale: identity.locale,
+          age: identity.age_range.min
+        }
       });
+
     }
 
     return {userId};
