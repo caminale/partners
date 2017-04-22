@@ -9,8 +9,7 @@ const {
   Text,
   ScrollView,
   TextInput,
-  TouchableOpacity,
-  ScrollView
+  TouchableOpacity
 } = ReactNative;
 
 class Scene extends Component {
@@ -33,11 +32,13 @@ class Scene extends Component {
     this.props.onAddPost(post);
   };
   renderHeader = () => {
-    return <Text style={styles.header}>Posts</Text>;
+    const currentUsername = Meteor.user().profile.firstName;
+    console.log(currentUsername);
+    return <Text style={styles.header}>{currentUsername}</Text>;
   };
   renderItem = post => {
     const currentUser = Meteor.user()._id;
-    if (post.author === currentUser) {
+    if (post.author == !currentUser) {
       return (
         <View style={styles.userMessageWrap}>
           <Text style={styles.ourTextStyle}>{post.message}</Text>
@@ -56,28 +57,35 @@ class Scene extends Component {
   render() {
     const {goBack} = this.props;
     return (
-      <ScrollView>
-        <TouchableOpacity
-          style={styles.buttonBack}
-          onPress={goBack}>
-          <Text>BACK</Text>
-        </TouchableOpacity>
-        <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
-          collection="posts"
-          selector={{conversationId: this.props.conversation._id}}
-          enableEmptySections
-          renderRow={this.renderItem}
-          renderHeader={this.renderHeader}/>
-        <TouchableOpacity
-          style={styles.button} //Appel de la fonction onAddPost pour envoyer un message
-          onPress={this.onAddPost}>
-          <Text>Send</Text>
-        </TouchableOpacity>
-        <TextInput
-          onChangeText={this.setMessage}
-          autoFocus={true}
-          placeholder={'send message'}/>
-      </ScrollView>
+      <View style={styles.container}>
+        <View>
+          <ScrollView>
+            <TouchableOpacity
+              style={styles.buttonBack}
+              onPress={goBack}>
+              <Text>BACK</Text>
+            </TouchableOpacity>
+            <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
+              collection="posts"
+              selector={{conversationId: this.props.conversation._id}}
+              enableEmptySections
+              renderRow={this.renderItem}
+              renderHeader={this.renderHeader}/>
+          </ScrollView>
+        </View>
+        <View style={styles.inputBut}>
+          <TouchableOpacity
+            style={styles.button} //Appel de la fonction onAddPost pour envoyer un message
+            onPress={this.onAddPost}>
+            <Text>Send</Text>
+          </TouchableOpacity>
+          <TextInput
+            onChangeText={this.setMessage}
+            autoFocus={true}
+            placeholder={'send message'}/>
+        </View>
+      </View>
+
     );
   }
 }

@@ -17,6 +17,7 @@ class Component extends React.Component {
         </View>
         <TextInput style={styles.input}
                    placeholder={this.props.placeholder}
+                   onChangeText={this.props.onChangeText}
                    secureTextEntry={this.props.secureTextEntry}/>
       </View>
         <View style={styles.errorWrap}>

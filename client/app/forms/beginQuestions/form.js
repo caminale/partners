@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
 import {LogRegInput} from '../../components';
+import Meteor from 'react-native-meteor';
+
 
 import styles from './styles';
 
@@ -21,27 +23,39 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      levelPush: 0,
-      levelPull: 0,
+      levelPush: 2,
+      levelPull: 2,
       level: null,
-      pushUps: 0,
-      pullUps: 0,
-      moisExp: 0,
-      lvlExp: 0
+      pushUps: 2,
+      pullUps: 2,
+      moisExp: 2,
+      lvlExp: 2
     };
   }
 
   onSubmit = () => {
-    this.props.onSubmit(this.state);
+    this.calculLVL();
+    const stats = {
+      pushup: this.state.pushUps,
+      pullup: this.state.pullUps,
+      level: this.state.level
+    };
+    console.log(this.state.level);
+
+    Meteor.call('addStats', stats);
+
+    // this.props.onSubmitPush(statsPush);
+    // this.props.onSubmitPull(statsPull);
+
+
   };
 
   calculLVL = () => {
     this.calculLVLPull();
     this.calculLVLPush();
-    this.calculExp();
+    // this.calculExp();
     let lvl = this.state.levelPull + this.state.levelPush + this.state.lvlExp;
     this.setLevel(lvl);
-    console.log('level :' + this.state.level);
   };
 
   setLevel = level => {
@@ -49,45 +63,36 @@ class Form extends React.Component {
   };
 
   setExp = moisExp => {
-    this.calculLVL();
     this.setState({moisExp});
+    this.calculExp();
+    // this.calculLVL();
   };
 
   calculLVLPush = () => {
 
     if (this.state.pushUps <= 50 && this.state.pushUps >= 20) {
       this.setLevelPush(2);
-      console.log('lvl push:' + this.state.levelPush);
     }
-
     if (this.state.pushUps <= 19) {
       this.setLevelPush(1);
-      console.log('lvl push:' + this.state.levelPush);
     }
-
     if (this.state.pushUps >= 51) {
       this.setLevelPush(3);
-      console.log('lvl push:' + this.state.levelPush);
     }
-
-
   };
 
   calculLVLPull = () => {
 
     if (this.state.pullUps <= 5 && this.state.pullUps >= 0) {
       this.setLevelPull(1);
-      console.log('lvl pull:' + this.state.levelPull);
     }
 
     if (this.state.pullUps <= 15 && this.state.pullUps >= 6) {
       this.setLevelPull(2);
-      console.log('lvl pull:' + this.state.levelPull);
     }
 
     if (this.state.pullUps >= 16) {
       this.setLevelPull(3);
-      console.log('lvl pull:' + this.state.levelPull);
     }
 
   };
@@ -96,19 +101,13 @@ class Form extends React.Component {
 
     if (this.state.moisExp <= 3 && this.state.moisExp >= 0) {
       this.setLvlExp(1);
-      console.log('mois exp :' + this.state.lvlExp);
     }
-
     if (this.state.moisExp <= 8 && this.state.moisExp >= 4) {
       this.setLvlExp(2);
-      console.log('mois exp :' + this.state.lvlExp);
     }
-
     if (this.state.moisExp >= 9) {
       this.setLvlExp(3);
-      console.log('mois exp :' + this.state.lvlExp);
     }
-
   };
   setLevelPush = levelPush => {
     this.setState({levelPush});
@@ -122,13 +121,16 @@ class Form extends React.Component {
   };
 
   setPushUps = pushUps => {
-    this.calculLVL();
     this.setState({pushUps});
+
+    // this.calculLVL();
   };
 
   setPullUps = pullUps => {
-    this.calculLVL();
     this.setState({pullUps});
+
+    // this.calculLVL();
+    console.log(pullUps);
   };
 
   render() {
@@ -156,7 +158,7 @@ class Form extends React.Component {
           source={pullUIcon}
           onChangeText={this.setPullUps}/>
         <TouchableOpacity
-          onPress={this.calculLVL}
+          onPress={this.onSubmit}
           style={styles.button}>
           <Text style={styles.text}>
             Submit
@@ -167,9 +169,4 @@ class Form extends React.Component {
     );
   }
 }
-
-Form.propTypes = {
-  onSubmit: React.PropTypes.func.isRequired
-};
-
 export default Form;

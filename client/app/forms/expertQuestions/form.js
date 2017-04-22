@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactNative from 'react-native';
 import {LogRegInput} from '../../components';
 
-import styles from './styles';
+import styles from '../beginQuestions/styles';
 
 const {
   View,

@@ -2,29 +2,29 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    // Flex: 1,
     backgroundColor: 'white',
-    marginTop: 20
+    marginTop: 20,
+    justifyContent: 'space-between',
+    flexDirection:'column'
   },
   buttonBack: {
     borderWidth: 3,
     marginTop: 15,
     marginHorizontal: 100,
-    justifyContent: 'space-between',
     alignItems: 'center',
     borderColor: '#3c918c'
   },
   userMessageWrap: {
     flexDirection: 'column',
     backgroundColor: 'blue',
-    marginLeft: 200,
+    marginLeft: 150,
     marginTop: 10,
     alignItems: 'center'
   },
   foreignMessageWrap: {
     flexDirection: 'column',
-    backgroundColor: 'grey',
-    marginLeft: 200,
+    backgroundColor: '#e6e4dd',
+    marginRight: 150,
     marginTop: 10,
     alignItems: 'center'
   },
@@ -50,10 +50,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 25
   },
-  row: {
-    padding: 10,
-    backgroundColor: '#F6F6F6'
-  },
+
   button: {
     backgroundColor: 'green',
     borderWidth: 2
@@ -63,5 +60,13 @@ export default StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  }
+  },
+  textZone:
+    {
+
+    },
+  inputBut:
+    {
+      justifyContent:'flex-end'
+    }
 });
