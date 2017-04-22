@@ -20,11 +20,12 @@ shell-server@0.2.3            # Server-side component of the `meteor shell` comm
 
 accounts-base@1.2.15
 accounts-password@1.3.4
-accounts-ui@1.1.9
-accounts-facebook@1.1.1
+accounts-ui
+accounts-facebook
 service-configuration@1.0.11
 facebook-config-ui@1.0.0
 
 aldeed:collection2            # To attach schemas on collections
 alanning:elasticsearch
 easy:search
+aldeed:schema-index
