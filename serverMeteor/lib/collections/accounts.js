@@ -4,6 +4,15 @@ import {SimpleSchema} from 'meteor/aldeed:simple-schema';
 
 Schema = {};
 
+
+Schema.typeMuscu = new SimpleSchema({
+  reps: {
+    type: Number
+  },
+  weigth: {
+    type: Number
+  }
+});
 Schema.UserProfile = new SimpleSchema({
   firstName: {
     type: String
@@ -22,6 +31,12 @@ Schema.UserProfile = new SimpleSchema({
   age: {
     type: Number
   },
+  picture : {
+  type:String
+  },
+  // statsMuscu: {
+  //   type: Schema.type
+  // }
 });
 
 const AccountSchema = new SimpleSchema({

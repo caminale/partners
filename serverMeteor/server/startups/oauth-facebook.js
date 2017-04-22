@@ -22,6 +22,7 @@ const init = () => {
   registerHandler();
 };
 
+
 const registerHandler = () => {
   Accounts.registerLoginHandler('facebook', params => {
     const data = params.facebook;
@@ -31,10 +32,12 @@ const registerHandler = () => {
     if (!data) {
       return undefined;
     }
+    //to get the current profile picture
+    const profilePix=getFbPicture(data.accessToken);
 
     // The fields we care about (same as Meteor's)
     const whitelisted = ['email', 'name', 'first_name',
-      'last_name', 'link', 'gender', 'locale', 'age_range'];
+      'last_name', 'link', 'gender', 'locale', 'age_range'  ];
 
     // Get our user's identifying information.
     // This also checks if the accessToken
@@ -85,7 +88,8 @@ const registerHandler = () => {
           lastName: identity.last_name,
           gender: identity.gender,
           locale: identity.locale,
-          age: identity.age_range.min
+          age: identity.age_range.min,
+          picture:profilePix
         }
       });
 
@@ -111,6 +115,20 @@ const getIdentity = (accessToken, fields) => {
       {response: err.response}
     );
   }
+};
+
+var getFbPicture = function(accessToken) { // make async call to grab the picture from facebook
+  var result;
+  result = Meteor.http.get("https://graph.facebook.com/me", {
+    params: {
+      access_token: accessToken,
+      fields: 'picture'
+    }
+  });
+  if(result.error) {
+    throw result.error;
+  }
+  return result.data.picture.data.url; // return the picture's url
 };
 
 export default init;
