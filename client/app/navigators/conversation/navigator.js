@@ -27,5 +27,4 @@ class MyNavigator extends Component {             // NAVIGATEUR DE GESTION DES C
     );
   }
 }
-
 export default MyNavigator;

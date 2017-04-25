@@ -1,8 +1,8 @@
 import React from 'react';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
-import {Matching, Profile} from '../../routes';
-import {ConversationNavigator} from '../../navigators';
+import {Profile} from '../../routes';
+import {ConversationNavigator, MatchingNavigator} from '../../navigators';
 
 import {TabBar} from '../../components';
 
@@ -19,8 +19,7 @@ class MyNavigator extends React.Component {                 //NAVIGATEUR de gest
         >
         <Profile tabLabel="ios-paper"   //Icones et passages des routes vers Profile, Matching et le navigateur CONVERSASIONS
         />
-        <Matching tabLabel="ios-people"   //qui seront appelée par tabBar via ScrollableTabView
-        />
+        <MatchingNavigator tabLabel="ios-people"/>
         <ConversationNavigator tabLabel="ios-chatboxes"/>
       </ScrollableTabView>
     );

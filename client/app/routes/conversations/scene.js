@@ -48,7 +48,7 @@ class Scene extends Component {
     return (
       <View>
         <TouchableOpacity onPress={() => this.onAddRoom(
-          {title: 'Conv1', description: 'blabla'})}>
+          {title: 'Conv1', description: 'schedule an appointment with your new partners'})}>
           <Text style={styles.conversationTitle}>Add conversation</Text>
         </TouchableOpacity>
         <MeteorListView

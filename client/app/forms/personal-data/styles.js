@@ -4,15 +4,15 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor:'#f9ebd8'
+    backgroundColor: '#f9ebd8'
   },
   text: {
     paddingVertical: 15,
     color: '#3c918c',
     justifyContent: 'center',
-    fontSize: 15
+    fontSize: 15,
+    textAlign: 'center'
   },
   button: {
     borderWidth: 3,
@@ -20,7 +20,7 @@ export default StyleSheet.create({
     borderColor: '#3c918c'
   },
   input: {
-    backgroundColor:'#c1b2a3',
+    backgroundColor: '#c1b2a3'
 
   },
   error: {

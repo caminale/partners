@@ -21,8 +21,17 @@ export default StyleSheet.create({
     borderWidth: 1
   },
   icon: {
-    height:20,
-    width:20
+    height:30,
+    width:30
+  },
+  labelWrap: {
+    flexDirection: 'column',
+
+  },
+  label: {
+    textAlign: 'center',
+    color: '#3c918c'
+
   },
   iconWrap: {
     paddingHorizontal:7,

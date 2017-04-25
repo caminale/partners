@@ -1,29 +1,36 @@
 import React, {Component} from 'react';
-import Meteor from 'react-native-meteor';
-import Form from '../beginQuestions/container';
+
+import Form from './form';
+import formValidationSync from './validations';
 
 class Container extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      errors: {}
+    };
   }
 
-  onSubmitPull(statsPull) {
+  onSubmit = creds => {
+    const {onSubmit} = this.props;
 
-
-  }
-  onSubmitPush(statsPush) {
-    console.log('yolo');
-    Meteor.call('addPushup', statsPush);
+    onSubmit(creds);
 
   }
 
   render() {
+    const {errors} = this.state;
     return (
       <Form
-        onSubmitPull={statsPull => this.onSubmitPull(statsPull)}
-        onSubmitPush={statsPush => this.onSubmitPush(statsPush)}
-        />
+        onSubmit={this.onSubmit}
+        errors={errors}/>
     );
   }
 }
+
+Form.propTypes = {
+  onSubmit: React.PropTypes.func.isRequired
+};
+
 export default Container;
