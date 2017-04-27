@@ -4,21 +4,14 @@ import {SimpleSchema} from 'meteor/aldeed:simple-schema';
 
 Schema = {};
 
-
-Schema.typeMuscu = new SimpleSchema({
-  reps: {
-    type: Number
-  },
-  weigth: {
-    type: Number
-  }
-});
 Schema.UserProfile = new SimpleSchema({
   firstName: {
-    type: String
+    type: String,
+    optional: true
   },
   lastName: {
-    type: String
+    type: String,
+    optional: true
   },
   gender: {
     type: String,
@@ -26,17 +19,30 @@ Schema.UserProfile = new SimpleSchema({
     optional: true
   },
   locale: {
-    type: String
+    type: String,
+    optional: true
   },
   age: {
-    type: Number
+    type: Number,
+    optional: true
   },
-  picture : {
-  type:String
+  picture: {
+    type: String,
+    optional: true
+
   },
-  // statsMuscu: {
-  //   type: Schema.type
-  // }
+  level:{
+    type: String,
+    optional: true
+  },
+  weight:{
+    type: Number,
+    optional: true
+  },
+  height:{
+    type: Number,
+    optional: true
+  }
 });
 
 const AccountSchema = new SimpleSchema({

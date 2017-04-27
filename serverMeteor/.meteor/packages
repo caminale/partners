@@ -29,3 +29,4 @@ aldeed:collection2            # To attach schemas on collections
 alanning:elasticsearch
 easy:search
 aldeed:schema-index
+mrt:mongo-counter

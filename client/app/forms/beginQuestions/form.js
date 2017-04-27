@@ -15,13 +15,9 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      levelPush: 0,
-      levelPull: 0,
-      level: null,
       pushUps: 0,
       pullUps: 0,
-      moisExp:0,
-      lvlExp:0
+
     };
   }
 
@@ -66,6 +62,7 @@ class Form extends React.Component {
 
 
   };
+  addItem=
 
   calculLVLPull = () => {
 
