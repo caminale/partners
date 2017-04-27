@@ -4,7 +4,7 @@ export default StyleSheet.create({
   // I did for each component a wrap to manage their position
   inputWrap: {
     marginVertical: 10,
-    height: 50
+    height: 45
   },
   buttonWrap: {
     paddingHorizontal: 65,

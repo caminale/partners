@@ -8,11 +8,10 @@ export default StyleSheet.create({
     backgroundColor: '#f9ebd8'
   },
   text: {
-    paddingVertical: 15,
     color: '#3c918c',
-    justifyContent: 'center',
-    fontSize: 15,
-    textAlign: 'center'
+    fontSize: 25,
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
   button: {
     borderWidth: 3,

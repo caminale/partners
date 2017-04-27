@@ -4,6 +4,7 @@ import ReactNative from 'react-native';
 import {FacebookButton} from '../../components';
 import {LogRegInput} from '../../components';
 import styles from './styles';
+import {Button} from '../../components';
 
 const personIcon = require('../../images/iconPerson.png');
 const lockIcon = require('../../images/iconLock.png');
@@ -69,13 +70,9 @@ class Form extends React.Component {
           }
         </View>
         <View style={styles.buttonWrap}>
-          <TouchableOpacity
-            onPress={this.onSubmit}
-            style={styles.loginButton}>
-            <Text style={styles.buttonText}>
-              Login
-            </Text>
-          </TouchableOpacity>
+          <Button onPress={this.onSubmit}
+                  label={'Login'}
+          />
         </View>
         <View style={styles.buttonWrap}>
           <FacebookButton

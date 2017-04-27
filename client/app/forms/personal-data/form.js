@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
-import {LogRegInput} from '../../components';
 
+import {LogRegInput} from '../../components';
 import styles from '../beginQuestions/styles';
+import {Button} from '../../components';
+
 
 const {
   View,
@@ -11,7 +13,7 @@ const {
 } = ReactNative;
 
 const fNameIcon = require('../../images/iconPerson.png');
-const heightIcon = require('../../images/iconHeight.jpg');
+const heightIcon = require('../../images/iconHeight.png');
 const ageIcon = require('../../images/iconAge.png');
 const weightIcon = require('../../images/iconWeight.png');
 
@@ -46,6 +48,9 @@ class Form extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.text}>
+          About yourself
+        </Text>
         <LogRegInput
           label={'What is your first name?'}
           placeholder={'your first name'}
@@ -69,14 +74,8 @@ class Form extends React.Component {
           source={weightIcon}
           keyboardType={'numeric'}
           onChangeText={this.setWeight}/>
-        <TouchableOpacity
-          onPress={this.onSubmit}
-          style={styles.button}>
-          <Text style={styles.text}>
-            Submit
-          </Text>
-        </TouchableOpacity>
-
+        <Button onPress={this.onSubmit}
+                label={'Submit'}/>
       </View>
     );
   }

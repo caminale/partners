@@ -16,17 +16,19 @@ export default StyleSheet.create({
   },
   userMessageWrap: {
     flexDirection: 'column',
-    backgroundColor: 'blue',
+    backgroundColor: '#1285e5',
     marginLeft: 150,
     marginTop: 10,
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius: 20
   },
   foreignMessageWrap: {
     flexDirection: 'column',
     backgroundColor: '#e6e4dd',
     marginRight: 150,
     marginTop: 10,
-    alignItems: 'center'
+    alignItems: 'center',  
+    borderRadius: 20
   },
   ourTextStyle: {
     color: 'white',

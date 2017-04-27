@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactNative from 'react-native';
+
 import {LogRegInput} from '../../components';
-
-
+import {Button} from '../../components';
 import styles from './styles';
 
 const {
   View,
   Text,
-  TouchableOpacity,
   ScrollView
 } = ReactNative;
 
@@ -79,13 +78,8 @@ class Form extends React.Component {
             onChangeText={this.setConfPassword}/>
         </View>
         <View style={styles.buttonWrap}>
-          <TouchableOpacity
-            onPress={this.onSubmit}
-            style={styles.button}>
-            <Text style={styles.buttonText}>
-              Register
-            </Text>
-          </TouchableOpacity>
+          <Button onPress={this.onSubmit}
+                  label={'Register'}/>
         </View>
         <View style={styles.errorWrap}>
           {errors.submit &&

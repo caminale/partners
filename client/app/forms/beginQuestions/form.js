@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
+
 import {LogRegInput} from '../../components';
-import Meteor from 'react-native-meteor';
+import {Button} from '../../components';
 
 
 import styles from './styles';
@@ -50,6 +51,9 @@ class Form extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.text}>
+          About your strength
+        </Text>
         <LogRegInput
           label={'How much weight for a 10 rep lat PullDown set ?'}
           placeholder={'lat pull down'}
@@ -74,13 +78,8 @@ class Form extends React.Component {
           keyboardType={'numeric'}
           source={dipsIcon}
           onChangeText={this.setDips}/>
-        <TouchableOpacity
-          onPress={this.onSubmit}
-          style={styles.button}>
-          <Text style={styles.text}>
-            Submit
-          </Text>
-        </TouchableOpacity>
+        <Button onPress={this.onSubmit}
+                label={'Submit'}/>
       </View>
     );
   }

@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   inputWrap: {
     paddingHorizontal: 15,
     marginVertical: 10,
-    height: 50,
+    height: 60,
     backgroundColor: 'transparent'
   },
   errorStyle: {

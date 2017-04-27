@@ -3,6 +3,8 @@ import ReactNative from 'react-native';
 
 import images from '../../images';
 import styles from './styles';
+import {Button} from '../../components';
+
 
 const {
   View,

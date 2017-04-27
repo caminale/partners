@@ -5,7 +5,8 @@ export default StyleSheet.create({
   input: {
     backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: 'white',
+    borderRadius: 10,
+    borderColor: '#3c918c',
     flex: 1,
     paddingHorizontal:10,
   },
@@ -30,14 +31,18 @@ export default StyleSheet.create({
   },
   label: {
     textAlign: 'center',
-    color: '#3c918c'
+    color: '#3c918c',
+    fontSize: 15,
+    fontWeight: 'bold'
+
 
   },
   iconWrap: {
     paddingHorizontal:7,
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor:'white'
+    backgroundColor:'#3c918c',
+    borderRadius: 10
   },
   inputWrap: {
     flexDirection: 'row',

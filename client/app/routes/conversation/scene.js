@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactNative from 'react-native';
 import Meteor, {MeteorListView} from 'react-native-meteor';
 
+import {Button} from '../../components';
 import styles from './styles';
 
 const {
@@ -38,7 +39,7 @@ class Scene extends Component {
   };
   renderItem = post => {
     const currentUser = Meteor.user()._id;
-    if (post.author == !currentUser) {
+    if (post.author === currentUser) {
       return (
         <View style={styles.userMessageWrap}>
           <Text style={styles.ourTextStyle}>{post.message}</Text>
@@ -60,11 +61,8 @@ class Scene extends Component {
       <View style={styles.container}>
         <View>
           <ScrollView>
-            <TouchableOpacity
-              style={styles.buttonBack}
-              onPress={goBack}>
-              <Text>BACK</Text>
-            </TouchableOpacity>
+            <Button onPress={goBack}
+                    label={'back'}/>
             <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
               collection="posts"
               selector={{conversationId: this.props.conversation._id}}
@@ -73,17 +71,15 @@ class Scene extends Component {
               renderHeader={this.renderHeader}/>
           </ScrollView>
         </View>
+        <TextInput
+          onChangeText={this.setMessage}
+          autoFocus={true}
+          placeholder={'send message'}/>
         <View style={styles.inputBut}>
-          <TouchableOpacity
-            style={styles.button} //Appel de la fonction onAddPost pour envoyer un message
-            onPress={this.onAddPost}>
-            <Text>Send</Text>
-          </TouchableOpacity>
-          <TextInput
-            onChangeText={this.setMessage}
-            autoFocus={true}
-            placeholder={'send message'}/>
+          <Button onPress={this.onAddPost}
+                  label={'Send'}/>
         </View>
+
       </View>
 
     );

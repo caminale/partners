@@ -24,7 +24,7 @@ export default StyleSheet.create({
     backgroundColor: 'transparent'
   },
   buttonWrap: {
-    paddingHorizontal: 65,
+    paddingHorizontal: 105,
     marginVertical: 10
   },
   button: {
