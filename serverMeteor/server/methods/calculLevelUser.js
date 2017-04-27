@@ -20,4 +20,4 @@ const calculLevelUser = () => {
   Accounts.update({userId: user._id},{$set:{profile:{level:levelUser}}});
 
 };
-export default calculLevel;
+export default calculLevelUser;
