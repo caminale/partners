@@ -12,7 +12,7 @@ const UserExoStatsSchema = new SimpleSchema({
     blackbox: true
   },
   weight: {
-    type: Number,
+    type: [Number],
     optional: true,
     blackbox: true
   },
@@ -23,6 +23,11 @@ const UserExoStatsSchema = new SimpleSchema({
   },
   levelExo: {
     type: String,
+    optional: true,
+    blackbox: true
+  },
+  date: {
+    type: Date,
     optional: true,
     blackbox: true
   }

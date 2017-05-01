@@ -2,7 +2,7 @@ import {Meteor} from 'meteor/meteor';
 
 import {UserExoStats} from '../../lib/collections';
 
-import calculLevel from './calculLevel';
+import calculLevelExo from './calculLevelExo';
 
 export default {
 
@@ -17,7 +17,8 @@ export default {
       userId: user._id,
       weight: p_userExoStats.weight,
       reps: p_userExoStats.reps,
+      date: new Date()
     });
-  calculLevel(p_userExoStats.exerciseId,p_userExoStats.weight,p_userExoStats.reps);
+  calculLevelExo(p_userExoStats.exerciseId,p_userExoStats.weight,p_userExoStats.reps);
   }
 };

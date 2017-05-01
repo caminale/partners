@@ -32,8 +32,6 @@ const registerHandler = () => {
     if (!data) {
       return undefined;
     }
-    //to get the current profile picture
-    const profilePix=getFbPicture(data.accessToken);
 
     // The fields we care about (same as Meteor's)
     const whitelisted = ['email', 'name', 'first_name',
@@ -53,6 +51,9 @@ const registerHandler = () => {
       ...serviceData,
       ...identity
     };
+    //to get the current profile picture
+    // const profilePix=getFbPicture(data.accessToken);
+    const profilePix="http://graph.facebook.com/" + identity.id + "/picture/?type=large";
 
     // Search for an existing user with that facebook id
     const existingUser =
@@ -117,18 +118,18 @@ const getIdentity = (accessToken, fields) => {
   }
 };
 
-var getFbPicture = function(accessToken) { // make async call to grab the picture from facebook
-  var result;
-  result = Meteor.http.get("https://graph.facebook.com/me", {
-    params: {
-      access_token: accessToken,
-      fields: 'picture'
-    }
-  });
-  if(result.error) {
-    throw result.error;
-  }
-  return result.data.picture.data.url; // return the picture's url
-};
+// var getFbPicture = function(accessToken) { // make async call to grab the picture from facebook
+//   var result;
+//   result = Meteor.http.get("http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large", {
+//     params: {
+//       access_token: accessToken,
+//       fields: 'picture'
+//     }
+//   });
+//   if(result.error) {
+//     throw result.error;
+//   }
+//   return result.data.picture.data.url; // return the picture's url
+// };
 
 export default init;

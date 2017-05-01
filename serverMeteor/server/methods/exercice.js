@@ -6,7 +6,6 @@ export default {
 
   addExo: exo => {
 
-
     const userId = Meteor.user()._id;
     const exoId= exo._id;
     if (!userId) {

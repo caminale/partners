@@ -7,41 +7,60 @@ Schema = {};
 Schema.UserProfile = new SimpleSchema({
   firstName: {
     type: String,
-    optional: true
+    optional: true,
+    blackbox: true
   },
   lastName: {
     type: String,
-    optional: true
+    optional: true,
+    blackbox: true
   },
   gender: {
     type: String,
     allowedValues: ['male', 'female'],
-    optional: true
+    optional: true,
+    blackbox: true
   },
   locale: {
     type: String,
-    optional: true
+    optional: true,
+    blackbox: true
   },
   age: {
     type: Number,
-    optional: true
+    optional: true,
+    blackbox: true
   },
   picture: {
     type: String,
-    optional: true
+    optional: true,
+    blackbox: true
 
   },
-  level:{
+  level: {
     type: String,
-    optional: true
+    optional: true,
+    blackbox: true
   },
-  weight:{
+  weight: {
     type: Number,
-    optional: true
+    optional: true,
+    blackbox: true
   },
-  height:{
+  height: {
     type: Number,
-    optional: true
+    optional: true,
+    blackbox: true
+  },
+  completeProfile: {
+    type: Boolean,
+    optional: true,
+    // value: false
+  },
+  description: {
+    type: String,
+    optional: true,
+    blackbox: true
   }
 });
 
@@ -52,7 +71,8 @@ const AccountSchema = new SimpleSchema({
   },
   username: {
     type: String,
-    regEx: /^[a-z0-9A-Z_]{3,15}$/
+    // regEx: /^[a-z0-9A-Z_]{3,15}$/,
+    blackbox: true,
   },
   emails: {
     optional: false,
