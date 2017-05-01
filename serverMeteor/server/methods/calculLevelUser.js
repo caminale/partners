@@ -58,4 +58,6 @@ let levelUser= levelU.toFixed(2);
   });
 
 };
+
 export default calculLevelUser;
+

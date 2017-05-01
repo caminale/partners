@@ -62,7 +62,7 @@ class Form extends React.Component {
 
 
   };
-  addItem=
+
 
   calculLVLPull = () => {
 

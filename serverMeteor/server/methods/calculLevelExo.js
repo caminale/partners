@@ -1,6 +1,6 @@
 import {Meteor} from 'meteor/meteor';
 
-const Math = require('mathjs');
+
 
 import {UserExoStats} from '../../lib/collections';
 
