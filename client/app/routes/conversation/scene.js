@@ -9,8 +9,7 @@ const {
   View,
   Text,
   ScrollView,
-  TextInput,
-  TouchableOpacity
+  TextInput
 } = ReactNative;
 
 class Scene extends Component {
@@ -60,9 +59,9 @@ class Scene extends Component {
     return (
       <View style={styles.container}>
         <View>
+          <Button onPress={goBack}
+                  label={'back'}/>
           <ScrollView>
-            <Button onPress={goBack}
-                    label={'back'}/>
             <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
               collection="posts"
               selector={{conversationId: this.props.conversation._id}}
@@ -71,17 +70,13 @@ class Scene extends Component {
               renderHeader={this.renderHeader}/>
           </ScrollView>
         </View>
-        <TextInput
-          onChangeText={this.setMessage}
-          autoFocus={true}
-          placeholder={'send message'}/>
-        <View style={styles.inputBut}>
+          <TextInput
+            onChangeText={this.setMessage}
+            autoFocus={true}
+            placeholder={'send message'}/>
           <Button onPress={this.onAddPost}
                   label={'Send'}/>
         </View>
-
-      </View>
-
     );
   }
 }

@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
-import Scene from './scene';
-import {Navigator} from 'react-native';
 import Meteor from 'react-native-meteor';
 
-
+import Scene from './scene';
+import {Navigator} from 'react-native';
 
 class Container extends Component {
-
   constructor(props) {
     super(props);
   }
-
 
   nextForm = stats => {
     const statsBP = {
@@ -30,10 +27,10 @@ class Container extends Component {
       exerciseId: '4AMqjmCqkhADgjmrS'
     };
 
-    Meteor.call('addUserExoStats',statsBP);
-    Meteor.call('addUserExoStats',statsSQ);
-    Meteor.call('addUserExoStats',statsPD);
-    Meteor.call('addUserExoStats',statsD);
+    Meteor.call('addUserExoStats', statsBP);
+    Meteor.call('addUserExoStats', statsSQ);
+    Meteor.call('addUserExoStats', statsPD);
+    Meteor.call('addUserExoStats', statsD);
 
     this.props.navigator.push({
       name: 'personal'
@@ -41,11 +38,9 @@ class Container extends Component {
   };
 
   render() {
-      return (
-        <Scene onSubmit={this.nextForm} />
-      );
-
-    }
-
+    return (
+      <Scene onSubmit={this.nextForm}/>
+    );
+  }
 }
 export default Container;

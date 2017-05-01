@@ -2,14 +2,12 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#f9ebd8',
     marginTop: 20,
-    justifyContent: 'space-between',
     flexDirection:'column'
   },
   buttonBack: {
     borderWidth: 3,
-    marginTop: 15,
     marginHorizontal: 100,
     alignItems: 'center',
     borderColor: '#3c918c'
@@ -18,6 +16,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: '#1285e5',
     marginLeft: 150,
+    justifyContent: 'center',
     marginTop: 10,
     alignItems: 'center',
     borderRadius: 20
@@ -25,6 +24,7 @@ export default StyleSheet.create({
   foreignMessageWrap: {
     flexDirection: 'column',
     backgroundColor: '#e6e4dd',
+    justifyContent: 'center',
     marginRight: 150,
     marginTop: 10,
     alignItems: 'center',  
@@ -54,8 +54,6 @@ export default StyleSheet.create({
   },
 
   button: {
-    backgroundColor: 'green',
-    borderWidth: 2
   },
   containerBackground: {
     flex: 1,
@@ -69,6 +67,7 @@ export default StyleSheet.create({
     },
   inputBut:
     {
-      justifyContent:'flex-end'
+      flexDirection: 'column',
+     // justifyContent: 'flex-start'
     }
 });

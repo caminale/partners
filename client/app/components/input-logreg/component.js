@@ -15,30 +15,28 @@ class Component extends React.Component {
           <Text style={styles.label}>
             {label}
           </Text>
-        <View style={styles.inputWrap}>
-          <View style={styles.iconWrap}>
-            <Image style={styles.icon}
-                   source={this.props.source}
-                   resizeMode="contain"/>
-          </View>
-
+          <View style={styles.inputWrap}>
+            <View style={styles.iconWrap}>
+              <Image style={styles.icon}
+                     source={this.props.source}
+                     resizeMode="contain"/>
+            </View>
             <TextInput style={styles.input}
                        placeholder={this.props.placeholder}
                        onChangeText={this.props.onChangeText}
                        keyboardType={this.props.keyboardType}
-
                        secureTextEntry={this.props.secureTextEntry}/>
           </View>
-          </View>
-          <View style={styles.errorWrap}>
-            {errors &&
-            <Text style={styles.errorStyle}>
-              {errors}
-            </Text>
-            }
-          </View>
         </View>
-        );
-        }
-        }
-        export default Component;
+        <View style={styles.errorWrap}>
+          {errors &&
+          <Text style={styles.errorStyle}>
+            {errors}
+          </Text>
+          }
+        </View>
+      </View>
+    );
+  }
+}
+export default Component;

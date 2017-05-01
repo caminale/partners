@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
-import {ExerciseForm} from '../../forms';
+import {MatchingForm} from '../../forms';
 
 import styles from './styles';
 
@@ -16,7 +16,7 @@ class Scene extends React.Component{
     const {onSubmit} = this.props;
     return (
       <View style={styles.container}>
-        <ExerciseForm onSubmit={onSubmit}/>
+        <MatchingForm onSubmit={onSubmit}/>
       </View>
     );
   }

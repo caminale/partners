@@ -1,23 +1,27 @@
 import React, {Component} from 'react';
+import {Navigator} from 'react-native';
+import Meteor from 'react-native-meteor';
 
-import Form from './form';
+import Scene from './scene';
+
 
 class Container extends Component {
+
   constructor(props) {
     super(props);
   }
+  nextForm = informations => {
 
-  onSubmit = stats => {
-    const {onSubmit} = this.props;
-    onSubmit(stats);
 
   };
 
   render() {
+
     return (
-      <Form onSubmit={this.onSubmit}/>
+
+      <Scene onSubmit={this.nextForm}/>
     );
   }
-}
 
+}
 export default Container;

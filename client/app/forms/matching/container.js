@@ -1,30 +1,23 @@
 import React, {Component} from 'react';
 
 import Form from './form';
-import formValidationSync from './validations';
 
 class Container extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       errors: {}
     };
   }
-
-  onSubmit = creds => {
+  onSubmit = stats => {
     const {onSubmit} = this.props;
-
-    onSubmit(creds);
-
-  }
-
+    onSubmit(stats)
+  };
   render() {
-    const {errors} = this.state;
     return (
       <Form
         onSubmit={this.onSubmit}
-        errors={errors}/>
+        errors={this.state.errors}/>
     );
   }
 }
@@ -32,5 +25,4 @@ class Container extends Component {
 Form.propTypes = {
   onSubmit: React.PropTypes.func.isRequired
 };
-
 export default Container;

@@ -16,7 +16,8 @@ export default StyleSheet.create({
   textq: {
     color: '#3c918c',
     fontSize: 15,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
   button: {
     borderWidth: 3,
@@ -33,9 +34,11 @@ export default StyleSheet.create({
   pickerWrap: {
     borderWidth: 2,
     borderColor: '#3c918c',
+    backgroundColor: '#f9ebd8',
     paddingHorizontal: 7,
-    alignItems: 'center',
-    justifyContent: 'center',
     borderRadius: 10
+  },
+  pickerContainer: {
+    flexDirection: 'column'
   }
 });

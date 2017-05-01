@@ -4,6 +4,7 @@ import Home from './home';
 import Login from './login';
 import MatchingExercise from './matching-exercise';
 import MatchingPersonal from './matching-personal';
+import MatchingWorkout from './matching-workout';
 import Profile from './profile';
 import Register from './register';
 
@@ -13,7 +14,9 @@ export {
   Home,
   MatchingExercise,
   MatchingPersonal,
+  MatchingWorkout,
   Login,
   Profile,
   Register
-};
+}
+  ;

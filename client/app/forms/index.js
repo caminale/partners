@@ -1,12 +1,14 @@
 import LoginForm from './login';
 import RegisterForm from './register';
-import BegMatchingForm from './beginQuestions';
+import ExerciseForm from './excersise-data';
 import PersonalForm from './personal-data';
+import MatchingForm from './matching';
 
 
 export {
   LoginForm,
   RegisterForm,
-  BegMatchingForm,
-  PersonalForm
+  ExerciseForm,
+  PersonalForm,
+  MatchingForm
 };

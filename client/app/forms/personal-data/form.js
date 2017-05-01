@@ -1,22 +1,25 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
+import RadioForm from 'react-native-simple-radio-button';
 
 import {LogRegInput} from '../../components';
-import styles from '../beginQuestions/styles';
+import styles from '../personal-data/styles';
 import {Button} from '../../components';
-
-
-const {
-  View,
-  Text,
-  TouchableOpacity
-} = ReactNative;
 
 const fNameIcon = require('../../images/iconPerson.png');
 const heightIcon = require('../../images/iconHeight.png');
 const ageIcon = require('../../images/iconAge.png');
 const weightIcon = require('../../images/iconWeight.png');
 
+const {
+  View,
+  Text
+} = ReactNative;
+
+const radio_props = [
+  {label: 'male', value: 0},
+  {label: 'female', value: 1}
+];
 
 class Form extends React.Component {
   constructor(props) {
@@ -25,11 +28,20 @@ class Form extends React.Component {
       fName: '',
       height: 0,
       age: 0,
-      weight: 0
+      weight: 0,
+      value: 0,
+      gender: ''
     };
   }
-
   onSubmit = () => {
+    if (this.state.value === 0) {
+      const male = 'male';
+      this.setState({male});
+    }
+    if (this.state.value === 1) {
+      const female = 'female';
+      this.setState({female});
+    }
     this.props.onSubmit(this.state);
   };
   setFName = fName => {
@@ -51,6 +63,20 @@ class Form extends React.Component {
         <Text style={styles.text}>
           About yourself
         </Text>
+        <View style={styles.radiobuttoncontainer}>
+          <Text style={styles.textq}>
+            Are you a male or a female ?
+          </Text>
+          <RadioForm
+            radio_props={radio_props}
+            initial={0}
+            formHorizontal={true}
+            buttonColor={'#3c918c'}
+            onPress={(value) => {
+              this.setState({value: value})
+            }}
+          />
+        </View>
         <LogRegInput
           label={'What is your first name?'}
           placeholder={'your first name'}

@@ -20,7 +20,7 @@ class Scene extends Component {
   onAddRoom({title, description}) {
     Meteor.call('addChat',{
       title: "yolo",
-      description: "blablabla",
+      description: "schedule an appointment with your new partners",
       users: [
         Meteor.user()._id
       ]

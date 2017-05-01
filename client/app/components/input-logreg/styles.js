@@ -1,14 +1,13 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  // I did for each component a wrap to manage their position
   input: {
     backgroundColor: 'transparent',
     borderWidth: 2,
     borderRadius: 10,
     borderColor: '#3c918c',
     flex: 1,
-    paddingHorizontal:10,
+    paddingHorizontal: 10,
   },
   errorStyle: {
     color: 'red'
@@ -18,7 +17,7 @@ export default StyleSheet.create({
     marginVertical: 2
   },
   testStyle: {
-    borderColor:'red',
+    borderColor: 'red',
     borderWidth: 1
   },
   icon: {
@@ -27,25 +26,22 @@ export default StyleSheet.create({
   },
   labelWrap: {
     flexDirection: 'column',
-
   },
   label: {
     textAlign: 'center',
     color: '#3c918c',
     fontSize: 15,
     fontWeight: 'bold'
-
-
   },
   iconWrap: {
-    paddingHorizontal:7,
-    alignItems:'center',
-    justifyContent:'center',
-    backgroundColor:'#3c918c',
+    paddingHorizontal: 7,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#3c918c',
     borderRadius: 10
   },
   inputWrap: {
     flexDirection: 'row',
-    marginHorizontal:10
+    marginHorizontal: 10
   }
 });
