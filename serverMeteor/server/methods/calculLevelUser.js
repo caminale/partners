@@ -1,49 +1,25 @@
 import {Meteor} from 'meteor/meteor';
 
-import {UserExoStats} from '../../lib/collections';
+import {UserExoStats, Exercise} from '../../lib/collections';
 
 const calculLevelUser = () => {
 
   const userId = Meteor.user()._id;
-  let levelLatPullDown = 0;
-  let levelDips = 0;
-  let levelSquats = 0;
-  let levelBenchPress = 0;
-  let levelU = 0.0;
 
-  let benchPress = UserExoStats.findOne({
-    userId: userId,
-    exerciseId: 'n5iCkhmR5ADkZPbNs'
-  });
-  levelBenchPress = parseFloat(benchPress.levelExo);
+  const exercises = Exercise.find({matching: true}).fetch();
+  const sumCoeff = exercises.reduce((acc, obj) => acc + obj.difficulty, 0);
 
-  let squats = UserExoStats.findOne({
-    userId: userId,
-    exerciseId: 'Z2asvxEdRRBWbanM8'
-  });
-  levelSquats = parseFloat(squats.levelExo);
-
-  let dips = UserExoStats.findOne({
-    userId: userId,
-    exerciseId: '4AMqjmCqkhADgjmrS'
-  });
-  levelDips = parseFloat(dips.levelExo);
-
-  let latPullDown = UserExoStats.findOne({
-    userId: userId,
-    exerciseId: 'CrzMaxQ4qKLWZHKLa'
-  });
-  levelLatPullDown = parseFloat(latPullDown.levelExo);
-
-  levelU = (levelBenchPress + levelSquats + levelDips + levelLatPullDown) / 4;
-
-  // console.log("dips :" + levelDips);
-  // console.log("squats : " + levelSquats);
-  // console.log("bp :" + levelBenchPress);
-  // console.log("lpd : " + levelLatPullDown);
-  // console.log("total level " + levelUser);
-
-let levelUser= levelU.toFixed(2);
+  const levelUser = exercises
+    .map(exercise => { // exercise
+      const statExo = UserExoStats.findOne({
+        userId,
+        exerciseId: exercise._id
+      }).levelExo;
+      return parseFloat(statExo) * exercise.difficulty;
+    })
+    .reduce((acc, obj) => acc + (obj / sumCoeff), 0)
+    //The reduce(fuction,0 ) method reduces the array to a single value.
+    .toFixed(2);
 
   Meteor.users.update(userId, {
     $set: {
@@ -60,4 +36,3 @@ let levelUser= levelU.toFixed(2);
 };
 
 export default calculLevelUser;
-

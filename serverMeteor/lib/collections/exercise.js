@@ -16,6 +16,9 @@ const ExerciseSchema = new SimpleSchema({
   difficulty: {
     type: Number
   },
+  matching: {
+    type: Boolean
+  }
   // restTime:{
   //   type: Number,
   //   optional: true

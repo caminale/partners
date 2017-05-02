@@ -8,49 +8,40 @@ Schema.UserProfile = new SimpleSchema({
   firstName: {
     type: String,
     optional: true,
-    blackbox: true
   },
   lastName: {
     type: String,
-    optional: true,
-    blackbox: true
+    optional: true
   },
   gender: {
     type: String,
     allowedValues: ['male', 'female'],
     optional: true,
-    blackbox: true
   },
   locale: {
     type: String,
     optional: true,
-    blackbox: true
   },
   age: {
     type: Number,
     optional: true,
-    blackbox: true
   },
   picture: {
     type: String,
     optional: true,
-    blackbox: true
 
   },
   level: {
     type: String,
     optional: true,
-    blackbox: true
   },
   weight: {
-    type: Number,
+    type: [Number],
     optional: true,
-    blackbox: true
   },
   height: {
     type: Number,
     optional: true,
-    blackbox: true
   },
   completeProfile: {
     type: Boolean,
@@ -60,7 +51,6 @@ Schema.UserProfile = new SimpleSchema({
   description: {
     type: String,
     optional: true,
-    blackbox: true
   }
 });
 
@@ -102,7 +92,6 @@ const AccountSchema = new SimpleSchema({
   roles: {
     type: String,
     optional: true,
-    blackbox: true,
     allowedValues: ['user', 'admin']
   }
 });
