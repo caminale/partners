@@ -7,6 +7,9 @@ import MatchingPersonal from './matching-personal';
 import MatchingWorkout from './matching-workout';
 import Profile from './profile';
 import Register from './register';
+import SettingsProfile from './profile-settings';
+import AddStats from './profile-add-stats';
+import SettingsProfilePicker from './profile-settings-picker';
 
 export {
   Conversation,
@@ -17,6 +20,9 @@ export {
   MatchingWorkout,
   Login,
   Profile,
-  Register
+  Register,
+  SettingsProfile,
+  AddStats,
+  SettingsProfilePicker
 }
   ;

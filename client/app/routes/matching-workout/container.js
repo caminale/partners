@@ -13,6 +13,7 @@ class Container extends Component {
   nextForm = informations => {
 
 
+
   };
 
   render() {

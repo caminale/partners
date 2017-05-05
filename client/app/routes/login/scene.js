@@ -8,7 +8,6 @@ import {Button} from '../../components';
 const {
   View,
   Text,
-  TouchableOpacity,
   Image
 } = ReactNative;
 

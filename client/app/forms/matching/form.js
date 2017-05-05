@@ -30,7 +30,7 @@ class Form extends React.Component {
 
   updateLanguage = (dayTime) => {
     this.setState({dayTime: dayTime});
-  }
+  };
 
   render() {
     return (

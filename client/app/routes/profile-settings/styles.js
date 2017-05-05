@@ -2,26 +2,20 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'column',
-    // justifyContent: 'space-between',
-    backgroundColor: '#f9ebd8'
-  },
-  container1: {
-    backgroundColor: '#ccc1b1',
-
+    backgroundColor: '#f9ebd8',
+    flex: 1,
+    justifyContent: 'space-between'
   },
   chartContainer: {
-    width: 300,
-    height: 100,
-    marginTop: 20,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f9ebd8'
   },
   chart: {
-    width: 300,
-    height: 200
+    width: 200,
+    height: 100
   },
   infoContainer: {
     flexDirection: 'column'
@@ -50,17 +44,12 @@ export default StyleSheet.create({
     textAlign: 'center'
   },
   imageBubble: {
-
+    borderWidth: 10,
+    borderRadius: 25
   },
   infoWrap: {
     flexDirection: 'row',
-    backgroundColor: '#ded2c1',
-    justifyContent: 'space-between',
-    marginTop: 5,
-    marginLeft: 5,
-    marginRight: 5,
-    marginBottom: 5,
-    borderRadius: 10
+    backgroundColor: '#ded2c1'
   },
   pickerWrap: {
     borderWidth: 2,
@@ -74,12 +63,11 @@ export default StyleSheet.create({
   },
   descriptionButWrap: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    width: 200
+
   },
   buttonEdit: {
     height:50,
-    width: 50,
-    backgroundColor: '#a1aca8',
-    borderRadius: 5
+    width: 50
   }
 });

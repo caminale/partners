@@ -22,6 +22,7 @@ class Component extends React.Component {
                      resizeMode="contain"/>
             </View>
             <TextInput style={styles.input}
+                       underlineColorAndroid='rgba(0,0,0,0)'
                        placeholder={this.props.placeholder}
                        onChangeText={this.props.onChangeText}
                        keyboardType={this.props.keyboardType}

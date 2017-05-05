@@ -3,7 +3,8 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9ebd8'
+    backgroundColor: '#f9ebd8',
+    flexDirection: 'column'
   },
   image: {
     margin: 100,
@@ -36,5 +37,9 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: '#f9ebd8',
     fontSize: 30
+  },
+  background: {
+    width: null,
+    height: null
   }
 });

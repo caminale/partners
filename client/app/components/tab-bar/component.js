@@ -4,7 +4,7 @@ import {View, TouchableOpacity} from 'react-native';
 
 import styles from './styles';
 
-class Component extends React.Component {
+class Component extends React.Component {   s
   tabIcons = [];
 
   componentDidMount() {
@@ -48,7 +48,8 @@ class Component extends React.Component {
                 this.tabIcons[i] = icon;
               }}
             />
-          </TouchableOpacity>);
+          </TouchableOpacity>
+        );
       })}
     </View>);
   }
