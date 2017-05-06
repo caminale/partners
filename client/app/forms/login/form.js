@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactNative from 'react-native';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import {Fumi} from 'react-native-textinput-effects';
 
 import {FacebookButton} from '../../components';
+import {LogRegInput} from '../../components';
 import styles from './styles';
+import {Button} from '../../components';
+
+const personIcon = require('../../images/iconPerson.png');
+const lockIcon = require('../../images/iconLock.png');
 
 const {
   View,
@@ -22,7 +25,6 @@ class Form extends React.Component {
       usernameEmail: ''
     };
   }
-
   onSubmit = () => {
     this.props.onSubmit(this.state);
   };
@@ -43,44 +45,24 @@ class Form extends React.Component {
     const {errors} = this.props;
     return (
       <ScrollView>
-
         <View style={styles.inputWrap}>
-          <Fumi
-            style={styles.input}
-            labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#FFF'}}
-            label={'Username'}
-            iconClass={FontAwesomeIcon}
-            iconName={'user'}
-            iconColor={'#f95a25'}
+          <LogRegInput
+            placeholder={'Username'}
+            source={personIcon}
+            errors={errors.usernameEmail}
             onChangeText={this.setUsernameEmail}
           />
-
         </View>
         <View style={styles.inputWrap}>
-          <Fumi
-            style={styles.input}
-            labelStyle={{color: '#3c918c'}}
-            inputStyle={{color: '#FFF'}}
-            secureTextEntry
-            label={'Password'}
-            iconClass={FontAwesomeIcon}
-            iconName={'lock'}
-            iconColor={'#f95a25'}
+          <LogRegInput
+            placeholder={'Password'}
+            secureTextEntry={true}
+            source={lockIcon}
+            errors={errors.password}
             onChangeText={this.setPassword}
           />
         </View>
         <View style={styles.errorWrap}>
-          {errors.usernameEmail &&
-          <Text style={styles.errorStyle}>
-            {errors.usernameEmail}
-          </Text>
-          }
-          {errors.password &&
-          <Text style={styles.errorStyle}>
-            {errors.password}
-          </Text>
-          }
           {errors.submit &&
           <Text style={styles.errorStyle}>
             {errors.submit}
@@ -88,13 +70,9 @@ class Form extends React.Component {
           }
         </View>
         <View style={styles.buttonWrap}>
-          <TouchableOpacity
-            onPress={this.onSubmit}
-            style={styles.loginButton}>
-            <Text style={styles.buttonText}>
-              Login
-            </Text>
-          </TouchableOpacity>
+          <Button onPress={this.onSubmit}
+                  label={'Login'}
+          />
         </View>
         <View style={styles.buttonWrap}>
           <FacebookButton

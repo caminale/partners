@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
 
-import Form from './formDebutant';
+import Form from './form';
 
 class Container extends Component {
   constructor(props) {
     super(props);
   }
 
-  onSelect(creds) {
+  onSubmit = stats => {
     const {onSubmit} = this.props;
-    console.log(this.props.valueOf());
-  }
+    onSubmit(stats);
+
+  };
 
   render() {
     return (
-      <Form
-        onSelect={creds => this.onSelect(creds)}
-        />
+      <Form onSubmit={this.onSubmit}/>
     );
   }
 }
+
 export default Container;

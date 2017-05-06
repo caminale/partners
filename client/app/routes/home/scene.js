@@ -3,6 +3,8 @@ import ReactNative from 'react-native';
 
 import images from '../../images';
 import styles from './styles';
+import {Button} from '../../components';
+
 
 const {
   View,
@@ -11,6 +13,7 @@ const {
   TouchableOpacity
 } = ReactNative;
 
+const gymPic = require('../../images/arnold.png')
 class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGISTER/LOGIN)
   navigateToLogin = () => {
     this.props.navigate('login');     //Passage de la route login à la fonction navigate prédente dans le container
@@ -21,6 +24,11 @@ class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGIS
   render() {
     return (
       <View style={styles.container}>
+        {/*<Image*/}
+          {/*style={[styles.background, styles.container]}*/}
+          {/*source={{uri: gymPic}}*/}
+          {/*resizeMode="cover"*/}
+        {/*>*/}
         <Text style={styles.title}>
           Partners
         </Text>
@@ -38,6 +46,7 @@ class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGIS
             <Text style={styles.text}>Register</Text>
           </TouchableOpacity>
         </View>
+        {/*</Image>*/}
       </View>
     );
   }

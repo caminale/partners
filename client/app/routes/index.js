@@ -2,16 +2,27 @@ import Conversation from './conversation';
 import Conversations from './conversations';
 import Home from './home';
 import Login from './login';
-import Matching from './matching';
+import MatchingExercise from './matching-exercise';
+import MatchingPersonal from './matching-personal';
+import MatchingWorkout from './matching-workout';
 import Profile from './profile';
 import Register from './register';
+import SettingsProfile from './profile-settings';
+import AddStats from './profile-add-stats';
+import SettingsProfilePicker from './profile-settings-picker';
 
 export {
   Conversation,
   Conversations,
   Home,
-  Matching,
+  MatchingExercise,
+  MatchingPersonal,
+  MatchingWorkout,
   Login,
   Profile,
-  Register
-};
+  Register,
+  SettingsProfile,
+  AddStats,
+  SettingsProfilePicker
+}
+  ;

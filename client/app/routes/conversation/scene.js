@@ -1,96 +1,82 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
 import Meteor, {MeteorListView} from 'react-native-meteor';
-import { GiftedChat } from 'react-native-gifted-chat';
 
+import {Button} from '../../components';
 import styles from './styles';
 
 const {
   View,
   Text,
   ScrollView,
-  TextInput,
-  TouchableOpacity,
-  ScrollView
+  TextInput
 } = ReactNative;
 
 class Scene extends Component {
-  constructor() {
-    super();
-
-    Meteor.subscribe('posts');
+  constructor(props) {
+    super(props);
     this.state = {
       message: '',
-      author:'',
+      author: '',
     };
   }
+
   setMessage = message => {
     this.setState({message});
   };
-  getMessages() {
-    return [
-      {text: 'Are you building a chat app?', name: 'React-Native', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2015, 0, 16, 19, 0)},
-      {text: "Yes, and I use Gifted Messenger!", name: 'Developer', image: null, position: 'right', date: new Date(2015, 0, 17, 19, 0)},
-    ];
-  }
-  onAddPost = () => {         //Envois du message à meteor
-    Meteor.call('addPost', 'azeeerr', this.state.message);
+  onAddPost = () => {
+    const post = {
+      message: this.state.message,
+      conversationId: this.props.conversation._id
+    };
+    this.props.onAddPost(post);
   };
   renderHeader = () => {
-    return <Text style={styles.header}>Posts</Text>;
+    const currentUsername = Meteor.user().profile.firstName;
+    console.log(currentUsername);
+    return <Text style={styles.header}>{currentUsername}</Text>;
   };
   renderItem = post => {
-    let currentUser=Meteor.user().username
-    if(post.author===currentUser) {
+    const currentUser = Meteor.user()._id;
+    if (post.author === currentUser) {
       return (
-      <GiftedChat
-        messages={this.getMessages()}
-
-
-      />
-        // <View style={styles.messageWrap}>
-        //   <Text style={styles.ourTextStyle}>{post.message}</Text>
-        //   <Text style={styles.authorStyle}>{post.author}</Text>
-        // </View>
+        <View style={styles.userMessageWrap}>
+          <Text style={styles.ourTextStyle}>{post.message}</Text>
+        </View>
       );
     }
     else {
       return (
-        <View style={styles.messageWrap}>
+        <View style={styles.foreignMessageWrap}>
           <Text style={styles.TextStyle}>{post.message}</Text>
-          <Text style={styles.authorStyle}>{post.author}</Text>
         </View>
       );
     }
   };
+
   render() {
     const {goBack} = this.props;
     return (
-      <ScrollView>
-        <TouchableOpacity
-          style={styles.buttonBack}
-          onPress={goBack}>
-          <Text>BACK</Text>
-        </TouchableOpacity>
-        <Text style={styles.postTitle}>
-          Ici il y a aura une conversation
-        </Text>
-        <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
-          collection="posts"
-          enableEmptySections
-          renderRow={this.renderItem}
-          renderHeader={this.renderHeader}
-          />
-        <TouchableOpacity
-          style={styles.button}//Appel de la fonction onAddPost pour envoyer un message
-          onPress={this.onAddPost}>
-          <Text>Send</Text>
-        </TouchableOpacity>
-        <TextInput
-          onChangeText={this.setMessage}
-          autoFocus={true}
-          placeholder={'send message'}/>
-      </ScrollView>
+      <View style={styles.container}>
+        <View>
+          <Button onPress={goBack}
+                  label={'back'}/>
+          <ScrollView>
+            <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
+              collection="posts"
+              selector={{conversationId: this.props.conversation._id}}
+              enableEmptySections
+              renderRow={this.renderItem}
+              renderHeader={this.renderHeader}/>
+          </ScrollView>
+        </View>
+          <TextInput
+            onChangeText={this.setMessage}
+            autoFocus={true}
+            placeholder={'send message'}/>
+          <Button onPress={this.onAddPost}
+                  label={'Send'}/>
+        </View>
     );
   }
 }

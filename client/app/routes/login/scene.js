@@ -3,11 +3,11 @@ import ReactNative from 'react-native';
 
 import {LoginForm} from '../../forms';
 import styles from './styles';
+import {Button} from '../../components';
 
 const {
   View,
   Text,
-  TouchableOpacity,
   Image
 } = ReactNative;
 
@@ -30,9 +30,8 @@ class Scene extends Component {
             onSubmitFacebook={onSubmitFacebook}
             />
           <View style={styles.buttonWrap}>
-            <TouchableOpacity style={styles.button} onPress={goBack}>
-              <Text style={styles.buttonText}>Go back</Text>
-            </TouchableOpacity>
+            <Button onPress={goBack}
+                    label={'go back'}/>
           </View>
         </Image>
       </View>

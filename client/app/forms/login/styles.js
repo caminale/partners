@@ -3,9 +3,8 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   // I did for each component a wrap to manage their position
   inputWrap: {
-    paddingHorizontal: 15,
     marginVertical: 10,
-    height: 50
+    height: 45
   },
   buttonWrap: {
     paddingHorizontal: 65,
@@ -19,18 +18,13 @@ export default StyleSheet.create({
     color: '#FFF',
     alignItems: 'center',
     justifyContent: 'center'
-
   },
   errorStyle: {
     color: 'red'
   },
   input: {
-    flex: 1,
-    // BackgroundColor:'#FFF',
-    backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: 'white'
-
+    borderColor: 'red'
   },
   forgotButton: {
     // BackgroundColor: 'green',

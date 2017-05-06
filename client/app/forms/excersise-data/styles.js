@@ -4,15 +4,14 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#f9ebd8'
   },
   text: {
-    paddingVertical: 15,
     color: '#3c918c',
-    justifyContent: 'center',
-    fontSize: 15
+    fontSize: 25,
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
   button: {
     borderWidth: 3,

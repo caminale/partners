@@ -3,7 +3,8 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9ebd8'
+    backgroundColor: '#f9ebd8',
+    flexDirection: 'column'
   },
   image: {
     margin: 100,
@@ -18,22 +19,27 @@ export default StyleSheet.create({
   },
   loginButton: {
     padding: 20,
-    backgroundColor: 'green'
+    backgroundColor: '#3c918c'
   },
   registerButton: {
     padding: 20,
-    backgroundColor: 'orange'
+    backgroundColor: '#997b67'
   },
   title: {
     alignSelf: 'stretch',
     textAlign: 'center',
-    color: 'blue',
-    fontSize: 30
+    color: '#3c918c',
+    fontSize: 50,
+    fontWeight: 'bold'
   },
   text: {
     alignSelf: 'stretch',
     textAlign: 'center',
-    color: 'white',
+    color: '#f9ebd8',
     fontSize: 30
+  },
+  background: {
+    width: null,
+    height: null
   }
 });
