@@ -29,7 +29,6 @@ Schema.UserProfile = new SimpleSchema({
   picture: {
     type: String,
     optional: true,
-
   },
   level: {
     type: String,
@@ -46,10 +45,17 @@ Schema.UserProfile = new SimpleSchema({
   completeProfile: {
     type: Boolean,
     optional: true,
-    // value: false
   },
   description: {
     type: String,
+    optional: true,
+  },
+  trainingTime: {
+    type: String,
+    optional: true
+  },
+  mark: {
+    type: Number,
     optional: true,
   }
 });
@@ -61,8 +67,8 @@ const AccountSchema = new SimpleSchema({
   },
   username: {
     type: String,
+    optional: true,
     // regEx: /^[a-z0-9A-Z_]{3,15}$/,
-    blackbox: true,
   },
   emails: {
     optional: false,
@@ -93,7 +99,12 @@ const AccountSchema = new SimpleSchema({
     type: String,
     optional: true,
     allowedValues: ['user', 'admin']
+  },
+  partners: {
+    type: [Object],
+    optional: true,
   }
+
 });
 
 /**
