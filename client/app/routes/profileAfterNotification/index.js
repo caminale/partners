@@ -1,3 +1,3 @@
-/**
- * Created by lolo on 09/05/17.
- */
+import Container from './container';
+
+export default Container;

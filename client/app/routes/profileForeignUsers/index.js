@@ -1,3 +1,3 @@
-/**
- * Created by lolo on 06/05/17.
- */
+import createContainer from './scene';
+
+export default createContainer;

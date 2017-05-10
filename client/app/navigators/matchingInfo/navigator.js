@@ -6,7 +6,11 @@ import Meteor from 'react-native-meteor';
 import {
   MatchingExercise,
   MatchingPersonal,
-  MatchingWorkout
+  MatchingWorkout,
+  ProfileForeignUsers,
+  Notifications,
+  ProfileAfterNotifications,
+
 } from '../../routes';
 
 class MyNavigator extends Component {               // NAVIGATEUR de gestion des vues avant connexion (LOGGED-OUT)
@@ -15,15 +19,22 @@ class MyNavigator extends Component {               // NAVIGATEUR de gestion des
     this.renderScene = this.renderScene.bind(this);
   }
 
-
+// route les data  navigator savoir le chemin
   renderScene(route, navigator) {    // Appel des différentes routes en passant le navigateur (pour qu'elles ai accès au changement de vue)
     switch (route.name) {
       case 'exercise':
         return <MatchingExercise navigator={navigator}/>;         // Appel de la route home (Boutons Login/Register)
       case 'personal':
-        return <MatchingPersonal navigator={navigator}/>;      // Appel de la route login (connexion email ou facebook)
+        return <MatchingPersonal navigator={navigator} />;      // Appel de la route login (connexion email ou facebook)
       case 'workout':
         return <MatchingWorkout navigator={navigator}/>;
+      case 'profilePartner':
+        console.log(route.passProps);
+        return <ProfileForeignUsers navigator={navigator} data={route.passProps}/>;//appel de la route   profileForeignusers pour afficher le profil du partner
+      case 'notification':
+        return <Notifications navigator={navigator}/>;//appel de la route   profileForeignusers pour afficher le profil du partner
+      case 'ProfileAfterNotification' :
+        return <ProfileAfterNotifications navigator={navigator} data={route.passProps}/>;
       default:
         console.log(route.name);
     }

@@ -14,17 +14,6 @@ class Scene extends Component {
   constructor() {
     super();
     Meteor.subscribe('chats',Meteor.user()._id);
-
-  }
-
-  onAddRoom({title, description}) {
-    Meteor.call('addChat',{
-      title: "yolo",
-      description: "schedule an appointment with your new partners",
-      users: [
-        Meteor.user()._id
-      ]
-    });
   }
 
   renderHeader() {
@@ -45,14 +34,12 @@ class Scene extends Component {
   };
 
   render() {
+    const userId= Meteor.user()._id;
     return (
       <View>
-        <TouchableOpacity onPress={() => this.onAddRoom(
-          {title: 'Conv1', description: 'schedule an appointment with your new partners'})}>
-          <Text style={styles.conversationTitle}>Add conversation</Text>
-        </TouchableOpacity>
         <MeteorListView
           collection="chats"
+          selector={{users: userId}}
           enableEmptySections
           renderRow={this.renderItem}
           renderHeader={this.renderHeader}

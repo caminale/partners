@@ -10,6 +10,10 @@ import Register from './register';
 import SettingsProfile from './profile-settings';
 import AddStats from './profile-add-stats';
 import SettingsProfilePicker from './profile-settings-picker';
+import ProfileForeignUsers from './profileForeignUsers';
+import Notifications from './notifications';
+import ProfileAfterNotifications from './profileAfterNotification';
+
 
 export {
   Conversation,
@@ -23,6 +27,9 @@ export {
   Register,
   SettingsProfile,
   AddStats,
-  SettingsProfilePicker
+  SettingsProfilePicker,
+  ProfileForeignUsers,
+  Notifications,
+  ProfileAfterNotifications
 }
   ;

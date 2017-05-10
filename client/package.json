@@ -17,6 +17,7 @@
     "react-native-meteor": "^1.0.3",
     "react-native-scrollable-tab-view": "^0.7.3",
     "react-native-simple-radio-button": "^2.5.0-alpha.1",
+    "react-native-star-rating": "^1.0.7",
     "react-native-textinput-effects": "^0.3.0",
     "react-native-vector-icons": "^4.0.0"
   },

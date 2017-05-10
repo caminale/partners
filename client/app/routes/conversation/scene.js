@@ -82,3 +82,6 @@ class Scene extends Component {
 }
 
 export default Scene;
+// si la conv n'est pas créé des 2 cotés éssayer de changer le selector
+// et de trier user : Meteor.user._id
+//    selector={{conversationId: this.props.conversation._id}}

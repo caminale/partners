@@ -59,6 +59,21 @@ Schema.UserProfile = new SimpleSchema({
     optional: true,
   }
 });
+Schema.Partners = new SimpleSchema({
+  partners:{
+    type: String,
+    optional: true
+  },
+  request:{
+    type: String,
+    optional: true
+  },
+  requestReceive:{
+    type: String,
+    optional: true
+  }
+});
+
 
 const AccountSchema = new SimpleSchema({
   _id: {
@@ -101,10 +116,13 @@ const AccountSchema = new SimpleSchema({
     allowedValues: ['user', 'admin']
   },
   partners: {
-    type: [Object],
-    optional: true,
-  }
-
+    type: [Schema.Partners],
+    optional: true
+  },
+  notifications: {
+    type : Number,
+    optional: true
+  },
 });
 
 /**
