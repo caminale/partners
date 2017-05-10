@@ -13,8 +13,16 @@ class Container extends Component {
     this.props.navigator.pop();
   };
   updateInfos = info => {
-    console.log('salut');
-      Meteor.call('updateweight', info.info);
+    Meteor.call('updateweight', info.info);
+    this.props.navigator.push({
+      name: 'main'
+    });
+  };
+  submitDescription = description => {
+    Meteor.call('updateDescription', description.info);
+    this.props.navigator.push({
+      name: 'main'
+    });
   };
   changeInfoTraining = () => {
     this.props.navigator.push({
@@ -27,7 +35,8 @@ class Container extends Component {
       <Scene logout={this.logout}
              goBack={this.goBack}
              updateInfos={this.updateInfos}
-      changeInfoTraining={this.changeInfoTraining}/>
+             changeInfoTraining={this.changeInfoTraining}
+             submitDescription={this.submitDescription}/>
     );
   }
 }

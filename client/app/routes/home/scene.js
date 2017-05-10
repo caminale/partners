@@ -3,7 +3,6 @@ import ReactNative from 'react-native';
 
 import images from '../../images';
 import styles from './styles';
-import {Button} from '../../components';
 
 
 const {
@@ -24,11 +23,10 @@ class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGIS
   render() {
     return (
       <View style={styles.container}>
-        {/*<Image*/}
-          {/*style={[styles.background, styles.container]}*/}
-          {/*source={{uri: gymPic}}*/}
-          {/*resizeMode="cover"*/}
-        {/*>*/}
+        <Image
+          style={[styles.background, styles.container]}
+          source={{uri: 'https://greatist.com/sites/default/files/gym-floor-guide.jpg'}}
+          resizeMode="cover">
         <Text style={styles.title}>
           Partners
         </Text>
@@ -36,7 +34,6 @@ class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGIS
           <Image source={images.logo}/>
         </View>
         <View style={styles.containerButtons}>
-
           <TouchableOpacity style={styles.loginButton}  //Appel des 2 fonctions définies plus haut
                             onPress={this.navigateToLogin}>
             <Text style={styles.text}>Login</Text>
@@ -46,7 +43,7 @@ class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGIS
             <Text style={styles.text}>Register</Text>
           </TouchableOpacity>
         </View>
-        {/*</Image>*/}
+        </Image>
       </View>
     );
   }

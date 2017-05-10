@@ -2,24 +2,20 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
+
     backgroundColor: '#f9ebd8',
-    marginTop: 20,
-    flexDirection:'column'
+     justifyContent: 'space-between',
+    flex: 1
   },
-  buttonBack: {
-    borderWidth: 3,
-    marginHorizontal: 100,
-    alignItems: 'center',
-    borderColor: '#3c918c'
-  },
+
   userMessageWrap: {
-    flexDirection: 'column',
     backgroundColor: '#1285e5',
     marginLeft: 150,
-    justifyContent: 'center',
     marginTop: 10,
     alignItems: 'center',
-    borderRadius: 20
+    borderRadius: 20,
+    justifyContent: 'space-between'
+
   },
   foreignMessageWrap: {
     flexDirection: 'column',
@@ -48,26 +44,22 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 25
   },
-  postTitle: {
-    fontWeight: 'bold',
-    fontSize: 25
-  },
+  backButton: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
 
-  button: {
   },
-  containerBackground: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 20,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  },
-  textZone:
-    {
+  textInputButton: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#d7cbbb'
 
-    },
-  inputBut:
-    {
-      flexDirection: 'column',
-     // justifyContent: 'flex-start'
-    }
+  },
+  headerWrap: {
+    backgroundColor: '#d7cbbb'
+
+  }
+
+
+
 });

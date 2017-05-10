@@ -4,24 +4,41 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    // justifyContent: 'space-between',
-    backgroundColor: '#f9ebd8'
+    backgroundColor: '#031832',
+    justifyContent: 'space-between'
   },
   container1: {
     backgroundColor: '#ccc1b1',
 
   },
+  profilePic: {
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    borderWidth: 3,
+    borderColor: '#8399b5'
+
+  },
   chartContainer: {
-    width: 300,
-    height: 100,
-    marginTop: 20,
+    marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f9ebd8'
+    backgroundColor: '#58677A',
+    borderWidth: 3,
+    borderColor: '#8197b3'
+  },
+  chartStatContainer: {
+    marginTop: 5,
+   marginHorizontal: 5,
+    backgroundColor: '#58677A',
+    borderWidth: 3,
+    borderColor: '#3a4451'
   },
   chart: {
-    width: 300,
-    height: 200
+    width: 350,
+    backgroundColor: '#FFFFFF'
+
+
   },
   infoContainer: {
     flexDirection: 'column'
@@ -46,30 +63,41 @@ export default StyleSheet.create({
   infoText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#3c918c',
+    color: '#FFFFFF',
     textAlign: 'center'
+  },
+  infoTextStat: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginLeft: 110
   },
   imageBubble: {
 
   },
   infoWrap: {
     flexDirection: 'row',
-    backgroundColor: '#ded2c1',
+    backgroundColor: '#58677A',
     justifyContent: 'space-between',
     marginTop: 5,
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 5,
-    borderRadius: 10
+    borderWidth: 3,
+    borderColor: '#3a4451'
   },
   pickerWrap: {
     borderWidth: 2,
-    borderColor: '#3c918c',
-    backgroundColor: '#f9ebd8',
-    paddingHorizontal: 7,
-    borderRadius: 10
+    borderColor: '#FFFFFF',
+    backgroundColor: '#58677A',
+    paddingHorizontal: 7
   },
   descriptionContainer: {
+    backgroundColor: '#58677A',
+    marginHorizontal: 5,
+    borderWidth: 3,
+    borderColor: '#3a4451'
 
   },
   descriptionButWrap: {
@@ -77,9 +105,18 @@ export default StyleSheet.create({
     justifyContent: 'space-between'
   },
   buttonEdit: {
-    height:50,
-    width: 50,
-    backgroundColor: '#a1aca8',
-    borderRadius: 5
+    height:35,
+    width: 35,
+    backgroundColor: '#58677A',
+    borderWidth: 2,
+    borderColor: '#FFFFFF'
+
+  },
+  buttonAddStats: {
+    marginHorizontal: 100,
+    backgroundColor: "#0B69E4",
+    borderWidth: 2,
+    borderColor: "#063a7e",
+    marginBottom: 20
   }
 });

@@ -3,8 +3,8 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9ebd8',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: '#f9ebd8'
   },
   image: {
     margin: 100,
@@ -15,7 +15,9 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     right: 0,
-    left: 0
+    left: 0,
+    backgroundColor: 'transparent'
+
   },
   loginButton: {
     padding: 20,

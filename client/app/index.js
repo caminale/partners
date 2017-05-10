@@ -3,6 +3,8 @@ import Meteor, {createContainer} from 'react-native-meteor';
 import settings from './configs/settings';
 import {Start, Loading} from './components';
 import {LoggedIn, LoggedOut} from './navigators';
+import OneSignal from 'react-native-onesignal';
+
 
 // MANQUE : login-facebook / form (login + registr avec validations etc..)
 // Tout le composant TabBar / scene de conversationS et conversasion
@@ -11,6 +13,23 @@ import {LoggedIn, LoggedOut} from './navigators';
 Meteor.connect(settings.METEOR_URL);
 
 class App extends Component {           // Connexion avec meteor, appel de différents navigateurs en fonction du statut de connexion
+
+  componentDidMount() {
+    OneSignal.configure({});
+  }
+
+  componentWillMount() {
+    OneSignal.addEventListener('ids', this.onIds);
+  }
+
+  componentWillUnmount() {
+    OneSignal.removeEventListener('ids', this.onIds);
+  }
+
+  onIds(device) {
+    console.log('Device info: ', device);
+  }
+
   render() {
     const {status, user} = this.props;
     if (status.connected === false) {

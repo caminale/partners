@@ -33,7 +33,6 @@ class Scene extends Component {
   };
   renderHeader = () => {
     const currentUsername = Meteor.user().profile.firstName;
-    console.log(currentUsername);
     return <Text style={styles.header}>{currentUsername}</Text>;
   };
   renderItem = post => {
@@ -56,32 +55,37 @@ class Scene extends Component {
 
   render() {
     const {goBack} = this.props;
+    const currentUsername = Meteor.user().profile.firstName;
     return (
       <View style={styles.container}>
-        <View>
+        <View style={styles.headerWrap}>
+        <View style={styles.backButton}>
           <Button onPress={goBack}
                   label={'back'}/>
-          <ScrollView>
-            <MeteorListView                     //Liste des messages dans le serveur meteor, composant natif
-              collection="posts"
-              selector={{conversationId: this.props.conversation._id}}
-              enableEmptySections
-              renderRow={this.renderItem}
-              renderHeader={this.renderHeader}/>
-          </ScrollView>
         </View>
+        <Text style={styles.header}>{currentUsername}</Text>
+        </View>
+        <ScrollView>
+          <MeteorListView
+            collection="posts"
+            selector={{conversationId: this.props.conversation._id}}
+            enableEmptySections
+            renderRow={this.renderItem}
+          />
+        </ScrollView>
+        <View style={styles.textInputButton}>
           <TextInput
+            style={{width: 250}}
+            multiline={true}
             onChangeText={this.setMessage}
-            autoFocus={true}
             placeholder={'send message'}/>
           <Button onPress={this.onAddPost}
                   label={'Send'}/>
         </View>
+      </View>
     );
   }
 }
 
 export default Scene;
-// si la conv n'est pas créé des 2 cotés éssayer de changer le selector
-// et de trier user : Meteor.user._id
-//    selector={{conversationId: this.props.conversation._id}}
+

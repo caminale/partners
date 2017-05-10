@@ -12,7 +12,10 @@ const {
 } = ReactNative;
 
 class Scene extends Component {
+
   render() {
+    const gymPic = require('../../images/arnold.png')
+
     const {onSubmit, onSubmitFacebook, onForgot, goBack} = this.props;      // Recuperation des paramètres (accès aux fonctions du container)
     return (
       <View style={styles.container}>
