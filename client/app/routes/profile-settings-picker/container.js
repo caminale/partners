@@ -17,6 +17,9 @@ class Container extends Component {
   updateInfos = info => {
 
       Meteor.call('updateTrainingTime', info.info);
+    this.props.navigator.push({
+      name: 'main'
+    });
   };
   changeInfoTraining = () => {
     this.props.navigator.push({
@@ -24,12 +27,19 @@ class Container extends Component {
     });
   };
 
+  submitDescription = description => {
+    Meteor.call('updateDescription', description.info);
+    this.props.navigator.push({
+      name: 'main'
+    });
+  };
   render() {
     return (
       <Scene logout={this.logout}
              goBack={this.goBack}
              updateInfos={this.updateInfos}
-             changeInfoTraining={this.changeInfoTraining}/>
+             changeInfoTraining={this.changeInfoTraining}
+             submitDescription={this.submitDescription}/>
     );
   }
 }

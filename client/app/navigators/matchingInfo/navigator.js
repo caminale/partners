@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
 import {Navigator} from 'react-native';
 import Meteor from 'react-native-meteor';
-
+import ReactNative from 'react-native';
 
 import {
   MatchingExercise,
   MatchingPersonal,
   MatchingWorkout
 } from '../../routes';
+
+
+const {
+  BackAndroid
+} = ReactNative;
 
 class MyNavigator extends Component {               // NAVIGATEUR de gestion des vues avant connexion (LOGGED-OUT)
   constructor() {
@@ -17,6 +22,13 @@ class MyNavigator extends Component {               // NAVIGATEUR de gestion des
 
 
   renderScene(route, navigator) {    // Appel des différentes routes en passant le navigateur (pour qu'elles ai accès au changement de vue)
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+      if (navigator.getCurrentRoutes().length === 1  ) {
+        return false;
+      }
+      navigator.pop();
+      return true;
+    });
     switch (route.name) {
       case 'exercise':
         return <MatchingExercise navigator={navigator}/>;         // Appel de la route home (Boutons Login/Register)
@@ -31,24 +43,24 @@ class MyNavigator extends Component {               // NAVIGATEUR de gestion des
 
   render() {
 
-    const com = Meteor.user().profile.completeProfile;
-    if (com === true) {
+    //const com = Meteor.user().profile.completeProfile;
+    // if (com ==! null) {
       return (
         <Navigator                                     // Appel du navigateur en passant 2 paramètres (route initiale et la connextion
           initialRoute={{name: 'workout'}}             // A la fonction renderScene permettant de gérer les vues
           renderScene={this.renderScene}
         />
       );
-    }
-    else
-    {
-      return (
-        <Navigator                                     // Appel du navigateur en passant 2 paramètres (route initiale et la connextion
-          initialRoute={{name: 'exercise'}}             // A la fonction renderScene permettant de gérer les vues
-          renderScene={this.renderScene}
-        />
-      );
-    }
+    // }
+    // else
+    // {
+    //   return (
+    //     <Navigator                                     // Appel du navigateur en passant 2 paramètres (route initiale et la connextion
+    //       initialRoute={{name: 'exercise'}}             // A la fonction renderScene permettant de gérer les vues
+    //       renderScene={this.renderScene}
+    //     />
+    //   );
+    // }
 
   }
 }

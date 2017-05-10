@@ -6,10 +6,10 @@ import styles from './styles';
 import {Button} from '../../components';
 
 
+
 const {
   View,
   Text,
-  TouchableOpacity,
   Image
 } = ReactNative;
 
@@ -20,9 +20,8 @@ class Scene extends Component {
       <View style={styles.container}>
         <Image
           style={[styles.background, styles.container]}
-          source={{uri: 'https://thebioscopist.files.wordpress.com/2012/08/sylvester-stallone-rocky-balboa-wallpaper-for-1920x1080-hdtv-1080p-830-15.jpg'}}
-          resizeMode="cover"
-        >
+          source={{uri: 'https://s-media-cache-ak0.pinimg.com/originals/3c/bb/0a/3cbb0ac45c8199673c0b61bee91f34e9.jpg'}}
+          resizeMode="stretch">
           <View style={styles.registerWrap}>
             <Text style={styles.titleText}>Register</Text>
           </View>

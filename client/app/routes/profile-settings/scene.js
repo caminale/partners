@@ -24,7 +24,7 @@ class Scene extends Component {
   }
 
   updateInfo = (infoType) => {
-    if(infoType === "1")
+    if(infoType === "1" || infoType === "3")
     {
       this.setState({infoType: infoType});
     }
@@ -32,9 +32,17 @@ class Scene extends Component {
     {
       this.props.changeInfoTraining();
     }
+
   };
   submitInformation = () => {
-    this.props.updateInfos(this.state);
+    if(this.state.infoType === "1")
+    {
+      this.props.updateInfos(this.state);
+    }
+    else if(this.state.infoType === "3")
+    {
+      this.props.submitDescription(this.state); 
+    }
   };
   setInfo = info => {
     this.setState({info: info});
@@ -56,10 +64,11 @@ class Scene extends Component {
         </Text>
         <View style={styles.pickerWrap}>
           <Picker
-            selectedValue={this.state.info}
+            selectedValue={this.state.infoType}
             onValueChange={this.updateInfo}>
             <Picker.Item label="weight" color='#3c918c' value="1"/>
             <Picker.Item label="training time" color='#3c918c' value="2"/>
+            <Picker.Item label="description" color='#3c918c' value="3"/>
           </Picker>
         </View>
         <LogRegInput placeholder={'information to update'}

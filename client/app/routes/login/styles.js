@@ -4,7 +4,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    // JustifyContent: 'center',
     backgroundColor: '#f9ebd8'
   },
   loginWrap: {

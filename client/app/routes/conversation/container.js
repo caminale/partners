@@ -24,13 +24,11 @@ export default class AboutContainer extends Component {
 
   render() {
     return (
-      <View>
         <Scene
           conversation={this.props.conversation}
           currentUser={this.state.currentUser}
           goBack={this.goBack}
           onAddPost={this.addPostHandler}/>
-      </View>
     );
   }
 }

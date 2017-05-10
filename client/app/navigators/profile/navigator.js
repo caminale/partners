@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Navigator} from 'react-native';
+import ReactNative from 'react-native';
+
 
 import {
   Profile,
@@ -7,6 +9,10 @@ import {
   AddStats,
   SettingsProfilePicker
 } from '../../routes';
+
+const {
+  BackAndroid
+} = ReactNative;
 
 class MyNavigator extends Component {
   constructor() {
@@ -16,6 +22,13 @@ class MyNavigator extends Component {
 
 
   renderScene(route, navigator) {
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+      if (navigator.getCurrentRoutes().length === 1  ) {
+        return false;
+      }
+      navigator.pop();
+      return true;
+    });
     switch (route.name) {
       case 'main':
         return <Profile navigator={navigator}/>;
