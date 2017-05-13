@@ -59,20 +59,20 @@ Schema.UserProfile = new SimpleSchema({
     optional: true,
   }
 });
-Schema.Partners = new SimpleSchema({
-  partners:{
-    type: String,
-    optional: true
-  },
-  request:{
-    type: String,
-    optional: true
-  },
-  requestReceive:{
-    type: String,
-    optional: true
-  }
-});
+// Schema.Matching = new SimpleSchema({
+//   partners:{
+//     type: [String],
+//     optional: true
+//   },
+//   request:{
+//     type: [String],
+//     optional: true
+//   },
+//   requestReceive:{
+//     type: [String],
+//     optional: true
+//   }
+// });
 
 
 const AccountSchema = new SimpleSchema({
@@ -116,13 +116,29 @@ const AccountSchema = new SimpleSchema({
     allowedValues: ['user', 'admin']
   },
   partners: {
-    type: [Schema.Partners],
+    type: String,
     optional: true
   },
   notifications: {
     type : Number,
     optional: true
   },
+  oneSignalId: {
+    type : String,
+    optional: true
+  },
+  request: {
+    type: [String],
+    optional: true
+  },
+  requestReceive: {
+    type: [String],
+    optional: true
+  },
+  removeUser: {
+    type: [String],
+    optional: true
+  }
 });
 
 /**

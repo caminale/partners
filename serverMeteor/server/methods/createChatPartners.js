@@ -1,6 +1,5 @@
 import {Chats} from '../../lib/collections';
 
-
   /**
    * @summary Meteor.methods addChat permit to insert in the collection chats :
    * title, description, creationDate, users, lastpost
@@ -9,19 +8,18 @@ import {Chats} from '../../lib/collections';
    * @param  {Object}  chat is an object of the collection chats
    */
 
- const createChatPartners= (chat)  => {
+ const createChatPartners= (p_partnerId)  => {
     const userId = Meteor.user()._id;
-
+    const partner = Meteor.users.findOne({_id: p_partnerId});
     if (!userId) {
       return;
     }
 
-console.log('yopoooooooooooooooooooolooooooooooooo');
     Chats.insert({
-      title: 'chifumi',
+      title: 'new conversation',
       description: 'yolo',
       creationDate: new Date(),
-      users: [chat,userId],
+      users: [p_partnerId,userId],
       lastPost: new Date()
     });
   }

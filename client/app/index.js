@@ -30,14 +30,14 @@ class App extends Component {           // Connexion avec meteor, appel de diff√
   onIds(device) {
     setTimeout(function () {
 
-        if (device !== undefined && Meteor.user()._id !== null) {
-          const userId = Meteor.user()._id;
-          const Id = {
-            userId: userId,
-            deviceId: device
-          };
-          Meteor.call("addId", Id);
-        }
+        // if (device !== undefined && Meteor.user()._id !== null) {
+        //   const userId = Meteor.user()._id;
+        //   const Id = {
+        //     userId: userId,
+        //     deviceId: device
+        //   };
+        //   Meteor.call("addId", Id);
+        // }
       }
       , 600);
   }

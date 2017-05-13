@@ -14,6 +14,7 @@ class Container extends Component {         //Container formulaire d'inscription
     this.props.navigator.pop();
   };
   registerHandler = creds => {        //Appel de l'action register
+    console.log('containerreroutes :'+ creds.username);
     return Register(creds);
   };
   render() {
