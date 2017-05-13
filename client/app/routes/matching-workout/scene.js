@@ -12,7 +12,7 @@ class Scene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      starCount: 3.5,
+      starCount: 2.5,
       foreignUserId:''
     };
 
@@ -34,36 +34,42 @@ class Scene extends Component {
             source={{uri: user.profile.picture}}
             style={styles.photo}/>
           <View style={styles.wrapNameAge}>
-            <Text style={styles.text}>
-              {`${user.profile.firstName} ${user.profile.lastName}`}
+            <Text style={styles.buttonText}>
+              {`${user.profile.firstName}, ${user.profile.age}`}
+            </Text>
 
-            </Text>
-            <Text style={styles.text}>
-              {`${user.profile.age} `} ans
-            </Text>
           </View>
         </View>
         <StarRating
-          disabled={false}
+          disabled={true}
           emptyStar={'ios-star-outline'}
           fullStar={'ios-star'}
           halfStar={'ios-star-half'}
           iconSet={'Ionicons'}
           maxStars={3}
           rating={this.state.starCount}
-          selectedStar={(rating) => this.onStarRatingPress(rating)}
-          starColor={'red'}
+          starColor={'#3696e4'}
+          starSize={25}
         />
         <View style={styles.containerButtonAddRemove}>
           <TouchableOpacity
             onPress={() =>this.openProfile(user._id)}
-            style={styles.button}>
-            <Text>add</Text>
-          </TouchableOpacity>
+            style={styles.buttonAdd}>
+            <View style={styles.buttonAddWrap}>
 
+            <Image source={require('../../images/iconAddPartnerW.png')}
+                   style={{width: 15, height: 15}}/>
+            <Text style={styles.buttonText}>add    </Text>
+          </View>
+          </TouchableOpacity>
           <TouchableOpacity
-            style={styles.button}>
-            <Text>remove</Text>
+            style={styles.buttonRemove}>
+            <View style={styles.buttonAddWrap}>
+
+            <Image source={require('../../images/iconTrashW.png')}
+                   style={{width: 15, height: 15}}/>
+            <Text style={styles.buttonText}>remove</Text>
+            </View>
           </TouchableOpacity>
 
         </View>
@@ -74,21 +80,29 @@ class Scene extends Component {
   render() {
     const userId = Meteor.user()._id;
     const partners= Meteor.user();
+    let numberNotif = Meteor.user().notifications;
+    if(numberNotif === undefined )
+    {numberNotif=0;}
     Meteor.subscribe('users', userId);
       return (
         <View style={styles.container}>
 
-          <Button onPress={this.openNotification}
-                  label={'notif'}/>
-
+          <View style={styles.notificationWrap}>
+            <View style={styles.wrapTextNotif}>
+            <Text style={styles.textNotif}> {numberNotif}</Text>
+            </View>
+            <TouchableOpacity style={styles.button} onPress={this.openNotification}>
+            <Image source={require('../../images/iconNotifW.png')}
+                   style={{width: 30, height: 30}}/>
+            <Text style={styles.buttonText}>notification</Text>
+          </TouchableOpacity>
+        </View>
           <MeteorListView
             enableEmptySections
             collection="users"
             selector={{_id: {$ne: userId}}}
             renderRow={this.renderRow}/>
 
-          <Button onPress={this.openProfile}
-                  label={'Search partners'}/>
         </View>
       );
     }

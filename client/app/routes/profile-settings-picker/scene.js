@@ -8,7 +8,8 @@ const {
   View,
   TouchableOpacity,
   Text,
-  Picker
+  Picker,
+  Image
 } = ReactNative;
 
 class Scene extends Component {
@@ -22,11 +23,11 @@ class Scene extends Component {
   }
 
   updateInfo = (infoType) => {
-    if(infoType === "1" || infoType === "3")
+    if(infoType === "1" )
     {
       this.setState({infoType: infoType});
     }
-    else if(infoType === "2")
+    else if(infoType === "2" || infoType === "3")
     {
       this.props.changeInfoTraining();
     }  };
@@ -52,8 +53,11 @@ class Scene extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.button} onPress={goBack}>
+          <Image source={require('../../images/iconBackW.png')}
+                 style={{width: 30, height: 30}}/>
           <Text style={styles.buttonText}>go back</Text>
         </TouchableOpacity>
+        <View style={styles.infoContainer}>
         <Text style={styles.infoText}>
           update your informations
         </Text>
@@ -61,29 +65,34 @@ class Scene extends Component {
           <Picker
             selectedValue={this.state.infoType}
             onValueChange={this.updateInfo}>
-            <Picker.Item label="training time" color='#3c918c' value="1"/>
-            <Picker.Item label="weight" color='#3c918c' value="2"/>
-            <Picker.Item label="description" color='#3c918c' value="3"/>
+            <Picker.Item label="training time" color='#DBDBDB' value="1"/>
+            <Picker.Item label="weight" color='#DBDBDB' value="2"/>
+            <Picker.Item label="description" color='#DBDBDB' value="3"/>
           </Picker>
         </View>
         <View style={styles.pickerWrap}>
           <Picker
             selectedValue={this.state.info}
             onValueChange={this.setInfo}>
-            <Picker.Item label="8h-10h" color='#3c918c' value="early-morning"/>
-            <Picker.Item label="10h-12h" color='#3c918c' value="late-morning"/>
-            <Picker.Item label="12h-14h" color='#3c918c' value="noon"/>
-            <Picker.Item label="14h-16h" color='#3c918c' value="early-afternoon"/>
-            <Picker.Item label="16h-18h" color='#3c918c' value="late-afternoon"/>
-            <Picker.Item label="18h-20h" color='#3c918c' value="evening"/>
+            <Picker.Item label="8h-10h" color='#DBDBDB' value="early-morning"/>
+            <Picker.Item label="10h-12h" color='#DBDBDB' value="late-morning"/>
+            <Picker.Item label="12h-14h" color='#DBDBDB' value="noon"/>
+            <Picker.Item label="14h-16h" color='#DBDBDB' value="early-afternoon"/>
+            <Picker.Item label="16h-18h" color='#DBDBDB' value="late-afternoon"/>
+            <Picker.Item label="18h-20h" color='#DBDBDB' value="evening"/>
           </Picker>
 
         </View>
-        <Button onPress={this.submitInformation}
-                label={'update information'}/>
+        <TouchableOpacity style={styles.buttonUpdate}
+                          onPress={this.submitInformation}>
+          <Text style={styles.buttonText}>update informations</Text>
+        </TouchableOpacity>
+        </View>
         <View style={styles.buttonWrapper}>
-          <TouchableOpacity style={styles.button} onPress={logout}>
+          <TouchableOpacity style={styles.buttonLogout} onPress={logout}>
             <Text style={styles.buttonText}>Sign Out</Text>
+            <Image source={require('../../images/iconLogOutW.png')}
+                   style={{width: 30, height: 30}}/>
           </TouchableOpacity>
 
         </View>

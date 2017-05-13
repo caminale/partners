@@ -91,6 +91,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
+        vectorDrawables.useSupportLibrary = true
         versionName "1.0"
         manifestPlaceholders = [manifestApplicationId: "com.client",
                                         onesignal_app_id: "dad19ffc-6e6d-43df-86ed-cb5270f06c81",
@@ -129,6 +130,8 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-image-crop-picker')
+    compile project(':react-native-image-picker')
     compile project(':react-native-fbsdk')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])

@@ -15,6 +15,10 @@ export default StyleSheet.create({
   },
   buttonWrap: {
     height: 35,
-    marginVertical: 0
+    marginVertical: 0,
+  },
+  fbButton :{
+    flexDirection: "row",
+    justifyContent: 'space-between'
   }
 });

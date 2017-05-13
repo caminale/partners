@@ -4,7 +4,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: '#031832',
+    backgroundColor: '#d0d8dc',
     justifyContent: 'space-between'
   },
   container1: {
@@ -23,16 +23,16 @@ export default StyleSheet.create({
     marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#58677A',
+    backgroundColor: '#64758b',
     borderWidth: 3,
     borderColor: '#8197b3'
   },
   chartStatContainer: {
     marginTop: 5,
    marginHorizontal: 5,
-    backgroundColor: '#58677A',
+    backgroundColor: '#64758b',
     borderWidth: 3,
-    borderColor: '#3a4451'
+    borderColor: '#788ca6'
   },
   chart: {
     width: 350,
@@ -78,26 +78,26 @@ export default StyleSheet.create({
   },
   infoWrap: {
     flexDirection: 'row',
-    backgroundColor: '#58677A',
+    backgroundColor: '#64758b',
     justifyContent: 'space-between',
     marginTop: 5,
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 5,
     borderWidth: 3,
-    borderColor: '#3a4451'
+    borderColor: '#788ca6'
   },
   pickerWrap: {
     borderWidth: 2,
     borderColor: '#FFFFFF',
-    backgroundColor: '#58677A',
+    backgroundColor: '#64758b',
     paddingHorizontal: 7
   },
   descriptionContainer: {
-    backgroundColor: '#58677A',
+    backgroundColor: '#64758b',
     marginHorizontal: 5,
     borderWidth: 3,
-    borderColor: '#3a4451'
+    borderColor: '#788ca6'
 
   },
   descriptionButWrap: {
@@ -107,7 +107,7 @@ export default StyleSheet.create({
   buttonEdit: {
     height:35,
     width: 35,
-    backgroundColor: '#58677A',
+    backgroundColor: '#64758b',
     borderWidth: 2,
     borderColor: '#FFFFFF'
 
@@ -116,7 +116,7 @@ export default StyleSheet.create({
     marginHorizontal: 100,
     backgroundColor: "#0B69E4",
     borderWidth: 2,
-    borderColor: "#063a7e",
+    borderColor: "#1583ff",
     marginBottom: 20
   }
 });
