@@ -9,11 +9,21 @@ export default class AboutContainer extends Component {
   constructor(props) {
     super(props);
     this.goBack = this.goBack.bind(this);
-    SubscribePosts(this.props.conversation._id);
+    SubscribePosts(this.props.data.conversation._id);
     this.state = {
-      currentUser: Meteor.user().username
+      currentUser: Meteor.user().username,
+      foreignUser: this.props.data.foreignUser
     }
   }
+
+  openProfile = p_foreignUser => {
+    this.props.navigator.push({
+      name: 'profile',
+      passProps: {
+          foreignUser: p_foreignUser
+      }
+    });
+  };
 
   goBack = () => {
     this.props.navigator.pop();
@@ -24,11 +34,14 @@ export default class AboutContainer extends Component {
 
   render() {
     return (
-        <Scene
-          conversation={this.props.conversation}
-          currentUser={this.state.currentUser}
-          goBack={this.goBack}
-          onAddPost={this.addPostHandler}/>
+      <Scene
+        conversation={this.props.data.conversation}
+        currentUser={this.state.currentUser}
+        foreignUser={this.state.foreignUser}
+        goBack={this.goBack}
+        onAddPost={this.addPostHandler}
+        openProfile={this.openProfile}
+      />
     );
   }
 }

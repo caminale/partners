@@ -11,19 +11,25 @@ import {Button} from '../../components';
 class Scene extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       starCount: 3.5,
-      foreignUserId:''
+      foreignUserId: ''
     };
 
   }
+
 
   openProfile = (p_foreignUserId) => {
     this.props.openProfile(p_foreignUserId);
   };
 
-  openNotification = () =>{
+  openNotification = () => {
     this.props.openNotification();
+  };
+
+  removeUser = (p_userId) => {
+    Meteor.call("removeUser",p_userId);
   };
   renderRow = user => {
 
@@ -56,12 +62,13 @@ class Scene extends Component {
         />
         <View style={styles.containerButtonAddRemove}>
           <TouchableOpacity
-            onPress={() =>this.openProfile(user._id)}
+            onPress={() => this.openProfile(user._id)}
             style={styles.button}>
-            <Text>add</Text>
+            <Text>View Profile</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
+            onPress={() => this.removeUser(user._id)}
             style={styles.button}>
             <Text>remove</Text>
           </TouchableOpacity>
@@ -72,19 +79,21 @@ class Scene extends Component {
   }
 
   render() {
+
     const userId = Meteor.user()._id;
-    const partners= Meteor.user();
     Meteor.subscribe('users', userId);
+
+    if (Meteor.user().partners !== undefined || Meteor.user().removeUser !== undefined) {
+      // test user is ready permit to charge the db
       return (
         <View style={styles.container}>
-
           <Button onPress={this.openNotification}
                   label={'notif'}/>
 
           <MeteorListView
             enableEmptySections
             collection="users"
-            selector={{_id: {$ne: userId}}}
+            selector={ {$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners}}]}}
             renderRow={this.renderRow}/>
 
           <Button onPress={this.openProfile}
@@ -92,6 +101,22 @@ class Scene extends Component {
         </View>
       );
     }
+    else {
+      return (
+        <View style={styles.container}>
+          <Button onPress={this.openNotification}
+                  label={'notif'}/>
+          <Button onPress={this.openProfile}
+                  label={'Search partners'}/>
+        </View>
+
+      );
+    }
+
+  }
+
 }
 export default Scene;
 //I think the issue is that you're actually calling this.showCallInfo instead of passing it as your onPress function for your new button for onpress
+//$nin: [ 5, 15 ]
+//{ $and: [ { _id: { $ne: userId } }, { _id: { $ne: '' }

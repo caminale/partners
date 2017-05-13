@@ -7,12 +7,12 @@ class Container extends Component {
     super(props);
   }
   goBack = () => { //for get props on navigator
-    this.props.navigator.popN(2);
+    this.props.navigator.pop();
   };
   render() {
     return (
       <Scene goBack={this.goBack}
-             foreignUser={this.props.data.user}
+             foreignUser={this.props.data.foreignUser}
       />
     );
   }

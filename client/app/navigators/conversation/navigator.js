@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import {Navigator} from 'react-native';
 import ReactNative from 'react-native';
 
-import {Conversation, Conversations} from '../../routes';
+import {Conversation, Conversations, ProfileRatingPosts} from '../../routes';
 
 const {
   BackAndroid
 } = ReactNative;
 
 class MyNavigator extends Component {             // NAVIGATEUR DE GESTION DES CONVERSATIONS
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.renderScene = this.renderScene.bind(this);
   }
   renderScene(route, navigator) {
@@ -23,9 +23,11 @@ class MyNavigator extends Component {             // NAVIGATEUR DE GESTION DES C
     });
     switch (route.name) {
       case 'conversation':
-        return <Conversation navigator={navigator} conversation={route.conversation}/>;       // Appel de la vue d'une conversation
+        return <Conversation navigator={navigator} data={route.passProps}/>;       // Appel de la vue d'une conversation
       case 'conversations':
-        return <Conversations navigator={navigator}/>;      // Appel de la vue du nombre de conversations
+        return <Conversations navigator={navigator} data={this.props.accounts}/>;      // Appel de la vue du nombre de conversations
+      case 'profile':
+        return <ProfileRatingPosts navigator={navigator} data={route.passProps}/>
       default:
         console.log(route.name);
     }

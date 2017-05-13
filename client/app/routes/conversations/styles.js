@@ -1,35 +1,73 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+
   container: {
+    backgroundColor: '#f9ebd8',
+    justifyContent: 'space-between',
     flex: 1,
-    backgroundColor: 'white',
-    marginTop: 20
   },
-  header: {
-    textAlign: 'center',
-    fontWeight: 'bold',
+  containerMeteorListView: {
+    marginTop: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderWidth: 0.7,
+
+  },
+  containerPhotoText: {
+    padding: 8,
+    flexDirection: 'row',
+  },
+  wrapNameAge: {
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    padding: 3
+  },
+  photo: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+  },
+  text: {
+    marginLeft: 12,
+    fontSize: 22,
+  },
+  textTitle: {
+    color: '#3c918c',
+    fontWeight: '100',
     fontSize: 25
   },
-  title: {
+  textButton: {
+    color: '#aaedf5',
     fontWeight: 'bold',
-    fontSize: 25
+    fontSize: 16
   },
-  conversationTitle: {
-    fontWeight: 'bold',
-    fontSize: 25
-  },
-  row: {
-    padding: 10,
-    backgroundColor: '#F6F6F6'
-  },
-  button: {
-    backgroundColor: 'green'
-  },
-  containerBackground: {
-    flex: 1,
+  userWrap: {
+    flexDirection: 'column',
+    backgroundColor: '#1285e5',
     justifyContent: 'center',
-    padding: 20,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  }
+    marginTop: 10,
+    alignItems: 'center',
+    borderRadius: 20
+  },
+  input: {
+    height: 50,
+    flex: 1,
+    paddingHorizontal: 8,
+    fontSize: 15,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 2,
+  },
+  containerHeader: {
+    flex: 1,
+    padding: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#C1C1C1',
+  },
+
+
+
 });
+

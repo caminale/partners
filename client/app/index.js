@@ -19,6 +19,7 @@ class App extends Component {           // Connexion avec meteor, appel de diff√
   }
 
   componentWillMount() {
+
     OneSignal.addEventListener('ids', this.onIds);
   }
 
@@ -27,7 +28,18 @@ class App extends Component {           // Connexion avec meteor, appel de diff√
   }
 
   onIds(device) {
-    console.log('Device info: ', device);
+    setTimeout(function () {
+
+        if (device !== undefined && Meteor.user()._id !== null) {
+          const userId = Meteor.user()._id;
+          const Id = {
+            userId: userId,
+            deviceId: device
+          };
+          Meteor.call("addId", Id);
+        }
+      }
+      , 600);
   }
 
   render() {

@@ -72,7 +72,7 @@ class Scene extends Component {
         <MeteorListView
           enableEmptySections
           collection="users"
-          selector={{"partners.request": userId}}
+          selector={{"request": userId}}
           renderRow={this.renderRow}/>
 
         <Button onPress={this.goBack}
