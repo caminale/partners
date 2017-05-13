@@ -212,7 +212,7 @@ class Scene extends Component {
         <View >
           <TouchableOpacity
             style={styles.buttonAddStats}
-            onPress={addStats}>
+            onPress={this.sendNotif}>
             <Text style={{
               fontSize: 20,
               textAlign: 'center',

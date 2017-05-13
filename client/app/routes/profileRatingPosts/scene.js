@@ -11,7 +11,6 @@ const {
   Text,
   Picker,
   Image,
-  TextInput
 } = ReactNative;
 
 class Scene extends Component {
@@ -31,6 +30,9 @@ class Scene extends Component {
       starCount: 3.5,
     };
 
+  }
+  goBack = () => {
+    this.props.goBack();
   }
   selectExercise = exercise => {
     if (exercise === 'BP') {
@@ -58,15 +60,6 @@ class Scene extends Component {
   updateLanguage = (exercise) => {
     this.setState({exercise: exercise});
     this.selectExercise(exercise);
-  };
-  acceptAction=()=> {
-    Meteor.call("answerAddPartner",this.props.foreignUser._id);
-    this.props.goBack();
-  };
-
-  removeUser = (p_userId) => {
-    Meteor.call("removeUser",p_userId);
-    this.props.goBack();
   };
   render() {
 
@@ -128,16 +121,11 @@ class Scene extends Component {
             lineWidth={4}
             type="line"/>
         </View>
-        <View style={styles.buttonAddRemoveWrap}>
+        <View style={styles.buttonProfileWrap}>
           <TouchableOpacity
-            onPress={this.acceptAction}
-            style={styles.buttonAdd}>
-            <Text>accept</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.removeUser(user._id)}
-            style={styles.buttonRemove}>
-            <Text>refuse</Text>
+            onPress={this.goBack}
+            style={styles.buttonOpenProfile}>
+            <Text>go back</Text>
           </TouchableOpacity>
         </View>
       </View>

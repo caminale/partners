@@ -54,24 +54,24 @@ class MyNavigator extends Component {               // NAVIGATEUR de gestion des
 
   render() {
 
-    //const com = Meteor.user().profile.completeProfile;
-    // if (com ==! null) {
+
+    if (Meteor.user().profile.completeProfile === true ) {
       return (
-        <Navigator                                     // Appel du navigateur en passant 2 paramètres (route initiale et la connextion
+        <Navigator                                      // Appel du navigateur en passant 2 paramètres (route initiale et la connextion
           initialRoute={{name: 'workout'}}             // A la fonction renderScene permettant de gérer les vues
           renderScene={this.renderScene}
         />
       );
-    // }
-    // else
-    // {
-    //   return (
-    //     <Navigator                                     // Appel du navigateur en passant 2 paramètres (route initiale et la connextion
-    //       initialRoute={{name: 'exercise'}}             // A la fonction renderScene permettant de gérer les vues
-    //       renderScene={this.renderScene}
-    //     />
-    //   );
-    // }
+    }
+    else
+    {
+      return (
+        <Navigator                                     // Appel du navigateur en passant 2 paramètres (route initiale et la connextion
+          initialRoute={{name: 'exercise'}}             // A la fonction renderScene permettant de gérer les vues
+          renderScene={this.renderScene}
+        />
+      );
+    }
 
   }
 }

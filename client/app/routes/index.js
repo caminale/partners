@@ -13,6 +13,7 @@ import SettingsProfilePicker from './profile-settings-picker';
 import ProfileForeignUsers from './profileForeignUsers';
 import Notifications from './notifications';
 import ProfileAfterNotifications from './profileAfterNotification';
+import ProfileRatingPosts from './profileRatingPosts'
 
 
 export {
@@ -30,6 +31,7 @@ export {
   SettingsProfilePicker,
   ProfileForeignUsers,
   Notifications,
-  ProfileAfterNotifications
+  ProfileAfterNotifications,
+  ProfileRatingPosts
 }
   ;

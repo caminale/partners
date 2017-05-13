@@ -11,6 +11,7 @@ import {Button} from '../../components';
 class Scene extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       starCount: 2.5,
       foreignUserId:''
@@ -18,12 +19,17 @@ class Scene extends Component {
 
   }
 
+
   openProfile = (p_foreignUserId) => {
     this.props.openProfile(p_foreignUserId);
   };
 
-  openNotification = () =>{
+  openNotification = () => {
     this.props.openNotification();
+  };
+
+  removeUser = (p_userId) => {
+    Meteor.call("removeUser",p_userId);
   };
   renderRow = user => {
 
@@ -55,21 +61,23 @@ class Scene extends Component {
           <TouchableOpacity
             onPress={() =>this.openProfile(user._id)}
             style={styles.buttonAdd}>
-            <View style={styles.buttonAddWrap}>
+            <Text>View Profile</Text>
 
             <Image source={require('../../images/iconAddPartnerW.png')}
                    style={{width: 15, height: 15}}/>
             <Text style={styles.buttonText}>add    </Text>
-          </View>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.buttonRemove}>
+            style={styles.buttonRemove}
+            onPress={() => this.removeUser(user._id)}>
             <View style={styles.buttonAddWrap}>
 
             <Image source={require('../../images/iconTrashW.png')}
                    style={{width: 15, height: 15}}/>
             <Text style={styles.buttonText}>remove</Text>
             </View>
+            style={styles.button}>
+            <Text>remove</Text>
           </TouchableOpacity>
 
         </View>
@@ -78,12 +86,16 @@ class Scene extends Component {
   }
 
   render() {
+
     const userId = Meteor.user()._id;
     const partners= Meteor.user();
     let numberNotif = Meteor.user().notifications;
     if(numberNotif === undefined )
     {numberNotif=0;}
     Meteor.subscribe('users', userId);
+
+    if (Meteor.user().partners !== undefined || Meteor.user().removeUser !== undefined) {
+      // test user is ready permit to charge the db
       return (
         <View style={styles.container}>
 
@@ -97,15 +109,32 @@ class Scene extends Component {
             <Text style={styles.buttonText}>notification</Text>
           </TouchableOpacity>
         </View>
+
           <MeteorListView
             enableEmptySections
             collection="users"
-            selector={{_id: {$ne: userId}}}
+            selector={ {$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners}}]}}
             renderRow={this.renderRow}/>
 
         </View>
       );
     }
+    else {
+      return (
+        <View style={styles.container}>
+          <Button onPress={this.openNotification}
+                  label={'notif'}/>
+          <Button onPress={this.openProfile}
+                  label={'Search partners'}/>
+        </View>
+
+      );
+    }
+
+  }
+
 }
 export default Scene;
 //I think the issue is that you're actually calling this.showCallInfo instead of passing it as your onPress function for your new button for onpress
+//$nin: [ 5, 15 ]
+//{ $and: [ { _id: { $ne: userId } }, { _id: { $ne: '' }

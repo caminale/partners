@@ -63,9 +63,11 @@ class Scene extends Component {
     this.props.navigator.pop();
     Meteor.call("sendAddPartner",this.props.data.foreignUserId);
   };
-  removeAction=()=> {
+  removeUser = (p_userId) => {
+    Meteor.call("removeUser",p_userId);
     this.props.navigator.pop();
   };
+
   render() {
 
     const {accounts} = this.props;
@@ -134,7 +136,7 @@ class Scene extends Component {
               <Text>add</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={this.removeAction}
+              onPress={() => this.removeUser(user._id)}
               style={styles.buttonRemove}>
             <Text>Remove</Text>
           </TouchableOpacity>

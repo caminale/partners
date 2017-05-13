@@ -9,7 +9,8 @@ const {
   View,
   Text,
   ScrollView,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } = ReactNative;
 
 class Scene extends Component {
@@ -20,6 +21,10 @@ class Scene extends Component {
       author: '',
     };
   }
+  openProfile = p_foreignUser => {
+    console.log(p_foreignUser)
+    this.props.openProfile(p_foreignUser);
+  };
 
   setMessage = message => {
     this.setState({message});
@@ -36,6 +41,7 @@ class Scene extends Component {
     return <Text style={styles.header}>{currentUsername}</Text>;
   };
   renderItem = post => {
+
     const currentUser = Meteor.user()._id;
     if (post.author === currentUser) {
       return (
@@ -55,6 +61,7 @@ class Scene extends Component {
 
   render() {
     const {goBack} = this.props;
+    const partner = this.props.foreignUser;
     const currentUsername = Meteor.user().profile.firstName;
     return (
       <View style={styles.container}>
@@ -63,7 +70,11 @@ class Scene extends Component {
           <Button onPress={goBack}
                   label={'back'}/>
         </View>
+          <TouchableOpacity
+            onPress={() => this.openProfile(partner)}
+          >
         <Text style={styles.header}>{currentUsername}</Text>
+          </TouchableOpacity>
         </View>
         <ScrollView>
           <MeteorListView
