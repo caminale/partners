@@ -7,7 +7,9 @@ import styles from './styles';
 const {
   View,
   Text,
-  Picker
+  Picker,
+  Image,
+  TouchableOpacity
 } = ReactNative;
 
 const updateIcon = require('../../images/iconUpdate.png');
@@ -38,6 +40,12 @@ class Scene extends Component {
 
     return (
       <View style={styles.container}>
+        <TouchableOpacity style={styles.button} onPress={goBack}>
+          <Image source={require('../../images/iconBackW.png')}
+                 style={{width: 30, height: 30}}/>
+          <Text style={styles.buttonText}>go back</Text>
+        </TouchableOpacity>
+        <View style={styles.infoContainer}>
         <Text style={styles.infoText}>
           add Stats
         </Text>
@@ -45,19 +53,20 @@ class Scene extends Component {
           <Picker
             selectedValue={this.state.exerciseType}
             onValueChange={this.updateExercise}>
-            <Picker.Item label="bench press" color='#3c918c' value="BenchPress"/>
-            <Picker.Item label="squats" color='#3c918c' value="Squats"/>
-            <Picker.Item label="dips" color='#3c918c' value="Dips"/>
-            <Picker.Item label="pull down" color='#3c918c' value="PullDown"/>
+            <Picker.Item label="bench press" color='#DBDBDB' value="BenchPress"/>
+            <Picker.Item label="squats" color='#DBDBDB' value="Squats"/>
+            <Picker.Item label="dips" color='#DBDBDB' value="Dips"/>
+            <Picker.Item label="pull down" color='#DBDBDB' value="PullDown"/>
           </Picker>
         </View>
         <LogRegInput placeholder={'exercise to update'}
                      source={updateIcon}
                      onChangeText={this.setInfo}/>
-        <Button onPress={this.addStats}
-                label={'update'}/>
-        <Button onPress={goBack}
-                label={'go back'}/>
+          <TouchableOpacity style={styles.buttonUpdate}
+                            onPress={this.addStats}>
+            <Text style={styles.buttonText}>update</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

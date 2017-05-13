@@ -9,9 +9,7 @@ const {
   View,
   TouchableOpacity,
   Text,
-  Picker,
-  Image,
-  TextInput
+  Image
 } = ReactNative;
 
 class Scene extends Component {
@@ -66,32 +64,29 @@ class Scene extends Component {
     Meteor.subscribe('users', userId);
 
     return (
-
       <View style={styles.container}>
+        <TouchableOpacity style={styles.buttonBack} onPress={this.goBack}>
+          <Image source={require('../../images/iconBackW.png')}
+                 style={{width: 30, height: 30}}/>
+          <Text style={styles.buttonText}>go back</Text>
+        </TouchableOpacity>
         <Text style={styles.textTitle}> Notification</Text>
         <MeteorListView
           enableEmptySections
           collection="users"
           selector={{"request": userId}}
           renderRow={this.renderRow}/>
-
-        <Button onPress={this.goBack}
-                label={'back'}/>
       </View>
     );
   }
 }
-
 export default createContainer(params => {
 
   const userId = Meteor.user()._id;
   // const foreignUserId=Meteor.user().partners.;
-
   Meteor.subscribe('users', userId);
 
-
   return {
-
     accounts: Meteor.collection('users')
   };
 }, Scene);//will reactively rerender the wrapped component

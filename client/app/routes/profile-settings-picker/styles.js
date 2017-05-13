@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
     flexDirection: 'column',
-    backgroundColor: '#f9ebd8',
+    backgroundColor: '#d0d8dc',
     flex: 1,
     justifyContent: 'space-between'
   },
@@ -18,14 +18,23 @@ export default StyleSheet.create({
     height: 100
   },
   infoContainer: {
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: '#64758b',
+    marginHorizontal: 5,
+    borderWidth: 3,
+    borderColor: '#788ca6',
+    justifyContent: 'space-between'
   },
   button: {
-    backgroundColor: '#93282b',
-    width: 100,
+    borderColor: '#d8d8d8',
+    backgroundColor: '#b0b0b0',
+    borderWidth: 2,
+    width: 120,
+    flexDirection: 'row',
     padding: 10,
     alignItems: 'center',
-    marginBottom: 10
+    marginBottom: 10,
+    justifyContent: 'space-between'
   },
   buttonText: {
     color: '#FFFFFF',
@@ -40,7 +49,7 @@ export default StyleSheet.create({
   infoText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#3c918c',
+    color: '#FFFFFF',
     textAlign: 'center'
   },
   imageBubble: {
@@ -53,10 +62,11 @@ export default StyleSheet.create({
   },
   pickerWrap: {
     borderWidth: 2,
-    borderColor: '#3c918c',
-    backgroundColor: '#f9ebd8',
+    borderColor: '#FFFFFF',
+    backgroundColor: '#64758b',
     paddingHorizontal: 7,
-    borderRadius: 10
+    borderRadius: 10,
+    marginHorizontal: 50
   },
   descriptionContainer: {
 
@@ -69,5 +79,24 @@ export default StyleSheet.create({
   buttonEdit: {
     height:50,
     width: 50
+  },
+  buttonLogout: {
+    backgroundColor: '#ac0000',
+    width: 120,
+    flexDirection: 'row',
+    padding: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+    justifyContent: 'space-between'
+  },
+  buttonUpdate: {
+    backgroundColor: '#0B69E4',
+    width: 120,
+    padding: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+    marginLeft: 110,
+    borderWidth: 2,
+    borderColor: "#1583ff"
   }
 });

@@ -4,7 +4,7 @@ import {View, TouchableOpacity} from 'react-native';
 
 import styles from './styles';
 
-class Component extends React.Component {   s
+class Component extends React.Component {
   tabIcons = [];
 
   componentDidMount() {
@@ -28,9 +28,9 @@ class Component extends React.Component {   s
    * @returns {string}
    */
   iconColor = progress => {
-    const red = 60 + (100 - 60) * progress;
-    const green = 145 + (100 - 145) * progress;
-    const blue = 140 + (100 - 140) * progress;
+    const red = 255 + (100 - 255) * progress;
+    const green = 255 + (117 - 255) * progress;
+    const blue = 255 + (139 - 255) * progress;
     return `rgb(${red}, ${green}, ${blue})`;
   };
 
@@ -43,7 +43,7 @@ class Component extends React.Component {   s
             <Icon
               name={tab}
               size={30}
-              color={this.props.activeTab === i ? 'rgb(60,145,140)' : 'rgb(100,100,100)'}
+              color={this.props.activeTab === i ? 'rgb(255,255,255)' : 'rgb(100,117,139)'}
               ref={icon => {
                 this.tabIcons[i] = icon;
               }}

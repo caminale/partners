@@ -6,7 +6,8 @@ import styles from './styles';
 const {
   Text,
   TouchableOpacity,
-  View
+  View,
+  Image
 } = ReactNative;
 
 class Component extends React.Component {
@@ -14,13 +15,17 @@ class Component extends React.Component {
     const {onPress} = this.props;
     return (
       <View style={styles.buttonWrap}>
+
         <TouchableOpacity
           style={styles.button}
-          onPress={onPress}
-          >
+          onPress={onPress}>
+          <View style={styles.fbButton}>
+          <Image source={require('../../images/iconFacebookW.png')}
+                 style={{width: 30, height: 30, marginRight:40}}/>
           <Text style={styles.text}>
-          Log in with Facebook
-        </Text>
+            Log in with Facebook
+          </Text>
+          </View>
         </TouchableOpacity>
       </View>
     );

@@ -3,8 +3,9 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
 
   container: {
-    backgroundColor: '#f9ebd8',
+    backgroundColor: '#d0d8dc',
     justifyContent: 'space-between',
+    alignItems: 'center',
     flex: 1,
   },
   containerMeteorListView: {
@@ -28,6 +29,24 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
+  buttonText: {
+    color: '#FFFFFF',
+    fontWeight: '500',
+    fontSize: 16,
+    flexDirection: 'column'
+  },
+  buttonBack: {
+    borderColor: '#d8d8d8',
+    backgroundColor: '#b0b0b0',
+    borderWidth: 2,
+    width: 120,
+    flexDirection: 'row',
+    padding: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+    justifyContent: 'space-between'
+
+  },
   photo: {
     height: 40,
     width: 40,
@@ -44,9 +63,10 @@ export default StyleSheet.create({
     marginTop: 4,
   },
   textTitle: {
-    color: '#3c918c',
-    fontWeight: '100',
-    fontSize: 25
+    color: '#64758b',
+    fontWeight: '500',
+    fontSize: 25,
+
   },
   textButton: {
     color: '#aaedf5',
