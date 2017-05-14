@@ -76,7 +76,6 @@ class Scene extends Component {
                    style={{width: 15, height: 15}}/>
             <Text style={styles.buttonText}>remove</Text>
             </View>
-            style={styles.button}>
             <Text>remove</Text>
           </TouchableOpacity>
 
@@ -122,10 +121,24 @@ class Scene extends Component {
     else {
       return (
         <View style={styles.container}>
-          <Button onPress={this.openNotification}
-                  label={'notif'}/>
-          <Button onPress={this.openProfile}
-                  label={'Search partners'}/>
+
+          <View style={styles.notificationWrap}>
+            <View style={styles.wrapTextNotif}>
+              <Text style={styles.textNotif}> {numberNotif}</Text>
+            </View>
+            <TouchableOpacity style={styles.button} onPress={this.openNotification}>
+              <Image source={require('../../images/iconNotifW.png')}
+                     style={{width: 30, height: 30}}/>
+              <Text style={styles.buttonText}>notification</Text>
+            </TouchableOpacity>
+          </View>
+
+          <MeteorListView
+            enableEmptySections
+            collection="users"
+            selector={{_id: {$ne: userId}}}
+            renderRow={this.renderRow}/>
+
         </View>
 
       );

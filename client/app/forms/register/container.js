@@ -16,6 +16,7 @@ class Container extends Component {
     const validation = formValidationSync(creds);
     if (validation.isValid) {
       this.setState({errors: {}});
+
       onSubmit(creds)
         .catch(err => {
           const errors = {submit: err.reason};

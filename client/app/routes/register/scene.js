@@ -16,7 +16,6 @@ const {
 class Scene extends Component {
   render() {
     const {onSubmit, goBack} = this.props;        // Recupération des paramètres (accès aux fonctions du container)
-    console.log('les creds sont'+onSubmit.email)
     return (
       <View style={styles.container}>
         <Image
