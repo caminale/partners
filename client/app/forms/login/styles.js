@@ -15,9 +15,10 @@ export default StyleSheet.create({
     marginVertical: 5
   },
   buttonText: {
-    color: '#FFF',
-    alignItems: 'center',
-    justifyContent: 'center'
+    color: '#FFFFFF',
+    fontWeight: '500',
+    fontSize: 16,
+    flexDirection: 'column'
   },
   errorStyle: {
     color: 'red'
@@ -42,5 +43,17 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 35
+  },
+  buttonUpdate: {
+    backgroundColor: '#0B69E4',
+    width: 120,
+    padding: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+    marginLeft: 60,
+    borderWidth: 2,
+    borderColor: "#1583ff"
+
   }
+
 });

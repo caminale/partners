@@ -8,7 +8,8 @@ import styles from './styles';
 const {
   View,
   Text,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } = ReactNative;
 
 const personIcon = require('../../images/iconPerson.png');
@@ -78,8 +79,10 @@ class Form extends React.Component {
             onChangeText={this.setConfPassword}/>
         </View>
         <View style={styles.buttonWrap}>
-          <Button onPress={this.onSubmit}
-                  label={'Register'}/>
+          <TouchableOpacity style={styles.buttonUpdate}
+                            onPress={this.onSubmit}>
+            <Text style={styles.buttonText}>Register</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.errorWrap}>
           {errors.submit &&

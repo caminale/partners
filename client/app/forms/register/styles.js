@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
     marginVertical: 20
   },
   buttonText: {
-    color: '#FFF',
-    alignItems: 'center',
-    justifyContent: 'center'
-
+    color: '#FFFFFF',
+    fontWeight: '500',
+    fontSize: 16,
+    flexDirection: 'column'
   },
   input: {
     flex: 1,
@@ -41,6 +41,17 @@ const styles = StyleSheet.create({
     marginVertical: 2
     // Height:20,
     // backgroundColor:'transparent'
+  },
+  buttonUpdate: {
+    backgroundColor: '#0B69E4',
+    width: 120,
+    padding: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+    marginLeft: 60,
+    borderWidth: 2,
+    borderColor: "#1583ff"
+
   }
 
 });

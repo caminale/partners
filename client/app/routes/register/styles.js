@@ -17,17 +17,30 @@ export default StyleSheet.create({
     fontFamily: 'sans-serif-condensed',
     marginVertical: 20,
     fontSize: 40,
-    color: '#3c918c'
+    color: '#1285e5'
   },
-  buttonText: {
-    color: '#FFF',
-    backgroundColor: 'transparent'
-  },
+
   buttonWrap: {
     paddingHorizontal: 105,
     marginVertical: 10
   },
+
   button: {
-    backgroundColor: 'transparent'
-  }
+    borderColor: '#d8d8d8',
+    backgroundColor: '#b0b0b0',
+    borderWidth: 2,
+    width: 120,
+    flexDirection: 'row',
+    padding: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+    justifyContent: 'space-between'
+
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontWeight: '500',
+    fontSize: 16,
+    flexDirection: 'column'
+  },
 });

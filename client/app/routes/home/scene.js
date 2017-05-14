@@ -25,7 +25,7 @@ class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGIS
       <View style={styles.container}>
         <Image
           style={[styles.background, styles.container]}
-          source={{uri: 'https://greatist.com/sites/default/files/gym-floor-guide.jpg'}}
+          source={{uri: 'https://www.gymlib.com/img/users/574bbc6b097787d06acaabe6/3cb17589-53d7-4bc4-8b60-16488c21ba21.jpg'}}
           resizeMode="cover">
         <Text style={styles.title}>
           Partners
@@ -37,11 +37,11 @@ class Scene extends Component {         //SCENE PAGE HOME (LOGO + BOUTTONS REGIS
         <View style={styles.containerButtons}>
           <TouchableOpacity style={styles.loginButton}  //Appel des 2 fonctions définies plus haut
                             onPress={this.navigateToLogin}>
-            <Text style={styles.text}>Login</Text>
+            <Text style={styles.text1}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.registerButton}
                             onPress={this.navigateToRegister}>
-            <Text style={styles.text}>Register</Text>
+            <Text style={styles.text2}>Register</Text>
           </TouchableOpacity>
         </View>
         </Image>
