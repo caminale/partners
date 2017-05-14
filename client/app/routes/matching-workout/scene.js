@@ -13,7 +13,6 @@ class Scene extends Component {
     super(props);
 
     this.state = {
-      starCount: 2.5,
       foreignUserId:''
     };
 
@@ -32,7 +31,14 @@ class Scene extends Component {
     Meteor.call("removeUser",p_userId);
   };
   renderRow = user => {
-
+    let rate = user.averageStarRating;
+    if(rate === undefined)
+    {
+      rate =2.5;
+    }
+    else {
+      rate=parseFloat(rate);
+    }
     return (
       <View style={styles.containerMeteorListView}>
         <View style={styles.containerPhotoText}>
@@ -52,20 +58,21 @@ class Scene extends Component {
           fullStar={'ios-star'}
           halfStar={'ios-star-half'}
           iconSet={'Ionicons'}
-          maxStars={3}
-          rating={this.state.starCount}
+          maxStars={5}
+          rating={rate}
           starColor={'#3696e4'}
-          starSize={25}
+          starSize={20}
         />
         <View style={styles.containerButtonAddRemove}>
           <TouchableOpacity
             onPress={() =>this.openProfile(user._id)}
             style={styles.buttonAdd}>
-            <Text>View Profile</Text>
 
+            <View style={styles.buttonAddWrap}>
             <Image source={require('../../images/iconAddPartnerW.png')}
                    style={{width: 15, height: 15}}/>
-            <Text style={styles.buttonText}>add    </Text>
+            <Text style={styles.buttonText}>Profile</Text>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonRemove}
@@ -76,14 +83,12 @@ class Scene extends Component {
                    style={{width: 15, height: 15}}/>
             <Text style={styles.buttonText}>remove</Text>
             </View>
-            style={styles.button}>
-            <Text>remove</Text>
           </TouchableOpacity>
 
         </View>
       </View>
     );
-  }
+  };
 
   render() {
 
@@ -98,7 +103,7 @@ class Scene extends Component {
       // test user is ready permit to charge the db
       return (
         <View style={styles.container}>
-
+          <Text style={styles.buttonText}>Partners</Text>
           <View style={styles.notificationWrap}>
             <View style={styles.wrapTextNotif}>
             <Text style={styles.textNotif}> {numberNotif}</Text>
@@ -122,10 +127,18 @@ class Scene extends Component {
     else {
       return (
         <View style={styles.container}>
-          <Button onPress={this.openNotification}
-                  label={'notif'}/>
-          <Button onPress={this.openProfile}
-                  label={'Search partners'}/>
+          <Text style={styles.buttonText}>Partners</Text>
+          <View style={styles.notificationWrap}>
+            <View style={styles.wrapTextNotif}>
+              <Text style={styles.textNotif}> {numberNotif}</Text>
+            </View>
+            <TouchableOpacity style={styles.button} onPress={this.openNotification}>
+              <Image source={require('../../images/iconNotifW.png')}
+                     style={{width: 30, height: 30}}/>
+              <Text style={styles.buttonText}>notification</Text>
+            </TouchableOpacity>
+          </View>
+
         </View>
 
       );

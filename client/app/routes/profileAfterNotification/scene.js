@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import Meteor, {createContainer} from 'react-native-meteor';
 import ReactNative from 'react-native';
 import styles from './styles';
-import {Button} from '../../components';
 import Chart from 'react-native-chart';
+import StarRating from 'react-native-star-rating';
+
 
 const {
   View,
@@ -11,12 +12,21 @@ const {
   Text,
   Picker,
   Image,
-  TextInput
+  TextInput,
+  ScrollView
 } = ReactNative;
 
 class Scene extends Component {
   constructor(props) {
     super(props);
+    let rate = this.props.foreignUser.averageStarRating;
+    if(rate === undefined)
+    {
+      rate =2.5;
+    }
+    else {
+      rate=parseFloat(rate);
+    }
     this.state = {
       exercise: 'BP',
       chartLabel: '',
@@ -28,7 +38,7 @@ class Scene extends Component {
         ["25/06", 71],
         ["15/07", 72],
       ],
-      starCount: 3.5,
+      starCount: rate,
     };
 
   }
@@ -59,7 +69,7 @@ class Scene extends Component {
     this.setState({exercise: exercise});
     this.selectExercise(exercise);
   };
-  acceptAction=()=> {
+  acceptAction = () => {
     Meteor.call("answerAddPartner",this.props.foreignUser._id);
     this.props.goBack();
   };
@@ -71,6 +81,7 @@ class Scene extends Component {
   render() {
 
     const user= this.props.foreignUser;
+    console.log(user);
     const profilePic = user.profile.picture;
     const fName = user.profile.firstName;
     const age = user.profile.age;
@@ -84,7 +95,7 @@ class Scene extends Component {
             <View style={styles.imageBubble}>
               <Image
                 source={{uri: profilePic}}
-                style={{width: 90, height: 90, borderRadius: 25}}/>
+                style={styles.profilePic}/>
             </View>
             <View style={styles.infoContainer}>
               <Text style={styles.infoText}>
@@ -96,48 +107,81 @@ class Scene extends Component {
               <Text style={styles.infoText}>
                 weight : {weight} Kgs
               </Text>
+              <StarRating
+                disabled={true}
+                emptyStar={'ios-star-outline'}
+                fullStar={'ios-star'}
+                halfStar={'ios-star-half'}
+                iconSet={'Ionicons'}
+                maxStars={5}
+                rating={4}
+                starColor={'#0B69E4'}
+                emptyStarColor={'white'}
+              />
             </View>
           </View>
         </View>
         <View style={styles.descriptionContainer}>
-          <Text style={styles.infoText}>
-            About yourself
-          </Text>
           <View style={styles.descriptionButWrap}>
-            <Text>{user.profile.description}</Text>
+            <Text style={styles.infoTextStat}>
+              About yourself
+            </Text>
+          </View>
+          <TextInput
+            multiline={true}
+            numberOfLines={3}
+            placeholder={this.state.text }
+            style={{height: 70, width: 300}}
+            editable={this.state.editableTI}
+            placeholderTextColor="white"
+            onChangeText={this.setText}/>
+        </View>
+        <View style={styles.chartStatContainer}>
+          <Text style={styles.infoText}>
+            Stats
+          </Text>
+          <View style={styles.pickerWrap}>
+            <Picker
+              selectedValue={this.state.exercise}
+              onValueChange={this.updateLanguage}>
+              <Picker.Item label="bench press" color='#0C74FB' value="BP"/>
+              <Picker.Item label="squats" color='#0C74FB' value="SQ"/>
+            </Picker>
+          </View>
+          <View style={styles.chartContainer}>
+            <ScrollView>
+              <Chart
+                style={styles.chart}
+                data={this.state.data}
+                verticalGridStep={7}
+                tightBounds={true}
+                axisLineWidth={2}
+                lineWidth={4}
+                color={"0B69E4"}
+                type="line"/>
+            </ScrollView>
           </View>
         </View>
-        <Text style={styles.infoText}>
-          Stats
-        </Text>
-        <View style={styles.pickerWrap}>
-          <Picker
-            selectedValue={this.state.exercise}
-            onValueChange={this.updateLanguage}>
-            <Picker.Item label="bench press" color='#3c918c' value="BP"/>
-            <Picker.Item label="squats" color='#3c918c' value="SQ"/>
-          </Picker>
-        </View>
-        <View style={styles.chartContainer}>
-          <Chart
-            style={styles.chart}
-            data={this.state.data}
-            verticalGridStep={7}
-            tightBounds={true}
-            axisLineWidth={2}
-            lineWidth={4}
-            type="line"/>
-        </View>
-        <View style={styles.buttonAddRemoveWrap}>
+        <View style={styles.containerButtonAddRemove}>
           <TouchableOpacity
             onPress={this.acceptAction}
             style={styles.buttonAdd}>
-            <Text>accept</Text>
+
+            <View style={styles.buttonAddWrap}>
+              <Image source={require('../../images/iconAddPartnerW.png')}
+                     style={{width: 15, height: 15}}/>
+              <Text style={styles.buttonText}>Accept</Text>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => this.removeUser(user._id)}
-            style={styles.buttonRemove}>
-            <Text>refuse</Text>
+            style={styles.buttonRemove}
+            onPress={() => this.removeUser(user._id)}>
+            <View style={styles.buttonAddWrap}>
+
+              <Image source={require('../../images/iconTrashW.png')}
+                     style={{width: 15, height: 15}}/>
+              <Text style={styles.buttonText}>Remove</Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>

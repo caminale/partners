@@ -5,6 +5,15 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f9ebd8'
+    backgroundColor: '#d0d8dc',
+
+
+  },
+  muscleContainer: {
+    backgroundColor: '#0B69E4',
+    borderRadius: 45,
+    borderWidth: 7,
+    borderColor: '#1583ff',
+
   }
 });

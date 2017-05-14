@@ -14,7 +14,6 @@ class Container extends Component {
     Meteor.call('updateDescription', description.text);
   };
   addStats = () => {
-
     this.props.navigator.push({
       name: 'addstats'
     });

@@ -28,7 +28,7 @@ export default StyleSheet.create({
   },
   label: {
     textAlign: 'center',
-    color: '#3c918c',
+    color: '#64758b',
     fontSize: 15,
     fontWeight: 'bold'
   },

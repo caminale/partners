@@ -10,19 +10,22 @@ const {
   Text,
   ScrollView,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } = ReactNative;
 
 class Scene extends Component {
   constructor(props) {
     super(props);
+    this.clearText = this.clearText.bind(this);
     this.state = {
       message: '',
       author: '',
     };
   }
+
   openProfile = p_foreignUser => {
-    console.log(p_foreignUser)
+    console.log(p_foreignUser);
     this.props.openProfile(p_foreignUser);
   };
 
@@ -30,15 +33,12 @@ class Scene extends Component {
     this.setState({message});
   };
   onAddPost = () => {
+    this.clearText();
     const post = {
       message: this.state.message,
       conversationId: this.props.conversation._id
     };
     this.props.onAddPost(post);
-  };
-  renderHeader = () => {
-    const currentUsername = Meteor.user().profile.firstName;
-    return <Text style={styles.header}>{currentUsername}</Text>;
   };
   renderItem = post => {
 
@@ -58,22 +58,33 @@ class Scene extends Component {
       );
     }
   };
+  clearText() {
+    this._textInput.setNativeProps({text: ''});
+  };
 
   render() {
     const {goBack} = this.props;
     const partner = this.props.foreignUser;
     const currentUsername = Meteor.user().profile.firstName;
+    const currentPartnerName = partner.profile.firstName;
     return (
       <View style={styles.container}>
         <View style={styles.headerWrap}>
-        <View style={styles.backButton}>
-          <Button onPress={goBack}
-                  label={'back'}/>
-        </View>
+          <View style={styles.backButton}>
+            <TouchableOpacity style={styles.button} onPress={goBack}>
+              <Image source={require('../../images/iconBackW.png')}
+                     style={{width: 30, height: 30}}/>
+              <Text style={styles.buttonText}>go back</Text>
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity
-            onPress={() => this.openProfile(partner)}
-          >
-        <Text style={styles.header}>{currentUsername}</Text>
+            onPress={() => this.openProfile(partner)}>
+            <View style={styles.partnerBut}>
+            <Image
+              source={{uri: partner.profile.picture}}
+              style={styles.photo}/>
+            <Text style={styles.header}>{currentPartnerName}</Text>
+            </View>
           </TouchableOpacity>
         </View>
         <ScrollView>
@@ -86,12 +97,16 @@ class Scene extends Component {
         </ScrollView>
         <View style={styles.textInputButton}>
           <TextInput
+            ref={component => this._textInput = component}
             style={{width: 250}}
             multiline={true}
             onChangeText={this.setMessage}
             placeholder={'send message'}/>
-          <Button onPress={this.onAddPost}
-                  label={'Send'}/>
+          <TouchableOpacity style={styles.button} onPress={this.onAddPost}>
+            <Image source={require('../../images/iconSendMessage.png')}
+                   style={{width: 30, height: 30}}/>
+            <Text style={styles.buttonText}>Send</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
