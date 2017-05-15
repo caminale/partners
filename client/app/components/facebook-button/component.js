@@ -21,7 +21,7 @@ class Component extends React.Component {
           onPress={onPress}>
           <View style={styles.fbButton}>
           <Image source={require('../../images/iconFacebookW.png')}
-                 style={{width: 30, height: 30, marginRight:40}}/>
+                 style={{width: 30, height: 30, marginRight:40, marginTop: 5}}/>
           <Text style={styles.text}>
             Log in with Facebook
           </Text>

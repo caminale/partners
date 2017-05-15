@@ -3,14 +3,12 @@ import ReactNative from 'react-native';
 
 import {RegisterForm} from '../../forms';
 import styles from './styles';
-import {Button} from '../../components';
-
-
 
 const {
   View,
   Text,
-  Image
+  Image,
+  TouchableOpacity
 } = ReactNative;
 
 class Scene extends Component {
@@ -20,16 +18,17 @@ class Scene extends Component {
       <View style={styles.container}>
         <Image
           style={[styles.background, styles.container]}
-          source={{uri: 'https://s-media-cache-ak0.pinimg.com/originals/3c/bb/0a/3cbb0ac45c8199673c0b61bee91f34e9.jpg'}}
-          resizeMode="stretch">
+          source={{uri: 'http://mediad.publicbroadcasting.net/p/kedm/files/styles/x_large/public/201509/handshake.jpg'}}
+          resizeMode="cover">
+          <TouchableOpacity style={styles.button} onPress={goBack}>
+            <Image source={require('../../images/iconBackW.png')}
+                   style={{width: 30, height: 30}}/>
+            <Text style={styles.buttonText}>go back</Text>
+          </TouchableOpacity>
           <View style={styles.registerWrap}>
             <Text style={styles.titleText}>Register</Text>
           </View>
           <RegisterForm onSubmit={onSubmit}/>
-          <View style={styles.buttonWrap}>
-            <Button onPress={goBack}
-                    label={'go back'}/>
-          </View>
         </Image>
       </View>
     );

@@ -70,22 +70,14 @@ class Form extends React.Component {
           }
         </View>
         <View style={styles.buttonWrap}>
-          <Button onPress={this.onSubmit}
-                  label={'Login'}
-          />
+          <TouchableOpacity style={styles.buttonUpdate}
+                            onPress={this.onSubmit}>
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.buttonWrap}>
           <FacebookButton
             onPress={this.onSubmitFacebook}/>
-        </View>
-        <View style={styles.buttonWrap}>
-          <TouchableOpacity
-            onPress={this.onForgot}
-            style={styles.forgotButton}>
-            <Text style={styles.buttonText}>
-              forgot password ?
-            </Text>
-          </TouchableOpacity>
         </View>
       </ScrollView>
     );

@@ -21,23 +21,30 @@ export default StyleSheet.create({
   },
   loginButton: {
     padding: 20,
-    backgroundColor: '#3c918c'
+    backgroundColor: '#64758b'
   },
   registerButton: {
     padding: 20,
-    backgroundColor: '#997b67'
+    backgroundColor: '#d0d8dc'
   },
   title: {
     alignSelf: 'stretch',
     textAlign: 'center',
-    color: '#3c918c',
+    color: '#0B69E4',
+    backgroundColor: '#d0d8dc',
     fontSize: 50,
     fontWeight: 'bold'
   },
-  text: {
+  text1: {
     alignSelf: 'stretch',
     textAlign: 'center',
-    color: '#f9ebd8',
+    color: '#d0d8dc',
+    fontSize: 30
+  },
+  text2: {
+    alignSelf: 'stretch',
+    textAlign: 'center',
+    color: '#64758b',
     fontSize: 30
   },
   background: {
@@ -48,7 +55,8 @@ export default StyleSheet.create({
     backgroundColor: '#0B69E4',
     borderRadius: 45,
     borderWidth: 7,
+    marginTop: 70,
     borderColor: '#1583ff',
-
+    alignSelf: 'center'
   }
 });
