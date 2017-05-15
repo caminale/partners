@@ -9,10 +9,23 @@ class Container extends Component {
   goBack = () => { //for get props on navigator
     this.props.navigator.pop();
   };
+  ratePartner = data => {
+
+    const rating = {
+      userId: data.partnerId,
+      mark: data.starCount,
+      opinion: data.comment,
+    };
+    Meteor.call("addRating",rating);
+    this.props.navigator.pop();
+
+  };
   render() {
     return (
       <Scene goBack={this.goBack}
+             onSubmit={this.ratePartner}
              foreignUser={this.props.data.foreignUser}
+             stats={this.props.stats}
       />
     );
   }

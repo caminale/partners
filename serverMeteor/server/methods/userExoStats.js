@@ -2,6 +2,8 @@ import {Meteor} from 'meteor/meteor';
 
 import {UserExoStats} from '../../lib/collections';
 
+import calculLevelUser from './calculLevelUser';
+
 import calculLevelExo from './calculLevelExo';
 
 export default {
@@ -28,7 +30,7 @@ export default {
 
     const userId = Meteor.user()._id;
 
-    UserExoStats.update({userId: userId,exerciseId: p_stats.exerciseId}, {
+    UserExoStats.update({userId: userId, exerciseId: p_stats.exerciseId}, {
       $push: {
         weight: p_stats.weight,
         date: new Date()
@@ -41,14 +43,14 @@ export default {
       }
     });
     calculLevelExo(p_stats.exerciseId,[p_stats.weight],[p_stats.reps]);
+    calculLevelUser();//change automaticaly
   },
-  updateReps: p_reps => {
+  updateReps: p_stats => {
 
     const userId = Meteor.user()._id;
-
-    UserExoStats.update({userId: userId,exerciseId: p_reps.exerciseId}, {
+    UserExoStats.update({userId: userId, exerciseId: p_stats.exerciseId}, {
       $push: {
-        reps: p_reps.reps,
+        reps: p_stats.reps,
         date: new Date()
       }
     }, error => {
@@ -58,6 +60,7 @@ export default {
         console.log("Update reps exo Successful");
       }
     });
-    calculLevelExo(p_reps.exerciseId,[p_reps.weight],[p_reps.reps]);
+    calculLevelExo(p_stats.exerciseId,[p_stats.weight],[p_stats.reps]);
+    calculLevelUser();//change automaticaly
   }
 };

@@ -4,7 +4,6 @@ import Meteor from 'react-native-meteor';
 import Chart from 'react-native-chart';
 import ImagePicker from 'react-native-image-crop-picker';
 
-import OneSignal from 'react-native-onesignal';
 import StarRating from 'react-native-star-rating';
 
 import styles from './styles';
@@ -23,8 +22,17 @@ class Scene extends Component {
   constructor(props) {
     super(props);
 
+    let rate = Meteor.user().averageStarRating;
+    if(rate === undefined)
+    {
+      rate =2.5;
+    }
+    else {
+      rate=parseFloat(rate);
+    }
     this.state = {
       exercise: 'BP',
+      starCount: rate,
       chartLabel: '',
       text: Meteor.user().profile.description,
       editableTI: false,
@@ -59,14 +67,13 @@ class Scene extends Component {
       height: 400,
       compressImageQuality: 0.8,
       includeBase64: true,
-      compressImageMaxHeight: 140,
-      compressImageMaxWidth: 140,
+      compressImageMaxHeight: 130,
+      compressImageMaxWidth: 130,
       cropping: true
     }).then(image => {
-      setTimeout(function(){console.log('data:image/png;base64,' + image.data); }, 20000);
+      setTimeout(function(){Meteor.call('addProfilePicture','data:image/png;base64,' + image.data); }, 20000);
 
     });
-      //this.setState({imagePicked: source});
 
     let playerId = '418c8ee5-4fdb-4792-bbd9-0feb84ee8f0e';
     let contents = {
@@ -78,26 +85,105 @@ class Scene extends Component {
     //OneSignal.postNotification(contents, headings, playerId);
   };
 
+  filterStats = (stats, filter) => {
+    let result = [];
+    stats.map(function(x) {
+      if(x.userId === filter.userId && x.exerciseId === filter.exerciseId){
+        result.push(x);
+        console.log(x);
+      }
+    });
+    return result;
+  };
+  returnStats = (p_exerciseId) => {
+    let stats = [];
+    let weight = [];
+    let nbrOfWeightEnter = 0;
+    let date = [];
+    const partner =Meteor.user();  s
+    let filter = {userId: partner._id, exerciseId: p_exerciseId};
+
+    if(partner !== undefined) {
+console.log('yolo'+this.props.stats);
+      stats = this.filterStats(this.props.stats,filter);
+      if(stats != undefined) {
+        if (stats.length === 1) {
+          // console.log('test' + stats[0].weight + " length" + stats.length);
+          stats = stats[0];
+          nbrOfWeightEnter =stats.weight.length;
+          //pemit to take only the 4 last stats enter
+          if(nbrOfWeightEnter > 4){
+            for(i=nbrOfWeightEnter-4; i<nbrOfWeightEnter; i --){
+              weight[i] = stats.weight[i];
+            }
+          }
+          else {
+            weight = stats.weight
+          }
+
+          date = stats.date.map(function(x) {
+            datee = new Date(x);
+            let dd = datee.getDate();
+            let mm = datee.getMonth()+1;
+            let yyyy = datee.getFullYear();
+            if(dd<10){dd='0'+dd}
+            if(mm<10){mm='0'+mm}
+            // d = dd+'/'+mm+'/'+yyyy
+            console.log(x = dd+'/'+mm);
+            return x = dd+'/'+mm;
+          });
+        }
+      }
+      else {weight = 0; date = 0;}
+
+      const statsObject = {
+        weight: weight,
+        date: date
+      };
+      return statsObject;
+    }
+
+  };
+
+
   selectExercise = exercise => {
+    const bp = 'n5iCkhmR5ADkZPbNs';
+    const squats = 'Z2asvxEdRRBWbanM8'
+    let data = [];
+    let weight = [];
+    let date = [];
     if (exercise === 'BP') {
-      let data = [
-        ["12/05", 65],
-        ["10/06", 67],
-        ["25/06", 71],
-        ["15/07", 72],
-        ["05/08", 74],
-        ["25/08", 76]
-      ];
+      weight = this.returnStats(bp).weight;
+      date = this.returnStats(bp).date;
+      //pour le mettre sous forme artshape
+      if(date.length>1) {
+        for (i = 0; i < date.length; i++) {
+          data.push([date[i], weight[i]]);
+        }
+        console.log(data);
+      }
+
+      else{
+        data = [
+          [date[0], weight[0]]
+        ];}
       this.setState({data: data});
       this.render();
     }
     else if (exercise === 'SQ') {
-      let data = [
-        ["10/04", 85],
-        ["12/05", 89],
-        ["15/06", 98],
-        ["25/07", 92],
-      ];
+      weight = this.returnStats(squats).weight;
+      date = this.returnStats(squats).date;
+      if(date.length>1) {
+        for (i = 0; i < date.length; i++) {
+          data.push([date[i], weight[i]]);
+        }
+      }
+      else{
+        data = [
+          [date[0], weight[0]],
+        ]
+      }
+
       this.setState({data: data});
       this.render();
 
@@ -156,7 +242,7 @@ class Scene extends Component {
                 halfStar={'ios-star-half'}
                 iconSet={'Ionicons'}
                 maxStars={5}
-                rating={4}
+                rating={this.state.starCount}
                 starColor={'#0B69E4'}
                 emptyStarColor={'white'}
               />
@@ -202,6 +288,7 @@ class Scene extends Component {
                 data={this.state.data}
                 verticalGridStep={7}
                 tightBounds={true}
+                showDataPoint={true}
                 axisLineWidth={2}
                 lineWidth={4}
                 color={"0B69E4"}
@@ -212,7 +299,7 @@ class Scene extends Component {
         <View >
           <TouchableOpacity
             style={styles.buttonAddStats}
-            onPress={this.sendNotif}>
+            onPress={addStats}>
             <Text style={{
               fontSize: 20,
               textAlign: 'center',

@@ -5,16 +5,16 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: '#f9ebd8'
+    backgroundColor: '#d0d8dc'
   },
   text: {
-    color: '#3c918c',
+    color: '#64758b',
     fontSize: 25,
     textAlign: 'center',
     fontWeight: 'bold'
   },
   textq: {
-    color: '#3c918c',
+    color: '#64758b',
     fontSize: 15,
     fontWeight: 'bold'
   },
@@ -37,5 +37,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10
+  },
+  buttonAddStats: {
+    marginHorizontal: 100,
+    backgroundColor: "#0B69E4",
+    borderWidth: 2,
+    borderColor: "#1583ff",
+    marginBottom: 20
   }
 });

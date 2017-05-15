@@ -1,9 +1,7 @@
 import {Meteor} from 'meteor/meteor';
 
 
-
 import {UserExoStats} from '../../lib/collections';
-
 
 
 const calculLevelExo = (exerciceId,weight,reps) => {

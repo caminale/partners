@@ -9,7 +9,9 @@ import styles from './styles';
 
 const {
   View,
-  Text
+  Text,
+  TouchableOpacity,
+  Image
 } = ReactNative;
 
 const squatIcon = require('../../images/iconSquat.png');
@@ -80,8 +82,18 @@ class Form extends React.Component {
           source={dipsIcon}
           errors={errors.dips}
           onChangeText={this.setDips}/>
-        <Button onPress={this.onSubmit}
-                label={'Submit'}/>
+        <TouchableOpacity
+          style={styles.buttonAddStats}
+          onPress={this.onSubmit}>
+          <Text style={{
+            fontSize: 20,
+            textAlign: 'center',
+            color: 'white',
+            fontWeight: 'bold'
+          }}>
+            Submit
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

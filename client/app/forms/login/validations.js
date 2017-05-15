@@ -4,8 +4,8 @@
  * @param usernameEmail
  * @returns {*}
  */
-const validateUsernameEmail = usernameEmail => {
-  if (usernameEmail.length === 0) {
+const validateUsernameEmail = email => {
+  if (email.length === 0) {
     return 'You must enter an email address or an username';
   }
   return null;
@@ -36,12 +36,12 @@ const formValidationSync = creds => {
     isValid: true,
     errors: {}
   };
-  const {usernameEmail, password} = creds;
+  const {email, password} = creds;
   let error;
 
-  if ((error = validateUsernameEmail(usernameEmail))) {
+  if ((error = validateUsernameEmail(email))) {
     result.isValid = false;
-    result.errors.usernameEmail = error;
+    result.errors.email = error;
   }
 
   if ((error = validatePassword(password))) {

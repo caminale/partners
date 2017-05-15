@@ -8,6 +8,8 @@ import exoMethods from './exercice';
 import addPartners from './addPartners';
 import addOneSignalId from './addOneSIgnalId';
 import removeUser from './removeUser';
+import addRating from './rating';
+
 
 Meteor.methods({
   ...chatsMethods,
@@ -17,5 +19,6 @@ Meteor.methods({
   ...exoMethods,
   ...addPartners,
   ...addOneSignalId,
-  ...removeUser
+  ...removeUser,
+  ...addRating,
 });

@@ -4,24 +4,46 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    // justifyContent: 'space-between',
-    backgroundColor: '#f9ebd8'
+    backgroundColor: '#d0d8dc',
+    justifyContent: 'space-between'
   },
   container1: {
     backgroundColor: '#ccc1b1',
 
   },
+  profilePic: {
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    borderWidth: 3,
+    borderColor: '#8399b5'
+
+  },
+  containerButtonAddRemove: {
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
   chartContainer: {
-    width: 300,
-    height: 100,
-    marginTop: 20,
+    marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f9ebd8'
+    backgroundColor: '#64758b',
+    borderWidth: 3,
+    borderColor: '#8197b3'
+  },
+  chartStatContainer: {
+    marginTop: 5,
+    marginHorizontal: 5,
+    backgroundColor: '#64758b',
+    borderWidth: 3,
+    borderColor: '#788ca6'
   },
   chart: {
-    width: 300,
-    height: 200
+    width: 350,
+    backgroundColor: '#FFFFFF'
+
+
   },
   infoContainer: {
     flexDirection: 'column'
@@ -33,12 +55,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10
   },
-  buttonText: {
-    color: '#FFFFFF',
-    fontWeight: '500',
-    fontSize: 16,
-    flexDirection: 'column'
-  },
+
   buttonWrapper: {
     justifyContent: 'center',
     alignItems: 'center'
@@ -46,30 +63,41 @@ export default StyleSheet.create({
   infoText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#3c918c',
+    color: '#FFFFFF',
     textAlign: 'center'
+  },
+  infoTextStat: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginLeft: 110
   },
   imageBubble: {
 
   },
   infoWrap: {
     flexDirection: 'row',
-    backgroundColor: '#ded2c1',
+    backgroundColor: '#64758b',
     justifyContent: 'space-between',
     marginTop: 5,
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 5,
-    borderRadius: 10
+    borderWidth: 3,
+    borderColor: '#788ca6'
   },
   pickerWrap: {
     borderWidth: 2,
-    borderColor: '#3c918c',
-    backgroundColor: '#f9ebd8',
-    paddingHorizontal: 7,
-    borderRadius: 10
+    borderColor: '#FFFFFF',
+    backgroundColor: '#64758b',
+    paddingHorizontal: 7
   },
   descriptionContainer: {
+    backgroundColor: '#64758b',
+    marginHorizontal: 5,
+    borderWidth: 3,
+    borderColor: '#788ca6'
 
   },
   descriptionButWrap: {
@@ -77,30 +105,50 @@ export default StyleSheet.create({
     justifyContent: 'space-between'
   },
   buttonEdit: {
-    height:50,
-    width: 50,
-    backgroundColor: '#a1aca8',
-    borderRadius: 5
+    height:35,
+    width: 35,
+    backgroundColor: '#64758b',
+    borderWidth: 2,
+    borderColor: '#FFFFFF'
+
   },
-  buttonAddRemoveWrap:{
-    justifyContent: 'space-between',
-    flexDirection: 'column',
-    alignItems: 'center'
+  buttonAddStats: {
+    marginHorizontal: 100,
+    backgroundColor: "#0B69E4",
+    borderWidth: 2,
+    borderColor: "#1583ff",
+    marginBottom: 20
   },
-  buttonAdd:{
-    // height:50,
-    // width: 50,
-    backgroundColor:'green',
-    borderWidth: 10,
-    borderRadius: 20,
-    borderColor: '#3c918c',
-    padding: 1
+  buttonRemove: {
+    backgroundColor: '#ac0000',
+    width: 120,
+    padding: 10,
+    height: 40,
+    marginBottom: 5,
+    borderWidth: 2,
+    borderColor: "#d80000"
+
   },
-  buttonRemove:{
-    backgroundColor: 'red',
-    borderWidth: 10,
-    borderRadius: 20,
-    borderColor: '#3c918c',
-    padding: 1
-  }
+  buttonAddWrap: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+
+
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontWeight: '500',
+    fontSize: 16,
+    flexDirection: 'column'
+  },
+  buttonAdd: {
+    backgroundColor: '#0B69E4',
+    width: 120,
+    padding: 10,
+    height: 40,
+    marginTop: 5,
+    marginBottom: 5,
+    borderWidth: 2,
+    borderColor: "#1583ff"
+  },
 });

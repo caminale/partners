@@ -23,11 +23,12 @@ class MyNavigator extends Component {             // NAVIGATEUR DE GESTION DES C
     });
     switch (route.name) {
       case 'conversation':
-        return <Conversation navigator={navigator} data={route.passProps}/>;       // Appel de la vue d'une conversation
+        return <Conversation navigator={navigator} data={route.passProps} />;       // Appel de la vue d'une conversation
       case 'conversations':
         return <Conversations navigator={navigator} data={this.props.accounts}/>;      // Appel de la vue du nombre de conversations
       case 'profile':
-        return <ProfileRatingPosts navigator={navigator} data={route.passProps}/>
+        console.log('nav'+this.props.stats);
+        return <ProfileRatingPosts navigator={navigator} data={route.passProps} stats={this.props.stats}/>
       default:
         console.log(route.name);
     }

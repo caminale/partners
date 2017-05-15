@@ -22,7 +22,7 @@ class Form extends React.Component {
 
     this.state = {
       password: '',
-      usernameEmail: ''
+      email: ''
     };
   }
   onSubmit = () => {
@@ -34,8 +34,8 @@ class Form extends React.Component {
   setPassword = password => {
     this.setState({password});
   };
-  setUsernameEmail = usernameEmail => {
-    this.setState({usernameEmail});
+  setUsernameEmail = email => {
+    this.setState({email});
   };
   onForgot = () => {
     this.props.onForgot(this.state);
@@ -49,7 +49,7 @@ class Form extends React.Component {
           <LogRegInput
             placeholder={'Username'}
             source={personIcon}
-            errors={errors.usernameEmail}
+            errors={errors.email}
             onChangeText={this.setUsernameEmail}
           />
         </View>

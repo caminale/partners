@@ -4,7 +4,6 @@ import RadioForm from 'react-native-simple-radio-button';
 
 import {LogRegInput} from '../../components';
 import styles from '../personal-data/styles';
-import {Button} from '../../components';
 
 const fNameIcon = require('../../images/iconPerson.png');
 const heightIcon = require('../../images/iconHeight.png');
@@ -13,7 +12,8 @@ const weightIcon = require('../../images/iconWeight.png');
 
 const {
   View,
-  Text
+  Text,
+  TouchableOpacity
 } = ReactNative;
 
 const radio_props = [
@@ -70,8 +70,10 @@ class Form extends React.Component {
           <RadioForm
             radio_props={radio_props}
             initial={0}
+            labelColor={'#64758b'}
+            labelStyle={{fontSize: 15, fontWeight: "500"}}
             formHorizontal={true}
-            buttonColor={'#3c918c'}
+            buttonColor={'#0B69E4'}
             onPress={(value) => {
               this.setState({value: value})
             }}
@@ -100,8 +102,18 @@ class Form extends React.Component {
           source={weightIcon}
           keyboardType={'numeric'}
           onChangeText={this.setWeight}/>
-        <Button onPress={this.onSubmit}
-                label={'Submit'}/>
+        <TouchableOpacity
+          style={styles.buttonAddStats}
+          onPress={this.onSubmit}>
+          <Text style={{
+            fontSize: 20,
+            textAlign: 'center',
+            color: 'white',
+            fontWeight: 'bold'
+          }}>
+            Submit
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

@@ -41,7 +41,7 @@ export default class AboutContainer extends Component {
         goBack={this.goBack}
         onAddPost={this.addPostHandler}
         openProfile={this.openProfile}
-      />
+        />
     );
   }
 }

@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#f9ebd8'
+    backgroundColor: '#d0d8dc'
   },
   button: {
     backgroundColor: '#3c918c',
@@ -15,7 +15,7 @@ export default StyleSheet.create({
     marginBottom: 10
   },
   textTitle: {
-    color: '#3c918c',
+    color: '#64758b',
     fontWeight: '100',
     fontSize: 25
   },

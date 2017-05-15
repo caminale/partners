@@ -43,5 +43,12 @@ export default StyleSheet.create({
   background: {
     width: null,
     height: null
+  },
+  muscleContainer: {
+    backgroundColor: '#0B69E4',
+    borderRadius: 45,
+    borderWidth: 7,
+    borderColor: '#1583ff',
+
   }
 });

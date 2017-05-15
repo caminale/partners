@@ -31,7 +31,7 @@ export default {
       if (error) {
         throw new Meteor.Error(500, error.message);
       } else {
-        console.log("answer partner Successful");
+        console.log("send an add partner Successful");
       }
     });
 

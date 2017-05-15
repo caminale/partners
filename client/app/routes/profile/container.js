@@ -14,7 +14,6 @@ class Container extends Component {
     Meteor.call('updateDescription', description.text);
   };
   addStats = () => {
-
     this.props.navigator.push({
       name: 'addstats'
     });
@@ -28,6 +27,7 @@ class Container extends Component {
       <Scene openSettings={this.openSettings}
              onSubmitDescription={this.submitDescription}
              addStats={this.addStats}
+             stats={this.props.stats}
              onReceivedNotif={this.notif}/>
     );
   }

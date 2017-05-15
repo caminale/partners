@@ -79,4 +79,20 @@ export default {
       }
     });
   },
+
+  addProfilePicture: p_picture => {
+
+    const userId = Meteor.user()._id;
+    Meteor.users.update({_id: userId}, {
+      $set: {
+        "profile.picture": p_picture
+      }
+    }, error => {
+      if (error) {
+        throw new Meteor.Error(500, error.message);
+      } else {
+        console.log("add a profile picture");
+      }
+    });
+  }
 };

@@ -13,6 +13,7 @@ class Container extends Component {
     return (
       <Scene goBack={this.goBack}
              foreignUser={this.props.data.user}
+             stats={this.props.stats}
       />
     );
   }

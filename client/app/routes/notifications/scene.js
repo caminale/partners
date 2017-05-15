@@ -26,7 +26,7 @@ class Scene extends Component {
     this.props.goBack();
   };
   openProfile = (p_User) => {
-    console.log(p_User)
+    console.log(p_User);
     this.props.openProfile(p_User);
 };
   renderRow = user => {
@@ -37,20 +37,31 @@ class Scene extends Component {
               source={{uri: user.profile.picture}}
               style={styles.photo}/>
             <View style={styles.wrapNameAge}>
-              <Text style={styles.text}>
-                {`${user.profile.firstName} ${user.profile.lastName} ` }
-                  add you
-              </Text>
-              <Text style={styles.text}>
-                {`${user.profile.age} `} ans
+              <Text style={styles.buttonText}>
+                {`${user.profile.firstName}, ${user.profile.age} sent you a request`}
               </Text>
             </View>
           </View>
           <View style={styles.containerButtonAddRemove}>
             <TouchableOpacity
-              style={styles.button}
-              onPress={()=>this.openProfile(user)}>
-              <Text>Voir profile</Text>
+              onPress={() =>this.openProfile(user)}
+              style={styles.buttonAdd}>
+
+              <View style={styles.buttonAddWrap}>
+                <Image source={require('../../images/iconAddPartnerW.png')}
+                       style={{width: 15, height: 15}}/>
+                <Text style={styles.buttonText}>Profile</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.buttonRemove}
+              onPress={() => this.removeUser(user._id)}>
+              <View style={styles.buttonAddWrap}>
+
+                <Image source={require('../../images/iconTrashW.png')}
+                       style={{width: 15, height: 15}}/>
+                <Text style={styles.buttonText}>remove</Text>
+              </View>
             </TouchableOpacity>
 
           </View>
@@ -58,7 +69,7 @@ class Scene extends Component {
 
 
       )
-  }
+  };
   render() {
     const userId = Meteor.user()._id;
     Meteor.subscribe('users', userId);

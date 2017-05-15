@@ -85,8 +85,9 @@ const AccountSchema = new SimpleSchema({
     optional: true,
     // regEx: /^[a-z0-9A-Z_]{3,15}$/,
   },
+
   emails: {
-    optional: false,
+    optional: true,
     type: [Object],
   },
   "emails.$.address": {
@@ -138,6 +139,35 @@ const AccountSchema = new SimpleSchema({
   removeUser: {
     type: [String],
     optional: true
+  },
+  rating: {
+    optional: true,
+    type: [Object],
+  },
+  "rating.$.mark": {
+    optional: true,
+    type: String,
+  },
+  "rating.$.complete": {
+    optional: true,
+    type: Boolean
+  },
+  "rating.$.opinion": {
+    optional: true,
+    type: String,
+  },
+  "rating.$.userId": {
+    optional: true,
+    type: String
+  },
+  ratesNumber: {
+    optional: true,
+    type: Number
+  },
+
+  averageStarRating: {
+    optional: true,
+    type: String
   }
 });
 
