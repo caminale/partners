@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import Meteor, {createContainer} from 'react-native-meteor';
 import ReactNative from 'react-native';
 import styles from './styles';
-import {Button} from '../../components';
 import Chart from 'react-native-chart';
 import StarRating from 'react-native-star-rating';
+import OneSignal from 'react-native-onesignal';
+
 
 
 const {
@@ -25,7 +26,7 @@ class Scene extends Component {
     let rate = Meteor.user.averageStarRating;
     if(rate === undefined)
     {
-      rate =2.5;
+      rate =0;
     }
     else {
       rate=parseFloat(rate);
@@ -72,9 +73,17 @@ class Scene extends Component {
     this.setState({exercise: exercise});
     this.selectExercise(exercise);
   };
-  addAction=()=> {
+  addAction = () => {
     this.props.navigator.pop();
+    const {accounts} = this.props;
+    const user= accounts.findOne({_id: this.props.data.foreignUserId});
     Meteor.call("sendAddPartner",this.props.data.foreignUserId);
+    let playerId = user.oneSignalId.userId;
+    let data ='';
+    let contents = {
+      'en': Meteor.user().profile.firstName + ' sent you a partner request'
+    };
+    OneSignal.postNotification(contents, data, playerId);
   };
   removeUser = (p_userId) => {
     Meteor.call("removeUser",p_userId);
@@ -168,7 +177,7 @@ class Scene extends Component {
           </View>
             <View style={styles.containerButtonAddRemove}>
               <TouchableOpacity
-                onPress={() =>this.openProfile(user)}
+                onPress={this.addAction}
                 style={styles.buttonAdd}>
 
                 <View style={styles.buttonAddWrap}>

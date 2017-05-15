@@ -47,12 +47,13 @@ class Form extends React.Component {
       <ScrollView>
         <View style={styles.inputWrap}>
           <LogRegInput
-            placeholder={'Username'}
+            placeholder={'email'}
             source={personIcon}
             errors={errors.usernameEmail}
             onChangeText={this.setUsernameEmail}
           />
         </View>
+
         <View style={styles.inputWrap}>
           <LogRegInput
             placeholder={'Password'}

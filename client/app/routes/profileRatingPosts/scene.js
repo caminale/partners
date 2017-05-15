@@ -92,6 +92,7 @@ class Scene extends Component {
 
     return (
       <View style={styles.container}>
+        <ScrollView>
         <View>
           <TouchableOpacity style={styles.button} onPress={goBack}>
             <View style={styles.backBut}>
@@ -192,6 +193,7 @@ class Scene extends Component {
           </TouchableOpacity>
           </View>
         </View>
+        </ScrollView>
       </View>
     );
   }

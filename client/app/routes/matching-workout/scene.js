@@ -3,6 +3,7 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Meteor, {createContainer} from 'react-native-meteor';
 import {MeteorListView} from 'react-native-meteor';
 import StarRating from 'react-native-star-rating';
+import OneSignal from 'react-native-onesignal';
 
 
 import styles from './styles';
@@ -10,6 +11,8 @@ import {Button} from '../../components';
 
 class Scene extends Component {
   constructor(props) {
+
+
     super(props);
 
     this.state = {
@@ -17,7 +20,33 @@ class Scene extends Component {
     };
 
   }
+  componentDidMount() {
+    OneSignal.configure({});
+  }
 
+  componentWillMount() {
+
+    OneSignal.addEventListener('ids', this.onIds);
+  }
+
+  componentWillUnmount() {
+    OneSignal.removeEventListener('ids', this.onIds);
+  }
+
+  onIds(device) {
+    setTimeout(function () {
+
+        if (device !== undefined && Meteor.user()._id !== null) {
+          const userId = Meteor.user()._id;
+          const Id = {
+            userId: userId,
+            deviceId: device
+          };
+          Meteor.call("addId", Id);
+        }
+      }
+      , 600);
+  }
 
   openProfile = (p_foreignUserId) => {
     this.props.openProfile(p_foreignUserId);
@@ -103,7 +132,7 @@ class Scene extends Component {
       // test user is ready permit to charge the db
       return (
         <View style={styles.container}>
-          <Text style={styles.buttonText}>Partners</Text>
+          <Text style={styles.textTitle}>Partners</Text>
           <View style={styles.notificationWrap}>
             <View style={styles.wrapTextNotif}>
             <Text style={styles.textNotif}> {numberNotif}</Text>
@@ -139,6 +168,11 @@ class Scene extends Component {
             </TouchableOpacity>
           </View>
 
+          <MeteorListView
+            enableEmptySections
+            collection="users"
+            selector={ {_id: {$ne: userId}}}
+            renderRow={this.renderRow}/>
         </View>
 
       );

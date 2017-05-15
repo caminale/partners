@@ -25,7 +25,7 @@ class Scene extends Component {
     let rate = Meteor.user().averageStarRating;
     if(rate === undefined)
     {
-      rate =2.5;
+      rate =0;
     }
     else {
       rate=parseFloat(rate);
@@ -75,14 +75,7 @@ class Scene extends Component {
 
     });
 
-    let playerId = '418c8ee5-4fdb-4792-bbd9-0feb84ee8f0e';
-    let contents = {
-      'en': 'You got a new partners request'
-    };
-    let headings = {'en': 'Partners'};
 
-
-    //OneSignal.postNotification(contents, headings, playerId);
   };
 
   selectExercise = exercise => {

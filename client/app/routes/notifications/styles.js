@@ -51,8 +51,9 @@ export default StyleSheet.create({
 
   },
   textTitle: {
-    color: '#3c918c',
-    fontWeight: '100',
+    color: '#64758b',
+    fontWeight: '500',
+    alignItems: 'center',
     fontSize: 25
   },
   textButton: {
@@ -121,4 +122,17 @@ export default StyleSheet.create({
     color: '#FFFFFF',
 
   },
+  buttonBack: {
+      borderColor: '#d8d8d8',
+      backgroundColor: '#b0b0b0',
+      borderWidth: 2,
+      width: 120,
+      flexDirection: 'row',
+      padding: 10,
+      alignItems: 'center',
+      marginBottom: 10,
+      justifyContent: 'space-between'
+
+
+  }
 });

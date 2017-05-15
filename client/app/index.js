@@ -18,29 +18,7 @@ class App extends Component {           // Connexion avec meteor, appel de diff√
     OneSignal.configure({});
   }
 
-  componentWillMount() {
 
-    OneSignal.addEventListener('ids', this.onIds);
-  }
-
-  componentWillUnmount() {
-    OneSignal.removeEventListener('ids', this.onIds);
-  }
-
-  onIds(device) {
-    // setTimeout(function () {
-    //
-    //     if (device !== undefined && Meteor.user()._id !== null) {
-    //       const userId = Meteor.user()._id;
-    //       const Id = {
-    //         userId: userId,
-    //         deviceId: device
-    //       };
-    //       Meteor.call("addId", Id);
-    //     }
-    //   }
-    //   , 600);
-  }
 
   render() {
     const {status, user} = this.props;
