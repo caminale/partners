@@ -1,4 +1,4 @@
-import NavigatorM from './navigator';
+import createContainer from './createContainer';
 
-export default NavigatorM;
+export default createContainer;
 

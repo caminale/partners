@@ -36,6 +36,7 @@ export default StyleSheet.create({
   },
   chart: {
     width: 350,
+    height: 100,
     backgroundColor: '#FFFFFF'
 
 

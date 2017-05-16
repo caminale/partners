@@ -44,24 +44,104 @@ class Scene extends Component {
     };
 
   }
+  filterStats = (stats, filter) => {
+    let result = [];
+    stats.map(function(x) {
+      if(x.userId === filter.userId && x.exerciseId === filter.exerciseId){
+        result.push(x);
+      }
+    });
+    return result;
+  };
+  returnStats = (p_exerciseId) => {
+    let stats = [];
+    let weight = [];
+    let nbrOfWeightEnter = 0;
+    let date = [];
+    const partner = this.props.foreignUser;
+    let filter = {userId: partner._id, exerciseId: p_exerciseId};
+
+    if(partner !== undefined) {
+
+      stats = this.filterStats(this.props.stats,filter);
+      if(stats != undefined) {
+        if (stats.length === 1) {
+          // console.log('test' + stats[0].weight + " length" + stats.length);
+          stats = stats[0];
+          nbrOfWeightEnter =stats.weight.length;
+          //pemit to take only the 4 last stats enter
+          if(nbrOfWeightEnter > 4){
+            for(i=nbrOfWeightEnter-4; i<nbrOfWeightEnter; i --){
+              weight[i] = stats.weight[i];
+            }
+          }
+          else {
+            weight = stats.weight
+          }
+
+          date = stats.date.map(function(x) {
+            datee = new Date(x);
+            let dd = datee.getDate();
+            let mm = datee.getMonth()+1;
+            let yyyy = datee.getFullYear();
+            if(dd<10){dd='0'+dd}
+            if(mm<10){mm='0'+mm}
+            // d = dd+'/'+mm+'/'+yyyy
+            console.log(x = dd+'/'+mm);
+            return x = dd+'/'+mm;
+          });
+        }
+      }
+      else {weight = 0; date = 0;}
+
+      const statsObject = {
+        weight: weight,
+        date: date
+      };
+      return statsObject;
+    }
+
+  };
+
+
   selectExercise = exercise => {
+    const bp = 'n5iCkhmR5ADkZPbNs';
+    const squats = 'Z2asvxEdRRBWbanM8'
+    let data = [];
+    let weight = [];
+    let date = [];
     if (exercise === 'BP') {
-      let data = [
-        ["12/05", 65],
-        ["10/06", 67],
-        ["25/06", 71],
-        ["15/07", 72],
-      ];
+      weight = this.returnStats(bp).weight;
+      date = this.returnStats(bp).date;
+      //pour le mettre sous forme artshape
+      if(date.length>1) {
+        for (i = 0; i < date.length; i++) {
+          data.push([date[i], weight[i]]);
+        }
+        console.log(data);
+      }
+
+      else{
+        data = [
+          [date[0], weight[0]]
+        ];}
       this.setState({data: data});
       this.render();
     }
-    else if(exercise === 'SQ') {
-      let data = [
-        ["10/04", 85],
-        ["12/05", 89],
-        ["15/06", 98],
-        ["25/07", 92],
-      ];
+    else if (exercise === 'SQ') {
+      weight = this.returnStats(squats).weight;
+      date = this.returnStats(squats).date;
+      if(date.length>1) {
+        for (i = 0; i < date.length; i++) {
+          data.push([date[i], weight[i]]);
+        }
+      }
+      else{
+        data = [
+          [date[0], weight[0]],
+        ]
+      }
+
       this.setState({data: data});
       this.render();
 
@@ -95,6 +175,7 @@ class Scene extends Component {
     const age = user.profile.age;
     const height = user.profile.height;
     const weight = user.profile.weight;
+    const description = user.profile.description;
 
     return (
       <View style={styles.container}>
@@ -132,13 +213,13 @@ class Scene extends Component {
         <View style={styles.descriptionContainer}>
           <View style={styles.descriptionButWrap}>
             <Text style={styles.infoTextStat}>
-              About yourself
+              About your partner
             </Text>
           </View>
           <TextInput
             multiline={true}
             numberOfLines={3}
-            placeholder={this.state.text }
+            placeholder={description}
             style={{height: 70, width: 300}}
             editable={this.state.editableTI}
             placeholderTextColor="white"
@@ -164,6 +245,7 @@ class Scene extends Component {
                 verticalGridStep={7}
                 tightBounds={true}
                 axisLineWidth={2}
+                showDataPoint={true}
                 lineWidth={4}
                 color={"0B69E4"}
                 type="line"/>

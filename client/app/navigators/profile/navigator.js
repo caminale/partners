@@ -31,7 +31,7 @@ class MyNavigator extends Component {
     });
     switch (route.name) {
       case 'main':
-        return <Profile navigator={navigator}/>;
+        return <Profile navigator={navigator} stats={this.props.stats}/>;
       case 'settings':
         return <SettingsProfile navigator={navigator}/>;
       case 'addstats':

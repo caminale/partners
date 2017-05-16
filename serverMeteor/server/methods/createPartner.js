@@ -10,7 +10,7 @@ const createPartner = (p_partnerId) => {
 
   Meteor.users.update(userId, {
     $push: {
-      "partners.partners": p_partnerId,
+      partners: p_partnerId,
     }
   }, error => {
     if (error) {
@@ -21,7 +21,7 @@ const createPartner = (p_partnerId) => {
   });
   Meteor.users.update(p_partnerId, {
     $push: {
-      "partners.partners": userId,
+      partners: userId,
     }
   }, error => {
     if (error) {

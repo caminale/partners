@@ -27,6 +27,7 @@ class Container extends Component {
       <Scene openSettings={this.openSettings}
              onSubmitDescription={this.submitDescription}
              addStats={this.addStats}
+             stats={this.props.stats}
              onReceivedNotif={this.notif}/>
     );
   }

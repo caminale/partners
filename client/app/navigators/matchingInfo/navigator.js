@@ -42,11 +42,14 @@ class MyNavigator extends Component {               // NAVIGATEUR de gestion des
         return <MatchingWorkout navigator={navigator}/>;
       case 'profilePartner':
         console.log(route.passProps);
-        return <ProfileForeignUsers navigator={navigator} data={route.passProps}/>;//appel de la route   profileForeignusers pour afficher le profil du partner
+        return <ProfileForeignUsers navigator={navigator}
+                                    data={route.passProps}
+                                    stats={this.props.stats}/>;
+                                    //appel de la route   profileForeignusers pour afficher le profil du partner
       case 'notification':
         return <Notifications navigator={navigator}/>;//appel de la route   profileForeignusers pour afficher le profil du partner
       case 'ProfileAfterNotification' :
-        return <ProfileAfterNotifications navigator={navigator} data={route.passProps}/>;
+        return <ProfileAfterNotifications navigator={navigator} data={route.passProps} stats={this.props.stats}/>;
       default:
         console.log(route.name);
     }

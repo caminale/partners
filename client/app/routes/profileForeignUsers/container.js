@@ -10,7 +10,8 @@ class Container extends Component {
   };
   render() {
     return (
-      <Scene goBack={this.goBack}/>
+      <Scene goBack={this.goBack}
+      />
     );
   }
 }

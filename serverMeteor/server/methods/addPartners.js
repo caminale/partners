@@ -9,7 +9,7 @@ export default {
     console.log(p_partnerId);
     Meteor.users.update({_id: user._id}, {
       $push: {
-        "partners.request": p_partnerId
+        request: p_partnerId
       }
     }, error => {
       if (error) {
@@ -22,7 +22,7 @@ export default {
     //and enter partnerid in the tab requestReceive
     Meteor.users.update({_id: p_partnerId}, {
       $push: {
-        "partners.requestReceive": user._id
+        requestReceive: user._id
       },
       $inc: {
         notifications: +1
@@ -31,7 +31,7 @@ export default {
       if (error) {
         throw new Meteor.Error(500, error.message);
       } else {
-        console.log("answer partner Successful");
+        console.log("send an add partner Successful");
       }
     });
 
@@ -41,11 +41,11 @@ export default {
   //modiffication of user who receive the request
 
   answerAddPartner: p_partnerId => {
-    console.log('typppppppppppppppppploooooooooooooo'+p_partnerId);
+
     const user = Meteor.user();
     Meteor.users.update({_id:user._id}, {
       $pull: {
-        "partners.requestReceive": { $in: [p_partnerId] }
+        requestReceive: { $in: [p_partnerId] }
       },
     }, { multi: true }, error => {
       if (error) {
@@ -70,7 +70,7 @@ export default {
     // modiffication of user who sent the request
     Meteor.users.update({_id: p_partnerId}, {
       $pull: {
-        "partners.request": { $in: [user._id] }
+        request: { $in: [user._id] }
       },
     }, { multi: true }, error => {
       if (error) {

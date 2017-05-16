@@ -3,7 +3,6 @@ import Meteor, {createContainer} from 'react-native-meteor';
 import ReactNative from 'react-native';
 import {MeteorListView} from 'react-native-meteor';
 import styles from './styles';
-import {Button} from '../../components';
 
 const {
   View,
@@ -18,9 +17,6 @@ class Scene extends Component {
     this.state = {
       foreignUserId: '',
     };
-  };
-  addConversation=(p_foreignUserId)=>{
-    console.log('cacacaca'+p_foreignUserId);
   };
   goBack=()=> {
     this.props.goBack();
@@ -37,10 +33,17 @@ class Scene extends Component {
               source={{uri: user.profile.picture}}
               style={styles.photo}/>
             <View style={styles.wrapNameAge}>
+
+              <View style={styles.request}>
               <Text style={styles.buttonText}>
-                {`${user.profile.firstName}, ${user.profile.age} sent you a request`}
+                {`${user.profile.firstName}, ${user.profile.age} `}
               </Text>
+              <Text style={styles.buttonText}>
+                sent you a request
+              </Text>
+              </View>
             </View>
+
           </View>
           <View style={styles.containerButtonAddRemove}>
             <TouchableOpacity

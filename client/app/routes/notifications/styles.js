@@ -120,7 +120,6 @@ export default StyleSheet.create({
   },
   textNotif: {
     color: '#FFFFFF',
-
   },
   buttonBack: {
       borderColor: '#d8d8d8',
@@ -132,7 +131,8 @@ export default StyleSheet.create({
       alignItems: 'center',
       marginBottom: 10,
       justifyContent: 'space-between'
-
-
+  },
+  request: {
+    flexDirection: 'column'
   }
 });

@@ -5,9 +5,7 @@ import {MeteorListView} from 'react-native-meteor';
 import StarRating from 'react-native-star-rating';
 import OneSignal from 'react-native-onesignal';
 
-
 import styles from './styles';
-import {Button} from '../../components';
 
 class Scene extends Component {
   constructor(props) {
@@ -59,11 +57,12 @@ class Scene extends Component {
   removeUser = (p_userId) => {
     Meteor.call("removeUser",p_userId);
   };
+
   renderRow = user => {
     let rate = user.averageStarRating;
     if(rate === undefined)
     {
-      rate =2.5;
+      rate =0;
     }
     else {
       rate=parseFloat(rate);
@@ -98,9 +97,9 @@ class Scene extends Component {
             style={styles.buttonAdd}>
 
             <View style={styles.buttonAddWrap}>
-            <Image source={require('../../images/iconAddPartnerW.png')}
-                   style={{width: 15, height: 15}}/>
-            <Text style={styles.buttonText}>Profile</Text>
+              <Image source={require('../../images/iconAddPartnerW.png')}
+                     style={{width: 15, height: 15}}/>
+              <Text style={styles.buttonText}>Profile</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -108,9 +107,9 @@ class Scene extends Component {
             onPress={() => this.removeUser(user._id)}>
             <View style={styles.buttonAddWrap}>
 
-            <Image source={require('../../images/iconTrashW.png')}
-                   style={{width: 15, height: 15}}/>
-            <Text style={styles.buttonText}>remove</Text>
+              <Image source={require('../../images/iconTrashW.png')}
+                     style={{width: 15, height: 15}}/>
+              <Text style={styles.buttonText}>remove</Text>
             </View>
           </TouchableOpacity>
 
@@ -127,8 +126,8 @@ class Scene extends Component {
     if(numberNotif === undefined )
     {numberNotif=0;}
     Meteor.subscribe('users', userId);
-
-    if (Meteor.user().partners !== undefined || Meteor.user().removeUser !== undefined) {
+//|| Meteor.user().removeUser !== undefined
+    if (Meteor.user().partners !== undefined ) {
       // test user is ready permit to charge the db
       return (
         <View style={styles.container}>
@@ -156,7 +155,7 @@ class Scene extends Component {
     else {
       return (
         <View style={styles.container}>
-          <Text style={styles.buttonText}>Partners</Text>
+          <Text style={styles.textTitle}>Partners</Text>
           <View style={styles.notificationWrap}>
             <View style={styles.wrapTextNotif}>
               <Text style={styles.textNotif}> {numberNotif}</Text>
@@ -167,7 +166,6 @@ class Scene extends Component {
               <Text style={styles.buttonText}>notification</Text>
             </TouchableOpacity>
           </View>
-
           <MeteorListView
             enableEmptySections
             collection="users"

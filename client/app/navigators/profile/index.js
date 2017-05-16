@@ -1,4 +1,3 @@
-import Navigator from './navigator';
+import createContainer from './createContainer';
 
-export default Navigator;
-
+export default createContainer;

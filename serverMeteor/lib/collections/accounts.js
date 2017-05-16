@@ -59,20 +59,20 @@ Schema.UserProfile = new SimpleSchema({
     optional: true,
   }
 });
-Schema.Partners = new SimpleSchema({
-  partners:{
-    type: String,
-    optional: true
-  },
-  request:{
-    type: String,
-    optional: true
-  },
-  requestReceive:{
-    type: String,
-    optional: true
-  }
-});
+// Schema.Matching = new SimpleSchema({
+//   partners:{
+//     type: [String],
+//     optional: true
+//   },
+//   request:{
+//     type: [String],
+//     optional: true
+//   },
+//   requestReceive:{
+//     type: [String],
+//     optional: true
+//   }
+// });
 
 
 const AccountSchema = new SimpleSchema({
@@ -85,8 +85,9 @@ const AccountSchema = new SimpleSchema({
     optional: true,
     // regEx: /^[a-z0-9A-Z_]{3,15}$/,
   },
+
   emails: {
-    optional: false,
+    optional: true,
     type: [Object],
   },
   "emails.$.address": {
@@ -116,13 +117,58 @@ const AccountSchema = new SimpleSchema({
     allowedValues: ['user', 'admin']
   },
   partners: {
-    type: [Schema.Partners],
+    type: String,
     optional: true
   },
   notifications: {
     type : Number,
     optional: true
   },
+  oneSignalId: {
+    type : String,
+    optional: true
+  },
+  request: {
+    type: [String],
+    optional: true
+  },
+  requestReceive: {
+    type: [String],
+    optional: true
+  },
+  removeUser: {
+    type: [String],
+    optional: true
+  },
+  rating: {
+    optional: true,
+    type: [Object],
+  },
+  "rating.$.mark": {
+    optional: true,
+    type: String,
+  },
+  "rating.$.complete": {
+    optional: true,
+    type: Boolean
+  },
+  "rating.$.opinion": {
+    optional: true,
+    type: String,
+  },
+  "rating.$.userId": {
+    optional: true,
+    type: String
+  },
+  ratesNumber: {
+    optional: true,
+    type: Number
+  },
+
+  averageStarRating: {
+    optional: true,
+    type: String
+  }
 });
 
 /**
