@@ -51,9 +51,9 @@ export default StyleSheet.create({
 
   },
   textTitle: {
-    color: '#3c918c',
-    fontWeight: '100',
-    fontSize: 25
+    color: '#64758b',
+    fontWeight: '500',
+    fontSize: 35
   },
   textButton: {
     color: '#aaedf5',

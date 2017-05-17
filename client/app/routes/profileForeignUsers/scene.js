@@ -149,9 +149,17 @@ class Scene extends Component {
     this.setState({exercise: exercise});
     this.selectExercise(exercise);
   };
-  addAction=()=> {
+  addAction = () => {
     this.props.navigator.pop();
+    const {accounts} = this.props;
+    const user= accounts.findOne({_id: this.props.data.foreignUserId});
     Meteor.call("sendAddPartner",this.props.data.foreignUserId);
+    let playerId = user.oneSignalId.userId;
+    let data ='';
+    let contents = {
+      'en': Meteor.user().profile.firstName + ' sent you a partner request'
+    };
+    OneSignal.postNotification(contents, data, playerId);
   };
   removeUser = (p_userId) => {
     Meteor.call("removeUser",p_userId);
@@ -161,9 +169,7 @@ class Scene extends Component {
   render() {
 
     const {accounts} = this.props;
-
     const user= accounts.findOne({_id: this.props.data.foreignUserId});
-    console.log( this.props.data.foreignUserId);
     const profilePic = user.profile.picture;
     const fName = user.profile.firstName;
     const age = user.profile.age;
@@ -248,7 +254,7 @@ class Scene extends Component {
           </View>
             <View style={styles.containerButtonAddRemove}>
               <TouchableOpacity
-                onPress={() =>this.addAction(user)}
+                onPress={this.addAction}
                 style={styles.buttonAdd}>
 
                 <View style={styles.buttonAddWrap}>

@@ -14,7 +14,6 @@ const {
   Text,
   Picker,
   Image,
-  TextInput,
   ScrollView
 } = ReactNative;
 
@@ -25,7 +24,7 @@ class Scene extends Component {
     let rate = Meteor.user().averageStarRating;
     if(rate === undefined)
     {
-      rate =2.5;
+      rate =0;
     }
     else {
       rate=parseFloat(rate);
@@ -75,14 +74,7 @@ class Scene extends Component {
 
     });
 
-    let playerId = '418c8ee5-4fdb-4792-bbd9-0feb84ee8f0e';
-    let contents = {
-      'en': 'You got a new partners request'
-    };
-    let headings = {'en': 'Partners'};
 
-
-    //OneSignal.postNotification(contents, headings, playerId);
   };
 
   filterStats = (stats, filter) => {
@@ -260,14 +252,10 @@ console.log('yolo'+this.props.stats);
               About yourself
             </Text>
           </View>
-          <TextInput
-            multiline={true}
-            numberOfLines={4}
-            placeholder={this.state.text }
-            style={{height: 100, width: 300}}
-            editable={this.state.editableTI}
-            placeholderTextColor="white"
-            onChangeText={this.setText}/>
+
+          <Text style={{color: 'white'}}>
+            {this.state.text}
+          </Text>
         </View>
         <View style={styles.chartStatContainer}>
           <Text style={styles.infoText}>

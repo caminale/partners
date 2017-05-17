@@ -55,12 +55,26 @@ class Form extends React.Component {
             errors={errors.username}
             onChangeText={this.setUsername}/>
         </View>
+        <View style={styles.errorWrap}>
+          {errors.username &&
+          <Text style={styles.errorStyle}>
+            {errors.username}
+          </Text>
+          }
+        </View>
         <View style={styles.inputWrap}>
           <LogRegInput
             placeholder={'Email'}
             source={emailIcon}
             errors={errors.email}
             onChangeText={this.setEmail}/>
+        </View>
+        <View style={styles.errorWrap}>
+          {errors.email &&
+          <Text style={styles.errorStyle}>
+            {errors.email}
+          </Text>
+          }
         </View>
         <View style={styles.inputWrap}>
           <LogRegInput
@@ -70,6 +84,13 @@ class Form extends React.Component {
             errors={errors.password}
             onChangeText={this.setPassword}/>
         </View>
+        <View style={styles.errorWrap}>
+          {errors.password &&
+          <Text style={styles.errorStyle}>
+            {errors.password}
+          </Text>
+          }
+        </View>
         <View style={styles.inputWrap}>
           <LogRegInput
             secureTextEntry
@@ -77,6 +98,13 @@ class Form extends React.Component {
             source={confLockIcon}
             errors={errors.confPassword}
             onChangeText={this.setConfPassword}/>
+        </View>
+        <View style={styles.errorWrap}>
+          {errors.confPassword &&
+          <Text style={styles.errorStyle}>
+            {errors.confPassword}
+          </Text>
+          }
         </View>
         <View style={styles.buttonWrap}>
           <TouchableOpacity style={styles.buttonUpdate}

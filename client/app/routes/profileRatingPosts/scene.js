@@ -32,7 +32,7 @@ class Scene extends Component {
         ["25/06", 71],
         ["15/07", 72],
       ],
-      starCount: 2.5,
+      starCount: 0,
     };
 
   }
@@ -171,6 +171,7 @@ class Scene extends Component {
     const {goBack} = this.props;
     return (
       <View style={styles.container}>
+        <ScrollView>
         <View>
           <TouchableOpacity style={styles.button} onPress={goBack}>
             <View style={styles.backBut}>
@@ -181,7 +182,6 @@ class Scene extends Component {
           </TouchableOpacity>
           <View style={styles.infoWrap}>
             <View style={styles.imageBubble}>
-
               <Image
                 source={{uri: profilePic}}
                 style={styles.profilePic}/>
@@ -196,7 +196,6 @@ class Scene extends Component {
               <Text style={styles.infoText}>
                 weight : {weight} Kgs
               </Text>
-
             </View>
           </View>
         </View>
@@ -224,7 +223,6 @@ class Scene extends Component {
           </View>
           <ScrollView>
           <View style={styles.chartContainer}>
-
               <Chart
                 style={styles.chart}
                 data={this.state.data}
@@ -237,7 +235,6 @@ class Scene extends Component {
                 lineWidth={4}
                 color={"0B69E4"}
                 type="line"/>
-
           </View>
           </ScrollView>
         </View>
@@ -276,6 +273,7 @@ class Scene extends Component {
           </TouchableOpacity>
           </View>
         </View>
+        </ScrollView>
       </View>
     );
   }

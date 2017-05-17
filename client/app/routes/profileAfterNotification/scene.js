@@ -4,6 +4,8 @@ import ReactNative from 'react-native';
 import styles from './styles';
 import Chart from 'react-native-chart';
 import StarRating from 'react-native-star-rating';
+import OneSignal from 'react-native-onesignal';
+
 
 
 const {
@@ -22,7 +24,7 @@ class Scene extends Component {
     let rate = this.props.foreignUser.averageStarRating;
     if(rate === undefined)
     {
-      rate =2.5;
+      rate =0;
     }
     else {
       rate=parseFloat(rate);
@@ -151,6 +153,12 @@ class Scene extends Component {
   };
   acceptAction = () => {
     Meteor.call("answerAddPartner",this.props.foreignUser._id);
+    let playerId = this.props.foreignUser.oneSignalId.userId;
+    let data = '';
+    let contents = {
+      'en': Meteor.user().profile.firstName + ' accepted your request'
+    };
+    OneSignal.postNotification(contents, data, playerId);
     this.props.goBack();
   };
 
@@ -167,6 +175,7 @@ class Scene extends Component {
     const age = user.profile.age;
     const height = user.profile.height;
     const weight = user.profile.weight;
+    const description = user.profile.description;
 
     return (
       <View style={styles.container}>
@@ -204,13 +213,13 @@ class Scene extends Component {
         <View style={styles.descriptionContainer}>
           <View style={styles.descriptionButWrap}>
             <Text style={styles.infoTextStat}>
-              About yourself
+              About your partner
             </Text>
           </View>
           <TextInput
             multiline={true}
             numberOfLines={3}
-            placeholder={this.state.text }
+            placeholder={description}
             style={{height: 70, width: 300}}
             editable={this.state.editableTI}
             placeholderTextColor="white"

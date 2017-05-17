@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import ReactNative from 'react-native';
 import Meteor, {MeteorListView} from 'react-native-meteor';
+import OneSignal from 'react-native-onesignal';
 
-import {Button} from '../../components';
 import styles from './styles';
 
 const {
@@ -34,6 +34,13 @@ class Scene extends Component {
   };
   onAddPost = () => {
     this.clearText();
+    let playerId = this.props.foreignUser.oneSignalId.userId;
+    let data = '';
+    let contents = {
+      'en': Meteor.user().profile.firstName + ' : ' + this.state.message
+    };
+    OneSignal.postNotification(contents,data, playerId);
+
     const post = {
       message: this.state.message,
       conversationId: this.props.conversation._id

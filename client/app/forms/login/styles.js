@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   // I did for each component a wrap to manage their position
   inputWrap: {
-    marginVertical: 10,
+    marginVertical: 20,
     height: 45
   },
   buttonWrap: {

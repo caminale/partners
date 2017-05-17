@@ -6,34 +6,22 @@ import StarRating from 'react-native-star-rating';
 import OneSignal from 'react-native-onesignal';
 
 import styles from './styles';
-import {Button} from '../../components';
 
 class Scene extends Component {
   constructor(props) {
+
+
     super(props);
 
     this.state = {
-      starCount: 2.5,
       foreignUserId:''
     };
 
   }
-
-
-  openProfile = (p_foreignUserId) => {
-    this.props.openProfile(p_foreignUserId);
-  };
-
-  openNotification = () => {
-    this.props.openNotification();
-  };
-
-  removeUser = (p_userId) => {
-    Meteor.call("removeUser",p_userId);
-  };
   componentDidMount() {
     OneSignal.configure({});
   }
+
   componentWillMount() {
 
     OneSignal.addEventListener('ids', this.onIds);
@@ -57,11 +45,24 @@ class Scene extends Component {
       }
       , 600);
   }
+
+  openProfile = (p_foreignUserId) => {
+    this.props.openProfile(p_foreignUserId);
+  };
+
+  openNotification = () => {
+    this.props.openNotification();
+  };
+
+  removeUser = (p_userId) => {
+    Meteor.call("removeUser",p_userId);
+  };
+
   renderRow = user => {
     let rate = user.averageStarRating;
     if(rate === undefined)
     {
-      rate =2.5;
+      rate =0;
     }
     else {
       rate=parseFloat(rate);
@@ -131,7 +132,7 @@ class Scene extends Component {
       console.log('prout');
       return (
         <View style={styles.container}>
-          <Text style={styles.buttonText}>Partners</Text>
+          <Text style={styles.textTitle}>Partners</Text>
           <View style={styles.notificationWrap}>
             <View style={styles.wrapTextNotif}>
             <Text style={styles.textNotif}> {numberNotif}</Text>
@@ -157,7 +158,7 @@ class Scene extends Component {
     else {
       return (
         <View style={styles.container}>
-          <Text style={styles.buttonText}>Partners</Text>
+          <Text style={styles.textTitle}>Partners</Text>
           <View style={styles.notificationWrap}>
             <View style={styles.wrapTextNotif}>
               <Text style={styles.textNotif}> {numberNotif}</Text>
@@ -171,6 +172,7 @@ class Scene extends Component {
           <MeteorListView
             enableEmptySections
             collection="users"
+            options={{limit: 5}}
             selector={{$and: [{_id: {$ne: userId}},{level: {$lte: Meteor.user().level+1, $gte: Meteor.user().level-1}}]}}
             renderRow={this.renderRow}/>
         </View>
