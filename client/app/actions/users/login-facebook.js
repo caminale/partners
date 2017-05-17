@@ -1,4 +1,4 @@
-import Meteor from 'react-native-meteor';
+  import Meteor from 'react-native-meteor';
 import {AsyncStorage} from 'react-native';
 import {AccessToken, LoginManager} from 'react-native-fbsdk';
 

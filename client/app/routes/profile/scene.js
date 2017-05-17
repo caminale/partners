@@ -100,7 +100,7 @@ class Scene extends Component {
     let weight = [];
     let nbrOfWeightEnter = 0;
     let date = [];
-    const partner =Meteor.user();  s
+    const partner =Meteor.user();
     let filter = {userId: partner._id, exerciseId: p_exerciseId};
 
     if(partner !== undefined) {

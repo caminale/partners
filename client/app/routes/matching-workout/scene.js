@@ -126,8 +126,9 @@ class Scene extends Component {
     {numberNotif=0;}
     Meteor.subscribe('users', userId);
 //|| Meteor.user().removeUser !== undefined
-    if (Meteor.user().partners !== undefined ) {
+    if (Meteor.user().partners !== undefined || Meteor.user().removeUser !== undefined) {
       // test user is ready permit to charge the db
+      console.log('prout');
       return (
         <View style={styles.container}>
           <Text style={styles.buttonText}>Partners</Text>
@@ -145,7 +146,9 @@ class Scene extends Component {
           <MeteorListView
             enableEmptySections
             collection="users"
-            selector={ {$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners}}]}}
+            options={{limit: 5}}
+            selector={{$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners }},{_id: {$nin: Meteor.user().removeUser}},{level: {$lte: Meteor.user().level+1, $gte: Meteor.user().level-1}}
+            ]}}
             renderRow={this.renderRow}/>
 
         </View>
@@ -168,7 +171,7 @@ class Scene extends Component {
           <MeteorListView
             enableEmptySections
             collection="users"
-            selector={ {_id: {$ne: userId}}}
+            selector={{$and: [{_id: {$ne: userId}},{level: {$lte: Meteor.user().level+1, $gte: Meteor.user().level-1}}]}}
             renderRow={this.renderRow}/>
         </View>
 

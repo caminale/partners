@@ -85,7 +85,8 @@ class Scene extends Component {
         <MeteorListView
           enableEmptySections
           collection="users"
-          selector={{"request": userId}}
+          selector={{$and: [{"request": userId}, {_id: {$nin: Meteor.user().removeUser }}
+            ]}}
           renderRow={this.renderRow}/>
       </View>
     );

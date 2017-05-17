@@ -161,7 +161,9 @@ class Scene extends Component {
   render() {
 
     const {accounts} = this.props;
+
     const user= accounts.findOne({_id: this.props.data.foreignUserId});
+    console.log( this.props.data.foreignUserId);
     const profilePic = user.profile.picture;
     const fName = user.profile.firstName;
     const age = user.profile.age;
@@ -246,7 +248,7 @@ class Scene extends Component {
           </View>
             <View style={styles.containerButtonAddRemove}>
               <TouchableOpacity
-                onPress={() =>this.openProfile(user)}
+                onPress={() =>this.addAction(user)}
                 style={styles.buttonAdd}>
 
                 <View style={styles.buttonAddWrap}>
