@@ -16,6 +16,10 @@ export default {
         "profile.height": profile.height,
         "profile.completeProfile": true,
         "profile.trainingTime": profile.trainingTime
+      },
+      $push: {
+        partners: '',
+        removeUser: ''
       }
     }, error => {
       if (error) {

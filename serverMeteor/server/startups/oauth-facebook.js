@@ -1,4 +1,4 @@
-import {ServiceConfiguration} from 'meteor/service-configuration';
+import  {ServiceConfiguration} from 'meteor/service-configuration';
 import {Meteor} from 'meteor/meteor';
 import {Accounts} from 'meteor/accounts-base';
 import {HTTP} from 'meteor/http';
@@ -84,6 +84,7 @@ const registerHandler = () => {
           address: identity.email,
           verified: true
         }],
+
         profile: {
           firstName: identity.first_name,
           lastName: identity.last_name,
