@@ -20,10 +20,10 @@ const calculLevelUser = () => {
     .reduce((acc, obj) => acc + (obj / sumCoeff), 0)
     //The reduce(fuction,0 ) method reduces the array to a single value.
     .toFixed(2);
-
+  const level = parseInt(levelUser)
   Meteor.users.update(userId, {
     $set: {
-      "profile.level": levelUser
+      level: level
     }
   }, error => {
     if (error) {

@@ -30,10 +30,6 @@ Schema.UserProfile = new SimpleSchema({
     type: String,
     optional: true,
   },
-  level: {
-    type: String,
-    optional: true,
-  },
   weight: {
     type: [Number],
     optional: true,
@@ -42,6 +38,7 @@ Schema.UserProfile = new SimpleSchema({
     type: Number,
     optional: true,
   },
+
   completeProfile: {
     type: Boolean,
     optional: true,
@@ -117,8 +114,12 @@ const AccountSchema = new SimpleSchema({
     allowedValues: ['user', 'admin']
   },
   partners: {
-    type: String,
+    type: [String],
     optional: true
+  },
+  level: {
+    type: Number,
+    optional: true,
   },
   notifications: {
     type : Number,

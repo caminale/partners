@@ -1,4 +1,5 @@
 
+
 let METEOR_URL = 'ws://52.56.246.165:80/websocket';
 
 if (process.env.NODE_ENV === 'production') {
@@ -12,3 +13,4 @@ export const settings = {
 };
 
 export default settings;
+

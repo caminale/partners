@@ -12,8 +12,6 @@ const register = creds => {
       profile: {
         picture:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Placeholder_staff_photo.svg/1000px-Placeholder_staff_photo.svg.png'
       }
-
-
     }, error => {
       if (error) {
         reject(error);

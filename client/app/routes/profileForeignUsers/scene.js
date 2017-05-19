@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import Meteor, {createContainer} from 'react-native-meteor';
 import ReactNative from 'react-native';
 import styles from './styles';
+import {Button} from '../../components';
 import Chart from 'react-native-chart';
 import StarRating from 'react-native-star-rating';
-import OneSignal from 'react-native-onesignal';
-
 
 
 const {
@@ -26,7 +25,7 @@ class Scene extends Component {
     let rate = Meteor.user.averageStarRating;
     if(rate === undefined)
     {
-      rate =0;
+      rate =2.5;
     }
     else {
       rate=parseFloat(rate);
