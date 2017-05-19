@@ -106,7 +106,9 @@ class Scene extends Component {
 
   selectExercise = exercise => {
     const bp = 'n5iCkhmR5ADkZPbNs';
-    const squats = 'Z2asvxEdRRBWbanM8'
+    const squats = 'Z2asvxEdRRBWbanM8';
+    const pulldown = 'CrzMaxQ4qKLWZHKLa';
+    const dips = '4AMqjmCqkhADgjmrS';
     let data = [];
     let weight = [];
     let date = [];
@@ -131,6 +133,42 @@ class Scene extends Component {
     else if (exercise === 'SQ') {
       weight = this.returnStats(squats).weight;
       date = this.returnStats(squats).date;
+      if(date.length>1) {
+        for (i = 0; i < date.length; i++) {
+          data.push([date[i], weight[i]]);
+        }
+      }
+      else{
+        data = [
+          [date[0], weight[0]],
+        ]
+      }
+
+      this.setState({data: data});
+      this.render();
+
+    }
+    else if (exercise === 'PD') {
+      weight = this.returnStats(pulldown).weight;
+      date = this.returnStats(pulldown).date;
+      if(date.length>1) {
+        for (i = 0; i < date.length; i++) {
+          data.push([date[i], weight[i]]);
+        }
+      }
+      else{
+        data = [
+          [date[0], weight[0]],
+        ]
+      }
+
+      this.setState({data: data});
+      this.render();
+
+    }
+    else if (exercise === 'D') {
+      weight = this.returnStats(dips).weight;
+      date = this.returnStats(dips).date;
       if(date.length>1) {
         for (i = 0; i < date.length; i++) {
           data.push([date[i], weight[i]]);
@@ -203,7 +241,8 @@ class Scene extends Component {
                 halfStar={'ios-star-half'}
                 iconSet={'Ionicons'}
                 maxStars={5}
-                rating={4}
+                rating={this.state.starCount}
+                starSize={25}
                 starColor={'#0B69E4'}
                 emptyStarColor={'white'}
               />
@@ -235,6 +274,8 @@ class Scene extends Component {
               onValueChange={this.updateLanguage}>
               <Picker.Item label="bench press" color='#0C74FB' value="BP"/>
               <Picker.Item label="squats" color='#0C74FB' value="SQ"/>
+              <Picker.Item label="lat pull down" color='#0C74FB' value="PD"/>
+              <Picker.Item label="dips" color='#0C74FB' value="D"/>
             </Picker>
           </View>
           <View style={styles.chartContainer}>

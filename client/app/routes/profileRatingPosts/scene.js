@@ -19,13 +19,29 @@ const {
 class Scene extends Component {
   constructor(props) {
     super(props);
+
+    const user = this.props.foreignUser;
+    let complete = user.rating.complete;
+    let editableTextInput;
+    let editableStar;
+    if(complete !== true)
+    {
+       editableTextInput = true;
+       editableStar = false;
+    }
+    else {
+       editableTextInput = false;
+       editableStar = true;
+    }
+
     this.state = {
       comment: '',
       partnerId: '',
       exercise: 'BP',
       chartLabel: '',
+      editableStar: editableStar,
+      editableTextInput: editableTextInput,
       text: Meteor.user().profile.description,
-      editableTI: true,
       data: [
         ["12/05", 65],
         ["10/06", 67],
@@ -98,7 +114,9 @@ class Scene extends Component {
 
   selectExercise = exercise => {
     const bp = 'n5iCkhmR5ADkZPbNs';
-    const squats = 'Z2asvxEdRRBWbanM8'
+    const squats = 'Z2asvxEdRRBWbanM8';
+    const pulldown = 'CrzMaxQ4qKLWZHKLa';
+    const dips = '4AMqjmCqkhADgjmrS';
     let data = [];
     let weight = [];
     let date = [];
@@ -138,6 +156,42 @@ class Scene extends Component {
       this.render();
 
     }
+    else if (exercise === 'PD') {
+      weight = this.returnStats(pulldown).weight;
+      date = this.returnStats(pulldown).date;
+      if(date.length>1) {
+        for (i = 0; i < date.length; i++) {
+          data.push([date[i], weight[i]]);
+        }
+      }
+      else{
+        data = [
+          [date[0], weight[0]],
+        ]
+      }
+
+      this.setState({data: data});
+      this.render();
+
+    }
+    else if (exercise === 'D') {
+      weight = this.returnStats(dips).weight;
+      date = this.returnStats(dips).date;
+      if(date.length>1) {
+        for (i = 0; i < date.length; i++) {
+          data.push([date[i], weight[i]]);
+        }
+      }
+      else{
+        data = [
+          [date[0], weight[0]],
+        ]
+      }
+
+      this.setState({data: data});
+      this.render();
+
+    }
   };
   updateLanguage = (exercise) => {
     this.setState({exercise: exercise});
@@ -168,6 +222,8 @@ class Scene extends Component {
     const height = user.profile.height;
     const weight = user.profile.weight;
     const description = user.profile.description;
+
+
     const {goBack} = this.props;
     return (
       <View style={styles.container}>
@@ -219,6 +275,8 @@ class Scene extends Component {
               onValueChange={this.updateLanguage}>
               <Picker.Item label="bench press" color='#0C74FB' value="BP"/>
               <Picker.Item label="squats" color='#0C74FB' value="SQ"/>
+              <Picker.Item label="lat pull down" color='#0C74FB' value="PD"/>
+              <Picker.Item label="dips" color='#0C74FB' value="D"/>
             </Picker>
           </View>
           <ScrollView>
@@ -243,7 +301,7 @@ class Scene extends Component {
             your opinion
           </Text>
           <StarRating
-            disabled={false}
+            disabled={this.state.editableStar}
             emptyStar={'ios-star-outline'}
             fullStar={'ios-star'}
             halfStar={'ios-star-half'}
@@ -261,7 +319,7 @@ class Scene extends Component {
             numberOfLines={3}
             placeholder={"leave a comment about your partner"}
             style={{height: 80, width: 250}}
-            editable={this.state.editableTI}
+            editable={this.state.editableTextInput}
             placeholderTextColor="white"
             onChangeText={this.setText}/>
           <TouchableOpacity style={styles.buttonValidate} onPress={this.onSubmit}>
