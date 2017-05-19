@@ -10,7 +10,14 @@ const register = creds => {
     Accounts.createUser({
       ...creds,
       profile: {
-        picture:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Placeholder_staff_photo.svg/1000px-Placeholder_staff_photo.svg.png'
+        picture:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Placeholder_staff_photo.svg/1000px-Placeholder_staff_photo.svg.png',
+        completeProfile: false
+      },
+      rating:{
+        mark: 0,
+        complete: false,
+        opinion :'',
+        userId:''
       }
     }, error => {
       if (error) {

@@ -36,6 +36,7 @@ class Scene extends Component {
     };
 
   }
+
   filterStats = (stats, filter) => {
   let result = [];
     stats.map(function(x) {

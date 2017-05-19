@@ -91,7 +91,7 @@ class Scene extends Component {
           selector={{$and: [{"request": userId}, {_id: {$nin: Meteor.user().removeUser }}
             ]}}
           renderRow={this.renderRow}/>
-      </View>
+        </View>
     );
   }
 }

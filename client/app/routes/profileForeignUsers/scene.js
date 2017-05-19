@@ -5,6 +5,7 @@ import styles from './styles';
 import {Button} from '../../components';
 import Chart from 'react-native-chart';
 import StarRating from 'react-native-star-rating';
+import OneSignal from 'react-native-onesignal';
 
 
 const {

@@ -1,5 +1,5 @@
 
-let METEOR_URL = 'ws://192.168.1.13:3000/websocket';
+let METEOR_URL = 'ws://192.168.43.106:3000/websocket';
 
 if (process.env.NODE_ENV === 'production') {
   METEOR_URL = ''; // Your production serverExpress url

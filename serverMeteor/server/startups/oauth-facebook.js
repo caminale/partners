@@ -91,7 +91,8 @@ const registerHandler = () => {
           gender: identity.gender,
           locale: identity.locale,
           age: identity.age_range.min,
-          picture:profilePix
+          picture:profilePix,
+          completeProfile: false
         }
       });
 
