@@ -70,6 +70,8 @@ class Form extends React.Component {
           <RadioForm
             radio_props={radio_props}
             initial={0}
+            buttonSize={10}
+            buttonOuterSize={20}        
             labelColor={'#64758b'}
             labelStyle={{fontSize: 15, fontWeight: "500"}}
             formHorizontal={true}

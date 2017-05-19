@@ -15,11 +15,13 @@ export default {
         "profile.weight": profile.weight,
         "profile.height": profile.height,
         "profile.completeProfile": true,
-        "profile.trainingTime": profile.trainingTime
+        "profile.trainingTime": profile.trainingTime,
       },
       $push: {
         partners: '',
-        removeUser: ''
+        removeUser: '',
+        request:'',
+        requestReceive:''
       }
     }, error => {
       if (error) {

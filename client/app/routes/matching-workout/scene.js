@@ -127,9 +127,8 @@ class Scene extends Component {
     {numberNotif=0;}
     Meteor.subscribe('users', userId);
 //|| Meteor.user().removeUser !== undefined
-    if (Meteor.user().partners !== undefined || Meteor.user().removeUser !== undefined) {
+    if (Meteor.user().partners !== undefined  && Meteor.user().profile.completeProfile === true || Meteor.user().removeUser !== undefined && Meteor.user().profile.completeProfile === true) {
       // test user is ready permit to charge the db
-      console.log('prout');
       return (
         <View style={styles.container}>
           <Text style={styles.textTitle}>Partners</Text>
@@ -148,7 +147,7 @@ class Scene extends Component {
             enableEmptySections
             collection="users"
             options={{limit: 5}}
-            selector={{$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners }},{_id: {$nin: Meteor.user().removeUser}},{level: {$lte: Meteor.user().level+1, $gte: Meteor.user().level-1}},{"profile.completeProfile" : true}
+            selector={{$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners }},{_id: {$nin: Meteor.user().removeUser}},{level: {$lte: Meteor.user().level+1, $gte: Meteor.user().level-1}},{"profile.completeProfile" : true},{_id: {$nin: Meteor.user().request}}
             ]}}
             renderRow={this.renderRow}/>
 
