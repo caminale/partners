@@ -17,6 +17,7 @@ if(stats.exerciseType === 'BenchPress')
     weight:  stats.exerciseWeight
   };
   Meteor.call('updateWeight', weight);
+  this.props.navigator.pop();
 }
 else if(stats.exerciseType === 'Squats')
 {
@@ -24,7 +25,8 @@ else if(stats.exerciseType === 'Squats')
     exerciseId: "Z2asvxEdRRBWbanM8",
     weight:  stats.exerciseWeight
   };
-  Meteor.call('updateWeight', weight)
+  Meteor.call('updateWeight', weight);
+  this.props.navigator.pop();
 }
 else if(stats.exerciseType === 'PullDown')
 {
@@ -32,7 +34,8 @@ else if(stats.exerciseType === 'PullDown')
     exerciseId: "CrzMaxQ4qKLWZHKLa",
     weight:  stats.exerciseWeight
   };
-  Meteor.call('updateWeight', weight)
+  Meteor.call('updateWeight', weight);
+  this.props.navigator.pop();
 }
 else if(stats.exerciseType === 'Dips')
 {
@@ -40,7 +43,8 @@ else if(stats.exerciseType === 'Dips')
     exerciseId: "4AMqjmCqkhADgjmrS",
     reps:  stats.exerciseWeight
   };
-  Meteor.call('updateReps', reps)
+  Meteor.call('updateReps', reps);
+  this.props.navigator.pop();
 }
   };
 

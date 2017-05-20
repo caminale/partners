@@ -55,12 +55,16 @@ class Scene extends Component {
     });
     return result;
   };
+  /**
+   * take an exercise id an return a weight and a date
+   * @param p_exerciseId
+   * @returns {{weight: Array, date: Array}}
+   */
   returnStats = (p_exerciseId) => {
     let stats = [];
     let weight = [];
     let nbrOfWeightEnter = 0;
     let date = [];
-    console.log('yoooooooooooooooooooooooooolooooooooooooooooooooo');
     const {accounts,userStatsExo} = this.props;
     const partner = accounts.findOne({_id: this.props.data.foreignUserId});
     let filter = {userId: partner._id, exerciseId: p_exerciseId};
@@ -69,7 +73,6 @@ class Scene extends Component {
       stats = this.filterStats(userStatsExo,filter);
       if(stats != undefined) {
         if (stats.length === 1) {
-          console.log('test' + stats[0].weight + " length" + stats.length);
           stats = stats[0];
           nbrOfWeightEnter =stats.weight.length;
           //pemit to take only the 4 last stats enter
@@ -105,6 +108,11 @@ class Scene extends Component {
     }
 
   };
+  /**
+   * select an exercise
+   * set to this.state a  data with a weight and a date
+   * @param exercise
+   */
   selectExercise = exercise => {
     const bp = 'n5iCkhmR5ADkZPbNs';
     const squats = 'Z2asvxEdRRBWbanM8';
@@ -320,8 +328,7 @@ class Scene extends Component {
       );
   }
 }
-  export default createContainer(params => {
-
+export default createContainer(params => {
   const userId = Meteor.user()._id;
 
   Meteor.subscribe('users', userId);
