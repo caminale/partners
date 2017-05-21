@@ -147,7 +147,7 @@ class Scene extends Component {
             enableEmptySections
             collection="users"
             options={{limit: 5}}
-            selector={{$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners }},{_id: {$nin: Meteor.user().removeUser}},{level: {$lte: Meteor.user().level+1, $gte: Meteor.user().level-1}},{"profile.completeProfile" : true},{_id: {$nin: Meteor.user().request}}
+            selector={{$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners }},{_id: {$nin: Meteor.user().removeUser}},{level: {$lte: Meteor.user().level+1, $gte: Meteor.user().level-1}},{"profile.completeProfile" : true}
             ]}}
             renderRow={this.renderRow}/>
 
@@ -186,3 +186,4 @@ export default Scene;
 //I think the issue is that you're actually calling this.showCallInfo instead of passing it as your onPress function for your new button for onpress
 //$nin: [ 5, 15 ]
 //{ $and: [ { _id: { $ne: userId } }, { _id: { $ne: '' }
+//,{_id: {$nin: Meteor.user().request}

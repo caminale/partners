@@ -5,3 +5,5 @@ Meteor.publish('posts', conversationId => {
   return Posts.find({'conversationId': conversationId},
     {limit: 20, sort: {submitDate: +1}});
 });
+
+

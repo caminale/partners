@@ -70,6 +70,7 @@ class Scene extends Component {
     if (rating !== undefined) {
       b_complete = this.filterBoolCompleteRating(rating, filter)
     }
+    console.log('la valeur est '+b_complete);
 
 
   };
@@ -143,6 +144,7 @@ class Scene extends Component {
 
 
   selectExercise = exercise => {
+
     const bp = 'n5iCkhmR5ADkZPbNs';
     const squats = 'Z2asvxEdRRBWbanM8';
     const pulldown = 'CrzMaxQ4qKLWZHKLa';
