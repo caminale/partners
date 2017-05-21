@@ -249,6 +249,9 @@ class Scene extends Component {
     Meteor.call("removeUser", p_userId);
     this.props.navigator.pop();
   };
+  renderAddButton = () => {
+
+  };
 
   render() {
 

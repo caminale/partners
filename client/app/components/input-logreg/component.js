@@ -7,9 +7,7 @@ class Component extends React.Component {
   render() {
     const {errors} = this.props;
     const {label} = this.props;
-    // console.log(label)
     return (
-
       <View>
         <View style={styles.labelWrap}>
           <Text style={styles.label}>

@@ -147,7 +147,7 @@ class Scene extends Component {
             enableEmptySections
             collection="users"
             options={{limit: 5}}
-            selector={{$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners }},{_id: {$nin: Meteor.user().removeUser}},{level: {$lte: Meteor.user().level+1, $gte: Meteor.user().level-1}},{"profile.completeProfile" : true}
+            selector={{$and: [{_id: {$ne: userId}}, {_id: {$nin: Meteor.user().partners }},{_id: {$nin: Meteor.user().removeUser}},{level: {$lte: Meteor.user().level+1, $gte: Meteor.user()           .level-1}},{"profile.completeProfile" : true}
             ]}}
             renderRow={this.renderRow}/>
 

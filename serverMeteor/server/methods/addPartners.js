@@ -6,34 +6,66 @@ export default {
   sendAddPartner: p_partnerId => {
     const user = Meteor.user();
     //update the accounts of the user who send the demand of partners
-    console.log(p_partnerId);
-    Meteor.users.update({_id: user._id}, {
-      $push: {
-        request: p_partnerId
+
+    //we test if the user receive before an invitation of partners
+    //if he had he can add the user beacause it will create another conversation
+    findRequestReceived = (p_requestReceived) => {
+      if (p_requestReceived === p_partnerId) {
+        console.log(p_requestReceived);
+
+        return p_requestReceived;
       }
-    }, error => {
-      if (error) {
-        throw new Meteor.Error(500, error.message);
-      } else {
-        console.log("send an add partner Successful");
+      else {
+        return undefined
       }
-    });
-    //update collection of the user who receive the notification increment notif
-    //and enter partnerid in the tab requestReceive
-    Meteor.users.update({_id: p_partnerId}, {
-      $push: {
-        requestReceive: user._id
-      },
-      $inc: {
-        notifications: +1
+    };
+
+    returnBoolRequestReceived = () => {
+
+      const tab_requestReceive = Meteor.user().requestReceive;
+      let b_requestReceived = false;
+      //test if the database is connected.
+      if (tab_requestReceive !== undefined) {
+        //the function.find permit to find the foreignId in the requestReceived
+        // Array in the current user
+        if (tab_requestReceive.find(this.findRequestReceived) !== undefined) {
+          b_requestReceived = true;
+          console.log(tab_requestReceive.find(this.findRequestReceived));
+        }
       }
-    }, error => {
-      if (error) {
-        throw new Meteor.Error(500, error.message);
-      } else {
-        console.log("send an add partner Successful");
-      }
-    });
+      console.log(b_requestReceived);
+      return b_requestReceived;
+    };
+    if (returnBoolRequestReceived() !== true) {
+      console.log('ca rentre ?');
+      Meteor.users.update({_id: user._id}, {
+        $push: {
+          request: p_partnerId
+        }
+      }, error => {
+        if (error) {
+          throw new Meteor.Error(500, error.message);
+        } else {
+          console.log("send an add partner Successful");
+        }
+      });
+      //update collection of the user who receive the notification increment notif
+      //and enter partnerid in the tab requestReceive
+      Meteor.users.update({_id: p_partnerId}, {
+        $push: {
+          requestReceive: user._id
+        },
+        $inc: {
+          notifications: +1
+        }
+      }, error => {
+        if (error) {
+          throw new Meteor.Error(500, error.message);
+        } else {
+          console.log("send an add partner Successful");
+        }
+      });
+    }
 
   },
   //user who received the notification know if he accepts or refuse
@@ -43,11 +75,11 @@ export default {
   answerAddPartner: p_partnerId => {
 
     const user = Meteor.user();
-    Meteor.users.update({_id:user._id}, {
+    Meteor.users.update({_id: user._id}, {
       $pull: {
-        requestReceive: { $in: [p_partnerId] }
+        requestReceive: {$in: [p_partnerId]}
       },
-    }, { multi: true }, error => {
+    }, {multi: true}, error => {
       if (error) {
         throw new Meteor.Error(500, error.message);
       } else {
@@ -70,9 +102,9 @@ export default {
     // modiffication of user who sent the request
     Meteor.users.update({_id: p_partnerId}, {
       $pull: {
-        request: { $in: [user._id] }
+        request: {$in: [user._id]}
       },
-    }, { multi: true }, error => {
+    }, {multi: true}, error => {
       if (error) {
         throw new Meteor.Error(500, error.message);
       } else {

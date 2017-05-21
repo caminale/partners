@@ -36,6 +36,7 @@ export default {
   updateDescription: p_description => {
 
     const userId = Meteor.user()._id;
+
     Meteor.users.update({_id: userId}, {
       $set: {
         "profile.description": p_description

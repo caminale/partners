@@ -18,7 +18,7 @@ class Scene extends Component {
       <View style={styles.container}>
         <Image
           style={[styles.background, styles.container]}
-          source={{uri: 'http://mediad.publicbroadcasting.net/p/kedm/files/styles/x_large/public/201509/handshake.jpg'}}
+          source={{uri: 'https://www.bodybuilding.com/fun/images/2015/arnold-blueprint-cut-training-graphics-3.jpg'}}
           resizeMode="cover">
           <TouchableOpacity style={styles.button} onPress={goBack}>
             <Image source={require('../../images/iconBackW.png')}
@@ -41,3 +41,4 @@ Scene.propTypes = {
 };
 
 export default Scene;
+

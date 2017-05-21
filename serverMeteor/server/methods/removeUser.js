@@ -5,12 +5,33 @@ export default {
   removeUser: p_userId => {
 
     const user = Meteor.user();
-    const flag = Meteor.users.find({$and: [{_id : this.userId},{requestReceive: {$in:p_userId }}]})
-    console.log('yolo'+flag.length);
-    //to know if the user added u or not, permit to decrement his notif,
-    //the request field, requestReceive ...
 
-      Meteor.users.update({_id: user._id,requestReceive:p_userId}, {
+    findRequestReceived = (p_requestReceived) => {
+      if (p_requestReceived === p_userId) {
+        return p_requestReceived;
+      }
+      else {
+        return undefined
+      }
+    };
+
+    returnBoolRequestReceived = () => {
+
+      const tab_requestReceive = Meteor.user().requestReceive;
+      let b_requestReceived = false;
+      //test if the database is connected.
+      if (tab_requestReceive !== undefined) {
+        //the function.find permit to find the foreignId in the requestReceived
+        // Array in the current user
+        if (tab_requestReceive.find(this.findRequestReceived) !== undefined) {
+          b_requestReceived = true;
+        }
+      }
+      return b_requestReceived;
+    };
+
+    if (this.returnBoolRequestReceived() === true) {
+      Meteor.users.update({_id: user._id, requestReceive: p_userId}, {
         $push: {
           removeUser: p_userId
         },
@@ -27,7 +48,7 @@ export default {
           console.log("remove user Successful");
         }
       });
-      Meteor.users.update({_id: p_userId,request :user._id}, {
+      Meteor.users.update({_id: p_userId, request: user._id}, {
         $pull: {
           request: {$in: [user._id]}
         },
@@ -41,8 +62,8 @@ export default {
           console.log("remove foreign User side successs");
         }
       });
-
-
+    }
+    else {
       Meteor.users.update({_id: user._id}, {
         $push: {
           removeUser: p_userId
@@ -51,7 +72,7 @@ export default {
         if (error) {
           throw new Meteor.Error(500, error.message);
         } else {
-          console.log("remove user Successful");
+          console.log("remove user without notif Successful");
         }
       });
       Meteor.users.update({_id: p_userId}, {
@@ -62,11 +83,10 @@ export default {
         if (error) {
           throw new Meteor.Error(500, error.message);
         } else {
-          console.log("remove foreign User side successs");
+          console.log("remove foreign User  without notif side successs");
         }
       });
-
-
+    }
   }
 
 }

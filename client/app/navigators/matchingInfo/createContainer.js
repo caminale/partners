@@ -8,6 +8,8 @@ export default createContainer(params => {
   const userId = Meteor.user()._id;
 
   Meteor.subscribe('users', userId);
+
+
   Meteor.subscribe('stats');
 
   return {
