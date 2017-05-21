@@ -25,6 +25,9 @@ class Scene extends Component {
     console.log(p_User);
     this.props.openProfile(p_User);
 };
+  removeUser = (p_userId) => {
+    Meteor.call("removeUser",p_userId);
+  };
   renderRow = user => {
       return (
         <View style={styles.containerMeteorListView}>
@@ -58,7 +61,7 @@ class Scene extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.buttonRemove}
-              onPress={() => this.removeUser(user._id)}>
+              onPress={() =>this.removeUser(user._id)}>
               <View style={styles.buttonAddWrap}>
 
                 <Image source={require('../../images/iconTrashW.png')}

@@ -18,17 +18,13 @@ class Container extends Component {
       name: 'addstats'
     });
   };
-  notif = () => {
-
-  };
 
   render() {
     return (
       <Scene openSettings={this.openSettings}
              onSubmitDescription={this.submitDescription}
              addStats={this.addStats}
-             stats={this.props.stats}
-             onReceivedNotif={this.notif}/>
+             stats={this.props.stats}/>
     );
   }
 }
