@@ -3,9 +3,9 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
 
   container: {
-    backgroundColor: '#f9ebd8',
+    backgroundColor: '#d0d8dc',
     justifyContent: 'space-between',
-    flex: 1,
+    flex: 1
   },
   containerMeteorListView: {
     marginTop: 50,

@@ -94,7 +94,7 @@ class Scene extends Component {
   render() {
     const userId= Meteor.user()._id;
     return (
-      <View>
+      <View style={styles.container}>
         <MeteorListView
           collection="chats"
           selector={{users: userId}}

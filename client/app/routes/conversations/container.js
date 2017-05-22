@@ -16,12 +16,10 @@ class Container extends Component {
 
   render() {
     return (
-      <View>
         <Scene
           selectConversation={this.selectConversation}   //Appel de la scene avec passage de l'accès à la fonction selectConversation
           accounts={this.props.data}
         />
-      </View>
     );
   }
 }

@@ -272,7 +272,7 @@ class Scene extends Component {
             <View style={styles.descriptionContainer}>
               <View style={styles.descriptionButWrap}>
                 <Text style={styles.infoTextStat}>
-                  About your Partner
+                  About {fName}
                 </Text>
               </View>
               <Text style={styles.descriptionText}>
@@ -350,7 +350,7 @@ class Scene extends Component {
             <View style={styles.descriptionContainer}>
               <View style={styles.descriptionButWrap}>
                 <Text style={styles.infoTextStat}>
-                  About your Partner
+                  About {fName}
                 </Text>
               </View>
               <Text style={styles.descriptionText}>
