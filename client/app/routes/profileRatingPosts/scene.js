@@ -20,17 +20,11 @@ class Scene extends Component {
   constructor(props) {
     super(props);
 
-    const user = this.props.foreignUser;
-    let editableTextInput;
-    let editableStar;
-
     this.state = {
       comment: '',
       partnerId: '',
       exercise: 'BP',
       chartLabel: '',
-      editableStar: editableStar,
-      editableTextInput: editableTextInput,
       text: Meteor.user().profile.description,
       data: [
         ["12/05", 65],
@@ -46,9 +40,8 @@ class Scene extends Component {
   filterBoolCompleteRating = (rating, filter) => {
     let b_complete = false;
     rating.map(function (x) {
-      if (x.userId = Meteor.user()._id) {
+      if (x.userId = filter.userId) {
         b_complete = x.complete;
-        console.log('caca');
       }
     });
     return b_complete;
@@ -58,14 +51,11 @@ class Scene extends Component {
   returnBoolCompleteRating = () => {
 
     const rating = this.props.foreignUser.rating;
-    console.log(this.props.foreignUser.rating);
     let filter = {userId: Meteor.user()._id};
     let b_complete = false;
     if (rating !== undefined) {
       b_complete = this.filterBoolCompleteRating(rating, filter);
-      console.log(this.filterBoolCompleteRating(rating, filter));
     }
-    console.log('yoloooooooooo'+b_complete);
     return b_complete;
   };
 
@@ -360,7 +350,7 @@ class Scene extends Component {
             <View style={styles.descriptionContainer}>
               <View style={styles.descriptionButWrap}>
                 <Text style={styles.infoTextStat}>
-                  About your Partner
+                  About {fName}
                 </Text>
               </View>
               <Text style={styles.descriptionText}>
@@ -438,7 +428,7 @@ class Scene extends Component {
         </View>
       );
     }
-
+      s
 }
 export default Scene;
 

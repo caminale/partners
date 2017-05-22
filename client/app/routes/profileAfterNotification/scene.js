@@ -252,17 +252,12 @@ class Scene extends Component {
         <View style={styles.descriptionContainer}>
           <View style={styles.descriptionButWrap}>
             <Text style={styles.infoTextStat}>
-              About your partner
+              About {fName}
             </Text>
           </View>
-          <TextInput
-            multiline={true}
-            numberOfLines={3}
-            placeholder={description}
-            style={{height: 70, width: 300}}
-            editable={this.state.editableTI}
-            placeholderTextColor="white"
-            onChangeText={this.setText}/>
+          <Text>
+            {description}
+          </Text>
         </View>
         <View style={styles.chartStatContainer}>
           <Text style={styles.infoText}>
