@@ -21,6 +21,9 @@ class Scene extends Component {
   goBack=()=> {
     this.props.goBack();
   };
+  removeUser = (p_userId) => {
+    Meteor.call("removeUser",p_userId);
+  };
   openProfile = (p_User) => {
     console.log(p_User);
     this.props.openProfile(p_User);
@@ -95,6 +98,7 @@ class Scene extends Component {
             ]}}
           renderRow={this.renderRow}/>
         </View>
+
     );
   }
 }

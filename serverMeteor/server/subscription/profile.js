@@ -1,6 +1,7 @@
 import {Meteor} from 'meteor/meteor';
 
 
-Meteor.publish('users', userId => {
-  return Meteor.users.find();
-});
+  Meteor.publish('users', userId => {
+    return Meteor.users.find();
+  });
+

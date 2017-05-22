@@ -25,8 +25,6 @@ class Scene extends Component {
       partnerId: '',
       exercise: 'BP',
       chartLabel: '',
-      editableStar: editableStar,
-      editableTextInput: editableTextInput,
       text: Meteor.user().profile.description,
       data: [
         ["12/05", 65],
@@ -56,11 +54,9 @@ class Scene extends Component {
     let filter = {userId: Meteor.user()._id};
     let b_complete = false;
     if (rating !== undefined) {
-      b_complete = this.filterBoolCompleteRating(rating, filter)
+      b_complete = this.filterBoolCompleteRating(rating, filter);
     }
     return b_complete;
-
-
   };
 
   filterStats = (stats, filter) => {
@@ -131,6 +127,7 @@ class Scene extends Component {
 
 
   selectExercise = exercise => {
+
     const bp = 'n5iCkhmR5ADkZPbNs';
     const squats = 'Z2asvxEdRRBWbanM8';
     const pulldown = 'CrzMaxQ4qKLWZHKLa';
@@ -240,6 +237,7 @@ class Scene extends Component {
 
 
     const {goBack} = this.props;
+
     if(this.returnBoolCompleteRating() === true) {
       return (
         <View style={styles.container}>
@@ -396,7 +394,7 @@ class Scene extends Component {
                 your opinion
               </Text>
               <StarRating
-                disabled={this.state.editableStar}
+                disabled={false}
                 emptyStar={'ios-star-outline'}
                 fullStar={'ios-star'}
                 halfStar={'ios-star-half'}
@@ -413,7 +411,7 @@ class Scene extends Component {
                   numberOfLines={3}
                   placeholder={"leave a comment about your partner"}
                   style={{height: 80, width: 250}}
-                  editable={this.state.editableTextInput}
+                  editable={true}
                   placeholderTextColor="white"
                   onChangeText={this.setText}/>
                 <TouchableOpacity style={styles.buttonValidate}
