@@ -27,7 +27,8 @@ class MyNavigator extends Component {             // NAVIGATEUR DE GESTION DES C
       case 'conversations':
         return <Conversations navigator={navigator} data={this.props.accounts}/>;      // Appel de la vue du nombre de conversations
       case 'profile':
-        return <ProfileRatingPosts navigator={navigator} data={route.passProps} stats={this.props.stats}/>
+        console.log(route.passProps);
+        return <ProfileRatingPosts navigator={navigator} accounts={this.props.accounts} data={route.passProps} stats={this.props.stats}/>
       default:
         console.log(route.name);
     }

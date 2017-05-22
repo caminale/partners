@@ -13,5 +13,6 @@ export default createContainer(params => {
   return {
       stats : Meteor.collection('stats').find(),
       accounts: Meteor.collection('users').find()
+
   };
 }, MyNavigator);

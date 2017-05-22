@@ -4,6 +4,8 @@ import averageStarRating from './averageStarRating'
 export default {
   addRating: p_rate => {
     const user = Meteor.user();
+
+
     console.log(p_rate);
     Meteor.users.update({_id: p_rate.userId}, {
       $push: {

@@ -46,8 +46,9 @@ class Scene extends Component {
   filterBoolCompleteRating = (rating, filter) => {
     let b_complete = false;
     rating.map(function (x) {
-      if (x.userId = filter.userId) {
+      if (x.userId = Meteor.user()._id) {
         b_complete = x.complete;
+        console.log('caca');
       }
     });
     return b_complete;
@@ -57,11 +58,14 @@ class Scene extends Component {
   returnBoolCompleteRating = () => {
 
     const rating = this.props.foreignUser.rating;
+    console.log(this.props.foreignUser.rating);
     let filter = {userId: Meteor.user()._id};
     let b_complete = false;
     if (rating !== undefined) {
       b_complete = this.filterBoolCompleteRating(rating, filter);
+      console.log(this.filterBoolCompleteRating(rating, filter));
     }
+    console.log('yoloooooooooo'+b_complete);
     return b_complete;
   };
 
@@ -244,84 +248,84 @@ class Scene extends Component {
 
     const {goBack} = this.props;
 
-    if(this.returnBoolCompleteRating() === true) {
-      return (
-        <View style={styles.container}>
-          <ScrollView>
-            <View>
-              <TouchableOpacity style={styles.button} onPress={goBack}>
-                <View style={styles.backBut}>
-                  <Image source={require('../../images/iconBackW.png')}
-                         style={{width: 20, height: 20}}/>
-                  <Text style={styles.buttonText}>go back</Text>
-                </View>
-              </TouchableOpacity>
-              <View style={styles.infoWrap}>
-                <View style={styles.imageBubble}>
-                  <Image
-                    source={{uri: profilePic}}
-                    style={styles.profilePic}/>
-                </View>
-                <View style={styles.infoContainer}>
-                  <Text style={styles.infoText}>
-                    {fName}, {age}
-                  </Text>
-                  <Text style={styles.infoText}>
-                    height : {height} Cm
-                  </Text>
-                  <Text style={styles.infoText}>
-                    weight : {weight} Kgs
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.descriptionContainer}>
-              <View style={styles.descriptionButWrap}>
-                <Text style={styles.infoTextStat}>
-                  About your Partner
-                </Text>
-              </View>
-              <Text style={styles.descriptionText}>
-                {description}
-              </Text>
-            </View>
-            <View style={styles.chartStatContainer}>
-              <Text style={styles.infoText}>
-                Stats
-              </Text>
-              <View style={styles.pickerWrap}>
-                <Picker
-                  selectedValue={this.state.exercise}
-                  onValueChange={this.updateLanguage}>
-                  <Picker.Item label="bench press" color='#0C74FB' value="BP"/>
-                  <Picker.Item label="squats" color='#0C74FB' value="SQ"/>
-                  <Picker.Item label="lat pull down" color='#0C74FB'
-                               value="PD"/>
-                  <Picker.Item label="dips" color='#0C74FB' value="D"/>
-                </Picker>
-              </View>
-              <ScrollView>
-                <View style={styles.chartContainer}>
-                  <Chart
-                    style={styles.chart}
-                    data={this.state.data}
-                    verticalGridStep={5}
-                    tightBounds={true}
-                    xAxisHeight={35}
-                    yAxisWidth={35}
-                    showDataPoint={true}
-                    axisLineWidth={2}
-                    lineWidth={4}
-                    color={"0B69E4"}
-                    type="line"/>
-                </View>
-              </ScrollView>
-            </View>
-          </ScrollView>
-        </View>
-      );
-    }
-    else {
+    // if(this.returnBoolCompleteRating() === true) {
+    //   return (
+    //     <View style={styles.container}>
+    //       <ScrollView>
+    //         <View>
+    //           <TouchableOpacity style={styles.button} onPress={goBack}>
+    //             <View style={styles.backBut}>
+    //               <Image source={require('../../images/iconBackW.png')}
+    //                      style={{width: 20, height: 20}}/>
+    //               <Text style={styles.buttonText}>go back</Text>
+    //             </View>
+    //           </TouchableOpacity>
+    //           <View style={styles.infoWrap}>
+    //             <View style={styles.imageBubble}>
+    //               <Image
+    //                 source={{uri: profilePic}}
+    //                 style={styles.profilePic}/>
+    //             </View>
+    //             <View style={styles.infoContainer}>
+    //               <Text style={styles.infoText}>
+    //                 {fName}, {age}
+    //               </Text>
+    //               <Text style={styles.infoText}>
+    //                 height : {height} Cm
+    //               </Text>
+    //               <Text style={styles.infoText}>
+    //                 weight : {weight} Kgs
+    //               </Text>
+    //             </View>
+    //           </View>
+    //         </View>
+    //         <View style={styles.descriptionContainer}>
+    //           <View style={styles.descriptionButWrap}>
+    //             <Text style={styles.infoTextStat}>
+    //               About your Partner
+    //             </Text>
+    //           </View>
+    //           <Text style={styles.descriptionText}>
+    //             {description}
+    //           </Text>
+    //         </View>
+    //         <View style={styles.chartStatContainer}>
+    //           <Text style={styles.infoText}>
+    //             Stats
+    //           </Text>
+    //           <View style={styles.pickerWrap}>
+    //             <Picker
+    //               selectedValue={this.state.exercise}
+    //               onValueChange={this.updateLanguage}>
+    //               <Picker.Item label="bench press" color='#0C74FB' value="BP"/>
+    //               <Picker.Item label="squats" color='#0C74FB' value="SQ"/>
+    //               <Picker.Item label="lat pull down" color='#0C74FB'
+    //                            value="PD"/>
+    //               <Picker.Item label="dips" color='#0C74FB' value="D"/>
+    //             </Picker>
+    //           </View>
+    //           <ScrollView>
+    //             <View style={styles.chartContainer}>
+    //               <Chart
+    //                 style={styles.chart}
+    //                 data={this.state.data}
+    //                 verticalGridStep={5}
+    //                 tightBounds={true}
+    //                 xAxisHeight={35}
+    //                 yAxisWidth={35}
+    //                 showDataPoint={true}
+    //                 axisLineWidth={2}
+    //                 lineWidth={4}
+    //                 color={"0B69E4"}
+    //                 type="line"/>
+    //             </View>
+    //           </ScrollView>
+    //         </View>
+    //       </ScrollView>
+    //     </View>
+    //   );
+    // }
+    // else {
       return(
 
         <View style={styles.container}>
@@ -434,7 +438,7 @@ class Scene extends Component {
         </View>
       );
     }
-  }
+
 }
 export default Scene;
 

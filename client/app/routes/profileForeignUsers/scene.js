@@ -256,6 +256,8 @@ class Scene extends Component {
   render() {
 
     const {accounts} = this.props;
+
+
     const user = accounts.findOne({_id: this.props.data.foreignUserId});
     const profilePic = user.profile.picture;
     const fName = user.profile.firstName;
@@ -345,7 +347,6 @@ class Scene extends Component {
           </View>
           <View style={styles.containerButtonAddRemove}>
             <TouchableOpacity
-            onPress={this.goBack}
             style={styles.buttonAdd}>
             <View style={styles.buttonAddWrap}>
               <Image source={require('../../images/iconAddPartnerW.png')}
@@ -360,7 +361,7 @@ class Scene extends Component {
 
                 <Image source={require('../../images/iconTrashW.png')}
                        style={{width: 15, height: 15}}/>
-                <Text style={styles.buttonText}>cancel</Text>
+                <Text style={styles.buttonText}>remove user</Text>
               </View>
             </TouchableOpacity>
           </View>

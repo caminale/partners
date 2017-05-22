@@ -25,6 +25,7 @@ class Container extends Component {
       <Scene goBack={this.goBack}
              onSubmit={this.ratePartner}
              foreignUser={this.props.data.foreignUser}
+             users={this.props.accounts}
              stats={this.props.stats}
       />
     );
