@@ -20,19 +20,6 @@ class Scene extends Component {
   constructor(props) {
     super(props);
 
-    const user = this.props.foreignUser;
-    // let complete = user.rating.complete;
-    let editableTextInput;
-    let editableStar;
-    // if (complete !== true) {
-    //   editableTextInput = true;
-    //   editableStar = false;
-    // }
-    // else {
-    //   editableTextInput = false;
-    //   editableStar = true;
-    // }
-
     this.state = {
       comment: '',
       partnerId: '',
